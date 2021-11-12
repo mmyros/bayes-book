@@ -1,0 +1,659 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neurons example via low-level, flexible interface &#8212; My sample book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/neurons_example/detailed_workflow.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fneurons_example/detailed_workflow.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/neurons_example/detailed_workflow.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare">
+   Prepare
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#make-some-data">
+   Make some data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimate-model">
+   Estimate model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-data-back">
+   Add data back
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix-elements-of-interactivity-wip">
+   Appendix: Elements of interactivity (WIP)
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="neurons-example-via-low-level-flexible-interface">
+<h1>Neurons example via low-level, flexible interface<a class="headerlink" href="#neurons-example-via-low-level-flexible-interface" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prepare">
+<h2>Prepare<a class="headerlink" href="#prepare" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">bayes_window.fitting</span> <span class="kn">import</span> <span class="n">fit_numpyro</span>
+<span class="kn">from</span> <span class="nn">bayes_window.generative_models</span> <span class="kn">import</span> <span class="n">generate_fake_spikes</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+
+<span class="n">trans</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2342</span><span class="o">/</span><span class="mf">4112811430.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">bayes_window.fitting</span> <span class="kn">import</span> <span class="n">fit_numpyro</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">bayes_window.generative_models</span> <span class="kn">import</span> <span class="n">generate_fake_spikes</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;bayes_window&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="make-some-data">
+<h2>Make some data<a class="headerlink" href="#make-some-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">,</span> <span class="n">df_monster</span><span class="p">,</span> <span class="n">index_cols</span><span class="p">,</span> <span class="n">firing_rates</span> <span class="o">=</span> <span class="n">generate_fake_spikes</span><span class="p">(</span><span class="n">n_trials</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                                                <span class="n">n_neurons</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+                                                                <span class="n">n_mice</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                                                                <span class="n">dur</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="p">)</span>
+
+
+<span class="c1"># df[&#39;log_isi&#39;] = np.log10(df[&#39;isi&#39;])</span>
+
+<span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">visualization</span><span class="p">,</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;isi&#39;</span>
+<span class="n">ddf</span><span class="p">,</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">make_fold_change</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>
+                                 <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+                                 <span class="n">index_cols</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="s1">&#39;mouse&#39;</span><span class="p">,</span> <span class="s1">&#39;neuron&#39;</span><span class="p">),</span>
+                                 <span class="n">treatment_name</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span>
+                                 <span class="n">do_take_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">visualization</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuron&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">dy</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,</span>  <span class="n">df</span><span class="o">=</span><span class="n">ddf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-7a8cb5c549ca4aa2919142d9affad881"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-7a8cb5c549ca4aa2919142d9affad881") {
+      outputDiv = document.getElementById("altair-viz-7a8cb5c549ca4aa2919142d9affad881");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "clip": true, "fill": null, "opacity": 0.6}, "encoding": {"color": {"type": "nominal", "field": "mouse"}, "detail": {"type": "ordinal", "field": ""}, "size": {"value": 1.0}, "x": {"type": "ordinal", "field": "neuron"}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "right"}, "field": "isi diff", "scale": {"domain": [0.7609821308331417, 1.1704872092168372], "zero": false}, "title": "isi diff"}}}, {"mark": {"type": "circle", "clip": true, "filled": true, "opacity": 0}, "encoding": {"color": {"type": "nominal", "field": "mouse"}, "detail": {"type": "ordinal", "field": ""}, "x": {"type": "ordinal", "field": "neuron"}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "right", "title": ""}, "field": "isi diff", "scale": {"domain": [0.7609821308331417, 1.1704872092168372], "zero": false}}}}, {"mark": {"type": "boxplot", "clip": true, "color": "black", "median": {"color": "red", "strokeWidth": 20}, "opacity": 0.3, "size": 9}, "encoding": {"x": {"type": "ordinal", "field": "neuron"}, "y": {"type": "quantitative", "axis": {"orient": "right", "title": ""}, "field": "isi diff", "scale": {"domain": [0.7609821308331417, 1.1704872092168372], "zero": false}}}}], "data": {"name": "data-f1f9d1019248e833f33f77ea1b5bd7ed"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-f1f9d1019248e833f33f77ea1b5bd7ed": [{"mouse": "m0bayes", "neuron": "0", "isi diff": 0.9666226031335295}, {"mouse": "m0bayes", "neuron": "1", "isi diff": 1.1191409304581261}, {"mouse": "m0bayes", "neuron": "2", "isi diff": 0.9381856293308627}, {"mouse": "m0bayes", "neuron": "3", "isi diff": 0.9600062002168622}, {"mouse": "m0bayes", "neuron": "4", "isi diff": 0.9220353888932558}, {"mouse": "m0bayes", "neuron": "5", "isi diff": 0.8257024991206661}, {"mouse": "m0bayes", "neuron": "6", "isi diff": 1.0177902326808907}, {"mouse": "m0bayes", "neuron": "7", "isi diff": 1.0317613363007347}, {"mouse": "m1bayes", "neuron": "0", "isi diff": 0.8441489944193244}, {"mouse": "m1bayes", "neuron": "1", "isi diff": 1.158568034574174}, {"mouse": "m1bayes", "neuron": "2", "isi diff": 0.9968180378068935}, {"mouse": "m1bayes", "neuron": "3", "isi diff": 0.7824372929337764}, {"mouse": "m1bayes", "neuron": "4", "isi diff": 0.8927061631060127}, {"mouse": "m1bayes", "neuron": "5", "isi diff": 1.1221441108702788}, {"mouse": "m1bayes", "neuron": "6", "isi diff": 1.164313306528416}, {"mouse": "m1bayes", "neuron": "7", "isi diff": 0.8708178531589347}, {"mouse": "m2bayes", "neuron": "0", "isi diff": 0.8717492776875055}, {"mouse": "m2bayes", "neuron": "1", "isi diff": 0.8663683139873052}, {"mouse": "m2bayes", "neuron": "2", "isi diff": 0.6005324695366367}, {"mouse": "m2bayes", "neuron": "3", "isi diff": 0.9296784302239585}, {"mouse": "m2bayes", "neuron": "4", "isi diff": 0.9214328202569444}, {"mouse": "m2bayes", "neuron": "5", "isi diff": 0.9112774277832347}, {"mouse": "m2bayes", "neuron": "6", "isi diff": 1.11014370492341}, {"mouse": "m2bayes", "neuron": "7", "isi diff": 1.0125876243953804}, {"mouse": "m3bayes", "neuron": "0", "isi diff": 0.7347591549323658}, {"mouse": "m3bayes", "neuron": "1", "isi diff": 0.9911891676367376}, {"mouse": "m3bayes", "neuron": "2", "isi diff": 0.9109846484729126}, {"mouse": "m3bayes", "neuron": "3", "isi diff": 0.889362329334171}, {"mouse": "m3bayes", "neuron": "4", "isi diff": 0.9882110634350685}, {"mouse": "m3bayes", "neuron": "5", "isi diff": 1.1780330902804632}, {"mouse": "m3bayes", "neuron": "6", "isi diff": 0.8801099207126281}, {"mouse": "m3bayes", "neuron": "7", "isi diff": 1.1857008795127602}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>TODO leave axis labels here somehow</p>
+</div>
+<div class="section" id="estimate-model">
+<h2>Estimate model<a class="headerlink" href="#estimate-model" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y = list(set(df.columns) - set(index_cols))[0]</span>
+<span class="n">trace</span> <span class="o">=</span> <span class="n">fit_numpyro</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                    <span class="n">treatment</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;stim&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                    <span class="n">condition</span><span class="o">=</span><span class="n">trans</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;neuron&#39;</span><span class="p">]),</span>
+                    <span class="n">group</span><span class="o">=</span><span class="n">trans</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mouse&#39;</span><span class="p">]),</span>
+                    <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">model</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">model_hierarchical</span><span class="p">,</span>
+                    <span class="n">n_draws</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">num_chains</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sample: 100%|██████████| 1100/1100 [00:05&lt;00:00, 198.05it/s, 15 steps of size 2.26e-01. acc. prob=0.90]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="add-data-back">
+<h2>Add data back<a class="headerlink" href="#add-data-back" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reload(utils)</span>
+<span class="c1"># df_both, trace = utils.add_data_to_posterior(df, posterior=trace.posterior, y=y,</span>
+<span class="c1">#                                              fold_change_index_cols=[&#39;neuron&#39;, &#39;stim&#39;, &#39;mouse_code&#39;, ],</span>
+<span class="c1">#                                              treatment_name=&#39;stim&#39;, b_name=&#39;slope_per_condition&#39;,</span>
+<span class="c1">#                                              posterior_index_name=&#39;neuron&#39;, group_name=&#39;mouse&#39;)</span>
+<span class="c1">#</span>
+<span class="c1"># + [markdown] hideCode=false hidePrompt=false</span>
+<span class="c1"># # ## Plot data and posterior</span>
+<span class="c1">#</span>
+<span class="c1"># + hideCode=false hidePrompt=false</span>
+<span class="c1"># # BayesWindow.lot(df_both, y=f&#39;{y} diff&#39;, x=&#39;neuron&#39;,color=&#39;mouse_code&#39;,title=y,hold_for_facet=False,add_box=False)</span>
+<span class="c1"># reload(visualization)</span>
+<span class="c1">#</span>
+<span class="c1"># chart_d, _ = visualization.plot_data(df=df_both, x=&#39;neuron&#39;, y=f&#39;{y} diff&#39;, color=&#39;mouse_code&#39;, highlight=False)</span>
+<span class="c1"># chart_d</span>
+<span class="c1">#</span>
+<span class="c1"># + hideCode=false hidePrompt=false</span>
+<span class="c1"># chart_p = visualization.plot_posterior(df=df_both, title=f&#39;d_{y}&#39;, x=&#39;neuron&#39;, )</span>
+<span class="c1"># chart_p</span>
+<span class="c1">#</span>
+<span class="c1"># + hideCode=false hidePrompt=false</span>
+<span class="c1"># (chart_d + chart_p).resolve_scale(y=&#39;independent&#39;)</span>
+<span class="c1">#</span>
+<span class="c1"># + hideCode=false hidePrompt=false</span>
+<span class="c1"># (chart_d + chart_p).facet(column=&#39;neuron&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="appendix-elements-of-interactivity-wip">
+<h2>Appendix: Elements of interactivity (WIP)<a class="headerlink" href="#appendix-elements-of-interactivity-wip" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">y</span><span class="o">=</span><span class="s1">&#39;isi&#39;</span>
+<span class="n">color</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span>
+<span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuron&#39;</span>
+
+<span class="n">base</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;mean(</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span>
+                    <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                    <span class="n">domain</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="mf">.05</span><span class="p">,</span> <span class="mf">.95</span><span class="p">])))),</span>
+<span class="p">)</span>
+<span class="n">highlight</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span>
+                          <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="n">color</span><span class="p">],</span> <span class="n">nearest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="n">lines</span><span class="o">=</span><span class="n">base</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">clip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">.6</span><span class="p">,</span> <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">size</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="o">~</span><span class="n">highlight</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+        <span class="p">)</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+    <span class="c1">#axis=alt.Axis(labels=False, tickCount=0, title=&#39;&#39;)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">highlight</span>
+<span class="p">)</span>
+
+<span class="n">lines</span><span class="o">+</span><span class="n">points</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-5126227c826a414b963016ae83acf0fd"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-5126227c826a414b963016ae83acf0fd") {
+      outputDiv = document.getElementById("altair-viz-5126227c826a414b963016ae83acf0fd");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "clip": true, "fill": null, "opacity": 0.6}, "encoding": {"color": {"type": "nominal", "field": "mouse"}, "size": {"condition": {"value": 1, "selection": {"not": "selector001"}}, "value": 3}, "x": {"type": "nominal", "field": "neuron"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "isi", "scale": {"domain": [0.04720082527583454, 0.08989729531940209], "zero": false}}}}, {"mark": "circle", "encoding": {"color": {"type": "nominal", "field": "mouse"}, "opacity": {"value": 0}, "x": {"type": "nominal", "field": "neuron"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "isi", "scale": {"domain": [0.04720082527583454, 0.08989729531940209], "zero": false}}}, "selection": {"selector001": {"type": "single", "on": "mouseover", "fields": ["mouse"], "nearest": true}}}], "data": {"name": "data-3cbb7ec8b105a922507d0baf4f21a168"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-3cbb7ec8b105a922507d0baf4f21a168": [{"neuron_x_mouse": "m0bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 0, "stim": 0, "neuron_code": 0, "mouse": "m0bayes", "log_firing_rate": 1.6020558353642973, "Firing rate": 39.99961722343232, "firing_rate": 39.99961722343232, "i_spike": 36.0, "isi": 0.08924751815233256}, {"neuron_x_mouse": "m0bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 0, "stim": 1, "neuron_code": 0, "mouse": "m0bayes", "log_firing_rate": 1.6523193193530143, "Firing rate": 44.90754557877663, "firing_rate": 44.90754557877663, "i_spike": 47.0, "isi": 0.07220589524970573}, {"neuron_x_mouse": "m0bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 0, "stim": 0, "neuron_code": 0, "mouse": "m0bayes", "log_firing_rate": 2.0643579889351353, "Firing rate": 115.9732930098688, "firing_rate": 115.9732930098688, "i_spike": 46.5, "isi": 0.07455220950829959}, {"neuron_x_mouse": "m0bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 0, "stim": 1, "neuron_code": 0, "mouse": "m0bayes", "log_firing_rate": 1.652293034080201, "Firing rate": 44.904827673264336, "firing_rate": 44.904827673264336, "i_spike": 40.5, "isi": 0.08612662389417775}, {"neuron_x_mouse": "m0bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 0, "stim": 0, "neuron_code": 1, "mouse": "m0bayes", "log_firing_rate": 1.9146227195463157, "Firing rate": 82.15286611988105, "firing_rate": 82.15286611988105, "i_spike": 45.5, "isi": 0.07358921366874455}, {"neuron_x_mouse": "m0bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 0, "stim": 1, "neuron_code": 1, "mouse": "m0bayes", "log_firing_rate": 1.9542730325002358, "Firing rate": 90.00632559733936, "firing_rate": 90.00632559733936, "i_spike": 44.5, "isi": 0.07717943778136409}, {"neuron_x_mouse": "m0bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 0, "stim": 0, "neuron_code": 1, "mouse": "m0bayes", "log_firing_rate": 1.5843014555152695, "Firing rate": 38.397367950094875, "firing_rate": 38.397367950094875, "i_spike": 42.0, "isi": 0.08247449667616608}, {"neuron_x_mouse": "m0bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 0, "stim": 1, "neuron_code": 1, "mouse": "m0bayes", "log_firing_rate": 2.363228555038091, "Firing rate": 230.79614741114517, "firing_rate": 230.79614741114517, "i_spike": 35.5, "isi": 0.09747784822478665}, {"neuron_x_mouse": "m0bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 0, "stim": 0, "neuron_code": 2, "mouse": "m0bayes", "log_firing_rate": 2.264186355257889, "Firing rate": 183.73265689201438, "firing_rate": 183.73265689201438, "i_spike": 44.5, "isi": 0.07937438806548869}, {"neuron_x_mouse": "m0bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 0, "stim": 1, "neuron_code": 2, "mouse": "m0bayes", "log_firing_rate": 1.775184891661685, "Firing rate": 59.59157880371094, "firing_rate": 59.59157880371094, "i_spike": 49.0, "isi": 0.07132088498233131}, {"neuron_x_mouse": "m0bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 0, "stim": 0, "neuron_code": 2, "mouse": "m0bayes", "log_firing_rate": 1.9932513789564745, "Firing rate": 98.45808373547818, "firing_rate": 98.45808373547818, "i_spike": 51.5, "isi": 0.06713148586335649}, {"neuron_x_mouse": "m0bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 0, "stim": 1, "neuron_code": 2, "mouse": "m0bayes", "log_firing_rate": 2.237340688399824, "Firing rate": 172.71922809046734, "firing_rate": 172.71922809046734, "i_spike": 51.5, "isi": 0.06612882055027032}, {"neuron_x_mouse": "m0bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 0, "stim": 0, "neuron_code": 3, "mouse": "m0bayes", "log_firing_rate": 1.8349704464583754, "Firing rate": 68.38651089888964, "firing_rate": 68.38651089888964, "i_spike": 48.0, "isi": 0.07139892221598287}, {"neuron_x_mouse": "m0bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 0, "stim": 1, "neuron_code": 3, "mouse": "m0bayes", "log_firing_rate": 1.5944016232386007, "Firing rate": 39.30082102642837, "firing_rate": 39.30082102642837, "i_spike": 44.0, "isi": 0.0798635214770364}, {"neuron_x_mouse": "m0bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 0, "stim": 0, "neuron_code": 3, "mouse": "m0bayes", "log_firing_rate": 1.9028956935171861, "Firing rate": 79.96421782397076, "firing_rate": 79.96421782397076, "i_spike": 54.5, "isi": 0.06327013987182355}, {"neuron_x_mouse": "m0bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 0, "stim": 1, "neuron_code": 3, "mouse": "m0bayes", "log_firing_rate": 2.2279600650023794, "Firing rate": 169.0285496440446, "firing_rate": 169.0285496440446, "i_spike": 68.5, "isi": 0.04941961310464734}, {"neuron_x_mouse": "m0bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 0, "stim": 0, "neuron_code": 4, "mouse": "m0bayes", "log_firing_rate": 2.475931685468285, "Firing rate": 299.17939903312435, "firing_rate": 299.17939903312435, "i_spike": 56.5, "isi": 0.06153682479268422}, {"neuron_x_mouse": "m0bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 0, "stim": 1, "neuron_code": 4, "mouse": "m0bayes", "log_firing_rate": 2.233117923728835, "Firing rate": 171.04796976011122, "firing_rate": 171.04796976011122, "i_spike": 65.5, "isi": 0.05338485788079244}, {"neuron_x_mouse": "m0bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 0, "stim": 0, "neuron_code": 4, "mouse": "m0bayes", "log_firing_rate": 2.0988446144560764, "Firing rate": 125.55806510814185, "firing_rate": 125.55806510814185, "i_spike": 54.0, "isi": 0.06312967341039417}, {"neuron_x_mouse": "m0bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 0, "stim": 1, "neuron_code": 4, "mouse": "m0bayes", "log_firing_rate": 5.922294747225693, "Firing rate": 836170.3182483359, "firing_rate": 836170.3182483359, "i_spike": 55.5, "isi": 0.06156206527184332}, {"neuron_x_mouse": "m0bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 0, "stim": 0, "neuron_code": 5, "mouse": "m0bayes", "log_firing_rate": 1.7004110349814143, "Firing rate": 50.166180332787086, "firing_rate": 50.166180332787086, "i_spike": 46.5, "isi": 0.07444719335576988}, {"neuron_x_mouse": "m0bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 0, "stim": 1, "neuron_code": 5, "mouse": "m0bayes", "log_firing_rate": 2.473045085969411, "Firing rate": 297.19745491246505, "firing_rate": 297.19745491246505, "i_spike": 67.0, "isi": 0.04916195919795406}, {"neuron_x_mouse": "m0bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 0, "stim": 0, "neuron_code": 5, "mouse": "m0bayes", "log_firing_rate": 1.8386383136840345, "Firing rate": 68.96652021011712, "firing_rate": 68.96652021011712, "i_spike": 54.0, "isi": 0.0640729725878727}, {"neuron_x_mouse": "m0bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 0, "stim": 1, "neuron_code": 5, "mouse": "m0bayes", "log_firing_rate": 1.8877564205453636, "Firing rate": 77.22473390989768, "firing_rate": 77.22473390989768, "i_spike": 52.5, "isi": 0.065214488000321}, {"neuron_x_mouse": "m0bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 0, "stim": 0, "neuron_code": 6, "mouse": "m0bayes", "log_firing_rate": 2.713070359577657, "Firing rate": 516.5000401050977, "firing_rate": 516.5000401050977, "i_spike": 74.5, "isi": 0.04693033451954538}, {"neuron_x_mouse": "m0bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 0, "stim": 1, "neuron_code": 6, "mouse": "m0bayes", "log_firing_rate": 2.146666252386295, "Firing rate": 140.17360812079156, "firing_rate": 140.17360812079156, "i_spike": 65.5, "isi": 0.05289563944542787}, {"neuron_x_mouse": "m0bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 0, "stim": 0, "neuron_code": 6, "mouse": "m0bayes", "log_firing_rate": 2.140352294796606, "Firing rate": 138.15044710728955, "firing_rate": 138.15044710728955, "i_spike": 54.0, "isi": 0.06316828300457898}, {"neuron_x_mouse": "m0bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 0, "stim": 1, "neuron_code": 6, "mouse": "m0bayes", "log_firing_rate": 1.6641963556669948, "Firing rate": 46.152619521803075, "firing_rate": 46.152619521803075, "i_spike": 57.5, "isi": 0.059161658102295046}, {"neuron_x_mouse": "m0bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 0, "stim": 0, "neuron_code": 7, "mouse": "m0bayes", "log_firing_rate": 1.9014929549611805, "Firing rate": 79.7063560678672, "firing_rate": 79.7063560678672, "i_spike": 80.0, "isi": 0.043932523259198136}, {"neuron_x_mouse": "m0bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 0, "stim": 1, "neuron_code": 7, "mouse": "m0bayes", "log_firing_rate": 1.8461617005356463, "Firing rate": 70.17165193672494, "firing_rate": 70.17165193672494, "i_spike": 68.0, "isi": 0.051569230752621334}, {"neuron_x_mouse": "m0bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 0, "stim": 0, "neuron_code": 7, "mouse": "m0bayes", "log_firing_rate": 2.026368893921465, "Firing rate": 106.25977547578808, "firing_rate": 106.25977547578808, "i_spike": 67.5, "isi": 0.0511497976969093}, {"neuron_x_mouse": "m0bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 0, "stim": 1, "neuron_code": 7, "mouse": "m0bayes", "log_firing_rate": 1.9968753005480786, "Firing rate": 99.28309348528504, "firing_rate": 99.28309348528504, "i_spike": 75.0, "isi": 0.04653303177562744}, {"neuron_x_mouse": "m1bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 1, "stim": 0, "neuron_code": 8, "mouse": "m1bayes", "log_firing_rate": 1.4758748852040926, "Firing rate": 29.914027268361675, "firing_rate": 29.914027268361675, "i_spike": 32.5, "isi": 0.10821837727228818}, {"neuron_x_mouse": "m1bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 1, "stim": 1, "neuron_code": 8, "mouse": "m1bayes", "log_firing_rate": 2.0279172479046688, "Firing rate": 106.6392907376232, "firing_rate": 106.6392907376232, "i_spike": 37.0, "isi": 0.09522241150969538}, {"neuron_x_mouse": "m1bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 1, "stim": 0, "neuron_code": 8, "mouse": "m1bayes", "log_firing_rate": 1.9644848156933568, "Firing rate": 92.14776704022282, "firing_rate": 92.14776704022282, "i_spike": 42.0, "isi": 0.08311487228332311}, {"neuron_x_mouse": "m1bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 1, "stim": 1, "neuron_code": 8, "mouse": "m1bayes", "log_firing_rate": 1.9057452183175179, "Firing rate": 80.49060992630893, "firing_rate": 80.49060992630893, "i_spike": 52.5, "isi": 0.06629135870165555}, {"neuron_x_mouse": "m1bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 1, "stim": 0, "neuron_code": 9, "mouse": "m1bayes", "log_firing_rate": 1.6937708573662063, "Firing rate": 49.40499473699633, "firing_rate": 49.40499473699633, "i_spike": 46.0, "isi": 0.07611071262268725}, {"neuron_x_mouse": "m1bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 1, "stim": 1, "neuron_code": 9, "mouse": "m1bayes", "log_firing_rate": 2.066113379230948, "Firing rate": 116.44299820270845, "firing_rate": 116.44299820270845, "i_spike": 48.5, "isi": 0.07180016386398826}, {"neuron_x_mouse": "m1bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 1, "stim": 0, "neuron_code": 9, "mouse": "m1bayes", "log_firing_rate": 1.8987373992136947, "Firing rate": 79.20222809519323, "firing_rate": 79.20222809519323, "i_spike": 60.5, "isi": 0.05772646616649741}, {"neuron_x_mouse": "m1bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 1, "stim": 1, "neuron_code": 9, "mouse": "m1bayes", "log_firing_rate": 1.748550719267751, "Firing rate": 56.04678680231517, "firing_rate": 56.04678680231517, "i_spike": 39.5, "isi": 0.08325931331874972}, {"neuron_x_mouse": "m1bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 1, "stim": 0, "neuron_code": 10, "mouse": "m1bayes", "log_firing_rate": 2.7745718305666074, "Firing rate": 595.0751716683158, "firing_rate": 595.0751716683158, "i_spike": 46.5, "isi": 0.0730717735201401}, {"neuron_x_mouse": "m1bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 1, "stim": 1, "neuron_code": 10, "mouse": "m1bayes", "log_firing_rate": 1.7496819193060837, "Firing rate": 56.19296127705359, "firing_rate": 56.19296127705359, "i_spike": 49.0, "isi": 0.06892704420849954}, {"neuron_x_mouse": "m1bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 1, "stim": 0, "neuron_code": 10, "mouse": "m1bayes", "log_firing_rate": 3.195925491922672, "Firing rate": 1570.0934141341243, "firing_rate": 1570.0934141341243, "i_spike": 54.5, "isi": 0.06100177431444436}, {"neuron_x_mouse": "m1bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 1, "stim": 1, "neuron_code": 10, "mouse": "m1bayes", "log_firing_rate": 1.8316041400426546, "Firing rate": 67.8584819733278, "firing_rate": 67.8584819733278, "i_spike": 52.5, "isi": 0.06471988666577963}, {"neuron_x_mouse": "m1bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 1, "stim": 0, "neuron_code": 11, "mouse": "m1bayes", "log_firing_rate": 1.8274659246303806, "Firing rate": 67.21495692207289, "firing_rate": 67.21495692207289, "i_spike": 51.5, "isi": 0.06683042689360716}, {"neuron_x_mouse": "m1bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 1, "stim": 1, "neuron_code": 11, "mouse": "m1bayes", "log_firing_rate": 1.9506269545425707, "Firing rate": 89.25384915546483, "firing_rate": 89.25384915546483, "i_spike": 61.0, "isi": 0.05588637871608316}, {"neuron_x_mouse": "m1bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 1, "stim": 0, "neuron_code": 11, "mouse": "m1bayes", "log_firing_rate": 1.7248757181192338, "Firing rate": 53.073254297456, "firing_rate": 53.073254297456, "i_spike": 42.0, "isi": 0.08134732332719719}, {"neuron_x_mouse": "m1bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 1, "stim": 1, "neuron_code": 11, "mouse": "m1bayes", "log_firing_rate": 2.1195772788160228, "Firing rate": 131.69742356511793, "firing_rate": 131.69742356511793, "i_spike": 56.5, "isi": 0.060053419039700275}, {"neuron_x_mouse": "m1bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 1, "stim": 0, "neuron_code": 12, "mouse": "m1bayes", "log_firing_rate": 1.7958264893850842, "Firing rate": 62.49229718217907, "firing_rate": 62.49229718217907, "i_spike": 50.0, "isi": 0.0700009308808159}, {"neuron_x_mouse": "m1bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 1, "stim": 1, "neuron_code": 12, "mouse": "m1bayes", "log_firing_rate": 1.8198790805606488, "Firing rate": 66.05095185224152, "firing_rate": 66.05095185224152, "i_spike": 53.0, "isi": 0.06575805147742173}, {"neuron_x_mouse": "m1bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 1, "stim": 0, "neuron_code": 12, "mouse": "m1bayes", "log_firing_rate": 1.9119603142472958, "Firing rate": 81.6507755615619, "firing_rate": 81.6507755615619, "i_spike": 55.0, "isi": 0.06381247818725383}, {"neuron_x_mouse": "m1bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 1, "stim": 1, "neuron_code": 12, "mouse": "m1bayes", "log_firing_rate": 1.9624612356409374, "Firing rate": 91.71940646123535, "firing_rate": 91.71940646123535, "i_spike": 65.5, "isi": 0.05369800350387011}, {"neuron_x_mouse": "m1bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 1, "stim": 0, "neuron_code": 13, "mouse": "m1bayes", "log_firing_rate": 2.0089328753936377, "Firing rate": 102.07816993745124, "firing_rate": 102.07816993745124, "i_spike": 65.5, "isi": 0.05300124918652926}, {"neuron_x_mouse": "m1bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 1, "stim": 1, "neuron_code": 13, "mouse": "m1bayes", "log_firing_rate": 1.9838910709539748, "Firing rate": 96.35873078873905, "firing_rate": 96.35873078873905, "i_spike": 70.0, "isi": 0.05005863716356237}, {"neuron_x_mouse": "m1bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 1, "stim": 0, "neuron_code": 13, "mouse": "m1bayes", "log_firing_rate": 1.7610044062577903, "Firing rate": 57.67723151696009, "firing_rate": 57.67723151696009, "i_spike": 61.5, "isi": 0.05594305125660883}, {"neuron_x_mouse": "m1bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 1, "stim": 1, "neuron_code": 13, "mouse": "m1bayes", "log_firing_rate": 1.8217996060337578, "Firing rate": 66.34368739622458, "firing_rate": 66.34368739622458, "i_spike": 48.5, "isi": 0.07219256799158734}, {"neuron_x_mouse": "m1bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 1, "stim": 0, "neuron_code": 14, "mouse": "m1bayes", "log_firing_rate": 1.881209160111971, "Firing rate": 76.06925450764594, "firing_rate": 76.06925450764594, "i_spike": 71.5, "isi": 0.048948382019933234}, {"neuron_x_mouse": "m1bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 1, "stim": 1, "neuron_code": 14, "mouse": "m1bayes", "log_firing_rate": 1.9579416978099284, "Firing rate": 90.76986673068114, "firing_rate": 90.76986673068114, "i_spike": 57.5, "isi": 0.06063143613861035}, {"neuron_x_mouse": "m1bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 1, "stim": 0, "neuron_code": 14, "mouse": "m1bayes", "log_firing_rate": 2.1944598116679175, "Firing rate": 156.48035102173924, "firing_rate": 156.48035102173924, "i_spike": 71.5, "isi": 0.04869049034127316}, {"neuron_x_mouse": "m1bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 1, "stim": 1, "neuron_code": 14, "mouse": "m1bayes", "log_firing_rate": 2.242698774137688, "Firing rate": 174.86334189552613, "firing_rate": 174.86334189552613, "i_spike": 66.0, "isi": 0.05305080218597182}, {"neuron_x_mouse": "m1bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 1, "stim": 0, "neuron_code": 15, "mouse": "m1bayes", "log_firing_rate": 2.6240353828642884, "Firing rate": 420.76090724417173, "firing_rate": 420.76090724417173, "i_spike": 69.5, "isi": 0.0506530993358735}, {"neuron_x_mouse": "m1bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 1, "stim": 1, "neuron_code": 15, "mouse": "m1bayes", "log_firing_rate": 1.9597418423795987, "Firing rate": 91.14688739506516, "firing_rate": 91.14688739506516, "i_spike": 70.0, "isi": 0.048695857509563976}, {"neuron_x_mouse": "m1bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 1, "stim": 0, "neuron_code": 15, "mouse": "m1bayes", "log_firing_rate": 2.213868849157786, "Firing rate": 163.63223004236244, "firing_rate": 163.63223004236244, "i_spike": 64.0, "isi": 0.05324810821035976}, {"neuron_x_mouse": "m1bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 1, "stim": 1, "neuron_code": 15, "mouse": "m1bayes", "log_firing_rate": 2.3190326656102243, "Firing rate": 208.46476746992258, "firing_rate": 208.46476746992258, "i_spike": 82.0, "isi": 0.04178316898646777}, {"neuron_x_mouse": "m2bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 2, "stim": 0, "neuron_code": 16, "mouse": "m2bayes", "log_firing_rate": 2.128374205110162, "Firing rate": 134.39224385340262, "firing_rate": 134.39224385340262, "i_spike": 49.0, "isi": 0.07101382644296357}, {"neuron_x_mouse": "m2bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 2, "stim": 1, "neuron_code": 16, "mouse": "m2bayes", "log_firing_rate": 3.4459906926298567, "Firing rate": 2792.4839948387817, "firing_rate": 2792.4839948387817, "i_spike": 47.5, "isi": 0.07316498084152144}, {"neuron_x_mouse": "m2bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 2, "stim": 0, "neuron_code": 16, "mouse": "m2bayes", "log_firing_rate": 1.7863717085058393, "Firing rate": 61.146514819522366, "firing_rate": 61.146514819522366, "i_spike": 39.5, "isi": 0.08889064940628486}, {"neuron_x_mouse": "m2bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 2, "stim": 1, "neuron_code": 16, "mouse": "m2bayes", "log_firing_rate": 1.7855681895527271, "Firing rate": 61.03348791729854, "firing_rate": 61.03348791729854, "i_spike": 53.0, "isi": 0.06623163047906007}, {"neuron_x_mouse": "m2bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 2, "stim": 0, "neuron_code": 17, "mouse": "m2bayes", "log_firing_rate": 2.0333327187800307, "Firing rate": 107.97736343807753, "firing_rate": 107.97736343807753, "i_spike": 56.5, "isi": 0.06172753334450406}, {"neuron_x_mouse": "m2bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 2, "stim": 1, "neuron_code": 17, "mouse": "m2bayes", "log_firing_rate": 1.9312570074246684, "Firing rate": 85.3605112262269, "firing_rate": 85.3605112262269, "i_spike": 44.5, "isi": 0.07575735549638431}, {"neuron_x_mouse": "m2bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 2, "stim": 0, "neuron_code": 17, "mouse": "m2bayes", "log_firing_rate": 1.8673805028651176, "Firing rate": 73.68524007936377, "firing_rate": 73.68524007936377, "i_spike": 34.5, "isi": 0.10111646080180194}, {"neuron_x_mouse": "m2bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 2, "stim": 1, "neuron_code": 17, "mouse": "m2bayes", "log_firing_rate": 2.0709747027933423, "Firing rate": 117.75373811824113, "firing_rate": 117.75373811824113, "i_spike": 54.0, "isi": 0.06532552115510942}, {"neuron_x_mouse": "m2bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 2, "stim": 0, "neuron_code": 18, "mouse": "m2bayes", "log_firing_rate": 1.535684467853532, "Firing rate": 34.330843009331545, "firing_rate": 34.330843009331545, "i_spike": 30.0, "isi": 0.1167834191403746}, {"neuron_x_mouse": "m2bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 2, "stim": 1, "neuron_code": 18, "mouse": "m2bayes", "log_firing_rate": 1.6211757448739006, "Firing rate": 41.799948324341024, "firing_rate": 41.799948324341024, "i_spike": 52.0, "isi": 0.06581457399447435}, {"neuron_x_mouse": "m2bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 2, "stim": 0, "neuron_code": 18, "mouse": "m2bayes", "log_firing_rate": 1.9022327023431551, "Firing rate": 79.84223809171114, "firing_rate": 79.84223809171114, "i_spike": 39.0, "isi": 0.09024717533243955}, {"neuron_x_mouse": "m2bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 2, "stim": 1, "neuron_code": 18, "mouse": "m2bayes", "log_firing_rate": 2.0451370635624646, "Firing rate": 110.95249266508971, "firing_rate": 110.95249266508971, "i_spike": 59.0, "isi": 0.0585140201739227}, {"neuron_x_mouse": "m2bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 2, "stim": 0, "neuron_code": 19, "mouse": "m2bayes", "log_firing_rate": 2.063614444437909, "Firing rate": 115.77490796853253, "firing_rate": 115.77490796853253, "i_spike": 46.0, "isi": 0.07568410272111013}, {"neuron_x_mouse": "m2bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 2, "stim": 1, "neuron_code": 19, "mouse": "m2bayes", "log_firing_rate": 1.7629879547897946, "Firing rate": 57.941262612446785, "firing_rate": 57.941262612446785, "i_spike": 64.0, "isi": 0.05450478857816953}, {"neuron_x_mouse": "m2bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 2, "stim": 0, "neuron_code": 19, "mouse": "m2bayes", "log_firing_rate": 1.967259043156765, "Firing rate": 92.73828134592809, "firing_rate": 92.73828134592809, "i_spike": 57.5, "isi": 0.06114874537286839}, {"neuron_x_mouse": "m2bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 2, "stim": 1, "neuron_code": 19, "mouse": "m2bayes", "log_firing_rate": 1.8472750487209633, "Firing rate": 70.35177328445184, "firing_rate": 70.35177328445184, "i_spike": 47.0, "isi": 0.0727057588409138}, {"neuron_x_mouse": "m2bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 2, "stim": 0, "neuron_code": 20, "mouse": "m2bayes", "log_firing_rate": 1.6806339932703598, "Firing rate": 47.93293180057571, "firing_rate": 47.93293180057571, "i_spike": 46.0, "isi": 0.07573160301432243}, {"neuron_x_mouse": "m2bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 2, "stim": 1, "neuron_code": 20, "mouse": "m2bayes", "log_firing_rate": 1.8267599434334452, "Firing rate": 67.10578227295964, "firing_rate": 67.10578227295964, "i_spike": 48.5, "isi": 0.07107544163294728}, {"neuron_x_mouse": "m2bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 2, "stim": 0, "neuron_code": 20, "mouse": "m2bayes", "log_firing_rate": 1.9899117040808876, "Firing rate": 97.70385601589328, "firing_rate": 97.70385601589328, "i_spike": 55.0, "isi": 0.06300508448815381}, {"neuron_x_mouse": "m2bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 2, "stim": 1, "neuron_code": 20, "mouse": "m2bayes", "log_firing_rate": 2.4346687137540033, "Firing rate": 272.0625183251621, "firing_rate": 272.0625183251621, "i_spike": 61.0, "isi": 0.0567610956055658}, {"neuron_x_mouse": "m2bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 2, "stim": 0, "neuron_code": 21, "mouse": "m2bayes", "log_firing_rate": 2.5149112584584263, "Firing rate": 327.27381456729626, "firing_rate": 327.27381456729626, "i_spike": 59.0, "isi": 0.05908377817814789}, {"neuron_x_mouse": "m2bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 2, "stim": 1, "neuron_code": 21, "mouse": "m2bayes", "log_firing_rate": 1.934339975749928, "Firing rate": 85.96862404034623, "firing_rate": 85.96862404034623, "i_spike": 62.0, "isi": 0.05602294086662079}, {"neuron_x_mouse": "m2bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 2, "stim": 0, "neuron_code": 21, "mouse": "m2bayes", "log_firing_rate": 2.156141197583927, "Firing rate": 143.2653607119623, "firing_rate": 143.2653607119623, "i_spike": 52.5, "isi": 0.06519739233331855}, {"neuron_x_mouse": "m2bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 2, "stim": 1, "neuron_code": 21, "mouse": "m2bayes", "log_firing_rate": 2.4860997989971456, "Firing rate": 306.2667140520934, "firing_rate": 306.2667140520934, "i_spike": 61.5, "isi": 0.057231684518957944}, {"neuron_x_mouse": "m2bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 2, "stim": 0, "neuron_code": 22, "mouse": "m2bayes", "log_firing_rate": 2.019788636725371, "Firing rate": 104.66190535039833, "firing_rate": 104.66190535039833, "i_spike": 72.0, "isi": 0.04870803165309498}, {"neuron_x_mouse": "m2bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 2, "stim": 1, "neuron_code": 22, "mouse": "m2bayes", "log_firing_rate": 1.9447223251246437, "Firing rate": 88.04857368101806, "firing_rate": 88.04857368101806, "i_spike": 58.5, "isi": 0.05970235036194218}, {"neuron_x_mouse": "m2bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 2, "stim": 0, "neuron_code": 22, "mouse": "m2bayes", "log_firing_rate": 2.044178497582344, "Firing rate": 110.70787063327091, "firing_rate": 110.70787063327091, "i_spike": 67.5, "isi": 0.05062598260780837}, {"neuron_x_mouse": "m2bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 2, "stim": 1, "neuron_code": 22, "mouse": "m2bayes", "log_firing_rate": 1.9255440058795428, "Firing rate": 84.24497502573472, "firing_rate": 84.24497502573472, "i_spike": 69.0, "isi": 0.05057268025457192}, {"neuron_x_mouse": "m2bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 2, "stim": 0, "neuron_code": 23, "mouse": "m2bayes", "log_firing_rate": 2.0380026049236886, "Firing rate": 109.14468829913132, "firing_rate": 109.14468829913132, "i_spike": 66.5, "isi": 0.05229002307401969}, {"neuron_x_mouse": "m2bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 2, "stim": 1, "neuron_code": 23, "mouse": "m2bayes", "log_firing_rate": 2.537954026119904, "Firing rate": 345.10720477758167, "firing_rate": 345.10720477758167, "i_spike": 72.5, "isi": 0.04829745068601367}, {"neuron_x_mouse": "m2bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 2, "stim": 0, "neuron_code": 23, "mouse": "m2bayes", "log_firing_rate": 2.1164937065323097, "Firing rate": 130.7656589211048, "firing_rate": 130.7656589211048, "i_spike": 82.0, "isi": 0.04271206332173782}, {"neuron_x_mouse": "m2bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 2, "stim": 1, "neuron_code": 23, "mouse": "m2bayes", "log_firing_rate": 2.0603462468402727, "Firing rate": 114.90693666790865, "firing_rate": 114.90693666790865, "i_spike": 72.0, "isi": 0.04790048629007112}, {"neuron_x_mouse": "m3bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 3, "stim": 0, "neuron_code": 24, "mouse": "m3bayes", "log_firing_rate": 1.7739757591413932, "Firing rate": 59.425898815003755, "firing_rate": 59.425898815003755, "i_spike": 49.0, "isi": 0.07196624929710167}, {"neuron_x_mouse": "m3bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 3, "stim": 1, "neuron_code": 24, "mouse": "m3bayes", "log_firing_rate": 1.7838501444746344, "Firing rate": 60.79251973947953, "firing_rate": 60.79251973947953, "i_spike": 53.0, "isi": 0.06446163451500303}, {"neuron_x_mouse": "m3bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 3, "stim": 0, "neuron_code": 24, "mouse": "m3bayes", "log_firing_rate": 1.5353289769527314, "Firing rate": 34.30275306282375, "firing_rate": 34.30275306282375, "i_spike": 30.0, "isi": 0.11799262684200806}, {"neuron_x_mouse": "m3bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 3, "stim": 1, "neuron_code": 24, "mouse": "m3bayes", "log_firing_rate": 2.006069448706939, "Firing rate": 101.40735348497785, "firing_rate": 101.40735348497785, "i_spike": 46.5, "isi": 0.07511238878887116}, {"neuron_x_mouse": "m3bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 3, "stim": 0, "neuron_code": 25, "mouse": "m3bayes", "log_firing_rate": 1.7920848808863363, "Firing rate": 61.95621538566139, "firing_rate": 61.95621538566139, "i_spike": 54.5, "isi": 0.0640837642063824}, {"neuron_x_mouse": "m3bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 3, "stim": 1, "neuron_code": 25, "mouse": "m3bayes", "log_firing_rate": 2.2845812437130353, "Firing rate": 192.56672470402054, "firing_rate": 192.56672470402054, "i_spike": 53.5, "isi": 0.06476724014578311}, {"neuron_x_mouse": "m3bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 3, "stim": 0, "neuron_code": 25, "mouse": "m3bayes", "log_firing_rate": 1.8529950000048523, "Firing rate": 71.28448231579202, "firing_rate": 71.28448231579202, "i_spike": 42.0, "isi": 0.0831872649457881}, {"neuron_x_mouse": "m3bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 3, "stim": 1, "neuron_code": 25, "mouse": "m3bayes", "log_firing_rate": 1.5852180975740104, "Firing rate": 38.47849680126545, "firing_rate": 38.47849680126545, "i_spike": 42.0, "isi": 0.08120620865656249}, {"neuron_x_mouse": "m3bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 3, "stim": 0, "neuron_code": 26, "mouse": "m3bayes", "log_firing_rate": 2.0957463362221613, "Firing rate": 124.66551521768993, "firing_rate": 124.66551521768993, "i_spike": 47.5, "isi": 0.07226412666648874}, {"neuron_x_mouse": "m3bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 3, "stim": 1, "neuron_code": 26, "mouse": "m3bayes", "log_firing_rate": 1.8813980646884907, "Firing rate": 76.1023494618211, "firing_rate": 76.1023494618211, "i_spike": 50.0, "isi": 0.06820915961439256}, {"neuron_x_mouse": "m3bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 3, "stim": 0, "neuron_code": 26, "mouse": "m3bayes", "log_firing_rate": 1.6916795244290945, "Firing rate": 49.167658268127425, "firing_rate": 49.167658268127425, "i_spike": 40.5, "isi": 0.08686804514752315}, {"neuron_x_mouse": "m3bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 3, "stim": 1, "neuron_code": 26, "mouse": "m3bayes", "log_firing_rate": 1.81298871042286, "Firing rate": 65.01127903036011, "firing_rate": 65.01127903036011, "i_spike": 44.5, "isi": 0.07675780598632621}, {"neuron_x_mouse": "m3bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 3, "stim": 0, "neuron_code": 27, "mouse": "m3bayes", "log_firing_rate": 1.7082153250569163, "Firing rate": 51.07581732893266, "firing_rate": 51.07581732893266, "i_spike": 53.5, "isi": 0.06576384126740549}, {"neuron_x_mouse": "m3bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 3, "stim": 1, "neuron_code": 27, "mouse": "m3bayes", "log_firing_rate": 1.7805204587274068, "Firing rate": 60.328212664797114, "firing_rate": 60.328212664797114, "i_spike": 60.5, "isi": 0.05689204385752178}, {"neuron_x_mouse": "m3bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 3, "stim": 0, "neuron_code": 27, "mouse": "m3bayes", "log_firing_rate": 2.1154755983530418, "Firing rate": 130.45946654916168, "firing_rate": 130.45946654916168, "i_spike": 50.5, "isi": 0.06888962103430223}, {"neuron_x_mouse": "m3bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 3, "stim": 1, "neuron_code": 27, "mouse": "m3bayes", "log_firing_rate": 1.6928377308225533, "Firing rate": 49.29895696113462, "firing_rate": 49.29895696113462, "i_spike": 56.0, "isi": 0.06286367302803599}, {"neuron_x_mouse": "m3bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 3, "stim": 0, "neuron_code": 28, "mouse": "m3bayes", "log_firing_rate": 2.059664296602797, "Firing rate": 114.7266458163618, "firing_rate": 114.7266458163618, "i_spike": 61.5, "isi": 0.05729100515434446}, {"neuron_x_mouse": "m3bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 3, "stim": 1, "neuron_code": 28, "mouse": "m3bayes", "log_firing_rate": 3.0735723691590606, "Firing rate": 1184.6017480221192, "firing_rate": 1184.6017480221192, "i_spike": 58.5, "isi": 0.05989782731067191}, {"neuron_x_mouse": "m3bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 3, "stim": 0, "neuron_code": 28, "mouse": "m3bayes", "log_firing_rate": 1.9619760930754904, "Firing rate": 91.61700556538334, "firing_rate": 91.61700556538334, "i_spike": 65.5, "isi": 0.05370977457226827}, {"neuron_x_mouse": "m3bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 3, "stim": 1, "neuron_code": 28, "mouse": "m3bayes", "log_firing_rate": 2.1309537173345685, "Firing rate": 135.19284808023224, "firing_rate": 135.19284808023224, "i_spike": 70.0, "isi": 0.04979437126508585}, {"neuron_x_mouse": "m3bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 3, "stim": 0, "neuron_code": 29, "mouse": "m3bayes", "log_firing_rate": 2.05840276415063, "Firing rate": 114.39387303338674, "firing_rate": 114.39387303338674, "i_spike": 54.5, "isi": 0.06438508903082953}, {"neuron_x_mouse": "m3bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 3, "stim": 1, "neuron_code": 29, "mouse": "m3bayes", "log_firing_rate": 1.9303301137219733, "Firing rate": 85.17852468824661, "firing_rate": 85.17852468824661, "i_spike": 43.0, "isi": 0.08107687358363688}, {"neuron_x_mouse": "m3bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 3, "stim": 0, "neuron_code": 29, "mouse": "m3bayes", "log_firing_rate": 2.3496310390929325, "Firing rate": 223.68200096211064, "firing_rate": 223.68200096211064, "i_spike": 61.0, "isi": 0.057451986443825584}, {"neuron_x_mouse": "m3bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 3, "stim": 1, "neuron_code": 29, "mouse": "m3bayes", "log_firing_rate": 1.8263045669122584, "Firing rate": 67.03545583858435, "firing_rate": 67.03545583858435, "i_spike": 56.0, "isi": 0.06245123294850512}, {"neuron_x_mouse": "m3bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 3, "stim": 0, "neuron_code": 30, "mouse": "m3bayes", "log_firing_rate": 1.8958056847551192, "Firing rate": 78.66937226226948, "firing_rate": 78.66937226226948, "i_spike": 63.0, "isi": 0.05537520310142631}, {"neuron_x_mouse": "m3bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 3, "stim": 1, "neuron_code": 30, "mouse": "m3bayes", "log_firing_rate": 2.054454441061525, "Firing rate": 113.35859149275699, "firing_rate": 113.35859149275699, "i_spike": 66.5, "isi": 0.05271579187016863}, {"neuron_x_mouse": "m3bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 3, "stim": 0, "neuron_code": 30, "mouse": "m3bayes", "log_firing_rate": 2.6960142215672462, "Firing rate": 496.6085833118649, "firing_rate": 496.6085833118649, "i_spike": 59.0, "isi": 0.05872299617879447}, {"neuron_x_mouse": "m3bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 3, "stim": 1, "neuron_code": 30, "mouse": "m3bayes", "log_firing_rate": 2.826695872454125, "Firing rate": 670.9588296216779, "firing_rate": 670.9588296216779, "i_spike": 73.0, "isi": 0.04770316525180011}, {"neuron_x_mouse": "m3bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 3, "stim": 0, "neuron_code": 31, "mouse": "m3bayes", "log_firing_rate": 1.9298215921362556, "Firing rate": 85.07884631102203, "firing_rate": 85.07884631102203, "i_spike": 78.5, "isi": 0.044395307476618275}, {"neuron_x_mouse": "m3bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 3, "stim": 1, "neuron_code": 31, "mouse": "m3bayes", "log_firing_rate": 1.9025554657044932, "Firing rate": 79.90159810812834, "firing_rate": 79.90159810812834, "i_spike": 68.5, "isi": 0.05098464961900595}, {"neuron_x_mouse": "m3bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 3, "stim": 0, "neuron_code": 31, "mouse": "m3bayes", "log_firing_rate": 2.083038541876402, "Firing rate": 121.07055739993669, "firing_rate": 121.07055739993669, "i_spike": 77.5, "isi": 0.04497952380104444}, {"neuron_x_mouse": "m3bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 3, "stim": 1, "neuron_code": 31, "mouse": "m3bayes", "log_firing_rate": 1.941722396324934, "Firing rate": 87.44246589892265, "firing_rate": 87.44246589892265, "i_spike": 63.5, "isi": 0.054987166433223274}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">y</span><span class="o">=</span><span class="s1">&#39;isi&#39;</span>
+<span class="n">color</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span>
+<span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuron&#39;</span>
+
+<span class="n">base</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;mean(</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span>
+                    <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                    <span class="n">domain</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="mf">.05</span><span class="p">,</span> <span class="mf">.95</span><span class="p">])))),</span>
+<span class="p">)</span>
+
+<span class="c1"># Create a selection that chooses the nearest point &amp; selects based on x-value</span>
+<span class="n">nearest</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="n">nearest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span>
+                        <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">empty</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Transparent selectors across the chart. This is what tells us</span>
+<span class="c1"># the x-value of the cursor</span>
+<span class="n">selectors</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">nearest</span>
+<span class="p">)</span>
+
+<span class="n">highlight</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span>
+                          <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="n">color</span><span class="p">],</span> <span class="n">nearest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">lines</span><span class="o">=</span><span class="n">base</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">clip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">.6</span><span class="p">,</span> <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="c1">#tooltip=color,</span>
+            <span class="n">size</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="o">~</span><span class="n">highlight</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+        <span class="p">)</span>
+
+<span class="c1"># Draw text labels near the points, and highlight based on selection</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">align</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dy</span><span class="o">=-</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">nearest</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">points</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">highlight</span>
+<span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span>
+    <span class="n">lines</span><span class="p">,</span> <span class="n">selectors</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">text</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-13386b0057494c89b7650cbf8aa42a08"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-13386b0057494c89b7650cbf8aa42a08") {
+      outputDiv = document.getElementById("altair-viz-13386b0057494c89b7650cbf8aa42a08");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "clip": true, "fill": null, "opacity": 0.6}, "encoding": {"color": {"type": "nominal", "field": "mouse"}, "size": {"condition": {"value": 1, "selection": {"not": "selector003"}}, "value": 3}, "x": {"type": "nominal", "field": "neuron"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "isi", "scale": {"domain": [0.04720082527583454, 0.08989729531940209], "zero": false}}}}, {"mark": "point", "encoding": {"opacity": {"value": 0}, "x": {"type": "nominal", "field": "neuron"}}, "selection": {"selector002": {"type": "single", "nearest": true, "on": "mouseover", "fields": ["neuron"], "empty": "none"}}}, {"mark": "circle", "encoding": {"color": {"type": "nominal", "field": "mouse"}, "opacity": {"value": 0}, "x": {"type": "nominal", "field": "neuron"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "isi", "scale": {"domain": [0.04720082527583454, 0.08989729531940209], "zero": false}}}, "selection": {"selector003": {"type": "single", "on": "mouseover", "fields": ["mouse"], "nearest": true}}}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5}, "encoding": {"color": {"type": "nominal", "field": "mouse"}, "size": {"condition": {"value": 1, "selection": {"not": "selector003"}}, "value": 3}, "text": {"condition": {"type": "quantitative", "field": "isi", "selection": "selector002"}, "value": " "}, "x": {"type": "nominal", "field": "neuron"}, "y": {"type": "quantitative", "aggregate": "mean", "field": "isi", "scale": {"domain": [0.04720082527583454, 0.08989729531940209], "zero": false}}}}], "data": {"name": "data-3cbb7ec8b105a922507d0baf4f21a168"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-3cbb7ec8b105a922507d0baf4f21a168": [{"neuron_x_mouse": "m0bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 0, "stim": 0, "neuron_code": 0, "mouse": "m0bayes", "log_firing_rate": 1.6020558353642973, "Firing rate": 39.99961722343232, "firing_rate": 39.99961722343232, "i_spike": 36.0, "isi": 0.08924751815233256}, {"neuron_x_mouse": "m0bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 0, "stim": 1, "neuron_code": 0, "mouse": "m0bayes", "log_firing_rate": 1.6523193193530143, "Firing rate": 44.90754557877663, "firing_rate": 44.90754557877663, "i_spike": 47.0, "isi": 0.07220589524970573}, {"neuron_x_mouse": "m0bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 0, "stim": 0, "neuron_code": 0, "mouse": "m0bayes", "log_firing_rate": 2.0643579889351353, "Firing rate": 115.9732930098688, "firing_rate": 115.9732930098688, "i_spike": 46.5, "isi": 0.07455220950829959}, {"neuron_x_mouse": "m0bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 0, "stim": 1, "neuron_code": 0, "mouse": "m0bayes", "log_firing_rate": 1.652293034080201, "Firing rate": 44.904827673264336, "firing_rate": 44.904827673264336, "i_spike": 40.5, "isi": 0.08612662389417775}, {"neuron_x_mouse": "m0bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 0, "stim": 0, "neuron_code": 1, "mouse": "m0bayes", "log_firing_rate": 1.9146227195463157, "Firing rate": 82.15286611988105, "firing_rate": 82.15286611988105, "i_spike": 45.5, "isi": 0.07358921366874455}, {"neuron_x_mouse": "m0bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 0, "stim": 1, "neuron_code": 1, "mouse": "m0bayes", "log_firing_rate": 1.9542730325002358, "Firing rate": 90.00632559733936, "firing_rate": 90.00632559733936, "i_spike": 44.5, "isi": 0.07717943778136409}, {"neuron_x_mouse": "m0bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 0, "stim": 0, "neuron_code": 1, "mouse": "m0bayes", "log_firing_rate": 1.5843014555152695, "Firing rate": 38.397367950094875, "firing_rate": 38.397367950094875, "i_spike": 42.0, "isi": 0.08247449667616608}, {"neuron_x_mouse": "m0bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 0, "stim": 1, "neuron_code": 1, "mouse": "m0bayes", "log_firing_rate": 2.363228555038091, "Firing rate": 230.79614741114517, "firing_rate": 230.79614741114517, "i_spike": 35.5, "isi": 0.09747784822478665}, {"neuron_x_mouse": "m0bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 0, "stim": 0, "neuron_code": 2, "mouse": "m0bayes", "log_firing_rate": 2.264186355257889, "Firing rate": 183.73265689201438, "firing_rate": 183.73265689201438, "i_spike": 44.5, "isi": 0.07937438806548869}, {"neuron_x_mouse": "m0bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 0, "stim": 1, "neuron_code": 2, "mouse": "m0bayes", "log_firing_rate": 1.775184891661685, "Firing rate": 59.59157880371094, "firing_rate": 59.59157880371094, "i_spike": 49.0, "isi": 0.07132088498233131}, {"neuron_x_mouse": "m0bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 0, "stim": 0, "neuron_code": 2, "mouse": "m0bayes", "log_firing_rate": 1.9932513789564745, "Firing rate": 98.45808373547818, "firing_rate": 98.45808373547818, "i_spike": 51.5, "isi": 0.06713148586335649}, {"neuron_x_mouse": "m0bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 0, "stim": 1, "neuron_code": 2, "mouse": "m0bayes", "log_firing_rate": 2.237340688399824, "Firing rate": 172.71922809046734, "firing_rate": 172.71922809046734, "i_spike": 51.5, "isi": 0.06612882055027032}, {"neuron_x_mouse": "m0bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 0, "stim": 0, "neuron_code": 3, "mouse": "m0bayes", "log_firing_rate": 1.8349704464583754, "Firing rate": 68.38651089888964, "firing_rate": 68.38651089888964, "i_spike": 48.0, "isi": 0.07139892221598287}, {"neuron_x_mouse": "m0bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 0, "stim": 1, "neuron_code": 3, "mouse": "m0bayes", "log_firing_rate": 1.5944016232386007, "Firing rate": 39.30082102642837, "firing_rate": 39.30082102642837, "i_spike": 44.0, "isi": 0.0798635214770364}, {"neuron_x_mouse": "m0bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 0, "stim": 0, "neuron_code": 3, "mouse": "m0bayes", "log_firing_rate": 1.9028956935171861, "Firing rate": 79.96421782397076, "firing_rate": 79.96421782397076, "i_spike": 54.5, "isi": 0.06327013987182355}, {"neuron_x_mouse": "m0bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 0, "stim": 1, "neuron_code": 3, "mouse": "m0bayes", "log_firing_rate": 2.2279600650023794, "Firing rate": 169.0285496440446, "firing_rate": 169.0285496440446, "i_spike": 68.5, "isi": 0.04941961310464734}, {"neuron_x_mouse": "m0bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 0, "stim": 0, "neuron_code": 4, "mouse": "m0bayes", "log_firing_rate": 2.475931685468285, "Firing rate": 299.17939903312435, "firing_rate": 299.17939903312435, "i_spike": 56.5, "isi": 0.06153682479268422}, {"neuron_x_mouse": "m0bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 0, "stim": 1, "neuron_code": 4, "mouse": "m0bayes", "log_firing_rate": 2.233117923728835, "Firing rate": 171.04796976011122, "firing_rate": 171.04796976011122, "i_spike": 65.5, "isi": 0.05338485788079244}, {"neuron_x_mouse": "m0bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 0, "stim": 0, "neuron_code": 4, "mouse": "m0bayes", "log_firing_rate": 2.0988446144560764, "Firing rate": 125.55806510814185, "firing_rate": 125.55806510814185, "i_spike": 54.0, "isi": 0.06312967341039417}, {"neuron_x_mouse": "m0bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 0, "stim": 1, "neuron_code": 4, "mouse": "m0bayes", "log_firing_rate": 5.922294747225693, "Firing rate": 836170.3182483359, "firing_rate": 836170.3182483359, "i_spike": 55.5, "isi": 0.06156206527184332}, {"neuron_x_mouse": "m0bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 0, "stim": 0, "neuron_code": 5, "mouse": "m0bayes", "log_firing_rate": 1.7004110349814143, "Firing rate": 50.166180332787086, "firing_rate": 50.166180332787086, "i_spike": 46.5, "isi": 0.07444719335576988}, {"neuron_x_mouse": "m0bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 0, "stim": 1, "neuron_code": 5, "mouse": "m0bayes", "log_firing_rate": 2.473045085969411, "Firing rate": 297.19745491246505, "firing_rate": 297.19745491246505, "i_spike": 67.0, "isi": 0.04916195919795406}, {"neuron_x_mouse": "m0bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 0, "stim": 0, "neuron_code": 5, "mouse": "m0bayes", "log_firing_rate": 1.8386383136840345, "Firing rate": 68.96652021011712, "firing_rate": 68.96652021011712, "i_spike": 54.0, "isi": 0.0640729725878727}, {"neuron_x_mouse": "m0bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 0, "stim": 1, "neuron_code": 5, "mouse": "m0bayes", "log_firing_rate": 1.8877564205453636, "Firing rate": 77.22473390989768, "firing_rate": 77.22473390989768, "i_spike": 52.5, "isi": 0.065214488000321}, {"neuron_x_mouse": "m0bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 0, "stim": 0, "neuron_code": 6, "mouse": "m0bayes", "log_firing_rate": 2.713070359577657, "Firing rate": 516.5000401050977, "firing_rate": 516.5000401050977, "i_spike": 74.5, "isi": 0.04693033451954538}, {"neuron_x_mouse": "m0bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 0, "stim": 1, "neuron_code": 6, "mouse": "m0bayes", "log_firing_rate": 2.146666252386295, "Firing rate": 140.17360812079156, "firing_rate": 140.17360812079156, "i_spike": 65.5, "isi": 0.05289563944542787}, {"neuron_x_mouse": "m0bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 0, "stim": 0, "neuron_code": 6, "mouse": "m0bayes", "log_firing_rate": 2.140352294796606, "Firing rate": 138.15044710728955, "firing_rate": 138.15044710728955, "i_spike": 54.0, "isi": 0.06316828300457898}, {"neuron_x_mouse": "m0bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 0, "stim": 1, "neuron_code": 6, "mouse": "m0bayes", "log_firing_rate": 1.6641963556669948, "Firing rate": 46.152619521803075, "firing_rate": 46.152619521803075, "i_spike": 57.5, "isi": 0.059161658102295046}, {"neuron_x_mouse": "m0bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 0, "stim": 0, "neuron_code": 7, "mouse": "m0bayes", "log_firing_rate": 1.9014929549611805, "Firing rate": 79.7063560678672, "firing_rate": 79.7063560678672, "i_spike": 80.0, "isi": 0.043932523259198136}, {"neuron_x_mouse": "m0bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 0, "stim": 1, "neuron_code": 7, "mouse": "m0bayes", "log_firing_rate": 1.8461617005356463, "Firing rate": 70.17165193672494, "firing_rate": 70.17165193672494, "i_spike": 68.0, "isi": 0.051569230752621334}, {"neuron_x_mouse": "m0bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 0, "stim": 0, "neuron_code": 7, "mouse": "m0bayes", "log_firing_rate": 2.026368893921465, "Firing rate": 106.25977547578808, "firing_rate": 106.25977547578808, "i_spike": 67.5, "isi": 0.0511497976969093}, {"neuron_x_mouse": "m0bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 0, "stim": 1, "neuron_code": 7, "mouse": "m0bayes", "log_firing_rate": 1.9968753005480786, "Firing rate": 99.28309348528504, "firing_rate": 99.28309348528504, "i_spike": 75.0, "isi": 0.04653303177562744}, {"neuron_x_mouse": "m1bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 1, "stim": 0, "neuron_code": 8, "mouse": "m1bayes", "log_firing_rate": 1.4758748852040926, "Firing rate": 29.914027268361675, "firing_rate": 29.914027268361675, "i_spike": 32.5, "isi": 0.10821837727228818}, {"neuron_x_mouse": "m1bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 1, "stim": 1, "neuron_code": 8, "mouse": "m1bayes", "log_firing_rate": 2.0279172479046688, "Firing rate": 106.6392907376232, "firing_rate": 106.6392907376232, "i_spike": 37.0, "isi": 0.09522241150969538}, {"neuron_x_mouse": "m1bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 1, "stim": 0, "neuron_code": 8, "mouse": "m1bayes", "log_firing_rate": 1.9644848156933568, "Firing rate": 92.14776704022282, "firing_rate": 92.14776704022282, "i_spike": 42.0, "isi": 0.08311487228332311}, {"neuron_x_mouse": "m1bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 1, "stim": 1, "neuron_code": 8, "mouse": "m1bayes", "log_firing_rate": 1.9057452183175179, "Firing rate": 80.49060992630893, "firing_rate": 80.49060992630893, "i_spike": 52.5, "isi": 0.06629135870165555}, {"neuron_x_mouse": "m1bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 1, "stim": 0, "neuron_code": 9, "mouse": "m1bayes", "log_firing_rate": 1.6937708573662063, "Firing rate": 49.40499473699633, "firing_rate": 49.40499473699633, "i_spike": 46.0, "isi": 0.07611071262268725}, {"neuron_x_mouse": "m1bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 1, "stim": 1, "neuron_code": 9, "mouse": "m1bayes", "log_firing_rate": 2.066113379230948, "Firing rate": 116.44299820270845, "firing_rate": 116.44299820270845, "i_spike": 48.5, "isi": 0.07180016386398826}, {"neuron_x_mouse": "m1bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 1, "stim": 0, "neuron_code": 9, "mouse": "m1bayes", "log_firing_rate": 1.8987373992136947, "Firing rate": 79.20222809519323, "firing_rate": 79.20222809519323, "i_spike": 60.5, "isi": 0.05772646616649741}, {"neuron_x_mouse": "m1bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 1, "stim": 1, "neuron_code": 9, "mouse": "m1bayes", "log_firing_rate": 1.748550719267751, "Firing rate": 56.04678680231517, "firing_rate": 56.04678680231517, "i_spike": 39.5, "isi": 0.08325931331874972}, {"neuron_x_mouse": "m1bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 1, "stim": 0, "neuron_code": 10, "mouse": "m1bayes", "log_firing_rate": 2.7745718305666074, "Firing rate": 595.0751716683158, "firing_rate": 595.0751716683158, "i_spike": 46.5, "isi": 0.0730717735201401}, {"neuron_x_mouse": "m1bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 1, "stim": 1, "neuron_code": 10, "mouse": "m1bayes", "log_firing_rate": 1.7496819193060837, "Firing rate": 56.19296127705359, "firing_rate": 56.19296127705359, "i_spike": 49.0, "isi": 0.06892704420849954}, {"neuron_x_mouse": "m1bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 1, "stim": 0, "neuron_code": 10, "mouse": "m1bayes", "log_firing_rate": 3.195925491922672, "Firing rate": 1570.0934141341243, "firing_rate": 1570.0934141341243, "i_spike": 54.5, "isi": 0.06100177431444436}, {"neuron_x_mouse": "m1bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 1, "stim": 1, "neuron_code": 10, "mouse": "m1bayes", "log_firing_rate": 1.8316041400426546, "Firing rate": 67.8584819733278, "firing_rate": 67.8584819733278, "i_spike": 52.5, "isi": 0.06471988666577963}, {"neuron_x_mouse": "m1bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 1, "stim": 0, "neuron_code": 11, "mouse": "m1bayes", "log_firing_rate": 1.8274659246303806, "Firing rate": 67.21495692207289, "firing_rate": 67.21495692207289, "i_spike": 51.5, "isi": 0.06683042689360716}, {"neuron_x_mouse": "m1bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 1, "stim": 1, "neuron_code": 11, "mouse": "m1bayes", "log_firing_rate": 1.9506269545425707, "Firing rate": 89.25384915546483, "firing_rate": 89.25384915546483, "i_spike": 61.0, "isi": 0.05588637871608316}, {"neuron_x_mouse": "m1bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 1, "stim": 0, "neuron_code": 11, "mouse": "m1bayes", "log_firing_rate": 1.7248757181192338, "Firing rate": 53.073254297456, "firing_rate": 53.073254297456, "i_spike": 42.0, "isi": 0.08134732332719719}, {"neuron_x_mouse": "m1bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 1, "stim": 1, "neuron_code": 11, "mouse": "m1bayes", "log_firing_rate": 2.1195772788160228, "Firing rate": 131.69742356511793, "firing_rate": 131.69742356511793, "i_spike": 56.5, "isi": 0.060053419039700275}, {"neuron_x_mouse": "m1bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 1, "stim": 0, "neuron_code": 12, "mouse": "m1bayes", "log_firing_rate": 1.7958264893850842, "Firing rate": 62.49229718217907, "firing_rate": 62.49229718217907, "i_spike": 50.0, "isi": 0.0700009308808159}, {"neuron_x_mouse": "m1bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 1, "stim": 1, "neuron_code": 12, "mouse": "m1bayes", "log_firing_rate": 1.8198790805606488, "Firing rate": 66.05095185224152, "firing_rate": 66.05095185224152, "i_spike": 53.0, "isi": 0.06575805147742173}, {"neuron_x_mouse": "m1bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 1, "stim": 0, "neuron_code": 12, "mouse": "m1bayes", "log_firing_rate": 1.9119603142472958, "Firing rate": 81.6507755615619, "firing_rate": 81.6507755615619, "i_spike": 55.0, "isi": 0.06381247818725383}, {"neuron_x_mouse": "m1bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 1, "stim": 1, "neuron_code": 12, "mouse": "m1bayes", "log_firing_rate": 1.9624612356409374, "Firing rate": 91.71940646123535, "firing_rate": 91.71940646123535, "i_spike": 65.5, "isi": 0.05369800350387011}, {"neuron_x_mouse": "m1bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 1, "stim": 0, "neuron_code": 13, "mouse": "m1bayes", "log_firing_rate": 2.0089328753936377, "Firing rate": 102.07816993745124, "firing_rate": 102.07816993745124, "i_spike": 65.5, "isi": 0.05300124918652926}, {"neuron_x_mouse": "m1bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 1, "stim": 1, "neuron_code": 13, "mouse": "m1bayes", "log_firing_rate": 1.9838910709539748, "Firing rate": 96.35873078873905, "firing_rate": 96.35873078873905, "i_spike": 70.0, "isi": 0.05005863716356237}, {"neuron_x_mouse": "m1bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 1, "stim": 0, "neuron_code": 13, "mouse": "m1bayes", "log_firing_rate": 1.7610044062577903, "Firing rate": 57.67723151696009, "firing_rate": 57.67723151696009, "i_spike": 61.5, "isi": 0.05594305125660883}, {"neuron_x_mouse": "m1bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 1, "stim": 1, "neuron_code": 13, "mouse": "m1bayes", "log_firing_rate": 1.8217996060337578, "Firing rate": 66.34368739622458, "firing_rate": 66.34368739622458, "i_spike": 48.5, "isi": 0.07219256799158734}, {"neuron_x_mouse": "m1bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 1, "stim": 0, "neuron_code": 14, "mouse": "m1bayes", "log_firing_rate": 1.881209160111971, "Firing rate": 76.06925450764594, "firing_rate": 76.06925450764594, "i_spike": 71.5, "isi": 0.048948382019933234}, {"neuron_x_mouse": "m1bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 1, "stim": 1, "neuron_code": 14, "mouse": "m1bayes", "log_firing_rate": 1.9579416978099284, "Firing rate": 90.76986673068114, "firing_rate": 90.76986673068114, "i_spike": 57.5, "isi": 0.06063143613861035}, {"neuron_x_mouse": "m1bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 1, "stim": 0, "neuron_code": 14, "mouse": "m1bayes", "log_firing_rate": 2.1944598116679175, "Firing rate": 156.48035102173924, "firing_rate": 156.48035102173924, "i_spike": 71.5, "isi": 0.04869049034127316}, {"neuron_x_mouse": "m1bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 1, "stim": 1, "neuron_code": 14, "mouse": "m1bayes", "log_firing_rate": 2.242698774137688, "Firing rate": 174.86334189552613, "firing_rate": 174.86334189552613, "i_spike": 66.0, "isi": 0.05305080218597182}, {"neuron_x_mouse": "m1bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 1, "stim": 0, "neuron_code": 15, "mouse": "m1bayes", "log_firing_rate": 2.6240353828642884, "Firing rate": 420.76090724417173, "firing_rate": 420.76090724417173, "i_spike": 69.5, "isi": 0.0506530993358735}, {"neuron_x_mouse": "m1bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 1, "stim": 1, "neuron_code": 15, "mouse": "m1bayes", "log_firing_rate": 1.9597418423795987, "Firing rate": 91.14688739506516, "firing_rate": 91.14688739506516, "i_spike": 70.0, "isi": 0.048695857509563976}, {"neuron_x_mouse": "m1bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 1, "stim": 0, "neuron_code": 15, "mouse": "m1bayes", "log_firing_rate": 2.213868849157786, "Firing rate": 163.63223004236244, "firing_rate": 163.63223004236244, "i_spike": 64.0, "isi": 0.05324810821035976}, {"neuron_x_mouse": "m1bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 1, "stim": 1, "neuron_code": 15, "mouse": "m1bayes", "log_firing_rate": 2.3190326656102243, "Firing rate": 208.46476746992258, "firing_rate": 208.46476746992258, "i_spike": 82.0, "isi": 0.04178316898646777}, {"neuron_x_mouse": "m2bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 2, "stim": 0, "neuron_code": 16, "mouse": "m2bayes", "log_firing_rate": 2.128374205110162, "Firing rate": 134.39224385340262, "firing_rate": 134.39224385340262, "i_spike": 49.0, "isi": 0.07101382644296357}, {"neuron_x_mouse": "m2bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 2, "stim": 1, "neuron_code": 16, "mouse": "m2bayes", "log_firing_rate": 3.4459906926298567, "Firing rate": 2792.4839948387817, "firing_rate": 2792.4839948387817, "i_spike": 47.5, "isi": 0.07316498084152144}, {"neuron_x_mouse": "m2bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 2, "stim": 0, "neuron_code": 16, "mouse": "m2bayes", "log_firing_rate": 1.7863717085058393, "Firing rate": 61.146514819522366, "firing_rate": 61.146514819522366, "i_spike": 39.5, "isi": 0.08889064940628486}, {"neuron_x_mouse": "m2bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 2, "stim": 1, "neuron_code": 16, "mouse": "m2bayes", "log_firing_rate": 1.7855681895527271, "Firing rate": 61.03348791729854, "firing_rate": 61.03348791729854, "i_spike": 53.0, "isi": 0.06623163047906007}, {"neuron_x_mouse": "m2bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 2, "stim": 0, "neuron_code": 17, "mouse": "m2bayes", "log_firing_rate": 2.0333327187800307, "Firing rate": 107.97736343807753, "firing_rate": 107.97736343807753, "i_spike": 56.5, "isi": 0.06172753334450406}, {"neuron_x_mouse": "m2bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 2, "stim": 1, "neuron_code": 17, "mouse": "m2bayes", "log_firing_rate": 1.9312570074246684, "Firing rate": 85.3605112262269, "firing_rate": 85.3605112262269, "i_spike": 44.5, "isi": 0.07575735549638431}, {"neuron_x_mouse": "m2bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 2, "stim": 0, "neuron_code": 17, "mouse": "m2bayes", "log_firing_rate": 1.8673805028651176, "Firing rate": 73.68524007936377, "firing_rate": 73.68524007936377, "i_spike": 34.5, "isi": 0.10111646080180194}, {"neuron_x_mouse": "m2bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 2, "stim": 1, "neuron_code": 17, "mouse": "m2bayes", "log_firing_rate": 2.0709747027933423, "Firing rate": 117.75373811824113, "firing_rate": 117.75373811824113, "i_spike": 54.0, "isi": 0.06532552115510942}, {"neuron_x_mouse": "m2bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 2, "stim": 0, "neuron_code": 18, "mouse": "m2bayes", "log_firing_rate": 1.535684467853532, "Firing rate": 34.330843009331545, "firing_rate": 34.330843009331545, "i_spike": 30.0, "isi": 0.1167834191403746}, {"neuron_x_mouse": "m2bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 2, "stim": 1, "neuron_code": 18, "mouse": "m2bayes", "log_firing_rate": 1.6211757448739006, "Firing rate": 41.799948324341024, "firing_rate": 41.799948324341024, "i_spike": 52.0, "isi": 0.06581457399447435}, {"neuron_x_mouse": "m2bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 2, "stim": 0, "neuron_code": 18, "mouse": "m2bayes", "log_firing_rate": 1.9022327023431551, "Firing rate": 79.84223809171114, "firing_rate": 79.84223809171114, "i_spike": 39.0, "isi": 0.09024717533243955}, {"neuron_x_mouse": "m2bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 2, "stim": 1, "neuron_code": 18, "mouse": "m2bayes", "log_firing_rate": 2.0451370635624646, "Firing rate": 110.95249266508971, "firing_rate": 110.95249266508971, "i_spike": 59.0, "isi": 0.0585140201739227}, {"neuron_x_mouse": "m2bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 2, "stim": 0, "neuron_code": 19, "mouse": "m2bayes", "log_firing_rate": 2.063614444437909, "Firing rate": 115.77490796853253, "firing_rate": 115.77490796853253, "i_spike": 46.0, "isi": 0.07568410272111013}, {"neuron_x_mouse": "m2bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 2, "stim": 1, "neuron_code": 19, "mouse": "m2bayes", "log_firing_rate": 1.7629879547897946, "Firing rate": 57.941262612446785, "firing_rate": 57.941262612446785, "i_spike": 64.0, "isi": 0.05450478857816953}, {"neuron_x_mouse": "m2bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 2, "stim": 0, "neuron_code": 19, "mouse": "m2bayes", "log_firing_rate": 1.967259043156765, "Firing rate": 92.73828134592809, "firing_rate": 92.73828134592809, "i_spike": 57.5, "isi": 0.06114874537286839}, {"neuron_x_mouse": "m2bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 2, "stim": 1, "neuron_code": 19, "mouse": "m2bayes", "log_firing_rate": 1.8472750487209633, "Firing rate": 70.35177328445184, "firing_rate": 70.35177328445184, "i_spike": 47.0, "isi": 0.0727057588409138}, {"neuron_x_mouse": "m2bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 2, "stim": 0, "neuron_code": 20, "mouse": "m2bayes", "log_firing_rate": 1.6806339932703598, "Firing rate": 47.93293180057571, "firing_rate": 47.93293180057571, "i_spike": 46.0, "isi": 0.07573160301432243}, {"neuron_x_mouse": "m2bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 2, "stim": 1, "neuron_code": 20, "mouse": "m2bayes", "log_firing_rate": 1.8267599434334452, "Firing rate": 67.10578227295964, "firing_rate": 67.10578227295964, "i_spike": 48.5, "isi": 0.07107544163294728}, {"neuron_x_mouse": "m2bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 2, "stim": 0, "neuron_code": 20, "mouse": "m2bayes", "log_firing_rate": 1.9899117040808876, "Firing rate": 97.70385601589328, "firing_rate": 97.70385601589328, "i_spike": 55.0, "isi": 0.06300508448815381}, {"neuron_x_mouse": "m2bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 2, "stim": 1, "neuron_code": 20, "mouse": "m2bayes", "log_firing_rate": 2.4346687137540033, "Firing rate": 272.0625183251621, "firing_rate": 272.0625183251621, "i_spike": 61.0, "isi": 0.0567610956055658}, {"neuron_x_mouse": "m2bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 2, "stim": 0, "neuron_code": 21, "mouse": "m2bayes", "log_firing_rate": 2.5149112584584263, "Firing rate": 327.27381456729626, "firing_rate": 327.27381456729626, "i_spike": 59.0, "isi": 0.05908377817814789}, {"neuron_x_mouse": "m2bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 2, "stim": 1, "neuron_code": 21, "mouse": "m2bayes", "log_firing_rate": 1.934339975749928, "Firing rate": 85.96862404034623, "firing_rate": 85.96862404034623, "i_spike": 62.0, "isi": 0.05602294086662079}, {"neuron_x_mouse": "m2bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 2, "stim": 0, "neuron_code": 21, "mouse": "m2bayes", "log_firing_rate": 2.156141197583927, "Firing rate": 143.2653607119623, "firing_rate": 143.2653607119623, "i_spike": 52.5, "isi": 0.06519739233331855}, {"neuron_x_mouse": "m2bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 2, "stim": 1, "neuron_code": 21, "mouse": "m2bayes", "log_firing_rate": 2.4860997989971456, "Firing rate": 306.2667140520934, "firing_rate": 306.2667140520934, "i_spike": 61.5, "isi": 0.057231684518957944}, {"neuron_x_mouse": "m2bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 2, "stim": 0, "neuron_code": 22, "mouse": "m2bayes", "log_firing_rate": 2.019788636725371, "Firing rate": 104.66190535039833, "firing_rate": 104.66190535039833, "i_spike": 72.0, "isi": 0.04870803165309498}, {"neuron_x_mouse": "m2bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 2, "stim": 1, "neuron_code": 22, "mouse": "m2bayes", "log_firing_rate": 1.9447223251246437, "Firing rate": 88.04857368101806, "firing_rate": 88.04857368101806, "i_spike": 58.5, "isi": 0.05970235036194218}, {"neuron_x_mouse": "m2bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 2, "stim": 0, "neuron_code": 22, "mouse": "m2bayes", "log_firing_rate": 2.044178497582344, "Firing rate": 110.70787063327091, "firing_rate": 110.70787063327091, "i_spike": 67.5, "isi": 0.05062598260780837}, {"neuron_x_mouse": "m2bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 2, "stim": 1, "neuron_code": 22, "mouse": "m2bayes", "log_firing_rate": 1.9255440058795428, "Firing rate": 84.24497502573472, "firing_rate": 84.24497502573472, "i_spike": 69.0, "isi": 0.05057268025457192}, {"neuron_x_mouse": "m2bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 2, "stim": 0, "neuron_code": 23, "mouse": "m2bayes", "log_firing_rate": 2.0380026049236886, "Firing rate": 109.14468829913132, "firing_rate": 109.14468829913132, "i_spike": 66.5, "isi": 0.05229002307401969}, {"neuron_x_mouse": "m2bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 2, "stim": 1, "neuron_code": 23, "mouse": "m2bayes", "log_firing_rate": 2.537954026119904, "Firing rate": 345.10720477758167, "firing_rate": 345.10720477758167, "i_spike": 72.5, "isi": 0.04829745068601367}, {"neuron_x_mouse": "m2bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 2, "stim": 0, "neuron_code": 23, "mouse": "m2bayes", "log_firing_rate": 2.1164937065323097, "Firing rate": 130.7656589211048, "firing_rate": 130.7656589211048, "i_spike": 82.0, "isi": 0.04271206332173782}, {"neuron_x_mouse": "m2bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 2, "stim": 1, "neuron_code": 23, "mouse": "m2bayes", "log_firing_rate": 2.0603462468402727, "Firing rate": 114.90693666790865, "firing_rate": 114.90693666790865, "i_spike": 72.0, "isi": 0.04790048629007112}, {"neuron_x_mouse": "m3bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 3, "stim": 0, "neuron_code": 24, "mouse": "m3bayes", "log_firing_rate": 1.7739757591413932, "Firing rate": 59.425898815003755, "firing_rate": 59.425898815003755, "i_spike": 49.0, "isi": 0.07196624929710167}, {"neuron_x_mouse": "m3bayes0", "i_trial": 0, "neuron": "0", "mouse_code": 3, "stim": 1, "neuron_code": 24, "mouse": "m3bayes", "log_firing_rate": 1.7838501444746344, "Firing rate": 60.79251973947953, "firing_rate": 60.79251973947953, "i_spike": 53.0, "isi": 0.06446163451500303}, {"neuron_x_mouse": "m3bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 3, "stim": 0, "neuron_code": 24, "mouse": "m3bayes", "log_firing_rate": 1.5353289769527314, "Firing rate": 34.30275306282375, "firing_rate": 34.30275306282375, "i_spike": 30.0, "isi": 0.11799262684200806}, {"neuron_x_mouse": "m3bayes0", "i_trial": 1, "neuron": "0", "mouse_code": 3, "stim": 1, "neuron_code": 24, "mouse": "m3bayes", "log_firing_rate": 2.006069448706939, "Firing rate": 101.40735348497785, "firing_rate": 101.40735348497785, "i_spike": 46.5, "isi": 0.07511238878887116}, {"neuron_x_mouse": "m3bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 3, "stim": 0, "neuron_code": 25, "mouse": "m3bayes", "log_firing_rate": 1.7920848808863363, "Firing rate": 61.95621538566139, "firing_rate": 61.95621538566139, "i_spike": 54.5, "isi": 0.0640837642063824}, {"neuron_x_mouse": "m3bayes1", "i_trial": 0, "neuron": "1", "mouse_code": 3, "stim": 1, "neuron_code": 25, "mouse": "m3bayes", "log_firing_rate": 2.2845812437130353, "Firing rate": 192.56672470402054, "firing_rate": 192.56672470402054, "i_spike": 53.5, "isi": 0.06476724014578311}, {"neuron_x_mouse": "m3bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 3, "stim": 0, "neuron_code": 25, "mouse": "m3bayes", "log_firing_rate": 1.8529950000048523, "Firing rate": 71.28448231579202, "firing_rate": 71.28448231579202, "i_spike": 42.0, "isi": 0.0831872649457881}, {"neuron_x_mouse": "m3bayes1", "i_trial": 1, "neuron": "1", "mouse_code": 3, "stim": 1, "neuron_code": 25, "mouse": "m3bayes", "log_firing_rate": 1.5852180975740104, "Firing rate": 38.47849680126545, "firing_rate": 38.47849680126545, "i_spike": 42.0, "isi": 0.08120620865656249}, {"neuron_x_mouse": "m3bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 3, "stim": 0, "neuron_code": 26, "mouse": "m3bayes", "log_firing_rate": 2.0957463362221613, "Firing rate": 124.66551521768993, "firing_rate": 124.66551521768993, "i_spike": 47.5, "isi": 0.07226412666648874}, {"neuron_x_mouse": "m3bayes2", "i_trial": 0, "neuron": "2", "mouse_code": 3, "stim": 1, "neuron_code": 26, "mouse": "m3bayes", "log_firing_rate": 1.8813980646884907, "Firing rate": 76.1023494618211, "firing_rate": 76.1023494618211, "i_spike": 50.0, "isi": 0.06820915961439256}, {"neuron_x_mouse": "m3bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 3, "stim": 0, "neuron_code": 26, "mouse": "m3bayes", "log_firing_rate": 1.6916795244290945, "Firing rate": 49.167658268127425, "firing_rate": 49.167658268127425, "i_spike": 40.5, "isi": 0.08686804514752315}, {"neuron_x_mouse": "m3bayes2", "i_trial": 1, "neuron": "2", "mouse_code": 3, "stim": 1, "neuron_code": 26, "mouse": "m3bayes", "log_firing_rate": 1.81298871042286, "Firing rate": 65.01127903036011, "firing_rate": 65.01127903036011, "i_spike": 44.5, "isi": 0.07675780598632621}, {"neuron_x_mouse": "m3bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 3, "stim": 0, "neuron_code": 27, "mouse": "m3bayes", "log_firing_rate": 1.7082153250569163, "Firing rate": 51.07581732893266, "firing_rate": 51.07581732893266, "i_spike": 53.5, "isi": 0.06576384126740549}, {"neuron_x_mouse": "m3bayes3", "i_trial": 0, "neuron": "3", "mouse_code": 3, "stim": 1, "neuron_code": 27, "mouse": "m3bayes", "log_firing_rate": 1.7805204587274068, "Firing rate": 60.328212664797114, "firing_rate": 60.328212664797114, "i_spike": 60.5, "isi": 0.05689204385752178}, {"neuron_x_mouse": "m3bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 3, "stim": 0, "neuron_code": 27, "mouse": "m3bayes", "log_firing_rate": 2.1154755983530418, "Firing rate": 130.45946654916168, "firing_rate": 130.45946654916168, "i_spike": 50.5, "isi": 0.06888962103430223}, {"neuron_x_mouse": "m3bayes3", "i_trial": 1, "neuron": "3", "mouse_code": 3, "stim": 1, "neuron_code": 27, "mouse": "m3bayes", "log_firing_rate": 1.6928377308225533, "Firing rate": 49.29895696113462, "firing_rate": 49.29895696113462, "i_spike": 56.0, "isi": 0.06286367302803599}, {"neuron_x_mouse": "m3bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 3, "stim": 0, "neuron_code": 28, "mouse": "m3bayes", "log_firing_rate": 2.059664296602797, "Firing rate": 114.7266458163618, "firing_rate": 114.7266458163618, "i_spike": 61.5, "isi": 0.05729100515434446}, {"neuron_x_mouse": "m3bayes4", "i_trial": 0, "neuron": "4", "mouse_code": 3, "stim": 1, "neuron_code": 28, "mouse": "m3bayes", "log_firing_rate": 3.0735723691590606, "Firing rate": 1184.6017480221192, "firing_rate": 1184.6017480221192, "i_spike": 58.5, "isi": 0.05989782731067191}, {"neuron_x_mouse": "m3bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 3, "stim": 0, "neuron_code": 28, "mouse": "m3bayes", "log_firing_rate": 1.9619760930754904, "Firing rate": 91.61700556538334, "firing_rate": 91.61700556538334, "i_spike": 65.5, "isi": 0.05370977457226827}, {"neuron_x_mouse": "m3bayes4", "i_trial": 1, "neuron": "4", "mouse_code": 3, "stim": 1, "neuron_code": 28, "mouse": "m3bayes", "log_firing_rate": 2.1309537173345685, "Firing rate": 135.19284808023224, "firing_rate": 135.19284808023224, "i_spike": 70.0, "isi": 0.04979437126508585}, {"neuron_x_mouse": "m3bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 3, "stim": 0, "neuron_code": 29, "mouse": "m3bayes", "log_firing_rate": 2.05840276415063, "Firing rate": 114.39387303338674, "firing_rate": 114.39387303338674, "i_spike": 54.5, "isi": 0.06438508903082953}, {"neuron_x_mouse": "m3bayes5", "i_trial": 0, "neuron": "5", "mouse_code": 3, "stim": 1, "neuron_code": 29, "mouse": "m3bayes", "log_firing_rate": 1.9303301137219733, "Firing rate": 85.17852468824661, "firing_rate": 85.17852468824661, "i_spike": 43.0, "isi": 0.08107687358363688}, {"neuron_x_mouse": "m3bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 3, "stim": 0, "neuron_code": 29, "mouse": "m3bayes", "log_firing_rate": 2.3496310390929325, "Firing rate": 223.68200096211064, "firing_rate": 223.68200096211064, "i_spike": 61.0, "isi": 0.057451986443825584}, {"neuron_x_mouse": "m3bayes5", "i_trial": 1, "neuron": "5", "mouse_code": 3, "stim": 1, "neuron_code": 29, "mouse": "m3bayes", "log_firing_rate": 1.8263045669122584, "Firing rate": 67.03545583858435, "firing_rate": 67.03545583858435, "i_spike": 56.0, "isi": 0.06245123294850512}, {"neuron_x_mouse": "m3bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 3, "stim": 0, "neuron_code": 30, "mouse": "m3bayes", "log_firing_rate": 1.8958056847551192, "Firing rate": 78.66937226226948, "firing_rate": 78.66937226226948, "i_spike": 63.0, "isi": 0.05537520310142631}, {"neuron_x_mouse": "m3bayes6", "i_trial": 0, "neuron": "6", "mouse_code": 3, "stim": 1, "neuron_code": 30, "mouse": "m3bayes", "log_firing_rate": 2.054454441061525, "Firing rate": 113.35859149275699, "firing_rate": 113.35859149275699, "i_spike": 66.5, "isi": 0.05271579187016863}, {"neuron_x_mouse": "m3bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 3, "stim": 0, "neuron_code": 30, "mouse": "m3bayes", "log_firing_rate": 2.6960142215672462, "Firing rate": 496.6085833118649, "firing_rate": 496.6085833118649, "i_spike": 59.0, "isi": 0.05872299617879447}, {"neuron_x_mouse": "m3bayes6", "i_trial": 1, "neuron": "6", "mouse_code": 3, "stim": 1, "neuron_code": 30, "mouse": "m3bayes", "log_firing_rate": 2.826695872454125, "Firing rate": 670.9588296216779, "firing_rate": 670.9588296216779, "i_spike": 73.0, "isi": 0.04770316525180011}, {"neuron_x_mouse": "m3bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 3, "stim": 0, "neuron_code": 31, "mouse": "m3bayes", "log_firing_rate": 1.9298215921362556, "Firing rate": 85.07884631102203, "firing_rate": 85.07884631102203, "i_spike": 78.5, "isi": 0.044395307476618275}, {"neuron_x_mouse": "m3bayes7", "i_trial": 0, "neuron": "7", "mouse_code": 3, "stim": 1, "neuron_code": 31, "mouse": "m3bayes", "log_firing_rate": 1.9025554657044932, "Firing rate": 79.90159810812834, "firing_rate": 79.90159810812834, "i_spike": 68.5, "isi": 0.05098464961900595}, {"neuron_x_mouse": "m3bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 3, "stim": 0, "neuron_code": 31, "mouse": "m3bayes", "log_firing_rate": 2.083038541876402, "Firing rate": 121.07055739993669, "firing_rate": 121.07055739993669, "i_spike": 77.5, "isi": 0.04497952380104444}, {"neuron_x_mouse": "m3bayes7", "i_trial": 1, "neuron": "7", "mouse_code": 3, "stim": 1, "neuron_code": 31, "mouse": "m3bayes", "log_firing_rate": 1.941722396324934, "Firing rate": 87.44246589892265, "firing_rate": 87.44246589892265, "i_spike": 63.5, "isi": 0.054987166433223274}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./neurons_example"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/nbclient/client.py", line 1093, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/nbclient/client.py", line 560, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/nbclient/client.py", line 854, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/nbclient/client.py", line 756, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# HIDE CODE
+
+with pm.Model() as pooled_model:
+    a = pm.Normal('a', 0., sigma=10., shape=2)
+    
+    theta = a[no_stim]
+    sigma = pm.Exponential('sigma', 1.)
+    
+    y = pm.Normal('y', theta, sigma=sigma, observed=log_firingrate)
+    
+pm.model_to_graphviz(pooled_model)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/model_graph.py[0m in [0;36mmake_graph[0;34m(self, formatting)[0m
+[1;32m    192[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 193[0;31m             [0;32mimport[0m [0mgraphviz[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    194[0m         [0;32mexcept[0m [0mImportError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'graphviz'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m/tmp/ipykernel_2264/33381179.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m     [0my[0m [0;34m=[0m [0mpm[0m[0;34m.[0m[0mNormal[0m[0;34m([0m[0;34m'y'[0m[0;34m,[0m [0mtheta[0m[0;34m,[0m [0msigma[0m[0;34m=[0m[0msigma[0m[0;34m,[0m [0mobserved[0m[0;34m=[0m[0mlog_firingrate[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0mpm[0m[0;34m.[0m[0mmodel_to_graphviz[0m[0;34m([0m[0mpooled_model[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/model_graph.py[0m in [0;36mmodel_to_graphviz[0;34m(model, formatting)[0m
+[1;32m    241[0m         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34mf"Unsupported formatting for graph nodes: '{formatting}'. See docstring."[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    242[0m     [0mmodel[0m [0;34m=[0m [0mpm[0m[0;34m.[0m[0mmodelcontext[0m[0;34m([0m[0mmodel[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 243[0;31m     [0;32mreturn[0m [0mModelGraph[0m[0;34m([0m[0mmodel[0m[0;34m)[0m[0;34m.[0m[0mmake_graph[0m[0;34m([0m[0mformatting[0m[0;34m=[0m[0mformatting[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/model_graph.py[0m in [0;36mmake_graph[0;34m(self, formatting)[0m
+[1;32m    194[0m         [0;32mexcept[0m [0mImportError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    195[0m             raise ImportError(
+[0;32m--> 196[0;31m                 [0;34m"This function requires the python library graphviz, along with binaries. "[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    197[0m                 [0;34m"The easiest way to install all of this is by running\n\n"[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    198[0m                 [0;34m"\tconda install -c conda-forge python-graphviz"[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mImportError[0m: This function requires the python library graphviz, along with binaries. The easiest way to install all of this is by running
+
+	conda install -c conda-forge python-graphviz
+ImportError: This function requires the python library graphviz, along with binaries. The easiest way to install all of this is by running
+
+	conda install -c conda-forge python-graphviz
+

@@ -1,0 +1,2376 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linear mixed effects &#8212; My sample book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/neurons_example/lme.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fneurons_example/lme.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/neurons_example/lme.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lfp">
+   LFP
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#with-data-overlay">
+   With data overlay
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spikes">
+   Spikes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#group-slope">
+     Group slope
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorical">
+     Categorical
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nested">
+     Nested
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="linear-mixed-effects">
+<h1>Linear mixed effects<a class="headerlink" href="#linear-mixed-effects" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">BayesWindow</span>
+<span class="kn">from</span> <span class="nn">bayes_window.generative_models</span> <span class="kn">import</span> <span class="n">generate_fake_spikes</span><span class="p">,</span> <span class="n">generate_fake_lfp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2361</span><span class="o">/</span><span class="mf">3939579523.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">BayesWindow</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">bayes_window.generative_models</span> <span class="kn">import</span> <span class="n">generate_fake_spikes</span><span class="p">,</span> <span class="n">generate_fake_lfp</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;bayes_window&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">,</span> <span class="n">df_monster</span><span class="p">,</span> <span class="n">index_cols</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">generate_fake_lfp</span><span class="p">(</span><span class="n">mouse_response_slope</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+                                                 <span class="n">n_trials</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lfp">
+<h2>LFP<a class="headerlink" href="#lfp" title="Permalink to this headline">¶</a></h2>
+<p>Without data overlay</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span> <span class="o">=</span> <span class="n">BayesWindow</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Log power&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">)</span>
+<span class="n">bw</span><span class="o">.</span><span class="n">fit_lme</span><span class="p">(</span><span class="n">add_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">bw</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+
+
+<span class="n">bw</span><span class="o">.</span><span class="n">posterior</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+  
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById(null);
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error(url) {
+      console.error("failed to load " + url);
+    }
+
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js": "HjagQp6T0/7bxYTAXbLotF1MLAGWmhkY5siA1Gc/pcEgvgRPtMsRn0gQtMwGKiw1", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js": "ZEPPTjL+mdyqgIq+/pl9KTwzji8Kow2NnI3zWY8+sFinWP/SYJ80BnfeJsa45iYj", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js": "exLqv2ACDRIaV7ZK1iL8aGzGYQvKVuT3U2CT7FsQREBxRah6JrkVCoFy0koY1YqV"};
+
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js"];
+  var css_urls = [];
+  
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+    
+    
+    }
+  ];
+
+  function run_inline_js() {
+    
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula Log_power ~  C(stim, Treatment) + (1 | mouse)
+                         Coef. Std.Err.       z  P&gt;|z| [0.025 0.975]
+Intercept                1.849    0.059  31.231  0.000  1.733  1.965
+C(stim, Treatment)[T.1]  0.116    0.024   4.732  0.000  0.068  0.164
+1 | mouse                0.068    0.013   5.376  0.000  0.043  0.093
+Group Var                0.005    0.012                             
+</pre></div>
+</div>
+<div class="output text_html">
+<div id="altair-viz-73aa32c09f994c06a6aa5e2396032fbf"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-73aa32c09f994c06a6aa5e2396032fbf") {
+      outputDiv = document.getElementById("altair-viz-73aa32c09f994c06a6aa5e2396032fbf");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "size": 2}, "encoding": {"x": {"type": "ordinal", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [0, 0.164], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "bar", "color": "black", "filled": false, "opacity": 1, "size": 17}, "encoding": {"x": {"type": "ordinal", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [0, 0.164], "zero": true}, "title": "\u0394 Log_power"}}}, {"mark": {"type": "rule", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [0, 0.164], "zero": true}}}}], "data": {"name": "data-fe82df687104b641edacbf8bb293611d"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-fe82df687104b641edacbf8bb293611d": [{"index": "C(stim, Treatment)[T.1]", "center interval": 0.116, "Std.Err.": 0.024, "z": 4.732, "p": 0.0, "higher interval": 0.068, "lower interval": 0.164, "zero": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</div>
+<div class="section" id="with-data-overlay">
+<h2>With data overlay<a class="headerlink" href="#with-data-overlay" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span> <span class="o">=</span> <span class="n">BayesWindow</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Log power&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">bw</span><span class="o">.</span><span class="n">fit_lme</span><span class="p">(</span><span class="n">add_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">do_make_change</span><span class="o">=</span><span class="s1">&#39;subtract&#39;</span><span class="p">);</span>
+    <span class="n">bw</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>    
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Not implemented&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+  
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById(null);
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error(url) {
+      console.error("failed to load " + url);
+    }
+
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js": "HjagQp6T0/7bxYTAXbLotF1MLAGWmhkY5siA1Gc/pcEgvgRPtMsRn0gQtMwGKiw1", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js": "ZEPPTjL+mdyqgIq+/pl9KTwzji8Kow2NnI3zWY8+sFinWP/SYJ80BnfeJsa45iYj", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js": "exLqv2ACDRIaV7ZK1iL8aGzGYQvKVuT3U2CT7FsQREBxRah6JrkVCoFy0koY1YqV"};
+
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js"];
+  var css_urls = [];
+  
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+    
+    
+    }
+  ];
+
+  function run_inline_js() {
+    
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula Log_power ~  C(stim, Treatment) + (1 | mouse)
+                         Coef. Std.Err.       z  P&gt;|z| [0.025 0.975]
+Intercept                1.849    0.059  31.231  0.000  1.733  1.965
+C(stim, Treatment)[T.1]  0.116    0.024   4.732  0.000  0.068  0.164
+1 | mouse                0.068    0.013   5.376  0.000  0.043  0.093
+Group Var                0.005    0.012                             
+
+Not implemented
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="spikes">
+<h2>Spikes<a class="headerlink" href="#spikes" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">,</span> <span class="n">df_monster</span><span class="p">,</span> <span class="n">index_cols</span><span class="p">,</span> <span class="n">firing_rates</span> <span class="o">=</span> <span class="n">generate_fake_spikes</span><span class="p">(</span><span class="n">n_trials</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                                                                <span class="n">n_neurons</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+                                                                <span class="n">n_mice</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                                                <span class="n">dur</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                                                               <span class="n">mouse_response_slope</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+                                                               <span class="n">overall_stim_response_strength</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;log_isi&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;isi&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span> <span class="o">=</span> <span class="n">BayesWindow</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;log_isi&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;neuron_x_mouse&#39;</span><span class="p">],</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,)</span>
+<span class="n">bw</span><span class="o">.</span><span class="n">fit_lme</span><span class="p">(</span><span class="n">add_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">add_group_slope</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+  
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById(null);
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error(url) {
+      console.error("failed to load " + url);
+    }
+
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js": "HjagQp6T0/7bxYTAXbLotF1MLAGWmhkY5siA1Gc/pcEgvgRPtMsRn0gQtMwGKiw1", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js": "ZEPPTjL+mdyqgIq+/pl9KTwzji8Kow2NnI3zWY8+sFinWP/SYJ80BnfeJsa45iYj", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js": "exLqv2ACDRIaV7ZK1iL8aGzGYQvKVuT3U2CT7FsQREBxRah6JrkVCoFy0koY1YqV"};
+
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js"];
+  var css_urls = [];
+  
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+    
+    
+    }
+  ];
+
+  function run_inline_js() {
+    
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula log_isi ~ (1|mouse) + stim| neuron_x_mouse__0 + stim|neuron_x_mouse__1 + stim|neuron_x_mouse__2 + stim|neuron_x_mouse__3 + stim|neuron_x_mouse__4 + stim|neuron_x_mouse__5 + stim|neuron_x_mouse__6 + stim|neuron_x_mouse__7 + stim|neuron_x_mouse__8 + stim|neuron_x_mouse__9 + stim|neuron_x_mouse__10 + stim|neuron_x_mouse__11 + stim|neuron_x_mouse__12 + stim|neuron_x_mouse__13 + stim|neuron_x_mouse__14 + stim|neuron_x_mouse__15 + stim|neuron_x_mouse__16 + stim|neuron_x_mouse__17
+                            Coef. Std.Err.        z  P&gt;|z|  [0.025  0.975]
+Intercept                  -1.054    0.124   -8.526  0.000  -1.296  -0.811
+1 | mouse                  -0.074    0.065   -1.150  0.250  -0.201   0.052
+stim | neuron_x_mouse__0   -0.035    0.020   -1.801  0.072  -0.074   0.003
+stim | neuron_x_mouse__1   -0.056    0.020   -2.857  0.004  -0.095  -0.018
+stim | neuron_x_mouse__2   -0.092    0.020   -4.694  0.000  -0.131  -0.054
+stim | neuron_x_mouse__3   -0.148    0.020   -7.538  0.000  -0.186  -0.109
+stim | neuron_x_mouse__4   -0.182    0.020   -9.267  0.000  -0.220  -0.143
+stim | neuron_x_mouse__5   -0.258    0.020  -13.137  0.000  -0.296  -0.219
+stim | neuron_x_mouse__6    0.119    0.020    6.053  0.000   0.080   0.157
+stim | neuron_x_mouse__7    0.074    0.020    3.753  0.000   0.035   0.112
+stim | neuron_x_mouse__8    0.040    0.020    2.040  0.041   0.002   0.078
+stim | neuron_x_mouse__9   -0.009    0.020   -0.484  0.629  -0.048   0.029
+stim | neuron_x_mouse__10  -0.068    0.020   -3.489  0.000  -0.107  -0.030
+stim | neuron_x_mouse__11  -0.106    0.020   -5.394  0.000  -0.144  -0.067
+stim | neuron_x_mouse__12   0.190    0.020    9.669  0.000   0.151   0.228
+stim | neuron_x_mouse__13   0.151    0.020    7.704  0.000   0.113   0.190
+stim | neuron_x_mouse__14   0.133    0.020    6.790  0.000   0.095   0.172
+stim | neuron_x_mouse__15   0.081    0.020    4.132  0.000   0.043   0.119
+stim | neuron_x_mouse__16   0.016    0.020    0.823  0.410  -0.022   0.055
+stim | neuron_x_mouse__17  -0.025    0.020   -1.264  0.206  -0.063   0.014
+Group Var                   0.011    0.183                                
+Please use window.regression_charts(): mouse is not in Index([&#39;neuron_x_mouse&#39;, &#39;center interval&#39;, &#39;Std.Err.&#39;, &#39;z&#39;, &#39;p&#39;,
+       &#39;higher interval&#39;, &#39;lower interval&#39;, &#39;zero&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span><span class="o">.</span><span class="n">chart</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-2104344407c34e95a89d83beefbc44a6"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-2104344407c34e95a89d83beefbc44a6") {
+      outputDiv = document.getElementById("altair-viz-2104344407c34e95a89d83beefbc44a6");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "size": 2}, "encoding": {"x": {"type": "ordinal", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.219, 0.151], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": true}, "encoding": {"x": {"type": "ordinal", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.219, 0.151], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "rule", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.219, 0.151], "zero": true}}}}], "data": {"name": "data-744c59d92df977fa34f20f0ed58e12d8"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-744c59d92df977fa34f20f0ed58e12d8": [{"neuron_x_mouse": 0, "center interval": -0.035, "Std.Err.": 0.02, "z": -1.801, "p": 0.072, "higher interval": -0.074, "lower interval": 0.003, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.056, "Std.Err.": 0.02, "z": -2.857, "p": 0.004, "higher interval": -0.095, "lower interval": -0.018, "zero": 0}, {"neuron_x_mouse": 2, "center interval": -0.092, "Std.Err.": 0.02, "z": -4.694, "p": 0.0, "higher interval": -0.131, "lower interval": -0.054, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.148, "Std.Err.": 0.02, "z": -7.538, "p": 0.0, "higher interval": -0.186, "lower interval": -0.109, "zero": 0}, {"neuron_x_mouse": 4, "center interval": -0.182, "Std.Err.": 0.02, "z": -9.267, "p": 0.0, "higher interval": -0.22, "lower interval": -0.143, "zero": 0}, {"neuron_x_mouse": 5, "center interval": -0.258, "Std.Err.": 0.02, "z": -13.137, "p": 0.0, "higher interval": -0.296, "lower interval": -0.219, "zero": 0}, {"neuron_x_mouse": 6, "center interval": 0.119, "Std.Err.": 0.02, "z": 6.053, "p": 0.0, "higher interval": 0.08, "lower interval": 0.157, "zero": 0}, {"neuron_x_mouse": 7, "center interval": 0.074, "Std.Err.": 0.02, "z": 3.753, "p": 0.0, "higher interval": 0.035, "lower interval": 0.112, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.04, "Std.Err.": 0.02, "z": 2.04, "p": 0.041, "higher interval": 0.002, "lower interval": 0.078, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.009, "Std.Err.": 0.02, "z": -0.484, "p": 0.629, "higher interval": -0.048, "lower interval": 0.029, "zero": 0}, {"neuron_x_mouse": 10, "center interval": -0.068, "Std.Err.": 0.02, "z": -3.489, "p": 0.0, "higher interval": -0.107, "lower interval": -0.03, "zero": 0}, {"neuron_x_mouse": 11, "center interval": -0.106, "Std.Err.": 0.02, "z": -5.394, "p": 0.0, "higher interval": -0.144, "lower interval": -0.067, "zero": 0}, {"neuron_x_mouse": 12, "center interval": 0.19, "Std.Err.": 0.02, "z": 9.669, "p": 0.0, "higher interval": 0.151, "lower interval": 0.228, "zero": 0}, {"neuron_x_mouse": 13, "center interval": 0.151, "Std.Err.": 0.02, "z": 7.704, "p": 0.0, "higher interval": 0.113, "lower interval": 0.19, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.133, "Std.Err.": 0.02, "z": 6.79, "p": 0.0, "higher interval": 0.095, "lower interval": 0.172, "zero": 0}, {"neuron_x_mouse": 15, "center interval": 0.081, "Std.Err.": 0.02, "z": 4.132, "p": 0.0, "higher interval": 0.043, "lower interval": 0.119, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.016, "Std.Err.": 0.02, "z": 0.823, "p": 0.41, "higher interval": -0.022, "lower interval": 0.055, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.025, "Std.Err.": 0.02, "z": -1.264, "p": 0.206, "higher interval": -0.063, "lower interval": 0.014, "zero": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="o">*</span><span class="n">bw</span><span class="o">.</span><span class="n">charts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-025b3bbed60e40a0a83ed56d3bb65321"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-025b3bbed60e40a0a83ed56d3bb65321") {
+      outputDiv = document.getElementById("altair-viz-025b3bbed60e40a0a83ed56d3bb65321");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "size": 2}, "encoding": {"x": {"type": "ordinal", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.219, 0.151], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": true}, "encoding": {"x": {"type": "ordinal", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.219, 0.151], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "rule", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.219, 0.151], "zero": true}}}}], "data": {"name": "data-744c59d92df977fa34f20f0ed58e12d8"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-744c59d92df977fa34f20f0ed58e12d8": [{"neuron_x_mouse": 0, "center interval": -0.035, "Std.Err.": 0.02, "z": -1.801, "p": 0.072, "higher interval": -0.074, "lower interval": 0.003, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.056, "Std.Err.": 0.02, "z": -2.857, "p": 0.004, "higher interval": -0.095, "lower interval": -0.018, "zero": 0}, {"neuron_x_mouse": 2, "center interval": -0.092, "Std.Err.": 0.02, "z": -4.694, "p": 0.0, "higher interval": -0.131, "lower interval": -0.054, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.148, "Std.Err.": 0.02, "z": -7.538, "p": 0.0, "higher interval": -0.186, "lower interval": -0.109, "zero": 0}, {"neuron_x_mouse": 4, "center interval": -0.182, "Std.Err.": 0.02, "z": -9.267, "p": 0.0, "higher interval": -0.22, "lower interval": -0.143, "zero": 0}, {"neuron_x_mouse": 5, "center interval": -0.258, "Std.Err.": 0.02, "z": -13.137, "p": 0.0, "higher interval": -0.296, "lower interval": -0.219, "zero": 0}, {"neuron_x_mouse": 6, "center interval": 0.119, "Std.Err.": 0.02, "z": 6.053, "p": 0.0, "higher interval": 0.08, "lower interval": 0.157, "zero": 0}, {"neuron_x_mouse": 7, "center interval": 0.074, "Std.Err.": 0.02, "z": 3.753, "p": 0.0, "higher interval": 0.035, "lower interval": 0.112, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.04, "Std.Err.": 0.02, "z": 2.04, "p": 0.041, "higher interval": 0.002, "lower interval": 0.078, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.009, "Std.Err.": 0.02, "z": -0.484, "p": 0.629, "higher interval": -0.048, "lower interval": 0.029, "zero": 0}, {"neuron_x_mouse": 10, "center interval": -0.068, "Std.Err.": 0.02, "z": -3.489, "p": 0.0, "higher interval": -0.107, "lower interval": -0.03, "zero": 0}, {"neuron_x_mouse": 11, "center interval": -0.106, "Std.Err.": 0.02, "z": -5.394, "p": 0.0, "higher interval": -0.144, "lower interval": -0.067, "zero": 0}, {"neuron_x_mouse": 12, "center interval": 0.19, "Std.Err.": 0.02, "z": 9.669, "p": 0.0, "higher interval": 0.151, "lower interval": 0.228, "zero": 0}, {"neuron_x_mouse": 13, "center interval": 0.151, "Std.Err.": 0.02, "z": 7.704, "p": 0.0, "higher interval": 0.113, "lower interval": 0.19, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.133, "Std.Err.": 0.02, "z": 6.79, "p": 0.0, "higher interval": 0.095, "lower interval": 0.172, "zero": 0}, {"neuron_x_mouse": 15, "center interval": 0.081, "Std.Err.": 0.02, "z": 4.132, "p": 0.0, "higher interval": 0.043, "lower interval": 0.119, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.016, "Std.Err.": 0.02, "z": 0.823, "p": 0.41, "higher interval": -0.022, "lower interval": 0.055, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.025, "Std.Err.": 0.02, "z": -1.264, "p": 0.206, "higher interval": -0.063, "lower interval": 0.014, "zero": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="section" id="group-slope">
+<h3>Group slope<a class="headerlink" href="#group-slope" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span> <span class="o">=</span> <span class="n">BayesWindow</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;log_isi&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;neuron_x_mouse&#39;</span><span class="p">],</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,)</span>
+<span class="n">bw</span><span class="o">.</span><span class="n">fit_lme</span><span class="p">(</span><span class="n">add_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">add_group_slope</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+  
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById(null);
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error(url) {
+      console.error("failed to load " + url);
+    }
+
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js": "HjagQp6T0/7bxYTAXbLotF1MLAGWmhkY5siA1Gc/pcEgvgRPtMsRn0gQtMwGKiw1", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js": "ZEPPTjL+mdyqgIq+/pl9KTwzji8Kow2NnI3zWY8+sFinWP/SYJ80BnfeJsa45iYj", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js": "exLqv2ACDRIaV7ZK1iL8aGzGYQvKVuT3U2CT7FsQREBxRah6JrkVCoFy0koY1YqV"};
+
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js"];
+  var css_urls = [];
+  
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+    
+    
+    }
+  ];
+
+  function run_inline_js() {
+    
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula log_isi ~ (stim|mouse)  + stim| neuron_x_mouse__0 + stim|neuron_x_mouse__1 + stim|neuron_x_mouse__2 + stim|neuron_x_mouse__3 + stim|neuron_x_mouse__4 + stim|neuron_x_mouse__5 + stim|neuron_x_mouse__6 + stim|neuron_x_mouse__7 + stim|neuron_x_mouse__8 + stim|neuron_x_mouse__9 + stim|neuron_x_mouse__10 + stim|neuron_x_mouse__11 + stim|neuron_x_mouse__12 + stim|neuron_x_mouse__13 + stim|neuron_x_mouse__14 + stim|neuron_x_mouse__15 + stim|neuron_x_mouse__16 + stim|neuron_x_mouse__17
+                            Coef. Std.Err.        z  P&gt;|z|  [0.025  0.975]
+Intercept                  -1.106    0.087  -12.731  0.000  -1.276  -0.936
+stim | mouse               -0.074    0.065   -1.150  0.250  -0.201   0.052
+stim | neuron_x_mouse__0   -0.057    0.027   -2.082  0.037  -0.111  -0.003
+stim | neuron_x_mouse__1   -0.078    0.027   -2.836  0.005  -0.132  -0.024
+stim | neuron_x_mouse__2   -0.114    0.027   -4.148  0.000  -0.168  -0.060
+stim | neuron_x_mouse__3   -0.170    0.027   -6.180  0.000  -0.224  -0.116
+stim | neuron_x_mouse__4   -0.204    0.027   -7.416  0.000  -0.257  -0.150
+stim | neuron_x_mouse__5   -0.280    0.027  -10.180  0.000  -0.333  -0.226
+stim | neuron_x_mouse__6    0.171    0.049    3.466  0.001   0.074   0.268
+stim | neuron_x_mouse__7    0.126    0.049    2.552  0.011   0.029   0.223
+stim | neuron_x_mouse__8    0.092    0.049    1.871  0.061  -0.004   0.189
+stim | neuron_x_mouse__9    0.043    0.049    0.868  0.385  -0.054   0.140
+stim | neuron_x_mouse__10  -0.016    0.049   -0.326  0.745  -0.113   0.081
+stim | neuron_x_mouse__11  -0.053    0.049   -1.083  0.279  -0.150   0.043
+stim | neuron_x_mouse__12   0.168    0.027    6.224  0.000   0.115   0.221
+stim | neuron_x_mouse__13   0.129    0.027    4.795  0.000   0.076   0.182
+stim | neuron_x_mouse__14   0.111    0.027    4.130  0.000   0.059   0.164
+stim | neuron_x_mouse__15   0.059    0.027    2.197  0.028   0.006   0.112
+stim | neuron_x_mouse__16  -0.006    0.027   -0.210  0.833  -0.059   0.047
+stim | neuron_x_mouse__17  -0.047    0.027   -1.728  0.084  -0.099   0.006
+Group Var                   0.011    0.183                                
+Please use window.regression_charts(): mouse is not in Index([&#39;neuron_x_mouse&#39;, &#39;center interval&#39;, &#39;Std.Err.&#39;, &#39;z&#39;, &#39;p&#39;,
+       &#39;higher interval&#39;, &#39;lower interval&#39;, &#39;zero&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bayes_window.workflow.BayesWindow at 0x7fd18e7a6b80&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span><span class="o">.</span><span class="n">chart</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-f3448a9f82f14e1e9b298caddf693a41"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-f3448a9f82f14e1e9b298caddf693a41") {
+      outputDiv = document.getElementById("altair-viz-f3448a9f82f14e1e9b298caddf693a41");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "size": 2}, "encoding": {"x": {"type": "ordinal", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.226, 0.115], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": true}, "encoding": {"x": {"type": "ordinal", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.226, 0.115], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "rule", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.226, 0.115], "zero": true}}}}], "data": {"name": "data-c01e06e72c10f502d7206bd5d20c3756"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-c01e06e72c10f502d7206bd5d20c3756": [{"neuron_x_mouse": 0, "center interval": -0.057, "Std.Err.": 0.027, "z": -2.082, "p": 0.037, "higher interval": -0.111, "lower interval": -0.003, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.078, "Std.Err.": 0.027, "z": -2.836, "p": 0.005, "higher interval": -0.132, "lower interval": -0.024, "zero": 0}, {"neuron_x_mouse": 2, "center interval": -0.114, "Std.Err.": 0.027, "z": -4.148, "p": 0.0, "higher interval": -0.168, "lower interval": -0.06, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.17, "Std.Err.": 0.027, "z": -6.18, "p": 0.0, "higher interval": -0.224, "lower interval": -0.116, "zero": 0}, {"neuron_x_mouse": 4, "center interval": -0.204, "Std.Err.": 0.027, "z": -7.416, "p": 0.0, "higher interval": -0.257, "lower interval": -0.15, "zero": 0}, {"neuron_x_mouse": 5, "center interval": -0.28, "Std.Err.": 0.027, "z": -10.18, "p": 0.0, "higher interval": -0.333, "lower interval": -0.226, "zero": 0}, {"neuron_x_mouse": 6, "center interval": 0.171, "Std.Err.": 0.049, "z": 3.466, "p": 0.001, "higher interval": 0.074, "lower interval": 0.268, "zero": 0}, {"neuron_x_mouse": 7, "center interval": 0.126, "Std.Err.": 0.049, "z": 2.552, "p": 0.011, "higher interval": 0.029, "lower interval": 0.223, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.092, "Std.Err.": 0.049, "z": 1.871, "p": 0.061, "higher interval": -0.004, "lower interval": 0.189, "zero": 0}, {"neuron_x_mouse": 9, "center interval": 0.043, "Std.Err.": 0.049, "z": 0.868, "p": 0.385, "higher interval": -0.054, "lower interval": 0.14, "zero": 0}, {"neuron_x_mouse": 10, "center interval": -0.016, "Std.Err.": 0.049, "z": -0.326, "p": 0.745, "higher interval": -0.113, "lower interval": 0.081, "zero": 0}, {"neuron_x_mouse": 11, "center interval": -0.053, "Std.Err.": 0.049, "z": -1.083, "p": 0.279, "higher interval": -0.15, "lower interval": 0.043, "zero": 0}, {"neuron_x_mouse": 12, "center interval": 0.168, "Std.Err.": 0.027, "z": 6.224, "p": 0.0, "higher interval": 0.115, "lower interval": 0.221, "zero": 0}, {"neuron_x_mouse": 13, "center interval": 0.129, "Std.Err.": 0.027, "z": 4.795, "p": 0.0, "higher interval": 0.076, "lower interval": 0.182, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.111, "Std.Err.": 0.027, "z": 4.13, "p": 0.0, "higher interval": 0.059, "lower interval": 0.164, "zero": 0}, {"neuron_x_mouse": 15, "center interval": 0.059, "Std.Err.": 0.027, "z": 2.197, "p": 0.028, "higher interval": 0.006, "lower interval": 0.112, "zero": 0}, {"neuron_x_mouse": 16, "center interval": -0.006, "Std.Err.": 0.027, "z": -0.21, "p": 0.833, "higher interval": -0.059, "lower interval": 0.047, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.047, "Std.Err.": 0.027, "z": -1.728, "p": 0.084, "higher interval": -0.099, "lower interval": 0.006, "zero": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span><span class="o">.</span><span class="n">regression_charts</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuron_x_mouse:O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-c49cf3ad1be540b9ab2b5678611c1a2b"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-c49cf3ad1be540b9ab2b5678611c1a2b") {
+      outputDiv = document.getElementById("altair-viz-c49cf3ad1be540b9ab2b5678611c1a2b");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "size": 2}, "encoding": {"x": {"type": "ordinal", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.226, 0.115], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": true}, "encoding": {"x": {"type": "ordinal", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.226, 0.115], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "rule", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.226, 0.115], "zero": true}}}}], "data": {"name": "data-c01e06e72c10f502d7206bd5d20c3756"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-c01e06e72c10f502d7206bd5d20c3756": [{"neuron_x_mouse": 0, "center interval": -0.057, "Std.Err.": 0.027, "z": -2.082, "p": 0.037, "higher interval": -0.111, "lower interval": -0.003, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.078, "Std.Err.": 0.027, "z": -2.836, "p": 0.005, "higher interval": -0.132, "lower interval": -0.024, "zero": 0}, {"neuron_x_mouse": 2, "center interval": -0.114, "Std.Err.": 0.027, "z": -4.148, "p": 0.0, "higher interval": -0.168, "lower interval": -0.06, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.17, "Std.Err.": 0.027, "z": -6.18, "p": 0.0, "higher interval": -0.224, "lower interval": -0.116, "zero": 0}, {"neuron_x_mouse": 4, "center interval": -0.204, "Std.Err.": 0.027, "z": -7.416, "p": 0.0, "higher interval": -0.257, "lower interval": -0.15, "zero": 0}, {"neuron_x_mouse": 5, "center interval": -0.28, "Std.Err.": 0.027, "z": -10.18, "p": 0.0, "higher interval": -0.333, "lower interval": -0.226, "zero": 0}, {"neuron_x_mouse": 6, "center interval": 0.171, "Std.Err.": 0.049, "z": 3.466, "p": 0.001, "higher interval": 0.074, "lower interval": 0.268, "zero": 0}, {"neuron_x_mouse": 7, "center interval": 0.126, "Std.Err.": 0.049, "z": 2.552, "p": 0.011, "higher interval": 0.029, "lower interval": 0.223, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.092, "Std.Err.": 0.049, "z": 1.871, "p": 0.061, "higher interval": -0.004, "lower interval": 0.189, "zero": 0}, {"neuron_x_mouse": 9, "center interval": 0.043, "Std.Err.": 0.049, "z": 0.868, "p": 0.385, "higher interval": -0.054, "lower interval": 0.14, "zero": 0}, {"neuron_x_mouse": 10, "center interval": -0.016, "Std.Err.": 0.049, "z": -0.326, "p": 0.745, "higher interval": -0.113, "lower interval": 0.081, "zero": 0}, {"neuron_x_mouse": 11, "center interval": -0.053, "Std.Err.": 0.049, "z": -1.083, "p": 0.279, "higher interval": -0.15, "lower interval": 0.043, "zero": 0}, {"neuron_x_mouse": 12, "center interval": 0.168, "Std.Err.": 0.027, "z": 6.224, "p": 0.0, "higher interval": 0.115, "lower interval": 0.221, "zero": 0}, {"neuron_x_mouse": 13, "center interval": 0.129, "Std.Err.": 0.027, "z": 4.795, "p": 0.0, "higher interval": 0.076, "lower interval": 0.182, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.111, "Std.Err.": 0.027, "z": 4.13, "p": 0.0, "higher interval": 0.059, "lower interval": 0.164, "zero": 0}, {"neuron_x_mouse": 15, "center interval": 0.059, "Std.Err.": 0.027, "z": 2.197, "p": 0.028, "higher interval": 0.006, "lower interval": 0.112, "zero": 0}, {"neuron_x_mouse": 16, "center interval": -0.006, "Std.Err.": 0.027, "z": -0.21, "p": 0.833, "higher interval": -0.059, "lower interval": 0.047, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.047, "Std.Err.": 0.027, "z": -1.728, "p": 0.084, "higher interval": -0.099, "lower interval": 0.006, "zero": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</div>
+<div class="section" id="categorical">
+<h3>Categorical<a class="headerlink" href="#categorical" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span><span class="o">.</span><span class="n">fit_lme</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;log_isi ~ (1|mouse) + C(stim| neuron_x_mouse)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula log_isi ~ (1|mouse) + C(stim| neuron_x_mouse)
+                                 Coef.    Std.Err.       z  P&gt;|z|  \
+Intercept                       -0.843  159013.244  -0.000  1.000   
+C(stim | neuron_x_mouse)[T.1]   -0.064       0.028  -2.270  0.023   
+C(stim | neuron_x_mouse)[T.2]   -0.057       0.034  -1.652  0.099   
+C(stim | neuron_x_mouse)[T.3]   -0.127       0.028  -4.536  0.000   
+C(stim | neuron_x_mouse)[T.4]   -0.146       0.034  -4.263  0.000   
+C(stim | neuron_x_mouse)[T.5]   -0.208       0.028  -7.414  0.000   
+C(stim | neuron_x_mouse)[T.6]    0.006       0.157   0.035  0.972   
+C(stim | neuron_x_mouse)[T.7]   -0.258       0.156  -1.653  0.098   
+C(stim | neuron_x_mouse)[T.8]   -0.073       0.157  -0.465  0.642   
+C(stim | neuron_x_mouse)[T.9]   -0.222       0.156  -1.422  0.155   
+C(stim | neuron_x_mouse)[T.10]  -0.182       0.157  -1.154  0.249   
+C(stim | neuron_x_mouse)[T.11]  -0.226       0.156  -1.446  0.148   
+C(stim | neuron_x_mouse)[T.12]   0.494  318026.488   0.000  1.000   
+C(stim | neuron_x_mouse)[T.13]   0.126  318026.488   0.000  1.000   
+C(stim | neuron_x_mouse)[T.14]   0.437  318026.488   0.000  1.000   
+C(stim | neuron_x_mouse)[T.15]   0.236  318026.488   0.000  1.000   
+C(stim | neuron_x_mouse)[T.16]   0.320  318026.488   0.000  1.000   
+C(stim | neuron_x_mouse)[T.17]   0.268  318026.488   0.000  1.000   
+1 | mouse                       -0.246  159013.244  -0.000  1.000   
+Group Var                        0.012       2.866                  
+
+                                     [0.025      0.975]  
+Intercept                       -311661.074  311659.388  
+C(stim | neuron_x_mouse)[T.1]        -0.119      -0.009  
+C(stim | neuron_x_mouse)[T.2]        -0.124       0.011  
+C(stim | neuron_x_mouse)[T.3]        -0.182      -0.072  
+C(stim | neuron_x_mouse)[T.4]        -0.214      -0.079  
+C(stim | neuron_x_mouse)[T.5]        -0.263      -0.153  
+C(stim | neuron_x_mouse)[T.6]        -0.303       0.314  
+C(stim | neuron_x_mouse)[T.7]        -0.564       0.048  
+C(stim | neuron_x_mouse)[T.8]        -0.382       0.235  
+C(stim | neuron_x_mouse)[T.9]        -0.528       0.084  
+C(stim | neuron_x_mouse)[T.10]       -0.490       0.127  
+C(stim | neuron_x_mouse)[T.11]       -0.532       0.080  
+C(stim | neuron_x_mouse)[T.12]  -623319.968  623320.956  
+C(stim | neuron_x_mouse)[T.13]  -623320.336  623320.588  
+C(stim | neuron_x_mouse)[T.14]  -623320.025  623320.899  
+C(stim | neuron_x_mouse)[T.15]  -623320.226  623320.698  
+C(stim | neuron_x_mouse)[T.16]  -623320.142  623320.782  
+C(stim | neuron_x_mouse)[T.17]  -623320.194  623320.730  
+1 | mouse                       -311660.477  311659.985  
+Group Var                                                
+Please use window.regression_charts(): mouse is not in Index([&#39;neuron_x_mouse&#39;, &#39;center interval&#39;, &#39;Std.Err.&#39;, &#39;z&#39;, &#39;p&#39;,
+       &#39;higher interval&#39;, &#39;lower interval&#39;, &#39;zero&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bayes_window.workflow.BayesWindow at 0x7fd18e7a6b80&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span><span class="o">.</span><span class="n">regression_charts</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuron_x_mouse:O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-26045c337b134cfb944a1a29f1ddae7b"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-26045c337b134cfb944a1a29f1ddae7b") {
+      outputDiv = document.getElementById("altair-viz-26045c337b134cfb944a1a29f1ddae7b");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "size": 2}, "encoding": {"x": {"type": "ordinal", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.153, 0], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": true}, "encoding": {"x": {"type": "ordinal", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.153, 0], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "rule", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.153, 0], "zero": true}}}}], "data": {"name": "data-68492d3c129a9b4305f382c4980dfb99"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-68492d3c129a9b4305f382c4980dfb99": [{"neuron_x_mouse": 0, "center interval": -0.064, "Std.Err.": 0.028, "z": -2.27, "p": 0.023, "higher interval": -0.119, "lower interval": -0.009, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.057, "Std.Err.": 0.034, "z": -1.652, "p": 0.099, "higher interval": -0.124, "lower interval": 0.011, "zero": 0}, {"neuron_x_mouse": 2, "center interval": -0.127, "Std.Err.": 0.028, "z": -4.536, "p": 0.0, "higher interval": -0.182, "lower interval": -0.072, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.146, "Std.Err.": 0.034, "z": -4.263, "p": 0.0, "higher interval": -0.214, "lower interval": -0.079, "zero": 0}, {"neuron_x_mouse": 4, "center interval": -0.208, "Std.Err.": 0.028, "z": -7.414, "p": 0.0, "higher interval": -0.263, "lower interval": -0.153, "zero": 0}, {"neuron_x_mouse": 5, "center interval": 0.006, "Std.Err.": 0.157, "z": 0.035, "p": 0.972, "higher interval": -0.303, "lower interval": 0.314, "zero": 0}, {"neuron_x_mouse": 6, "center interval": -0.258, "Std.Err.": 0.156, "z": -1.653, "p": 0.098, "higher interval": -0.564, "lower interval": 0.048, "zero": 0}, {"neuron_x_mouse": 7, "center interval": -0.073, "Std.Err.": 0.157, "z": -0.465, "p": 0.642, "higher interval": -0.382, "lower interval": 0.235, "zero": 0}, {"neuron_x_mouse": 8, "center interval": -0.222, "Std.Err.": 0.156, "z": -1.422, "p": 0.155, "higher interval": -0.528, "lower interval": 0.084, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.182, "Std.Err.": 0.157, "z": -1.154, "p": 0.249, "higher interval": -0.49, "lower interval": 0.127, "zero": 0}, {"neuron_x_mouse": 10, "center interval": -0.226, "Std.Err.": 0.156, "z": -1.446, "p": 0.148, "higher interval": -0.532, "lower interval": 0.08, "zero": 0}, {"neuron_x_mouse": 11, "center interval": 0.494, "Std.Err.": 318026.488, "z": 0.0, "p": 1.0, "higher interval": -623319.968, "lower interval": 623320.956, "zero": 0}, {"neuron_x_mouse": 12, "center interval": 0.126, "Std.Err.": 318026.488, "z": 0.0, "p": 1.0, "higher interval": -623320.336, "lower interval": 623320.588, "zero": 0}, {"neuron_x_mouse": 13, "center interval": 0.437, "Std.Err.": 318026.488, "z": 0.0, "p": 1.0, "higher interval": -623320.025, "lower interval": 623320.899, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.236, "Std.Err.": 318026.488, "z": 0.0, "p": 1.0, "higher interval": -623320.226, "lower interval": 623320.698, "zero": 0}, {"neuron_x_mouse": 15, "center interval": 0.32, "Std.Err.": 318026.488, "z": 0.0, "p": 1.0, "higher interval": -623320.142, "lower interval": 623320.782, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.268, "Std.Err.": 318026.488, "z": 0.0, "p": 1.0, "higher interval": -623320.194, "lower interval": 623320.73, "zero": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</div>
+<div class="section" id="nested">
+<h3>Nested<a class="headerlink" href="#nested" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span> <span class="o">=</span> <span class="n">BayesWindow</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;log_isi&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;neuron_x_mouse&#39;</span><span class="p">],</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">bw</span><span class="o">.</span><span class="n">fit_lme</span><span class="p">(</span><span class="n">add_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">add_group_slope</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">add_nested_group</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+  
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById(null);
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error(url) {
+      console.error("failed to load " + url);
+    }
+
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js": "HjagQp6T0/7bxYTAXbLotF1MLAGWmhkY5siA1Gc/pcEgvgRPtMsRn0gQtMwGKiw1", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js": "ZEPPTjL+mdyqgIq+/pl9KTwzji8Kow2NnI3zWY8+sFinWP/SYJ80BnfeJsa45iYj", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js": "exLqv2ACDRIaV7ZK1iL8aGzGYQvKVuT3U2CT7FsQREBxRah6JrkVCoFy0koY1YqV"};
+
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js"];
+  var css_urls = [];
+  
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+    
+    
+    }
+  ];
+
+  function run_inline_js() {
+    
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula log_isi ~ (stim|mouse) + stim| neuron_x_mouse__0:mouse + stim|neuron_x_mouse__1:mouse + stim|neuron_x_mouse__2:mouse + stim|neuron_x_mouse__3:mouse + stim|neuron_x_mouse__4:mouse + stim|neuron_x_mouse__5:mouse + stim|neuron_x_mouse__6:mouse + stim|neuron_x_mouse__7:mouse + stim|neuron_x_mouse__8:mouse + stim|neuron_x_mouse__9:mouse + stim|neuron_x_mouse__10:mouse + stim|neuron_x_mouse__11:mouse + stim|neuron_x_mouse__12:mouse + stim|neuron_x_mouse__13:mouse + stim|neuron_x_mouse__14:mouse + stim|neuron_x_mouse__15:mouse + stim|neuron_x_mouse__16:mouse + stim|neuron_x_mouse__17:mouse
+Singular matrix
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./neurons_example"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
