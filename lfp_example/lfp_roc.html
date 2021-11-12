@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compare to ANOVA and LMM: ROC curve &#8212; My sample book</title>
+    <title>Compare to ANOVA and LMM: ROC curve &#8212; Bayes Window examples</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="LFP example" href="quick_lfp.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="../intro.html" />
+    <link rel="next" title="Neurons example, pt. 1" href="../neurons_example/quickstart.html" />
+    <link rel="prev" title="LFP example with stim strength" href="lfp_stim_strength.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -81,7 +81,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Bayes Window examples</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -97,14 +97,79 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../motivation/metropolis.html">
+   Intuition for maximal likelihood or posterior inference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../radon_example/radon.html">
+   Radon example from Gelman and Hill (2006)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../motivation/multilevel_modeling_lfp.html">
+   Multilevel modeling of LFP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../motivation/multilevel_modeling_neurons.html">
+   Bayesian Methods for Multilevel Modeling of Neurons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="quick_lfp.html">
+   LFP example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lfp_stim_strength.html">
+   LFP example with stim strength
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Compare to ANOVA and LMM: ROC curve
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="quick_lfp.html">
-   LFP example
+  <a class="reference internal" href="../neurons_example/quickstart.html">
+   Neurons example, pt. 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/posteriors.html">
+   Neurons example, no slopes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/stim_strength.html">
+   Neurons example with nominal stim strengths
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/stim_type.html">
+   Neurons example with stim types
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/lme.html">
+   Linear mixed effects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/monster.html">
+   Neurons example, pt. 2: large datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/model_comparison.html">
+   Compare to alternative models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/detailed_workflow.html">
+   Neurons example via low-level, flexible interface
   </a>
  </li>
 </ul>
@@ -164,11 +229,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/mmyros/bayes-window"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flfp_example/lfp_roc.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/mmyros/bayes-window/issues/new?title=Issue%20on%20page%20%2Flfp_example/lfp_roc.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -189,7 +254,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lfp_example/lfp_roc.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mmyros/bayes-window/master?urlpath=tree/lfp_example/lfp_roc.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -275,7 +340,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2062</span><span class="o">/</span><span class="mf">3594708539.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1934</span><span class="o">/</span><span class="mf">3594708539.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">model_comparison</span><span class="p">,</span> <span class="n">BayesWindow</span>
@@ -1423,17 +1488,17 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="lfp_stim_strength.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome to your Jupyter Book</p>
+            <p class="prev-next-title">LFP example with stim strength</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="quick_lfp.html" title="next page">
+    <a class='right-next' id="next-link" href="../neurons_example/quickstart.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">LFP example</p>
+        <p class="prev-next-title">Neurons example, pt. 1</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -1445,7 +1510,7 @@
     <div class="container">
       <p>
         
-          By The Jupyter Book Community<br/>
+          By Max Myroshnychenko<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

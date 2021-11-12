@@ -42,7 +42,7 @@ pm.model_to_graphviz(pooled_model)
 During handling of the above exception, another exception occurred:
 
 [0;31mImportError[0m                               Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2383/33381179.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2264/33381179.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      9[0m     [0my[0m [0;34m=[0m [0mpm[0m[0;34m.[0m[0mNormal[0m[0;34m([0m[0;34m'y'[0m[0;34m,[0m [0mtheta[0m[0;34m,[0m [0msigma[0m[0;34m=[0m[0msigma[0m[0;34m,[0m [0mobserved[0m[0;34m=[0m[0mlog_firingrate[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [1;32m     10[0m [0;34m[0m[0m
 [0;32m---> 11[0;31m [0mpm[0m[0;34m.[0m[0mmodel_to_graphviz[0m[0;34m([0m[0mpooled_model[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m

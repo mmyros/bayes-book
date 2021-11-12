@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Multilevel modeling of LFP &#8212; My sample book</title>
+    <title>Multilevel modeling of LFP &#8212; Bayes Window examples</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,6 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bayesian Methods for Multilevel Modeling of Neurons" href="multilevel_modeling_neurons.html" />
+    <link rel="prev" title="Radon example from Gelman and Hill (2006)" href="../radon_example/radon.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -81,7 +83,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Bayes Window examples</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -96,15 +98,80 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="metropolis.html">
+   Intuition for maximal likelihood or posterior inference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../radon_example/radon.html">
+   Radon example from Gelman and Hill (2006)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Multilevel modeling of LFP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="multilevel_modeling_neurons.html">
+   Bayesian Methods for Multilevel Modeling of Neurons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lfp_example/quick_lfp.html">
+   LFP example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lfp_example/lfp_stim_strength.html">
+   LFP example with stim strength
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../lfp_example/lfp_roc.html">
    Compare to ANOVA and LMM: ROC curve
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/quick_lfp.html">
-   LFP example
+  <a class="reference internal" href="../neurons_example/quickstart.html">
+   Neurons example, pt. 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/posteriors.html">
+   Neurons example, no slopes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/stim_strength.html">
+   Neurons example with nominal stim strengths
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/stim_type.html">
+   Neurons example with stim types
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/lme.html">
+   Linear mixed effects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/monster.html">
+   Neurons example, pt. 2: large datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/model_comparison.html">
+   Compare to alternative models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../neurons_example/detailed_workflow.html">
+   Neurons example via low-level, flexible interface
   </a>
  </li>
 </ul>
@@ -164,11 +231,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/mmyros/bayes-window"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmotivation/multilevel_modeling_lfp.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/mmyros/bayes-window/issues/new?title=Issue%20on%20page%20%2Fmotivation/multilevel_modeling_lfp.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -189,7 +256,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/motivation/multilevel_modeling_lfp.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mmyros/bayes-window/master?urlpath=tree/motivation/multilevel_modeling_lfp.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -691,7 +758,7 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2147</span><span class="o">/</span><span class="mf">2276465127.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2015</span><span class="o">/</span><span class="mf">2276465127.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">sigma</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> 
 <span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">log_power</span><span class="p">)</span>
@@ -699,39 +766,25 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">pm</span><span class="o">.</span><span class="n">model_to_graphviz</span><span class="p">(</span><span class="n">pooled_model</span><span class="p">)</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/distributions/distribution.py</span> in <span class="ni">__new__</span><span class="nt">(cls, name, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">119</span>             <span class="n">dist</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">120</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">121</span>             <span class="n">dist</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">122</span>         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">total_size</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="n">dims</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span>             <span class="n">dist</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">122</span>         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">total_size</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="n">dims</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">123</span> 
+<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="k">def</span> <span class="nf">__getnewargs__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/distributions/distribution.py</span> in <span class="ni">dist</span><span class="nt">(cls, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">128</span>     <span class="k">def</span> <span class="nf">dist</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">129</span>         <span class="n">dist</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">130</span>         <span class="n">dist</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span>         <span class="k">return</span> <span class="n">dist</span>
-<span class="g g-Whitespace">    </span><span class="mi">132</span> 
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/model.py</span> in <span class="ni">Var</span><span class="nt">(self, name, dist, data, total_size, dims)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>                     <span class="n">distribution</span><span class="o">=</span><span class="n">dist</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>                     <span class="n">total_size</span><span class="o">=</span><span class="n">total_size</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">1182</span>                     <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1183</span>                 <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1184</span>             <span class="bp">self</span><span class="o">.</span><span class="n">observed_RVs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/distributions/continuous.py</span> in <span class="ni">__init__</span><span class="nt">(self, mu, sigma, tau, sd, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">481</span>         <span class="k">if</span> <span class="n">sd</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">482</span>             <span class="n">sigma</span> <span class="o">=</span> <span class="n">sd</span>
-<span class="ne">--&gt; </span><span class="mi">483</span>         <span class="n">tau</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="n">get_tau_sigma</span><span class="p">(</span><span class="n">tau</span><span class="o">=</span><span class="n">tau</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">484</span>         <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sd</span> <span class="o">=</span> <span class="n">tt</span><span class="o">.</span><span class="n">as_tensor_variable</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">485</span>         <span class="bp">self</span><span class="o">.</span><span class="n">tau</span> <span class="o">=</span> <span class="n">tt</span><span class="o">.</span><span class="n">as_tensor_variable</span><span class="p">(</span><span class="n">tau</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/distributions/continuous.py</span> in <span class="ni">get_tau_sigma</span><span class="nt">(tau, sigma)</span>
-<span class="g g-Whitespace">    </span><span class="mi">175</span>     <span class="c1"># cast tau and sigma to float in a way that works for both np.arrays</span>
-<span class="g g-Whitespace">    </span><span class="mi">176</span>     <span class="c1"># and pure python</span>
-<span class="ne">--&gt; </span><span class="mi">177</span>     <span class="n">tau</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">tau</span>
-<span class="g g-Whitespace">    </span><span class="mi">178</span>     <span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">sigma</span>
-<span class="g g-Whitespace">    </span><span class="mi">179</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/tensor/var.py</span> in <span class="ni">__rmul__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">202</span> 
-<span class="g g-Whitespace">    </span><span class="mi">203</span>     <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">204</span>         <span class="k">return</span> <span class="n">theano</span><span class="o">.</span><span class="n">tensor</span><span class="o">.</span><span class="n">basic</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">205</span> 
-<span class="g g-Whitespace">    </span><span class="mi">206</span>     <span class="k">def</span> <span class="nf">__rdiv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/model.py</span> in <span class="ni">__init__</span><span class="nt">(self, type, owner, index, name, data, distribution, total_size, model)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1837</span>             <span class="c1"># make this RV a view on the combined missing/nonmissing array</span>
+<span class="g g-Whitespace">   </span><span class="mi">1838</span>             <span class="n">Apply</span><span class="p">(</span><span class="n">theano</span><span class="o">.</span><span class="n">compile</span><span class="o">.</span><span class="n">view_op</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">data</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="p">])</span>
+<span class="ne">-&gt; </span><span class="mi">1839</span>             <span class="bp">self</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">test_value</span> <span class="o">=</span> <span class="n">theano</span><span class="o">.</span><span class="n">compile</span><span class="o">.</span><span class="n">view_op</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">test_value</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1840</span>             <span class="bp">self</span><span class="o">.</span><span class="n">scaling</span> <span class="o">=</span> <span class="n">_get_scaling</span><span class="p">(</span><span class="n">total_size</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1841</span> 
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/graph/op.py</span> in <span class="ni">__call__</span><span class="nt">(self, *inputs, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">251</span> 
@@ -1939,7 +1992,21 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../radon_example/radon.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Radon example from Gelman and Hill (2006)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="multilevel_modeling_neurons.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bayesian Methods for Multilevel Modeling of Neurons</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -1948,7 +2015,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
     <div class="container">
       <p>
         
-          By The Jupyter Book Community<br/>
+          By Max Myroshnychenko<br/>
         
             &copy; Copyright 2021.<br/>
       </p>
