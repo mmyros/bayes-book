@@ -323,79 +323,70 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
-KeyboardInterrupt                         Traceback (most recent call last)
-/tmp/ipykernel_5990/1104334100.py in &lt;module&gt;
-      4                                                                 dur=7,
-      5                                                                mouse_response_slope=20,
-----&gt; 6                                                                overall_stim_response_strength=4)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_6174</span><span class="o">/</span><span class="mf">1104334100.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                                                                 <span class="n">dur</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>                                                                <span class="n">mouse_response_slope</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>                                                                <span class="n">overall_stim_response_strength</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/generative_models.py in generate_fake_spikes(n_trials, n_neurons, n_mice, dur, slowest_fr, time_randomness, overall_stim_response_strength, mouse_response_slope, verbose, do_ave_trial, trial_baseline_randomness, do_bad_mice, fastest_fr)
-    141                                           dur=dur,
-    142                                           time_randomness=time_randomness),
---&gt; 143                     1 / s, sampling_rate=1 / s)))
-    144             spiketrains_nostim = np.array(poisson(
-    145                 analogsignal.AnalogSignal(
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/generative_models.py</span> in <span class="ni">generate_fake_spikes</span><span class="nt">(n_trials, n_neurons, n_mice, dur, slowest_fr, time_randomness, overall_stim_response_strength, mouse_response_slope, verbose, do_ave_trial, trial_baseline_randomness, do_bad_mice, fastest_fr)</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>                 <span class="n">analogsignal</span><span class="o">.</span><span class="n">AnalogSignal</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>                     <span class="n">firing_rate_over_time</span><span class="p">(</span><span class="n">slow_rate</span><span class="p">,</span> <span class="n">dur</span><span class="o">=</span><span class="n">dur</span><span class="p">,</span> <span class="n">time_randomness</span><span class="o">=</span><span class="n">time_randomness</span><span class="p">),</span>
+<span class="ne">--&gt; </span><span class="mi">147</span>                     <span class="mi">1</span> <span class="o">/</span> <span class="n">s</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">s</span><span class="p">)))</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>             <span class="k">for</span> <span class="n">i_spike</span><span class="p">,</span> <span class="n">spike</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">spiketrains_stim</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span>                 <span class="n">ddf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">spike_time</span><span class="o">=</span><span class="n">spike</span><span class="p">,</span>
 
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/elephant/spike_train_generation.py in inhomogeneous_poisson_process(rate, as_array, refractory_period)
-    540     # Compute the rate profile at each spike time by interpolation
-    541     rate_interpolated = _analog_signal_linear_interp(
---&gt; 542         signal=rate, times=homogeneous_poiss.times)
-    543     # Accept each spike at time t with probability rate(t)/max_rate
-    544     random_uniforms = np.random.uniform(size=len(homogeneous_poiss)) * rate_max
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/elephant/spike_train_generation.py</span> in <span class="ni">inhomogeneous_poisson_process</span><span class="nt">(rate, as_array, refractory_period)</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span>     <span class="c1"># to the peak rate</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span>     <span class="n">homogeneous_poiss</span> <span class="o">=</span> <span class="n">homogeneous_poisson_process</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">539</span>         <span class="n">rate</span><span class="o">=</span><span class="n">rate_max</span><span class="p">,</span> <span class="n">t_stop</span><span class="o">=</span><span class="n">rate</span><span class="o">.</span><span class="n">t_stop</span><span class="p">,</span> <span class="n">t_start</span><span class="o">=</span><span class="n">rate</span><span class="o">.</span><span class="n">t_start</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>     <span class="c1"># Compute the rate profile at each spike time by interpolation</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span>     <span class="n">rate_interpolated</span> <span class="o">=</span> <span class="n">_analog_signal_linear_interp</span><span class="p">(</span>
 
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/elephant/spike_train_generation.py in _analog_signal_linear_interp(signal, times)
-    630     signal_extended = np.vstack(
-    631         [signal.magnitude, signal[-1].magnitude]).flatten()
---&gt; 632     times_extended = np.hstack([signal.times, t_stop]) * signal.times.units
-    633     time_ids = (times - t_start) / sampling_period
-    634     time_ids = np.floor(time_ids.simplified.magnitude).astype(np.int32)
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/elephant/spike_train_generation.py</span> in <span class="ni">homogeneous_poisson_process</span><span class="nt">(rate, t_start, t_stop, as_array, refractory_period)</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>         <span class="k">return</span> <span class="n">_homogeneous_process</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>             <span class="n">interval_generator</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">t_start</span><span class="p">,</span> <span class="n">t_stop</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">451</span>             <span class="n">as_array</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span> 
+<span class="g g-Whitespace">    </span><span class="mi">453</span>     <span class="c1"># Case with a refractory period</span>
 
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/neo/core/analogsignal.py in times(self)
-    387         (:attr:`t_start` + arange(:attr:`shape`)/:attr:`sampling_rate`)
-    388         &#39;&#39;&#39;
---&gt; 389         return self.t_start + np.arange(self.shape[0]) / self.sampling_rate
-    390 
-    391     def __eq__(self, other):
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/elephant/spike_train_generation.py</span> in <span class="ni">_homogeneous_process</span><span class="nt">(interval_generator, mean_rate, t_start, t_stop, as_array)</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>     <span class="n">t_start</span> <span class="o">=</span> <span class="n">t_start</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span><span class="n">t_stop</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>     <span class="n">n_spikes_expected</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">345</span>         <span class="p">((</span><span class="n">t_stop</span> <span class="o">-</span> <span class="n">t_start</span><span class="p">)</span> <span class="o">*</span> <span class="n">mean_rate</span><span class="p">)</span><span class="o">.</span><span class="n">simplified</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span>     <span class="k">if</span> <span class="n">n_spikes_expected</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Expected no. of spikes: </span><span class="si">{n_spikes}</span><span class="s2"> &lt; 0. The firing &quot;</span>
 
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/quantity.py in g(self, other, *args)
-     64         if not isinstance(other, Quantity):
-     65             other = other.view(type=Quantity)
----&gt; 66         if other._dimensionality != self._dimensionality:
-     67             other = other.rescale(self.units)
-     68         return f(self, other, *args)
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/quantity.py</span> in <span class="ni">simplified</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">166</span>     <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">167</span>     <span class="k">def</span> <span class="nf">simplified</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">168</span>         <span class="n">rq</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">unit_registry</span><span class="p">[</span><span class="s1">&#39;dimensionless&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span>         <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensionality</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span>             <span class="n">rq</span> <span class="o">=</span> <span class="n">rq</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">simplified</span><span class="o">**</span><span class="n">d</span>
 
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/dimensionality.py in __ne__(self, other)
-    209 
-    210     def __ne__(self, other):
---&gt; 211         return hash(self) != hash(other)
-    212 
-    213     __neq__ = __ne__
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/unitquantity.py</span> in <span class="ni">__rmul__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span>     <span class="nd">@with_doc</span><span class="p">(</span><span class="n">Quantity</span><span class="o">.</span><span class="fm">__rmul__</span><span class="p">,</span> <span class="n">use_header</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span>     <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">209</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">Quantity</span><span class="p">)</span><span class="o">.</span><span class="fm">__rmul__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> 
+<span class="g g-Whitespace">    </span><span class="mi">211</span>     <span class="nd">@with_doc</span><span class="p">(</span><span class="n">Quantity</span><span class="o">.</span><span class="fm">__truediv__</span><span class="p">,</span> <span class="n">use_header</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/dimensionality.py in __hash__(self)
-     58 
-     59     def __hash__(self):
----&gt; 60         res = hash(unit_registry[&#39;dimensionless&#39;])
-     61         for key in sorted(self.keys(), key=operator.attrgetter(&#39;format_order&#39;)):
-     62             val = self[key]
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/quantity.py</span> in <span class="ni">__array_finalize__</span><span class="nt">(self, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span> 
+<span class="g g-Whitespace">    </span><span class="mi">261</span>     <span class="k">def</span> <span class="nf">__array_finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">262</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_dimensionality</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;dimensionality&#39;</span><span class="p">,</span> <span class="n">Dimensionality</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span> 
+<span class="g g-Whitespace">    </span><span class="mi">264</span>     <span class="k">def</span> <span class="nf">__array_prepare__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/registry.py in __getitem__(self, label)
-     59         if label.lower() == &quot;in&quot;: label = &quot;inch&quot;
-     60 
----&gt; 61         return self.__registry[label]
-     62 
-     63 unit_registry = UnitRegistry()
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/quantity.py</span> in <span class="ni">dimensionality</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>     <span class="k">def</span> <span class="nf">dimensionality</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">136</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dimensionality</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span> 
+<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="nd">@property</span>
 
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/registry.py in __getitem__(self, string)
-     19         def __getitem__(self, string):
-     20             try:
----&gt; 21                 return eval(string, self.__context)
-     22             except NameError:
-     23                 # could return self[&#39;UnitQuantity&#39;](string)
-
-&lt;string&gt; in &lt;module&gt;
-
-KeyboardInterrupt: 
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>

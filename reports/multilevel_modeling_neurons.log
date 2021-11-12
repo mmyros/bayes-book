@@ -32,9 +32,12 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
+ 
 # HIDE CODE
 
 with pooled_model:
-    pooled_trace = pm.fit()
+    start = pm.find_MAP()
+    pooled_trace = pm.sample(1000, pm.NUTS(scaling=start), start=start, random_seed=RANDOM_SEED)
+az.summary(pooled_trace, round_to=2)
 -------------------
 
