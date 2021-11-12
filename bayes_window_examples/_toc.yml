@@ -4,5 +4,18 @@
 format: jb-book
 root: intro
 chapters:
-- file: lfp_example/lfp_roc  
+- file: motivation/metropolis
+- file: radon_example/radon
+- file: motivation/multilevel_modeling_lfp
+- file: motivation/multilevel_modeling_neurons
 - file: lfp_example/quick_lfp
+- file: lfp_example/lfp_stim_strength
+- file: lfp_example/lfp_roc
+- file: neurons_example/quickstart
+- file: neurons_example/posteriors
+- file: neurons_example/stim_strength
+- file: neurons_example/stim_type
+- file: neurons_example/lme
+- file: neurons_example/monster
+- file: neurons_example/model_comparison
+- file: neurons_example/detailed_workflow
