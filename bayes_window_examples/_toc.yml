@@ -2,9 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: motivation/metropolis
 chapters:
-- file: motivation/metropolis
 - file: radon_example/radon
 - file: motivation/multilevel_modeling_lfp
 - file: motivation/multilevel_modeling_neurons
