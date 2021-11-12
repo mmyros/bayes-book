@@ -307,16 +307,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2464</span><span class="o">/</span><span class="mf">793048513.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fake_spikes_explore</span><span class="p">,</span> <span class="n">BayesWindow</span><span class="p">,</span> <span class="n">BayesRegression</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">bayes_window.generative_models</span> <span class="kn">import</span> <span class="n">generate_spikes_stim_strength</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;bayes_window&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/jax/experimental/optimizers.py:30: FutureWarning: jax.experimental.optimizers is deprecated, import jax.example_libraries.optimizers instead
+  FutureWarning)
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/jax/experimental/stax.py:30: FutureWarning: jax.experimental.stax is deprecated, import jax.example_libraries.stax instead
+  FutureWarning)
 </pre></div>
 </div>
 </div>
@@ -330,6 +324,25 @@
                                    <span class="n">dur</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                                    <span class="c1"># mouse_response_slope=40,</span>
                                    <span class="n">overall_stim_response_strength</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_8646</span><span class="o">/</span><span class="mf">3547085448.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>                                    <span class="n">dur</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>                                    <span class="c1"># mouse_response_slope=40,</span>
+<span class="ne">----&gt; </span><span class="mi">7</span>                                    <span class="n">overall_stim_response_strength</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/generative_models.py</span> in <span class="ni">generate_spikes_stim_strength</span><span class="nt">(overall_stim_response_strengths, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span>     <span class="n">df</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span>     <span class="k">for</span> <span class="n">overall_stim_response_strength</span> <span class="ow">in</span> <span class="n">overall_stim_response_strengths</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">64</span>         <span class="n">df1</span> <span class="o">=</span> <span class="n">generate_fake_spikes</span><span class="p">(</span><span class="n">overall_stim_response_strength</span><span class="o">=</span><span class="n">overall_stim_response_strength</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span>         <span class="n">df1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;stim_strength&#39;</span><span class="p">,</span> <span class="n">df1</span><span class="p">[</span><span class="s1">&#39;stim&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">overall_stim_response_strength</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>         <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: generate_fake_spikes() got multiple values for keyword argument &#39;overall_stim_response_strength&#39;
 </pre></div>
 </div>
 </div>

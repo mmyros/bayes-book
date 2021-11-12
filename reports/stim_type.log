@@ -17,22 +17,34 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from bayes_window import models, fake_spikes_explore, BayesWindow, BayesRegression
-from bayes_window.generative_models import generate_fake_spikes,generate_spikes_stim_types
-from importlib import reload
-import numpy as np
-import altair as alt
+
+window = BayesRegression(df, y='isi', treatment='stim', condition=['stim_strength','neuron_x_mouse'],
+                              group='mouse')
+window.fit(model=models.model_hierarchical)
+
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2483/2927165419.py[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mfrom[0m [0mbayes_window[0m [0;32mimport[0m [0mmodels[0m[0;34m,[0m [0mfake_spikes_explore[0m[0;34m,[0m [0mBayesWindow[0m[0;34m,[0m [0mBayesRegression[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0;32mfrom[0m [0mbayes_window[0m[0;34m.[0m[0mgenerative_models[0m [0;32mimport[0m [0mgenerate_fake_spikes[0m[0;34m,[0m[0mgenerate_spikes_stim_types[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;32mfrom[0m [0mimportlib[0m [0;32mimport[0m [0mreload[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      5[0m [0;32mimport[0m [0maltair[0m [0;32mas[0m [0malt[0m[0;34m[0m[0;34m[0m[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m/tmp/ipykernel_8668/2649984714.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m window = BayesRegression(df, y='isi', treatment='stim', condition=['stim_strength','neuron_x_mouse'],
+[1;32m      2[0m                               group='mouse')
+[0;32m----> 3[0;31m [0mwindow[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mmodel[0m[0;34m=[0m[0mmodels[0m[0;34m.[0m[0mmodel_hierarchical[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/slopes.py[0m in [0;36mfit[0;34m(self, model, do_make_change, fold_change_index_cols, do_mean_over_trials, fit_method, add_condition_slope, **kwargs)[0m
+[1;32m     53[0m         [0mself[0m[0;34m.[0m[0mmodel[0m [0;34m=[0m [0mmodel[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     54[0m         [0;32mif[0m [0mfold_change_index_cols[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 55[0;31m             [0mfold_change_index_cols[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mwindow[0m[0;34m.[0m[0mlevels[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     56[0m         [0mfold_change_index_cols[0m [0;34m=[0m [0mlist[0m[0;34m([0m[0mfold_change_index_cols[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     57[0m         if self.window.detail and (self.window.detail in self.window.data.columns) and (
 
-[0;31mModuleNotFoundError[0m: No module named 'bayes_window'
-ModuleNotFoundError: No module named 'bayes_window'
+[0;32m/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/generic.py[0m in [0;36m__getattr__[0;34m(self, name)[0m
+[1;32m   5485[0m         ):
+[1;32m   5486[0m             [0;32mreturn[0m [0mself[0m[0;34m[[0m[0mname[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 5487[0;31m         [0;32mreturn[0m [0mobject[0m[0;34m.[0m[0m__getattribute__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   5488[0m [0;34m[0m[0m
+[1;32m   5489[0m     [0;32mdef[0m [0m__setattr__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m:[0m [0mstr[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m [0;34m->[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'DataFrame' object has no attribute 'levels'
+AttributeError: 'DataFrame' object has no attribute 'levels'
 

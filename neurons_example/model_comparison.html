@@ -308,14 +308,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2383</span><span class="o">/</span><span class="mf">2249144427.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">bayes_window.generative_models</span> <span class="kn">import</span> <span class="n">generate_fake_spikes</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">bayes_window.model_comparison</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">BayesWindow</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;bayes_window&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/jax/experimental/optimizers.py:30: FutureWarning: jax.experimental.optimizers is deprecated, import jax.example_libraries.optimizers instead
+  FutureWarning)
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/jax/experimental/stax.py:30: FutureWarning: jax.experimental.stax is deprecated, import jax.example_libraries.stax instead
+  FutureWarning)
 </pre></div>
 </div>
 </div>
@@ -328,6 +324,53 @@
                                                                 <span class="n">dur</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> 
                                                                <span class="n">mouse_response_slope</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
                                                                <span class="n">overall_stim_response_strength</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_6319</span><span class="o">/</span><span class="mf">1104334100.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                                                                 <span class="n">dur</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>                                                                <span class="n">mouse_response_slope</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>                                                                <span class="n">overall_stim_response_strength</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/generative_models.py</span> in <span class="ni">generate_fake_spikes</span><span class="nt">(n_trials, n_neurons, n_mice, dur, slowest_fr, time_randomness, overall_stim_response_strength, mouse_response_slope, verbose, do_ave_trial, trial_baseline_randomness, do_bad_mice, fastest_fr)</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span>                                 <span class="n">neuron</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i_neuron</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>                                 <span class="n">stim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">152</span>                                 <span class="n">mouse</span><span class="o">=</span><span class="n">firing_rate</span><span class="p">[</span><span class="s1">&#39;Mouse&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">153</span>                                 <span class="n">i_trial</span><span class="o">=</span><span class="n">i_trial</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span>                                 <span class="n">i_spike</span><span class="o">=</span><span class="n">i_spike</span><span class="p">))</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/series.py</span> in <span class="ni">values</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span>                <span class="s1">&#39;2013-01-03T05:00:00.000000000&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">672</span><span class="sd">         return self._mgr.external_values()</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span><span class="sd">     @property</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/internals/managers.py</span> in <span class="ni">external_values</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1670</span><span class="sd">     def external_values(self):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1671</span><span class="sd">         &quot;&quot;&quot;</span><span class="n">The</span> <span class="n">array</span> <span class="n">that</span> <span class="n">Series</span><span class="o">.</span><span class="n">values</span> <span class="n">returns</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1672</span><span class="s2">         return self._block.external_values()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1673</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1674</span><span class="s2">     def internal_values(self):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/internals/blocks.py</span> in <span class="ni">external_values</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span><span class="s2">     @final</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span><span class="s2">     def external_values(self):</span>
+<span class="ne">--&gt; </span><span class="mi">210</span><span class="s2">         return external_values(self.values)</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span><span class="s2">     @property</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/internals/blocks.py</span> in <span class="ni">external_values</span><span class="nt">(values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2123</span><span class="s2">     if isinstance(values, (PeriodArray, IntervalArray)):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2124</span><span class="s2">         return values.astype(object)</span>
+<span class="ne">-&gt; </span><span class="mi">2125</span><span class="s2">     elif isinstance(values, (DatetimeArray, TimedeltaArray)):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2126</span><span class="s2">         # NB: for datetime64tz this is different from np.asarray(values), since</span>
+<span class="g g-Whitespace">   </span><span class="mi">2127</span><span class="s2">         #  that returns an object-dtype ndarray of Timestamps.</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>

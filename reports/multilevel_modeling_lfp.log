@@ -32,8 +32,9 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# HIDE CODE', '', 'with pm.Model() as pooled_model:', "    a = pm.Normal('a', 0., sigma=10., shape=2)", '    ']
-...
-["    sigma = pm.Exponential('sigma', 1.)", '    ', "    y = pm.Normal('y', theta, sigma=sigma, observed=log_power)", '    ', 'pm.model_to_graphviz(pooled_model)']
+# HIDE CODE
+
+with pooled_model:
+    pooled_trace = pm.fit()
 -------------------
 

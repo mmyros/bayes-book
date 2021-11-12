@@ -17,22 +17,30 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from bayes_window import models, fake_spikes_explore, BayesWindow, BayesRegression
-from bayes_window.generative_models import generate_spikes_stim_strength
-from importlib import reload
-import numpy as np
-import altair as alt
+df = generate_spikes_stim_strength(mouse_response_slopes=np.arange(5, 40, 5),
+                                   n_trials=20,
+                                   n_neurons=6,
+                                   n_mice=3,
+                                   dur=5,
+                                   # mouse_response_slope=40,
+                                   overall_stim_response_strength=5)
+
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2464/793048513.py[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mfrom[0m [0mbayes_window[0m [0;32mimport[0m [0mmodels[0m[0;34m,[0m [0mfake_spikes_explore[0m[0;34m,[0m [0mBayesWindow[0m[0;34m,[0m [0mBayesRegression[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0;32mfrom[0m [0mbayes_window[0m[0;34m.[0m[0mgenerative_models[0m [0;32mimport[0m [0mgenerate_spikes_stim_strength[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;32mfrom[0m [0mimportlib[0m [0;32mimport[0m [0mreload[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      5[0m [0;32mimport[0m [0maltair[0m [0;32mas[0m [0malt[0m[0;34m[0m[0;34m[0m[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m/tmp/ipykernel_8646/3547085448.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m                                    [0mdur[0m[0;34m=[0m[0;36m5[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m                                    [0;31m# mouse_response_slope=40,[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m                                    overall_stim_response_strength=5)
+[0m
+[0;32m/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/generative_models.py[0m in [0;36mgenerate_spikes_stim_strength[0;34m(overall_stim_response_strengths, **kwargs)[0m
+[1;32m     62[0m     [0mdf[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     63[0m     [0;32mfor[0m [0moverall_stim_response_strength[0m [0;32min[0m [0moverall_stim_response_strengths[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 64[0;31m         [0mdf1[0m [0;34m=[0m [0mgenerate_fake_spikes[0m[0;34m([0m[0moverall_stim_response_strength[0m[0;34m=[0m[0moverall_stim_response_strength[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     65[0m         [0mdf1[0m[0;34m.[0m[0minsert[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0;34m'stim_strength'[0m[0;34m,[0m [0mdf1[0m[0;34m[[0m[0;34m'stim'[0m[0;34m][0m [0;34m*[0m [0moverall_stim_response_strength[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     66[0m         [0mdf[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mdf1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'bayes_window'
-ModuleNotFoundError: No module named 'bayes_window'
+[0;31mTypeError[0m: generate_fake_spikes() got multiple values for keyword argument 'overall_stim_response_strength'
+TypeError: generate_fake_spikes() got multiple values for keyword argument 'overall_stim_response_strength'
 
