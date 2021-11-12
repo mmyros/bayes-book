@@ -32,13 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-# NBVAL_SKIP
-# Initialize:
-window = BayesRegression(df=df_monster, y='Power', treatment='stim', group='mouse')
-# Fit:
-window.fit(model=models.model_hierarchical, add_group_intercept=True,
-           num_warmup=500, n_draws=160, progress_bar=True,
-           add_group_slope=False, robust_slopes=False,
-           do_make_change='subtract', dist_y='gamma');
+['# Initialize:', 'df_null, df_monster_null, _, _ = generate_fake_lfp(mouse_response_slope=0, n_trials=30)', "window = BayesRegression(df=df_null, y='Power', treatment='stim', group='mouse')", '# Fit:', 'window.fit(model=models.model_hierarchical, add_group_intercept=True,']
+...
+['# Plot:', 'chart_power_difference = window.plot(independent_axes=False,', "                                     ).properties(title='Posterior')", '', 'chart_power_difference']
 -------------------
 
