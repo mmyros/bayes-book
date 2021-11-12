@@ -22,6 +22,7 @@ inflection
 ipython
 elephant
 pymc3
-git+https://github.com/mmyros/bayes-window.git@master#egg=bayes-window
+graphviz
+#git+https://github.com/mmyros/bayes-window.git@master#egg=bayes-window
 
 pytest==6.2.4
