@@ -323,42 +323,79 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_5717</span><span class="o">/</span><span class="mf">1104334100.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>                                                                 <span class="n">dur</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>                                                                <span class="n">mouse_response_slope</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-<span class="ne">----&gt; </span><span class="mi">6</span>                                                                <span class="n">overall_stim_response_strength</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+/tmp/ipykernel_5990/1104334100.py in &lt;module&gt;
+      4                                                                 dur=7,
+      5                                                                mouse_response_slope=20,
+----&gt; 6                                                                overall_stim_response_strength=4)
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/generative_models.py</span> in <span class="ni">generate_fake_spikes</span><span class="nt">(n_trials, n_neurons, n_mice, dur, slowest_fr, time_randomness, overall_stim_response_strength, mouse_response_slope, verbose, do_ave_trial, trial_baseline_randomness, do_bad_mice, fastest_fr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span>                                           <span class="n">dur</span><span class="o">=</span><span class="n">dur</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>                                           <span class="n">time_randomness</span><span class="o">=</span><span class="n">time_randomness</span><span class="p">),</span>
-<span class="ne">--&gt; </span><span class="mi">143</span>                     <span class="mi">1</span> <span class="o">/</span> <span class="n">s</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">s</span><span class="p">)))</span>
-<span class="g g-Whitespace">    </span><span class="mi">144</span>             <span class="n">spiketrains_nostim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">poisson</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">145</span>                 <span class="n">analogsignal</span><span class="o">.</span><span class="n">AnalogSignal</span><span class="p">(</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/generative_models.py in generate_fake_spikes(n_trials, n_neurons, n_mice, dur, slowest_fr, time_randomness, overall_stim_response_strength, mouse_response_slope, verbose, do_ave_trial, trial_baseline_randomness, do_bad_mice, fastest_fr)
+    141                                           dur=dur,
+    142                                           time_randomness=time_randomness),
+--&gt; 143                     1 / s, sampling_rate=1 / s)))
+    144             spiketrains_nostim = np.array(poisson(
+    145                 analogsignal.AnalogSignal(
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/elephant/spike_train_generation.py</span> in <span class="ni">inhomogeneous_poisson_process</span><span class="nt">(rate, as_array, refractory_period)</span>
-<span class="g g-Whitespace">    </span><span class="mi">537</span>     <span class="c1"># to the peak rate</span>
-<span class="g g-Whitespace">    </span><span class="mi">538</span>     <span class="n">homogeneous_poiss</span> <span class="o">=</span> <span class="n">homogeneous_poisson_process</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">539</span>         <span class="n">rate</span><span class="o">=</span><span class="n">rate_max</span><span class="p">,</span> <span class="n">t_stop</span><span class="o">=</span><span class="n">rate</span><span class="o">.</span><span class="n">t_stop</span><span class="p">,</span> <span class="n">t_start</span><span class="o">=</span><span class="n">rate</span><span class="o">.</span><span class="n">t_start</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">540</span>     <span class="c1"># Compute the rate profile at each spike time by interpolation</span>
-<span class="g g-Whitespace">    </span><span class="mi">541</span>     <span class="n">rate_interpolated</span> <span class="o">=</span> <span class="n">_analog_signal_linear_interp</span><span class="p">(</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/elephant/spike_train_generation.py in inhomogeneous_poisson_process(rate, as_array, refractory_period)
+    540     # Compute the rate profile at each spike time by interpolation
+    541     rate_interpolated = _analog_signal_linear_interp(
+--&gt; 542         signal=rate, times=homogeneous_poiss.times)
+    543     # Accept each spike at time t with probability rate(t)/max_rate
+    544     random_uniforms = np.random.uniform(size=len(homogeneous_poiss)) * rate_max
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/elephant/spike_train_generation.py</span> in <span class="ni">homogeneous_poisson_process</span><span class="nt">(rate, t_start, t_stop, as_array, refractory_period)</span>
-<span class="g g-Whitespace">    </span><span class="mi">449</span>         <span class="k">return</span> <span class="n">_homogeneous_process</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span>             <span class="n">interval_generator</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">t_start</span><span class="p">,</span> <span class="n">t_stop</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">451</span>             <span class="n">as_array</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">452</span> 
-<span class="g g-Whitespace">    </span><span class="mi">453</span>     <span class="c1"># Case with a refractory period</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/elephant/spike_train_generation.py in _analog_signal_linear_interp(signal, times)
+    630     signal_extended = np.vstack(
+    631         [signal.magnitude, signal[-1].magnitude]).flatten()
+--&gt; 632     times_extended = np.hstack([signal.times, t_stop]) * signal.times.units
+    633     time_ids = (times - t_start) / sampling_period
+    634     time_ids = np.floor(time_ids.simplified.magnitude).astype(np.int32)
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/elephant/spike_train_generation.py</span> in <span class="ni">_homogeneous_process</span><span class="nt">(interval_generator, mean_rate, t_start, t_stop, as_array)</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span>         <span class="c1"># 3 STDs corresponds to 99.7%</span>
-<span class="g g-Whitespace">    </span><span class="mi">356</span>         <span class="n">n_spikes_expected</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">357</span>             <span class="n">n_spikes_expected</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n_spikes_expected</span><span class="p">)))</span>
-<span class="g g-Whitespace">    </span><span class="mi">358</span>         <span class="n">t_last</span> <span class="o">=</span> <span class="n">t_start</span><span class="o">.</span><span class="n">simplified</span><span class="o">.</span><span class="n">magnitude</span>
-<span class="g g-Whitespace">    </span><span class="mi">359</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/neo/core/analogsignal.py in times(self)
+    387         (:attr:`t_start` + arange(:attr:`shape`)/:attr:`sampling_rate`)
+    388         &#39;&#39;&#39;
+--&gt; 389         return self.t_start + np.arange(self.shape[0]) / self.sampling_rate
+    390 
+    391     def __eq__(self, other):
 
-<span class="ne">KeyboardInterrupt</span>: 
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/quantity.py in g(self, other, *args)
+     64         if not isinstance(other, Quantity):
+     65             other = other.view(type=Quantity)
+---&gt; 66         if other._dimensionality != self._dimensionality:
+     67             other = other.rescale(self.units)
+     68         return f(self, other, *args)
+
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/dimensionality.py in __ne__(self, other)
+    209 
+    210     def __ne__(self, other):
+--&gt; 211         return hash(self) != hash(other)
+    212 
+    213     __neq__ = __ne__
+
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/dimensionality.py in __hash__(self)
+     58 
+     59     def __hash__(self):
+---&gt; 60         res = hash(unit_registry[&#39;dimensionless&#39;])
+     61         for key in sorted(self.keys(), key=operator.attrgetter(&#39;format_order&#39;)):
+     62             val = self[key]
+
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/registry.py in __getitem__(self, label)
+     59         if label.lower() == &quot;in&quot;: label = &quot;inch&quot;
+     60 
+---&gt; 61         return self.__registry[label]
+     62 
+     63 unit_registry = UnitRegistry()
+
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/registry.py in __getitem__(self, string)
+     19         def __getitem__(self, string):
+     20             try:
+---&gt; 21                 return eval(string, self.__context)
+     22             except NameError:
+     23                 # could return self[&#39;UnitQuantity&#39;](string)
+
+&lt;string&gt; in &lt;module&gt;
+
+KeyboardInterrupt: 
 </pre></div>
 </div>
 </div>

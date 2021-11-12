@@ -26,7 +26,7 @@ window.fit(model=models.model_hierarchical)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mAttributeError[0m                            Traceback (most recent call last)
-[0;32m/tmp/ipykernel_8070/2649984714.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_8346/2649984714.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m window = BayesRegression(df, y='isi', treatment='stim', condition=['stim_strength','neuron_x_mouse'],
 [1;32m      2[0m                               group='mouse')
 [0;32m----> 3[0;31m [0mwindow[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mmodel[0m[0;34m=[0m[0mmodels[0m[0;34m.[0m[0mmodel_hierarchical[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
