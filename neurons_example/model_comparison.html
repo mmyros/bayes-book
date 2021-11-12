@@ -91,17 +91,12 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Welcome to your Jupyter Book
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
   <a class="reference internal" href="../motivation/metropolis.html">
    Intuition for maximal likelihood or posterior inference
   </a>
  </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../radon_example/radon.html">
    Radon example from Gelman and Hill (2006)
@@ -328,49 +323,98 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_6319</span><span class="o">/</span><span class="mf">1104334100.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>                                                                 <span class="n">dur</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>                                                                <span class="n">mouse_response_slope</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-<span class="ne">----&gt; </span><span class="mi">6</span>                                                                <span class="n">overall_stim_response_strength</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+/tmp/ipykernel_5952/1104334100.py in &lt;module&gt;
+      4                                                                 dur=7,
+      5                                                                mouse_response_slope=20,
+----&gt; 6                                                                overall_stim_response_strength=4)
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/generative_models.py</span> in <span class="ni">generate_fake_spikes</span><span class="nt">(n_trials, n_neurons, n_mice, dur, slowest_fr, time_randomness, overall_stim_response_strength, mouse_response_slope, verbose, do_ave_trial, trial_baseline_randomness, do_bad_mice, fastest_fr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">150</span>                                 <span class="n">neuron</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i_neuron</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">151</span>                                 <span class="n">stim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">152</span>                                 <span class="n">mouse</span><span class="o">=</span><span class="n">firing_rate</span><span class="p">[</span><span class="s1">&#39;Mouse&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">153</span>                                 <span class="n">i_trial</span><span class="o">=</span><span class="n">i_trial</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span>                                 <span class="n">i_spike</span><span class="o">=</span><span class="n">i_spike</span><span class="p">))</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/generative_models.py in generate_fake_spikes(n_trials, n_neurons, n_mice, dur, slowest_fr, time_randomness, overall_stim_response_strength, mouse_response_slope, verbose, do_ave_trial, trial_baseline_randomness, do_bad_mice, fastest_fr)
+    141                                           dur=dur,
+    142                                           time_randomness=time_randomness),
+--&gt; 143                     1 / s, sampling_rate=1 / s)))
+    144             spiketrains_nostim = np.array(poisson(
+    145                 analogsignal.AnalogSignal(
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/series.py</span> in <span class="ni">values</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">670</span>                <span class="s1">&#39;2013-01-03T05:00:00.000000000&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">671</span>         <span class="sd">&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">672</span><span class="sd">         return self._mgr.external_values()</span>
-<span class="g g-Whitespace">    </span><span class="mi">673</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">674</span><span class="sd">     @property</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/elephant/spike_train_generation.py in inhomogeneous_poisson_process(rate, as_array, refractory_period)
+    540     # Compute the rate profile at each spike time by interpolation
+    541     rate_interpolated = _analog_signal_linear_interp(
+--&gt; 542         signal=rate, times=homogeneous_poiss.times)
+    543     # Accept each spike at time t with probability rate(t)/max_rate
+    544     random_uniforms = np.random.uniform(size=len(homogeneous_poiss)) * rate_max
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/internals/managers.py</span> in <span class="ni">external_values</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1670</span><span class="sd">     def external_values(self):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1671</span><span class="sd">         &quot;&quot;&quot;</span><span class="n">The</span> <span class="n">array</span> <span class="n">that</span> <span class="n">Series</span><span class="o">.</span><span class="n">values</span> <span class="n">returns</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1672</span><span class="s2">         return self._block.external_values()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1673</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1674</span><span class="s2">     def internal_values(self):</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/elephant/spike_train_generation.py in _analog_signal_linear_interp(signal, times)
+    624     sampling_period = signal.sampling_period
+    625     t_start = signal.t_start.rescale(signal.times.units)
+--&gt; 626     t_stop = signal.t_stop.rescale(signal.times.units)
+    627 
+    628     # Extend the signal (as a dimensionless array) copying the last value
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/internals/blocks.py</span> in <span class="ni">external_values</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">208</span><span class="s2">     @final</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span><span class="s2">     def external_values(self):</span>
-<span class="ne">--&gt; </span><span class="mi">210</span><span class="s2">         return external_values(self.values)</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span><span class="s2">     @property</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/neo/core/analogsignal.py in times(self)
+    387         (:attr:`t_start` + arange(:attr:`shape`)/:attr:`sampling_rate`)
+    388         &#39;&#39;&#39;
+--&gt; 389         return self.t_start + np.arange(self.shape[0]) / self.sampling_rate
+    390 
+    391     def __eq__(self, other):
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/internals/blocks.py</span> in <span class="ni">external_values</span><span class="nt">(values)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2123</span><span class="s2">     if isinstance(values, (PeriodArray, IntervalArray)):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2124</span><span class="s2">         return values.astype(object)</span>
-<span class="ne">-&gt; </span><span class="mi">2125</span><span class="s2">     elif isinstance(values, (DatetimeArray, TimedeltaArray)):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2126</span><span class="s2">         # NB: for datetime64tz this is different from np.asarray(values), since</span>
-<span class="g g-Whitespace">   </span><span class="mi">2127</span><span class="s2">         #  that returns an object-dtype ndarray of Timestamps.</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/quantity.py in g(self, other, *args)
+     66         if other._dimensionality != self._dimensionality:
+     67             other = other.rescale(self.units)
+---&gt; 68         return f(self, other, *args)
+     69     return g
+     70 
 
-<span class="ne">KeyboardInterrupt</span>: 
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/quantity.py in __add__(self, other)
+    294     @scale_other_units
+    295     def __add__(self, other):
+--&gt; 296         return super(Quantity, self).__add__(other)
+    297 
+    298     @with_doc(np.ndarray.__radd__)
+
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/quantity.py in __array_prepare__(self, obj, context)
+    276         #print self, obj, res, uf, objs
+    277         try:
+--&gt; 278             res._dimensionality = p_dict[uf](*objs)
+    279         except KeyError:
+    280             raise ValueError(
+
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/dimensionality.py in _d_check_uniform(q1, q2, out)
+    255 def _d_check_uniform(q1, q2, out=None):
+    256     try:
+--&gt; 257         assert q1._dimensionality == q2._dimensionality
+    258         return q1.dimensionality
+    259     except AssertionError:
+
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/dimensionality.py in __eq__(self, other)
+    206 
+    207     def __eq__(self, other):
+--&gt; 208         return hash(self) == hash(other)
+    209 
+    210     def __ne__(self, other):
+
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/dimensionality.py in __hash__(self)
+     58 
+     59     def __hash__(self):
+---&gt; 60         res = hash(unit_registry[&#39;dimensionless&#39;])
+     61         for key in sorted(self.keys(), key=operator.attrgetter(&#39;format_order&#39;)):
+     62             val = self[key]
+
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/quantities/registry.py in __getitem__(self, label)
+     52 
+     53         label = self.__regex.sub(
+---&gt; 54             r&quot;\g&lt;1&gt;*\g&lt;2&gt;&quot;, label.replace(&#39;^&#39;, &#39;**&#39;).replace(&#39;·&#39;, &#39;*&#39;))
+     55 
+     56         # make sure we can parse the label ....
+
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/re.py in _subx(pattern, template)
+    307     return sre_parse.expand_template(template, match)
+    308 
+--&gt; 309 def _subx(pattern, template):
+    310     # internal: Pattern.sub/subn implementation helper
+    311     template = _compile_repl(template, pattern)
+
+KeyboardInterrupt: 
 </pre></div>
 </div>
 </div>

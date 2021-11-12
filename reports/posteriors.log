@@ -23,7 +23,7 @@ bw.plot(x='stim').facet('neuron')
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mAttributeError[0m                            Traceback (most recent call last)
-[0;32m/tmp/ipykernel_8215/1807159905.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_7861/1807159905.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0mbw[0m [0;34m=[0m [0mBayesRegression[0m[0;34m([0m[0mdf[0m[0;34m=[0m[0mdf[0m[0;34m,[0m [0my[0m[0;34m=[0m[0;34m'isi'[0m[0;34m,[0m [0mtreatment[0m[0;34m=[0m[0;34m'stim'[0m[0;34m,[0m [0mcondition[0m[0;34m=[0m[0;34m'neuron'[0m[0;34m,[0m [0mgroup[0m[0;34m=[0m[0;34m'mouse'[0m[0;34m,[0m [0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 2[0;31m [0mbw[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mx[0m[0;34m=[0m[0;34m'stim'[0m[0;34m)[0m[0;34m.[0m[0mfacet[0m[0;34m([0m[0;34m'neuron'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
