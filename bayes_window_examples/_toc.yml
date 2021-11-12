@@ -4,5 +4,5 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
+- file: lfp_example/lfp_roc  
+- file: lfp_example/quick_lfp
