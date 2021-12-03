@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compare to alternative models &#8212; My sample book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/neurons_example/model_comparison.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fneurons_example/model_comparison.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/neurons_example/model_comparison.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bayesian">
+   Bayesian
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-mixed-effects-model">
+   Linear mixed effects model
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="compare-to-alternative-models">
+<h1>Compare to alternative models<a class="headerlink" href="#compare-to-alternative-models" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bayes_window.generative_models</span> <span class="kn">import</span> <span class="n">generate_fake_spikes</span>
+<span class="kn">from</span> <span class="nn">bayes_window.model_comparison</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">BayesWindow</span><span class="p">,</span> <span class="n">BayesRegression</span><span class="p">,</span> <span class="n">LMERegression</span><span class="p">,</span> <span class="n">BayesConditions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">,</span> <span class="n">df_monster</span><span class="p">,</span> <span class="n">index_cols</span><span class="p">,</span> <span class="n">firing_rates</span> <span class="o">=</span> <span class="n">generate_fake_spikes</span><span class="p">(</span><span class="n">n_trials</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span>
+                                                                <span class="n">n_neurons</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                                                <span class="n">n_mice</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+                                                                <span class="n">dur</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> 
+                                                               <span class="n">mouse_response_slope</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                                                               <span class="n">overall_stim_response_strength</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bayesian">
+<h2>Bayesian<a class="headerlink" href="#bayesian" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="n">BayesRegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;isi&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="s1">&#39;neuron&#39;</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">model_hierarchical</span><span class="p">,</span> <span class="n">do_mean_over_trials</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">explore_models</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/model_comparison_4_0.png" src="../_images/model_comparison_4_0.png" />
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rank</th>
+      <th>loo</th>
+      <th>p_loo</th>
+      <th>d_loo</th>
+      <th>weight</th>
+      <th>se</th>
+      <th>dse</th>
+      <th>warning</th>
+      <th>loo_scale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>full_gamma</th>
+      <td>0</td>
+      <td>32682.539769</td>
+      <td>10.218112</td>
+      <td>0.000000</td>
+      <td>2.098871e-01</td>
+      <td>84.574023</td>
+      <td>0.000000</td>
+      <td>False</td>
+      <td>log</td>
+    </tr>
+    <tr>
+      <th>full_lognormal</th>
+      <td>1</td>
+      <td>32675.996306</td>
+      <td>10.075258</td>
+      <td>6.543463</td>
+      <td>2.014462e-01</td>
+      <td>85.727711</td>
+      <td>120.290167</td>
+      <td>False</td>
+      <td>log</td>
+    </tr>
+    <tr>
+      <th>full_exponential</th>
+      <td>2</td>
+      <td>32674.510397</td>
+      <td>10.205030</td>
+      <td>8.029372</td>
+      <td>2.178374e-01</td>
+      <td>87.600528</td>
+      <td>121.822053</td>
+      <td>False</td>
+      <td>log</td>
+    </tr>
+    <tr>
+      <th>full_normal</th>
+      <td>3</td>
+      <td>32626.496626</td>
+      <td>10.351264</td>
+      <td>56.043143</td>
+      <td>1.928634e-01</td>
+      <td>87.418404</td>
+      <td>121.445111</td>
+      <td>False</td>
+      <td>log</td>
+    </tr>
+    <tr>
+      <th>full_student</th>
+      <td>4</td>
+      <td>32568.623946</td>
+      <td>10.514633</td>
+      <td>113.915823</td>
+      <td>1.810493e-01</td>
+      <td>90.958744</td>
+      <td>123.886180</td>
+      <td>False</td>
+      <td>log</td>
+    </tr>
+    <tr>
+      <th>no-treatment</th>
+      <td>5</td>
+      <td>28590.554648</td>
+      <td>1.952379</td>
+      <td>4091.985121</td>
+      <td>3.801839e-04</td>
+      <td>76.541851</td>
+      <td>113.972350</td>
+      <td>False</td>
+      <td>log</td>
+    </tr>
+    <tr>
+      <th>no_condition_or_treatment</th>
+      <td>6</td>
+      <td>28560.210721</td>
+      <td>1.850343</td>
+      <td>4122.329048</td>
+      <td>3.789740e-04</td>
+      <td>75.967954</td>
+      <td>113.577487</td>
+      <td>False</td>
+      <td>log</td>
+    </tr>
+    <tr>
+      <th>no_group</th>
+      <td>7</td>
+      <td>17914.078009</td>
+      <td>0.721915</td>
+      <td>14768.461760</td>
+      <td>3.574336e-07</td>
+      <td>58.466185</td>
+      <td>102.942507</td>
+      <td>False</td>
+      <td>log</td>
+    </tr>
+    <tr>
+      <th>no_condition</th>
+      <td>8</td>
+      <td>17913.669329</td>
+      <td>0.738353</td>
+      <td>14768.870440</td>
+      <td>0.000000e+00</td>
+      <td>58.383048</td>
+      <td>103.637447</td>
+      <td>False</td>
+      <td>log</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="linear-mixed-effects-model">
+<h2>Linear mixed effects model<a class="headerlink" href="#linear-mixed-effects-model" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="n">LMERegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;isi&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="s1">&#39;neuron_x_mouse&#39;</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">window</span><span class="o">.</span><span class="n">fit_anova</span><span class="p">()</span>
+<span class="n">window</span><span class="o">.</span><span class="n">posterior</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula isi ~ (1|mouse) + stim| neuron_x_mouse__0 + stim|neuron_x_mouse__1 + stim|neuron_x_mouse__2 + stim|neuron_x_mouse__3 + stim|neuron_x_mouse__4 + stim|neuron_x_mouse__5 + stim|neuron_x_mouse__6 + stim|neuron_x_mouse__7 + stim|neuron_x_mouse__8 + stim|neuron_x_mouse__9 + stim|neuron_x_mouse__10 + stim|neuron_x_mouse__11 + stim|neuron_x_mouse__12 + stim|neuron_x_mouse__13 + stim|neuron_x_mouse__14 + stim|neuron_x_mouse__15 + stim|neuron_x_mouse__16 + stim|neuron_x_mouse__17 + stim|neuron_x_mouse__18 + stim|neuron_x_mouse__19 + stim|neuron_x_mouse__20 + stim|neuron_x_mouse__21 + stim|neuron_x_mouse__22 + stim|neuron_x_mouse__23 + stim|neuron_x_mouse__24 + stim|neuron_x_mouse__25 + stim|neuron_x_mouse__26 + stim|neuron_x_mouse__27 + stim|neuron_x_mouse__28 + stim|neuron_x_mouse__29 + stim|neuron_x_mouse__30 + stim|neuron_x_mouse__31 + stim|neuron_x_mouse__32 + stim|neuron_x_mouse__33 + stim|neuron_x_mouse__34 + stim|neuron_x_mouse__35 + stim|neuron_x_mouse__36 + stim|neuron_x_mouse__37 + stim|neuron_x_mouse__38 + stim|neuron_x_mouse__39 + stim|neuron_x_mouse__40 + stim|neuron_x_mouse__41 + stim|neuron_x_mouse__42 + stim|neuron_x_mouse__43 + stim|neuron_x_mouse__44 + stim|neuron_x_mouse__45 + stim|neuron_x_mouse__46 + stim|neuron_x_mouse__47 + stim|neuron_x_mouse__48 + stim|neuron_x_mouse__49 + stim|neuron_x_mouse__50 + stim|neuron_x_mouse__51 + stim|neuron_x_mouse__52 + stim|neuron_x_mouse__53 + stim|neuron_x_mouse__54 + stim|neuron_x_mouse__55 + stim|neuron_x_mouse__56 + stim|neuron_x_mouse__57 + stim|neuron_x_mouse__58 + stim|neuron_x_mouse__59 + stim|neuron_x_mouse__60 + stim|neuron_x_mouse__61 + stim|neuron_x_mouse__62 + stim|neuron_x_mouse__63 + stim|neuron_x_mouse__64 + stim|neuron_x_mouse__65 + stim|neuron_x_mouse__66 + stim|neuron_x_mouse__67 + stim|neuron_x_mouse__68 + stim|neuron_x_mouse__69 + stim|neuron_x_mouse__70 + stim|neuron_x_mouse__71 + stim|neuron_x_mouse__72 + stim|neuron_x_mouse__73 + stim|neuron_x_mouse__74 + stim|neuron_x_mouse__75 + stim|neuron_x_mouse__76 + stim|neuron_x_mouse__77 + stim|neuron_x_mouse__78 + stim|neuron_x_mouse__79
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/statsmodels/regression/mixed_linear_model.py:2237: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+  warnings.warn(msg, ConvergenceWarning)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            Coef. Std.Err.        z  P&gt;|z|  [0.025  0.975]
+Intercept                   0.081    0.004   21.895  0.000   0.074   0.088
+1 | mouse                  -0.004    0.001   -4.460  0.000  -0.005  -0.002
+stim | neuron_x_mouse__0   -0.003    0.001   -3.634  0.000  -0.005  -0.001
+stim | neuron_x_mouse__1   -0.008    0.001   -9.634  0.000  -0.010  -0.006
+stim | neuron_x_mouse__2   -0.010    0.001  -11.919  0.000  -0.012  -0.008
+...                           ...      ...      ...    ...     ...     ...
+stim | neuron_x_mouse__76   0.003    0.001    3.079  0.002   0.001   0.004
+stim | neuron_x_mouse__77  -0.001    0.001   -1.238  0.216  -0.003   0.001
+stim | neuron_x_mouse__78  -0.005    0.001   -5.650  0.000  -0.006  -0.003
+stim | neuron_x_mouse__79  -0.007    0.001   -8.779  0.000  -0.009  -0.006
+Group Var                   0.000    0.002                                
+
+[83 rows x 6 columns]
+isi~stim
+           sum_sq    df     F  PR(&gt;F)
+stim         0.0   1.0  54.1     0.0
+Residual     0.0  14.0   NaN     NaN
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>neuron_x_mouse</th>
+      <th>center interval</th>
+      <th>Std.Err.</th>
+      <th>z</th>
+      <th>p</th>
+      <th>higher interval</th>
+      <th>lower interval</th>
+      <th>zero</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-0.003</td>
+      <td>0.001</td>
+      <td>-3.634</td>
+      <td>0.000</td>
+      <td>-0.005</td>
+      <td>-0.001</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>-0.008</td>
+      <td>0.001</td>
+      <td>-9.634</td>
+      <td>0.000</td>
+      <td>-0.010</td>
+      <td>-0.006</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>-0.010</td>
+      <td>0.001</td>
+      <td>-11.919</td>
+      <td>0.000</td>
+      <td>-0.012</td>
+      <td>-0.008</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>-0.016</td>
+      <td>0.001</td>
+      <td>-18.903</td>
+      <td>0.000</td>
+      <td>-0.017</td>
+      <td>-0.014</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>-0.019</td>
+      <td>0.001</td>
+      <td>-22.785</td>
+      <td>0.000</td>
+      <td>-0.021</td>
+      <td>-0.017</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>75</td>
+      <td>0.007</td>
+      <td>0.001</td>
+      <td>8.115</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>0.008</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>76</td>
+      <td>0.003</td>
+      <td>0.001</td>
+      <td>3.079</td>
+      <td>0.002</td>
+      <td>0.001</td>
+      <td>0.004</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>77</td>
+      <td>-0.001</td>
+      <td>0.001</td>
+      <td>-1.238</td>
+      <td>0.216</td>
+      <td>-0.003</td>
+      <td>0.001</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>78</td>
+      <td>-0.005</td>
+      <td>0.001</td>
+      <td>-5.650</td>
+      <td>0.000</td>
+      <td>-0.006</td>
+      <td>-0.003</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>79</td>
+      <td>-0.007</td>
+      <td>0.001</td>
+      <td>-8.779</td>
+      <td>0.000</td>
+      <td>-0.009</td>
+      <td>-0.006</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>80 rows × 8 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuron_x_mouse&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-5d9094e23efe4616bc5a11d045340b8a"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-5d9094e23efe4616bc5a11d045340b8a") {
+      outputDiv = document.getElementById("altair-viz-5d9094e23efe4616bc5a11d045340b8a");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.035, 0.026], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.035, 0.026], "zero": true}, "title": "\u0394 isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.035, 0.026], "zero": true}}}}], "data": {"name": "data-7d6c642431c787f730bdaa8c5bd943d3"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-7d6c642431c787f730bdaa8c5bd943d3": [{"neuron_x_mouse": 0, "center interval": -0.003, "Std.Err.": 0.001, "z": -3.634, "p": 0.0, "higher interval": -0.005, "lower interval": -0.001, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.008, "Std.Err.": 0.001, "z": -9.634, "p": 0.0, "higher interval": -0.01, "lower interval": -0.006, "zero": 0}, {"neuron_x_mouse": 2, "center interval": -0.01, "Std.Err.": 0.001, "z": -11.919, "p": 0.0, "higher interval": -0.012, "lower interval": -0.008, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.016, "Std.Err.": 0.001, "z": -18.903, "p": 0.0, "higher interval": -0.017, "lower interval": -0.014, "zero": 0}, {"neuron_x_mouse": 4, "center interval": -0.019, "Std.Err.": 0.001, "z": -22.785, "p": 0.0, "higher interval": -0.021, "lower interval": -0.017, "zero": 0}, {"neuron_x_mouse": 5, "center interval": -0.022, "Std.Err.": 0.001, "z": -26.667, "p": 0.0, "higher interval": -0.024, "lower interval": -0.021, "zero": 0}, {"neuron_x_mouse": 6, "center interval": -0.027, "Std.Err.": 0.001, "z": -31.994, "p": 0.0, "higher interval": -0.028, "lower interval": -0.025, "zero": 0}, {"neuron_x_mouse": 7, "center interval": -0.03, "Std.Err.": 0.001, "z": -35.927, "p": 0.0, "higher interval": -0.032, "lower interval": -0.028, "zero": 0}, {"neuron_x_mouse": 8, "center interval": -0.033, "Std.Err.": 0.001, "z": -39.91, "p": 0.0, "higher interval": -0.035, "lower interval": -0.032, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.037, "Std.Err.": 0.001, "z": -43.677, "p": 0.0, "higher interval": -0.038, "lower interval": -0.035, "zero": 0}, {"neuron_x_mouse": 10, "center interval": 0.009, "Std.Err.": 0.001, "z": 11.214, "p": 0.0, "higher interval": 0.008, "lower interval": 0.011, "zero": 0}, {"neuron_x_mouse": 11, "center interval": 0.004, "Std.Err.": 0.001, "z": 4.731, "p": 0.0, "higher interval": 0.002, "lower interval": 0.006, "zero": 0}, {"neuron_x_mouse": 12, "center interval": 0.003, "Std.Err.": 0.001, "z": 3.192, "p": 0.001, "higher interval": 0.001, "lower interval": 0.004, "zero": 0}, {"neuron_x_mouse": 13, "center interval": -0.004, "Std.Err.": 0.001, "z": -5.383, "p": 0.0, "higher interval": -0.006, "lower interval": -0.003, "zero": 0}, {"neuron_x_mouse": 14, "center interval": -0.005, "Std.Err.": 0.001, "z": -6.386, "p": 0.0, "higher interval": -0.007, "lower interval": -0.004, "zero": 0}, {"neuron_x_mouse": 15, "center interval": -0.011, "Std.Err.": 0.001, "z": -12.979, "p": 0.0, "higher interval": -0.012, "lower interval": -0.009, "zero": 0}, {"neuron_x_mouse": 16, "center interval": -0.015, "Std.Err.": 0.001, "z": -17.357, "p": 0.0, "higher interval": -0.016, "lower interval": -0.013, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.018, "Std.Err.": 0.001, "z": -20.998, "p": 0.0, "higher interval": -0.019, "lower interval": -0.016, "zero": 0}, {"neuron_x_mouse": 18, "center interval": -0.02, "Std.Err.": 0.001, "z": -24.405, "p": 0.0, "higher interval": -0.022, "lower interval": -0.019, "zero": 0}, {"neuron_x_mouse": 19, "center interval": -0.024, "Std.Err.": 0.001, "z": -29.307, "p": 0.0, "higher interval": -0.026, "lower interval": -0.023, "zero": 0}, {"neuron_x_mouse": 20, "center interval": 0.015, "Std.Err.": 0.001, "z": 17.983, "p": 0.0, "higher interval": 0.013, "lower interval": 0.017, "zero": 0}, {"neuron_x_mouse": 21, "center interval": 0.011, "Std.Err.": 0.001, "z": 13.104, "p": 0.0, "higher interval": 0.009, "lower interval": 0.013, "zero": 0}, {"neuron_x_mouse": 22, "center interval": 0.007, "Std.Err.": 0.001, "z": 7.944, "p": 0.0, "higher interval": 0.005, "lower interval": 0.008, "zero": 0}, {"neuron_x_mouse": 23, "center interval": 0.004, "Std.Err.": 0.001, "z": 5.349, "p": 0.0, "higher interval": 0.003, "lower interval": 0.006, "zero": 0}, {"neuron_x_mouse": 24, "center interval": -0.001, "Std.Err.": 0.001, "z": -1.086, "p": 0.277, "higher interval": -0.003, "lower interval": 0.001, "zero": 0}, {"neuron_x_mouse": 25, "center interval": -0.004, "Std.Err.": 0.001, "z": -4.326, "p": 0.0, "higher interval": -0.005, "lower interval": -0.002, "zero": 0}, {"neuron_x_mouse": 26, "center interval": -0.008, "Std.Err.": 0.001, "z": -9.853, "p": 0.0, "higher interval": -0.01, "lower interval": -0.007, "zero": 0}, {"neuron_x_mouse": 27, "center interval": -0.013, "Std.Err.": 0.001, "z": -14.966, "p": 0.0, "higher interval": -0.014, "lower interval": -0.011, "zero": 0}, {"neuron_x_mouse": 28, "center interval": -0.014, "Std.Err.": 0.001, "z": -17.071, "p": 0.0, "higher interval": -0.016, "lower interval": -0.013, "zero": 0}, {"neuron_x_mouse": 29, "center interval": -0.019, "Std.Err.": 0.001, "z": -22.432, "p": 0.0, "higher interval": -0.02, "lower interval": -0.017, "zero": 0}, {"neuron_x_mouse": 30, "center interval": 0.02, "Std.Err.": 0.001, "z": 23.504, "p": 0.0, "higher interval": 0.018, "lower interval": 0.021, "zero": 0}, {"neuron_x_mouse": 31, "center interval": 0.016, "Std.Err.": 0.001, "z": 18.62, "p": 0.0, "higher interval": 0.014, "lower interval": 0.017, "zero": 0}, {"neuron_x_mouse": 32, "center interval": 0.012, "Std.Err.": 0.001, "z": 14.437, "p": 0.0, "higher interval": 0.01, "lower interval": 0.014, "zero": 0}, {"neuron_x_mouse": 33, "center interval": 0.007, "Std.Err.": 0.001, "z": 8.532, "p": 0.0, "higher interval": 0.005, "lower interval": 0.009, "zero": 0}, {"neuron_x_mouse": 34, "center interval": 0.002, "Std.Err.": 0.001, "z": 2.914, "p": 0.004, "higher interval": 0.001, "lower interval": 0.004, "zero": 0}, {"neuron_x_mouse": 35, "center interval": -0.001, "Std.Err.": 0.001, "z": -1.224, "p": 0.221, "higher interval": -0.003, "lower interval": 0.001, "zero": 0}, {"neuron_x_mouse": 36, "center interval": -0.005, "Std.Err.": 0.001, "z": -6.282, "p": 0.0, "higher interval": -0.007, "lower interval": -0.004, "zero": 0}, {"neuron_x_mouse": 37, "center interval": -0.007, "Std.Err.": 0.001, "z": -8.942, "p": 0.0, "higher interval": -0.009, "lower interval": -0.006, "zero": 0}, {"neuron_x_mouse": 38, "center interval": -0.011, "Std.Err.": 0.001, "z": -12.739, "p": 0.0, "higher interval": -0.012, "lower interval": -0.009, "zero": 0}, {"neuron_x_mouse": 39, "center interval": -0.014, "Std.Err.": 0.001, "z": -17.318, "p": 0.0, "higher interval": -0.016, "lower interval": -0.013, "zero": 0}, {"neuron_x_mouse": 40, "center interval": 0.022, "Std.Err.": 0.001, "z": 26.577, "p": 0.0, "higher interval": 0.021, "lower interval": 0.024, "zero": 0}, {"neuron_x_mouse": 41, "center interval": 0.018, "Std.Err.": 0.001, "z": 21.308, "p": 0.0, "higher interval": 0.016, "lower interval": 0.019, "zero": 0}, {"neuron_x_mouse": 42, "center interval": 0.014, "Std.Err.": 0.001, "z": 16.615, "p": 0.0, "higher interval": 0.012, "lower interval": 0.016, "zero": 0}, {"neuron_x_mouse": 43, "center interval": 0.01, "Std.Err.": 0.001, "z": 11.83, "p": 0.0, "higher interval": 0.008, "lower interval": 0.012, "zero": 0}, {"neuron_x_mouse": 44, "center interval": 0.005, "Std.Err.": 0.001, "z": 6.564, "p": 0.0, "higher interval": 0.004, "lower interval": 0.007, "zero": 0}, {"neuron_x_mouse": 45, "center interval": 0.002, "Std.Err.": 0.001, "z": 2.013, "p": 0.044, "higher interval": 0.0, "lower interval": 0.003, "zero": 0}, {"neuron_x_mouse": 46, "center interval": -0.002, "Std.Err.": 0.001, "z": -2.005, "p": 0.045, "higher interval": -0.003, "lower interval": -0.0, "zero": 0}, {"neuron_x_mouse": 47, "center interval": -0.006, "Std.Err.": 0.001, "z": -6.623, "p": 0.0, "higher interval": -0.007, "lower interval": -0.004, "zero": 0}, {"neuron_x_mouse": 48, "center interval": -0.009, "Std.Err.": 0.001, "z": -11.265, "p": 0.0, "higher interval": -0.011, "lower interval": -0.008, "zero": 0}, {"neuron_x_mouse": 49, "center interval": -0.012, "Std.Err.": 0.001, "z": -14.867, "p": 0.0, "higher interval": -0.014, "lower interval": -0.011, "zero": 0}, {"neuron_x_mouse": 50, "center interval": 0.025, "Std.Err.": 0.001, "z": 29.937, "p": 0.0, "higher interval": 0.023, "lower interval": 0.027, "zero": 0}, {"neuron_x_mouse": 51, "center interval": 0.02, "Std.Err.": 0.001, "z": 23.728, "p": 0.0, "higher interval": 0.018, "lower interval": 0.021, "zero": 0}, {"neuron_x_mouse": 52, "center interval": 0.015, "Std.Err.": 0.001, "z": 17.5, "p": 0.0, "higher interval": 0.013, "lower interval": 0.016, "zero": 0}, {"neuron_x_mouse": 53, "center interval": 0.012, "Std.Err.": 0.001, "z": 13.891, "p": 0.0, "higher interval": 0.01, "lower interval": 0.013, "zero": 0}, {"neuron_x_mouse": 54, "center interval": 0.007, "Std.Err.": 0.001, "z": 8.768, "p": 0.0, "higher interval": 0.006, "lower interval": 0.009, "zero": 0}, {"neuron_x_mouse": 55, "center interval": 0.004, "Std.Err.": 0.001, "z": 4.476, "p": 0.0, "higher interval": 0.002, "lower interval": 0.005, "zero": 0}, {"neuron_x_mouse": 56, "center interval": -0.001, "Std.Err.": 0.001, "z": -0.873, "p": 0.383, "higher interval": -0.002, "lower interval": 0.001, "zero": 0}, {"neuron_x_mouse": 57, "center interval": -0.004, "Std.Err.": 0.001, "z": -4.911, "p": 0.0, "higher interval": -0.006, "lower interval": -0.002, "zero": 0}, {"neuron_x_mouse": 58, "center interval": -0.007, "Std.Err.": 0.001, "z": -8.138, "p": 0.0, "higher interval": -0.008, "lower interval": -0.005, "zero": 0}, {"neuron_x_mouse": 59, "center interval": -0.01, "Std.Err.": 0.001, "z": -12.24, "p": 0.0, "higher interval": -0.012, "lower interval": -0.009, "zero": 0}, {"neuron_x_mouse": 60, "center interval": 0.026, "Std.Err.": 0.001, "z": 31.065, "p": 0.0, "higher interval": 0.024, "lower interval": 0.028, "zero": 0}, {"neuron_x_mouse": 61, "center interval": 0.02, "Std.Err.": 0.001, "z": 23.78, "p": 0.0, "higher interval": 0.018, "lower interval": 0.022, "zero": 0}, {"neuron_x_mouse": 62, "center interval": 0.016, "Std.Err.": 0.001, "z": 19.492, "p": 0.0, "higher interval": 0.015, "lower interval": 0.018, "zero": 0}, {"neuron_x_mouse": 63, "center interval": 0.013, "Std.Err.": 0.001, "z": 15.926, "p": 0.0, "higher interval": 0.012, "lower interval": 0.015, "zero": 0}, {"neuron_x_mouse": 64, "center interval": 0.008, "Std.Err.": 0.001, "z": 9.971, "p": 0.0, "higher interval": 0.007, "lower interval": 0.01, "zero": 0}, {"neuron_x_mouse": 65, "center interval": 0.005, "Std.Err.": 0.001, "z": 5.689, "p": 0.0, "higher interval": 0.003, "lower interval": 0.006, "zero": 0}, {"neuron_x_mouse": 66, "center interval": 0.002, "Std.Err.": 0.001, "z": 2.046, "p": 0.041, "higher interval": 0.0, "lower interval": 0.003, "zero": 0}, {"neuron_x_mouse": 67, "center interval": -0.002, "Std.Err.": 0.001, "z": -2.521, "p": 0.012, "higher interval": -0.004, "lower interval": -0.0, "zero": 0}, {"neuron_x_mouse": 68, "center interval": -0.006, "Std.Err.": 0.001, "z": -6.83, "p": 0.0, "higher interval": -0.007, "lower interval": -0.004, "zero": 0}, {"neuron_x_mouse": 69, "center interval": -0.008, "Std.Err.": 0.001, "z": -10.042, "p": 0.0, "higher interval": -0.01, "lower interval": -0.007, "zero": 0}, {"neuron_x_mouse": 70, "center interval": 0.027, "Std.Err.": 0.001, "z": 32.775, "p": 0.0, "higher interval": 0.026, "lower interval": 0.029, "zero": 0}, {"neuron_x_mouse": 71, "center interval": 0.022, "Std.Err.": 0.001, "z": 25.877, "p": 0.0, "higher interval": 0.02, "lower interval": 0.023, "zero": 0}, {"neuron_x_mouse": 72, "center interval": 0.018, "Std.Err.": 0.001, "z": 21.911, "p": 0.0, "higher interval": 0.017, "lower interval": 0.02, "zero": 0}, {"neuron_x_mouse": 73, "center interval": 0.013, "Std.Err.": 0.001, "z": 15.795, "p": 0.0, "higher interval": 0.012, "lower interval": 0.015, "zero": 0}, {"neuron_x_mouse": 74, "center interval": 0.011, "Std.Err.": 0.001, "z": 12.944, "p": 0.0, "higher interval": 0.009, "lower interval": 0.012, "zero": 0}, {"neuron_x_mouse": 75, "center interval": 0.007, "Std.Err.": 0.001, "z": 8.115, "p": 0.0, "higher interval": 0.005, "lower interval": 0.008, "zero": 0}, {"neuron_x_mouse": 76, "center interval": 0.003, "Std.Err.": 0.001, "z": 3.079, "p": 0.002, "higher interval": 0.001, "lower interval": 0.004, "zero": 0}, {"neuron_x_mouse": 77, "center interval": -0.001, "Std.Err.": 0.001, "z": -1.238, "p": 0.216, "higher interval": -0.003, "lower interval": 0.001, "zero": 0}, {"neuron_x_mouse": 78, "center interval": -0.005, "Std.Err.": 0.001, "z": -5.65, "p": 0.0, "higher interval": -0.006, "lower interval": -0.003, "zero": 0}, {"neuron_x_mouse": 79, "center interval": -0.007, "Std.Err.": 0.001, "z": -8.779, "p": 0.0, "higher interval": -0.009, "lower interval": -0.006, "zero": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>Simple one-way ANOVA:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">fit_anova</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>isi~stim
+           sum_sq    df     F  PR(&gt;F)
+stim         0.0   1.0  54.1     0.0
+Residual     0.0  14.0   NaN     NaN
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Of course in reality, neurons don’t have this consistent variation in each mouse. This would only be applicable to a priori classes of neurons</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "pycharm-d5912792"
+        },
+        kernelOptions: {
+            kernelName: "pycharm-d5912792",
+            path: "./neurons_example"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'pycharm-d5912792'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

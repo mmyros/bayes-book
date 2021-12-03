@@ -1,0 +1,893 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linear mixed effects &#8212; My sample book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/neurons_example/lme.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fneurons_example/lme.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/neurons_example/lme.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lfp">
+   LFP
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#with-data-overlay">
+   With data overlay
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spikes">
+   Spikes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#group-slope">
+     Group slope
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorical">
+     Categorical
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nested">
+     Nested
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="linear-mixed-effects">
+<h1>Linear mixed effects<a class="headerlink" href="#linear-mixed-effects" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">BayesWindow</span><span class="p">,</span> <span class="n">LMERegression</span>
+<span class="kn">from</span> <span class="nn">bayes_window.generative_models</span> <span class="kn">import</span> <span class="n">generate_fake_spikes</span><span class="p">,</span> <span class="n">generate_fake_lfp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">,</span> <span class="n">df_monster</span><span class="p">,</span> <span class="n">index_cols</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">generate_fake_lfp</span><span class="p">(</span><span class="n">mouse_response_slope</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+                                                 <span class="n">n_trials</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lfp">
+<h2>LFP<a class="headerlink" href="#lfp" title="Permalink to this headline">¶</a></h2>
+<p>Without data overlay</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span> <span class="o">=</span> <span class="n">LMERegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Log power&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">)</span>
+<span class="n">bw</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">add_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">bw</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula Log_power ~  C(stim, Treatment) + (1 | mouse)
+                          Coef.    Std.Err.       z  P&gt;|z|       [0.025  \
+Intercept                 0.013                                           
+C(stim, Treatment)[T.1]   0.123       0.022   5.496  0.000        0.079   
+1 | mouse                -0.076  174464.372  -0.000  1.000  -341943.961   
+Group Var                 0.000                                           
+
+                             0.975]  
+Intercept                            
+C(stim, Treatment)[T.1]       0.167  
+1 | mouse                341943.809  
+Group Var                            
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/statsmodels/base/model.py:566: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn(&quot;Maximum Likelihood optimization failed to &quot;
+/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/statsmodels/regression/mixed_linear_model.py:2200: ConvergenceWarning: Retrying MixedLM optimization with lbfgs
+  warnings.warn(
+/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/statsmodels/regression/mixed_linear_model.py:2237: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+  warnings.warn(msg, ConvergenceWarning)
+/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/statsmodels/regression/mixed_linear_model.py:2261: ConvergenceWarning: The Hessian matrix at the estimated parameter values is not positive definite.
+  warnings.warn(msg, ConvergenceWarning)
+</pre></div>
+</div>
+<div class="output text_html">
+<div id="altair-viz-77481c4870fd4011a718ebfe4c698246"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-77481c4870fd4011a718ebfe4c698246") {
+      outputDiv = document.getElementById("altair-viz-77481c4870fd4011a718ebfe4c698246");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [0, 0.167], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [0, 0.167], "zero": true}, "title": "\u0394 Log_power"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [0, 0.167], "zero": true}}}}], "data": {"name": "data-ffc6489f7574974ad552c6f0462869e9"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-ffc6489f7574974ad552c6f0462869e9": [{"index": "C(stim, Treatment)[T.1]", "center interval": 0.123, "Std.Err.": 0.022, "z": 5.496, "p": 0.0, "higher interval": 0.079, "lower interval": 0.167, "zero": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span><span class="o">.</span><span class="n">data_and_posterior</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>center interval</th>
+      <th>Std.Err.</th>
+      <th>z</th>
+      <th>p</th>
+      <th>higher interval</th>
+      <th>lower interval</th>
+      <th>zero</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>C(stim, Treatment)[T.1]</td>
+      <td>0.123</td>
+      <td>0.022</td>
+      <td>5.496</td>
+      <td>0.0</td>
+      <td>0.079</td>
+      <td>0.167</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="with-data-overlay">
+<h2>With data overlay<a class="headerlink" href="#with-data-overlay" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span> <span class="o">=</span> <span class="n">LMERegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Log power&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">bw</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">add_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">do_make_change</span><span class="o">=</span><span class="s1">&#39;subtract&#39;</span><span class="p">);</span>
+    <span class="n">bw</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>    
+<span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Data addition to LME is not implemented&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula Log_power ~  C(stim, Treatment) + (1 | mouse)
+                          Coef.    Std.Err.       z  P&gt;|z|       [0.025  \
+Intercept                 0.013                                           
+C(stim, Treatment)[T.1]   0.123       0.022   5.496  0.000        0.079   
+1 | mouse                -0.076  174464.372  -0.000  1.000  -341943.961   
+Group Var                 0.000                                           
+
+                             0.975]  
+Intercept                            
+C(stim, Treatment)[T.1]       0.167  
+1 | mouse                341943.809  
+Group Var                            
+
+ Data addition to LME is not implemented
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/statsmodels/base/model.py:566: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn(&quot;Maximum Likelihood optimization failed to &quot;
+/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/statsmodels/regression/mixed_linear_model.py:2200: ConvergenceWarning: Retrying MixedLM optimization with lbfgs
+  warnings.warn(
+/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/statsmodels/regression/mixed_linear_model.py:2237: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+  warnings.warn(msg, ConvergenceWarning)
+/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/statsmodels/regression/mixed_linear_model.py:2261: ConvergenceWarning: The Hessian matrix at the estimated parameter values is not positive definite.
+  warnings.warn(msg, ConvergenceWarning)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="spikes">
+<h2>Spikes<a class="headerlink" href="#spikes" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">,</span> <span class="n">df_monster</span><span class="p">,</span> <span class="n">index_cols</span><span class="p">,</span> <span class="n">firing_rates</span> <span class="o">=</span> <span class="n">generate_fake_spikes</span><span class="p">(</span><span class="n">n_trials</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                                                                <span class="n">n_neurons</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+                                                                <span class="n">n_mice</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                                                <span class="n">dur</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                                                               <span class="n">mouse_response_slope</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+                                                               <span class="n">overall_stim_response_strength</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;log_isi&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;isi&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span> <span class="o">=</span> <span class="n">LMERegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;log_isi&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;neuron_x_mouse&#39;</span><span class="p">],</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,)</span>
+<span class="n">bw</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">add_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">add_group_slope</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula log_isi ~ (1|mouse) + stim| neuron_x_mouse__0 + stim|neuron_x_mouse__1 + stim|neuron_x_mouse__2 + stim|neuron_x_mouse__3 + stim|neuron_x_mouse__4 + stim|neuron_x_mouse__5 + stim|neuron_x_mouse__6 + stim|neuron_x_mouse__7 + stim|neuron_x_mouse__8 + stim|neuron_x_mouse__9 + stim|neuron_x_mouse__10 + stim|neuron_x_mouse__11 + stim|neuron_x_mouse__12 + stim|neuron_x_mouse__13 + stim|neuron_x_mouse__14 + stim|neuron_x_mouse__15 + stim|neuron_x_mouse__16 + stim|neuron_x_mouse__17
+                            Coef. Std.Err.        z  P&gt;|z|  [0.025  0.975]
+Intercept                  -1.044    0.123   -8.513  0.000  -1.284  -0.804
+1 | mouse                  -0.081    0.064   -1.271  0.204  -0.207   0.044
+stim | neuron_x_mouse__0   -0.037    0.020   -1.879  0.060  -0.076   0.002
+stim | neuron_x_mouse__1   -0.076    0.020   -3.818  0.000  -0.114  -0.037
+stim | neuron_x_mouse__2   -0.116    0.020   -5.870  0.000  -0.155  -0.077
+stim | neuron_x_mouse__3   -0.168    0.020   -8.468  0.000  -0.207  -0.129
+stim | neuron_x_mouse__4   -0.203    0.020  -10.241  0.000  -0.242  -0.164
+stim | neuron_x_mouse__5   -0.247    0.020  -12.464  0.000  -0.286  -0.208
+stim | neuron_x_mouse__6    0.120    0.020    6.058  0.000   0.081   0.159
+stim | neuron_x_mouse__7    0.072    0.020    3.635  0.000   0.033   0.111
+stim | neuron_x_mouse__8    0.038    0.020    1.907  0.057  -0.001   0.077
+stim | neuron_x_mouse__9   -0.029    0.020   -1.488  0.137  -0.068   0.009
+stim | neuron_x_mouse__10  -0.062    0.020   -3.127  0.002  -0.101  -0.023
+stim | neuron_x_mouse__11  -0.085    0.020   -4.313  0.000  -0.124  -0.047
+stim | neuron_x_mouse__12   0.207    0.020   10.453  0.000   0.168   0.246
+stim | neuron_x_mouse__13   0.164    0.020    8.260  0.000   0.125   0.202
+stim | neuron_x_mouse__14   0.116    0.020    5.841  0.000   0.077   0.154
+stim | neuron_x_mouse__15   0.096    0.020    4.828  0.000   0.057   0.134
+stim | neuron_x_mouse__16   0.044    0.020    2.211  0.027   0.005   0.083
+stim | neuron_x_mouse__17  -0.005    0.020   -0.257  0.797  -0.044   0.034
+Group Var                   0.011    0.179                                
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span><span class="o">.</span><span class="n">chart</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-015192426ebe4c87b5099c373f7db9cd"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-015192426ebe4c87b5099c373f7db9cd") {
+      outputDiv = document.getElementById("altair-viz-015192426ebe4c87b5099c373f7db9cd");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.208, 0.168], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.208, 0.168], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.208, 0.168], "zero": true}}}}], "data": {"name": "data-b01ad25cbe509d798de3f000c8aa0e5f"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-b01ad25cbe509d798de3f000c8aa0e5f": [{"neuron_x_mouse": 0, "center interval": -0.037, "Std.Err.": 0.02, "z": -1.879, "p": 0.06, "higher interval": -0.076, "lower interval": 0.002, "zero": 0}, {"neuron_x_mouse": 6, "center interval": -0.076, "Std.Err.": 0.02, "z": -3.818, "p": 0.0, "higher interval": -0.114, "lower interval": -0.037, "zero": 0}, {"neuron_x_mouse": 12, "center interval": -0.116, "Std.Err.": 0.02, "z": -5.87, "p": 0.0, "higher interval": -0.155, "lower interval": -0.077, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.168, "Std.Err.": 0.02, "z": -8.468, "p": 0.0, "higher interval": -0.207, "lower interval": -0.129, "zero": 0}, {"neuron_x_mouse": 7, "center interval": -0.203, "Std.Err.": 0.02, "z": -10.241, "p": 0.0, "higher interval": -0.242, "lower interval": -0.164, "zero": 0}, {"neuron_x_mouse": 13, "center interval": -0.247, "Std.Err.": 0.02, "z": -12.464, "p": 0.0, "higher interval": -0.286, "lower interval": -0.208, "zero": 0}, {"neuron_x_mouse": 2, "center interval": 0.12, "Std.Err.": 0.02, "z": 6.058, "p": 0.0, "higher interval": 0.081, "lower interval": 0.159, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.072, "Std.Err.": 0.02, "z": 3.635, "p": 0.0, "higher interval": 0.033, "lower interval": 0.111, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.038, "Std.Err.": 0.02, "z": 1.907, "p": 0.057, "higher interval": -0.001, "lower interval": 0.077, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.029, "Std.Err.": 0.02, "z": -1.488, "p": 0.137, "higher interval": -0.068, "lower interval": 0.009, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.062, "Std.Err.": 0.02, "z": -3.127, "p": 0.002, "higher interval": -0.101, "lower interval": -0.023, "zero": 0}, {"neuron_x_mouse": 15, "center interval": -0.085, "Std.Err.": 0.02, "z": -4.313, "p": 0.0, "higher interval": -0.124, "lower interval": -0.047, "zero": 0}, {"neuron_x_mouse": 4, "center interval": 0.207, "Std.Err.": 0.02, "z": 10.453, "p": 0.0, "higher interval": 0.168, "lower interval": 0.246, "zero": 0}, {"neuron_x_mouse": 10, "center interval": 0.164, "Std.Err.": 0.02, "z": 8.26, "p": 0.0, "higher interval": 0.125, "lower interval": 0.202, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.116, "Std.Err.": 0.02, "z": 5.841, "p": 0.0, "higher interval": 0.077, "lower interval": 0.154, "zero": 0}, {"neuron_x_mouse": 5, "center interval": 0.096, "Std.Err.": 0.02, "z": 4.828, "p": 0.0, "higher interval": 0.057, "lower interval": 0.134, "zero": 0}, {"neuron_x_mouse": 11, "center interval": 0.044, "Std.Err.": 0.02, "z": 2.211, "p": 0.027, "higher interval": 0.005, "lower interval": 0.083, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.005, "Std.Err.": 0.02, "z": -0.257, "p": 0.797, "higher interval": -0.044, "lower interval": 0.034, "zero": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="section" id="group-slope">
+<h3>Group slope<a class="headerlink" href="#group-slope" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span> <span class="o">=</span> <span class="n">LMERegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;log_isi&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;neuron_x_mouse&#39;</span><span class="p">],</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,)</span>
+<span class="n">bw</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">add_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">add_group_slope</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula log_isi ~ (stim|mouse)  + stim| neuron_x_mouse__0 + stim|neuron_x_mouse__1 + stim|neuron_x_mouse__2 + stim|neuron_x_mouse__3 + stim|neuron_x_mouse__4 + stim|neuron_x_mouse__5 + stim|neuron_x_mouse__6 + stim|neuron_x_mouse__7 + stim|neuron_x_mouse__8 + stim|neuron_x_mouse__9 + stim|neuron_x_mouse__10 + stim|neuron_x_mouse__11 + stim|neuron_x_mouse__12 + stim|neuron_x_mouse__13 + stim|neuron_x_mouse__14 + stim|neuron_x_mouse__15 + stim|neuron_x_mouse__16 + stim|neuron_x_mouse__17
+                            Coef. Std.Err.        z  P&gt;|z|  [0.025  0.975]
+Intercept                  -1.101    0.086  -12.776  0.000  -1.270  -0.932
+stim | mouse               -0.081    0.064   -1.271  0.204  -0.207   0.044
+stim | neuron_x_mouse__0   -0.061    0.027   -2.224  0.026  -0.115  -0.007
+stim | neuron_x_mouse__1   -0.100    0.027   -3.621  0.000  -0.153  -0.046
+stim | neuron_x_mouse__2   -0.140    0.027   -5.099  0.000  -0.194  -0.086
+stim | neuron_x_mouse__3   -0.192    0.027   -6.970  0.000  -0.246  -0.138
+stim | neuron_x_mouse__4   -0.227    0.027   -8.248  0.000  -0.281  -0.173
+stim | neuron_x_mouse__5   -0.271    0.027   -9.848  0.000  -0.325  -0.217
+stim | neuron_x_mouse__6    0.177    0.049    3.612  0.000   0.081   0.274
+stim | neuron_x_mouse__7    0.129    0.049    2.635  0.008   0.033   0.226
+stim | neuron_x_mouse__8    0.095    0.049    1.938  0.053  -0.001   0.192
+stim | neuron_x_mouse__9    0.028    0.049    0.570  0.569  -0.068   0.124
+stim | neuron_x_mouse__10  -0.004    0.049   -0.091  0.928  -0.101   0.092
+stim | neuron_x_mouse__11  -0.028    0.049   -0.569  0.569  -0.124   0.068
+stim | neuron_x_mouse__12   0.183    0.027    6.781  0.000   0.130   0.236
+stim | neuron_x_mouse__13   0.140    0.027    5.172  0.000   0.087   0.192
+stim | neuron_x_mouse__14   0.092    0.027    3.398  0.001   0.039   0.145
+stim | neuron_x_mouse__15   0.072    0.027    2.655  0.008   0.019   0.125
+stim | neuron_x_mouse__16   0.020    0.027    0.734  0.463  -0.033   0.073
+stim | neuron_x_mouse__17  -0.029    0.027   -1.076  0.282  -0.082   0.024
+Group Var                   0.011    0.179                                
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bayes_window.lme.LMERegression at 0x7ff8c107a0a0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span><span class="o">.</span><span class="n">chart</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-f6508668bca9410a94c1575b961acdb7"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-f6508668bca9410a94c1575b961acdb7") {
+      outputDiv = document.getElementById("altair-viz-f6508668bca9410a94c1575b961acdb7");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.217, 0.13], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.217, 0.13], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.217, 0.13], "zero": true}}}}], "data": {"name": "data-b165fc92fab177f2a4c2a146744cf650"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-b165fc92fab177f2a4c2a146744cf650": [{"neuron_x_mouse": 0, "center interval": -0.061, "Std.Err.": 0.027, "z": -2.224, "p": 0.026, "higher interval": -0.115, "lower interval": -0.007, "zero": 0}, {"neuron_x_mouse": 6, "center interval": -0.1, "Std.Err.": 0.027, "z": -3.621, "p": 0.0, "higher interval": -0.153, "lower interval": -0.046, "zero": 0}, {"neuron_x_mouse": 12, "center interval": -0.14, "Std.Err.": 0.027, "z": -5.099, "p": 0.0, "higher interval": -0.194, "lower interval": -0.086, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.192, "Std.Err.": 0.027, "z": -6.97, "p": 0.0, "higher interval": -0.246, "lower interval": -0.138, "zero": 0}, {"neuron_x_mouse": 7, "center interval": -0.227, "Std.Err.": 0.027, "z": -8.248, "p": 0.0, "higher interval": -0.281, "lower interval": -0.173, "zero": 0}, {"neuron_x_mouse": 13, "center interval": -0.271, "Std.Err.": 0.027, "z": -9.848, "p": 0.0, "higher interval": -0.325, "lower interval": -0.217, "zero": 0}, {"neuron_x_mouse": 2, "center interval": 0.177, "Std.Err.": 0.049, "z": 3.612, "p": 0.0, "higher interval": 0.081, "lower interval": 0.274, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.129, "Std.Err.": 0.049, "z": 2.635, "p": 0.008, "higher interval": 0.033, "lower interval": 0.226, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.095, "Std.Err.": 0.049, "z": 1.938, "p": 0.053, "higher interval": -0.001, "lower interval": 0.192, "zero": 0}, {"neuron_x_mouse": 3, "center interval": 0.028, "Std.Err.": 0.049, "z": 0.57, "p": 0.569, "higher interval": -0.068, "lower interval": 0.124, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.004, "Std.Err.": 0.049, "z": -0.091, "p": 0.928, "higher interval": -0.101, "lower interval": 0.092, "zero": 0}, {"neuron_x_mouse": 15, "center interval": -0.028, "Std.Err.": 0.049, "z": -0.569, "p": 0.569, "higher interval": -0.124, "lower interval": 0.068, "zero": 0}, {"neuron_x_mouse": 4, "center interval": 0.183, "Std.Err.": 0.027, "z": 6.781, "p": 0.0, "higher interval": 0.13, "lower interval": 0.236, "zero": 0}, {"neuron_x_mouse": 10, "center interval": 0.14, "Std.Err.": 0.027, "z": 5.172, "p": 0.0, "higher interval": 0.087, "lower interval": 0.192, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.092, "Std.Err.": 0.027, "z": 3.398, "p": 0.001, "higher interval": 0.039, "lower interval": 0.145, "zero": 0}, {"neuron_x_mouse": 5, "center interval": 0.072, "Std.Err.": 0.027, "z": 2.655, "p": 0.008, "higher interval": 0.019, "lower interval": 0.125, "zero": 0}, {"neuron_x_mouse": 11, "center interval": 0.02, "Std.Err.": 0.027, "z": 0.734, "p": 0.463, "higher interval": -0.033, "lower interval": 0.073, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.029, "Std.Err.": 0.027, "z": -1.076, "p": 0.282, "higher interval": -0.082, "lower interval": 0.024, "zero": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuron_x_mouse:O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-65e195eecbd74ca7b188847a279f8b52"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-65e195eecbd74ca7b188847a279f8b52") {
+      outputDiv = document.getElementById("altair-viz-65e195eecbd74ca7b188847a279f8b52");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.217, 0.13], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.217, 0.13], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.217, 0.13], "zero": true}}}}], "data": {"name": "data-b165fc92fab177f2a4c2a146744cf650"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-b165fc92fab177f2a4c2a146744cf650": [{"neuron_x_mouse": 0, "center interval": -0.061, "Std.Err.": 0.027, "z": -2.224, "p": 0.026, "higher interval": -0.115, "lower interval": -0.007, "zero": 0}, {"neuron_x_mouse": 6, "center interval": -0.1, "Std.Err.": 0.027, "z": -3.621, "p": 0.0, "higher interval": -0.153, "lower interval": -0.046, "zero": 0}, {"neuron_x_mouse": 12, "center interval": -0.14, "Std.Err.": 0.027, "z": -5.099, "p": 0.0, "higher interval": -0.194, "lower interval": -0.086, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.192, "Std.Err.": 0.027, "z": -6.97, "p": 0.0, "higher interval": -0.246, "lower interval": -0.138, "zero": 0}, {"neuron_x_mouse": 7, "center interval": -0.227, "Std.Err.": 0.027, "z": -8.248, "p": 0.0, "higher interval": -0.281, "lower interval": -0.173, "zero": 0}, {"neuron_x_mouse": 13, "center interval": -0.271, "Std.Err.": 0.027, "z": -9.848, "p": 0.0, "higher interval": -0.325, "lower interval": -0.217, "zero": 0}, {"neuron_x_mouse": 2, "center interval": 0.177, "Std.Err.": 0.049, "z": 3.612, "p": 0.0, "higher interval": 0.081, "lower interval": 0.274, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.129, "Std.Err.": 0.049, "z": 2.635, "p": 0.008, "higher interval": 0.033, "lower interval": 0.226, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.095, "Std.Err.": 0.049, "z": 1.938, "p": 0.053, "higher interval": -0.001, "lower interval": 0.192, "zero": 0}, {"neuron_x_mouse": 3, "center interval": 0.028, "Std.Err.": 0.049, "z": 0.57, "p": 0.569, "higher interval": -0.068, "lower interval": 0.124, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.004, "Std.Err.": 0.049, "z": -0.091, "p": 0.928, "higher interval": -0.101, "lower interval": 0.092, "zero": 0}, {"neuron_x_mouse": 15, "center interval": -0.028, "Std.Err.": 0.049, "z": -0.569, "p": 0.569, "higher interval": -0.124, "lower interval": 0.068, "zero": 0}, {"neuron_x_mouse": 4, "center interval": 0.183, "Std.Err.": 0.027, "z": 6.781, "p": 0.0, "higher interval": 0.13, "lower interval": 0.236, "zero": 0}, {"neuron_x_mouse": 10, "center interval": 0.14, "Std.Err.": 0.027, "z": 5.172, "p": 0.0, "higher interval": 0.087, "lower interval": 0.192, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.092, "Std.Err.": 0.027, "z": 3.398, "p": 0.001, "higher interval": 0.039, "lower interval": 0.145, "zero": 0}, {"neuron_x_mouse": 5, "center interval": 0.072, "Std.Err.": 0.027, "z": 2.655, "p": 0.008, "higher interval": 0.019, "lower interval": 0.125, "zero": 0}, {"neuron_x_mouse": 11, "center interval": 0.02, "Std.Err.": 0.027, "z": 0.734, "p": 0.463, "higher interval": -0.033, "lower interval": 0.073, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.029, "Std.Err.": 0.027, "z": -1.076, "p": 0.282, "higher interval": -0.082, "lower interval": 0.024, "zero": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</div>
+<div class="section" id="categorical">
+<h3>Categorical<a class="headerlink" href="#categorical" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;log_isi ~ (1|mouse) + C(stim| neuron_x_mouse)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula log_isi ~ (1|mouse) + C(stim| neuron_x_mouse)
+                                 Coef.    Std.Err.       z  P&gt;|z|  \
+Intercept                       -0.849  149904.162  -0.000  1.000   
+C(stim | neuron_x_mouse)[T.1]   -0.064       0.028  -2.261  0.024   
+C(stim | neuron_x_mouse)[T.2]   -0.079       0.035  -2.283  0.022   
+C(stim | neuron_x_mouse)[T.3]   -0.127       0.028  -4.501  0.000   
+C(stim | neuron_x_mouse)[T.4]   -0.166       0.035  -4.784  0.000   
+C(stim | neuron_x_mouse)[T.5]   -0.206       0.028  -7.286  0.000   
+C(stim | neuron_x_mouse)[T.6]    0.010       0.159   0.063  0.950   
+C(stim | neuron_x_mouse)[T.7]   -0.253       0.157  -1.609  0.108   
+C(stim | neuron_x_mouse)[T.8]   -0.072       0.159  -0.456  0.649   
+C(stim | neuron_x_mouse)[T.9]   -0.222       0.157  -1.412  0.158   
+C(stim | neuron_x_mouse)[T.10]  -0.172       0.159  -1.084  0.278   
+C(stim | neuron_x_mouse)[T.11]  -0.216       0.157  -1.373  0.170   
+C(stim | neuron_x_mouse)[T.12]   0.487  299808.325   0.000  1.000   
+C(stim | neuron_x_mouse)[T.13]   0.111  299808.325   0.000  1.000   
+C(stim | neuron_x_mouse)[T.14]   0.396  299808.325   0.000  1.000   
+C(stim | neuron_x_mouse)[T.15]   0.214  299808.325   0.000  1.000   
+C(stim | neuron_x_mouse)[T.16]   0.324  299808.325   0.000  1.000   
+C(stim | neuron_x_mouse)[T.17]   0.253  299808.325   0.000  1.000   
+1 | mouse                       -0.240  149904.162  -0.000  1.000   
+Group Var                        0.012       2.888                  
+
+                                     [0.025      0.975]  
+Intercept                       -293807.609  293805.910  
+C(stim | neuron_x_mouse)[T.1]        -0.119      -0.009  
+C(stim | neuron_x_mouse)[T.2]        -0.147      -0.011  
+C(stim | neuron_x_mouse)[T.3]        -0.183      -0.072  
+C(stim | neuron_x_mouse)[T.4]        -0.233      -0.098  
+C(stim | neuron_x_mouse)[T.5]        -0.261      -0.151  
+C(stim | neuron_x_mouse)[T.6]        -0.301       0.321  
+C(stim | neuron_x_mouse)[T.7]        -0.562       0.055  
+C(stim | neuron_x_mouse)[T.8]        -0.383       0.239  
+C(stim | neuron_x_mouse)[T.9]        -0.531       0.086  
+C(stim | neuron_x_mouse)[T.10]       -0.483       0.139  
+C(stim | neuron_x_mouse)[T.11]       -0.525       0.092  
+C(stim | neuron_x_mouse)[T.12]  -587613.032  587614.006  
+C(stim | neuron_x_mouse)[T.13]  -587613.408  587613.630  
+C(stim | neuron_x_mouse)[T.14]  -587613.123  587613.915  
+C(stim | neuron_x_mouse)[T.15]  -587613.305  587613.733  
+C(stim | neuron_x_mouse)[T.16]  -587613.195  587613.843  
+C(stim | neuron_x_mouse)[T.17]  -587613.266  587613.772  
+1 | mouse                       -293806.999  293806.520  
+Group Var                                                
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bayes_window.lme.LMERegression at 0x7ff8c107a0a0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuron_x_mouse:O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-ebf7518a72c14425bcb0fe8043fed687"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-ebf7518a72c14425bcb0fe8043fed687") {
+      outputDiv = document.getElementById("altair-viz-ebf7518a72c14425bcb0fe8043fed687");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.151, 0], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.151, 0], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.151, 0], "zero": true}}}}], "data": {"name": "data-b331edad0771b3c905c1835e79bf46dd"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-b331edad0771b3c905c1835e79bf46dd": [{"neuron_x_mouse": 0, "center interval": -0.064, "Std.Err.": 0.028, "z": -2.261, "p": 0.024, "higher interval": -0.119, "lower interval": -0.009, "zero": 0}, {"neuron_x_mouse": 6, "center interval": -0.079, "Std.Err.": 0.035, "z": -2.283, "p": 0.022, "higher interval": -0.147, "lower interval": -0.011, "zero": 0}, {"neuron_x_mouse": 12, "center interval": -0.127, "Std.Err.": 0.028, "z": -4.501, "p": 0.0, "higher interval": -0.183, "lower interval": -0.072, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.166, "Std.Err.": 0.035, "z": -4.784, "p": 0.0, "higher interval": -0.233, "lower interval": -0.098, "zero": 0}, {"neuron_x_mouse": 7, "center interval": -0.206, "Std.Err.": 0.028, "z": -7.286, "p": 0.0, "higher interval": -0.261, "lower interval": -0.151, "zero": 0}, {"neuron_x_mouse": 13, "center interval": 0.01, "Std.Err.": 0.159, "z": 0.063, "p": 0.95, "higher interval": -0.301, "lower interval": 0.321, "zero": 0}, {"neuron_x_mouse": 2, "center interval": -0.253, "Std.Err.": 0.157, "z": -1.609, "p": 0.108, "higher interval": -0.562, "lower interval": 0.055, "zero": 0}, {"neuron_x_mouse": 8, "center interval": -0.072, "Std.Err.": 0.159, "z": -0.456, "p": 0.649, "higher interval": -0.383, "lower interval": 0.239, "zero": 0}, {"neuron_x_mouse": 14, "center interval": -0.222, "Std.Err.": 0.157, "z": -1.412, "p": 0.158, "higher interval": -0.531, "lower interval": 0.086, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.172, "Std.Err.": 0.159, "z": -1.084, "p": 0.278, "higher interval": -0.483, "lower interval": 0.139, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.216, "Std.Err.": 0.157, "z": -1.373, "p": 0.17, "higher interval": -0.525, "lower interval": 0.092, "zero": 0}, {"neuron_x_mouse": 15, "center interval": 0.487, "Std.Err.": 299808.325, "z": 0.0, "p": 1.0, "higher interval": -587613.032, "lower interval": 587614.006, "zero": 0}, {"neuron_x_mouse": 4, "center interval": 0.111, "Std.Err.": 299808.325, "z": 0.0, "p": 1.0, "higher interval": -587613.408, "lower interval": 587613.63, "zero": 0}, {"neuron_x_mouse": 10, "center interval": 0.396, "Std.Err.": 299808.325, "z": 0.0, "p": 1.0, "higher interval": -587613.123, "lower interval": 587613.915, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.214, "Std.Err.": 299808.325, "z": 0.0, "p": 1.0, "higher interval": -587613.305, "lower interval": 587613.733, "zero": 0}, {"neuron_x_mouse": 5, "center interval": 0.324, "Std.Err.": 299808.325, "z": 0.0, "p": 1.0, "higher interval": -587613.195, "lower interval": 587613.843, "zero": 0}, {"neuron_x_mouse": 11, "center interval": 0.253, "Std.Err.": 299808.325, "z": 0.0, "p": 1.0, "higher interval": -587613.266, "lower interval": 587613.772, "zero": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</div>
+<div class="section" id="nested">
+<h3>Nested<a class="headerlink" href="#nested" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bw</span> <span class="o">=</span> <span class="n">LMERegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;log_isi&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;neuron_x_mouse&#39;</span><span class="p">],</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">bw</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">add_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">add_group_slope</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">add_nested_group</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula log_isi ~ (stim|mouse) + stim| neuron_x_mouse__0:mouse + stim|neuron_x_mouse__1:mouse + stim|neuron_x_mouse__2:mouse + stim|neuron_x_mouse__3:mouse + stim|neuron_x_mouse__4:mouse + stim|neuron_x_mouse__5:mouse + stim|neuron_x_mouse__6:mouse + stim|neuron_x_mouse__7:mouse + stim|neuron_x_mouse__8:mouse + stim|neuron_x_mouse__9:mouse + stim|neuron_x_mouse__10:mouse + stim|neuron_x_mouse__11:mouse + stim|neuron_x_mouse__12:mouse + stim|neuron_x_mouse__13:mouse + stim|neuron_x_mouse__14:mouse + stim|neuron_x_mouse__15:mouse + stim|neuron_x_mouse__16:mouse + stim|neuron_x_mouse__17:mouse
+Singular matrix
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "pycharm-d5912792"
+        },
+        kernelOptions: {
+            kernelName: "pycharm-d5912792",
+            path: "./neurons_example"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'pycharm-d5912792'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

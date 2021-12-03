@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radon example from Gelman and Hill (2006) &#8212; My sample book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/radon_example/radon.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fradon_example/radon.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/radon_example/radon.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-data">
+   Plot data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fit-lme">
+   Fit LME
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fit-bayesian-hierarchical-with-and-without-county-specific-intercept">
+   Fit Bayesian hierarchical with and without county-specific intercept
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inspect-intercepts-horizontal-ticks">
+     Inspect intercepts (horizontal ticks)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-the-two-models">
+   Compare the two models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="radon-example-from-gelman-and-hill-2006">
+<h1>Radon example from Gelman and Hill (2006)<a class="headerlink" href="#radon-example-from-gelman-and-hill-2006" title="Permalink to this headline">¶</a></h1>
+<p>This is a reworking of the radon example from pymc3 <a class="reference external" href="https://docs.pymc.io/notebooks/multilevel_modeling.html">https://docs.pymc.io/notebooks/multilevel_modeling.html</a></p>
+<p>Other implementations in:</p>
+<ul class="simple">
+<li><p>tensorflow <a class="reference external" href="https://www.tensorflow.org/probability/examples/Multilevel_Modeling_Primer">https://www.tensorflow.org/probability/examples/Multilevel_Modeling_Primer</a> - pymc3 <a class="reference external" href="https://docs.pymc.io/notebooks/multilevel_modeling.html">https://docs.pymc.io/notebooks/multilevel_modeling.html</a></p></li>
+<li><p>stan <a class="reference external" href="https://mc-stan.org/users/documentation/case-studies/radon.html">https://mc-stan.org/users/documentation/case-studies/radon.html</a></p></li>
+<li><p>pyro <a class="reference external" href="https://github.com/pyro-ppl/pyro-models/blob/master/pyro_models/arm/radon.py">https://github.com/pyro-ppl/pyro-models/blob/master/pyro_models/arm/radon.py</a></p></li>
+<li><p>numpyro fibrosis dataset <a class="reference external" href="http://num.pyro.ai/en/stable/tutorials/bayesian_hierarchical_linear_regression.html">http://num.pyro.ai/en/stable/tutorials/bayesian_hierarchical_linear_regression.html</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;altair_saver&#39;</span><span class="p">,</span> <span class="n">fmts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;png&#39;</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">BayesWindow</span><span class="p">,</span> <span class="n">BayesConditions</span><span class="p">,</span> <span class="n">LMERegression</span><span class="p">,</span> <span class="n">BayesRegression</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">load_radon</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">load_radon</span><span class="p">()</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>county</th>
+      <th>radon</th>
+      <th>floor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AITKIN</td>
+      <td>2.2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AITKIN</td>
+      <td>2.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AITKIN</td>
+      <td>2.9</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AITKIN</td>
+      <td>1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ANOKA</td>
+      <td>3.1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>922</th>
+      <td>WRIGHT</td>
+      <td>6.4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>923</th>
+      <td>WRIGHT</td>
+      <td>4.5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>924</th>
+      <td>WRIGHT</td>
+      <td>5.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>925</th>
+      <td>YELLOW MEDICINE</td>
+      <td>3.7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>926</th>
+      <td>YELLOW MEDICINE</td>
+      <td>2.9</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>919 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;county&#39;</span><span class="p">,</span><span class="s1">&#39;floor&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/radon_2_0.png" src="../_images/radon_2_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">=</span><span class="n">BayesWindow</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;radon&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;floor&#39;</span><span class="p">,</span><span class="n">group</span><span class="o">=</span><span class="s1">&#39;county&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-data">
+<h2>Plot data<a class="headerlink" href="#plot-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;county&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="s1">&#39;floor&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/radon_5_0.png" src="../_images/radon_5_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="fit-lme">
+<h2>Fit LME<a class="headerlink" href="#fit-lme" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lme</span><span class="o">=</span><span class="n">LMERegression</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="c1">#formula=&#39;radon ~ floor + ( 1 | county)&#39;)</span>
+
+<span class="n">window</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/radon_7_0.png" src="../_images/radon_7_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="fit-bayesian-hierarchical-with-and-without-county-specific-intercept">
+<h2>Fit Bayesian hierarchical with and without county-specific intercept<a class="headerlink" href="#fit-bayesian-hierarchical-with-and-without-county-specific-intercept" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window1</span><span class="o">=</span><span class="n">BayesRegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;radon&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;floor&#39;</span><span class="p">,</span><span class="n">group</span><span class="o">=</span><span class="s1">&#39;county&#39;</span><span class="p">)</span>
+<span class="n">window1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+<span class="n">window1</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-11-30 15:37:12.522319: E external/org_tensorflow/tensorflow/stream_executor/cuda/cuda_driver.cc:271] failed call to cuInit: CUDA_ERROR_COMPAT_NOT_SUPPORTED_ON_DEVICE: forward compatibility was attempted on non supported HW
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uneven number of entries in conditions! This will lead to nans in data (window.data[&quot;radon diff&quot;(170, 120)
+</pre></div>
+</div>
+<img alt="../_images/radon_9_2.png" src="../_images/radon_9_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;:O&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/radon_10_0.png" src="../_images/radon_10_0.png" />
+</div>
+</div>
+<div class="section" id="inspect-intercepts-horizontal-ticks">
+<h3>Inspect intercepts (horizontal ticks)<a class="headerlink" href="#inspect-intercepts-horizontal-ticks" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window1</span><span class="o">.</span><span class="n">plot_intercepts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/radon_12_0.png" src="../_images/radon_12_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window2</span><span class="o">=</span><span class="n">BayesRegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;radon&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;floor&#39;</span><span class="p">,</span><span class="n">group</span><span class="o">=</span><span class="s1">&#39;county&#39;</span><span class="p">)</span>
+<span class="n">window2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">add_group_slope</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">do_make_change</span><span class="o">=</span><span class="s1">&#39;subtract&#39;</span><span class="p">);</span>
+<span class="n">window2</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uneven number of entries in conditions! This will lead to nans in data (window.data[&quot;radon diff&quot;(170, 120)
+</pre></div>
+</div>
+<img alt="../_images/radon_13_1.png" src="../_images/radon_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">window</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;LME&#39;</span><span class="p">)</span><span class="o">|</span>
+ <span class="n">window1</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Partially pooled Bayesian&#39;</span><span class="p">)</span><span class="o">|</span>
+ <span class="n">window2</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Unpooled  Bayesian&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/radon_14_0.png" src="../_images/radon_14_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-the-two-models">
+<h2>Compare the two models<a class="headerlink" href="#compare-the-two-models" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">arviz</span> <span class="k">as</span> <span class="nn">az</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;unpooled&#39;</span> <span class="p">:</span> <span class="n">window2</span><span class="o">.</span><span class="n">trace</span><span class="o">.</span><span class="n">posterior</span><span class="p">,</span>
+           <span class="s1">&#39;hierarchical&#39;</span><span class="p">:</span> <span class="n">window1</span><span class="o">.</span><span class="n">trace</span><span class="o">.</span><span class="n">posterior</span><span class="p">}</span> 
+
+<span class="n">az</span><span class="o">.</span><span class="n">plot_forest</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">datasets</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">model_names</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">datasets</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> 
+               <span class="c1">#backend=&#39;bokeh&#39;,</span>
+               <span class="c1">#kind=&#39;ridgeplot&#39;,</span>
+               <span class="c1">#ridgeplot_overlap=1.6,</span>
+               <span class="n">combined</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/radon_16_0.png" src="../_images/radon_16_0.png" />
+</div>
+</div>
+<p>For leave-one-out, let’s remove any counties that did not contain both floors. This drops about 250 rows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ddf</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ddf</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;county&#39;</span><span class="p">])</span> 
+                      <span class="k">if</span> <span class="p">(</span><span class="n">ddf</span><span class="o">.</span><span class="n">floor</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> 
+                      <span class="ow">and</span> <span class="p">(</span><span class="n">ddf</span><span class="p">[</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span>
+                      <span class="ow">and</span> <span class="p">(</span><span class="n">ddf</span><span class="p">[</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span>
+                     <span class="p">])</span>
+
+
+<span class="n">df_clean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>county</th>
+      <th>radon</th>
+      <th>floor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>ANOKA</td>
+      <td>3.1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ANOKA</td>
+      <td>2.5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>ANOKA</td>
+      <td>1.5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>ANOKA</td>
+      <td>1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>ANOKA</td>
+      <td>0.7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>907</th>
+      <td>WINONA</td>
+      <td>10.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>908</th>
+      <td>WINONA</td>
+      <td>11.3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>909</th>
+      <td>WINONA</td>
+      <td>7.6</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>910</th>
+      <td>WINONA</td>
+      <td>11.8</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>911</th>
+      <td>WINONA</td>
+      <td>0.5</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>660 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window1</span><span class="o">.</span><span class="n">data</span><span class="o">=</span><span class="n">df_clean</span>
+<span class="n">window1</span><span class="o">.</span><span class="n">explore_models</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2829554</span><span class="o">/</span><span class="mf">1390140151.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">window1</span><span class="o">.</span><span class="n">data</span><span class="o">=</span><span class="n">df_clean</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">window1</span><span class="o">.</span><span class="n">explore_models</span><span class="p">()</span>
+
+<span class="nn">~/mmy/bayes-window/bayes_window/slopes.py</span> in <span class="ni">explore_models</span><span class="nt">(self, parallel, add_group_slope, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span>                       <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">group</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">411</span>                       <span class="s1">&#39;add_group_slope&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}])</span>
+<span class="ne">--&gt; </span><span class="mi">412</span>             <span class="k">return</span> <span class="n">compare_models</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">413</span>                 <span class="n">df</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">414</span>                 <span class="n">models</span><span class="o">=</span><span class="n">models</span><span class="p">,</span>
+
+<span class="nn">~/mmy/bayes-window/bayes_window/model_comparison.py</span> in <span class="ni">compare_models</span><span class="nt">(df, models, extra_model_args, parallel, plotose, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span>     <span class="n">extra_model_args</span> <span class="o">=</span> <span class="n">extra_model_args</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">({},</span> <span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span>     <span class="k">if</span> <span class="n">parallel</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">278</span>         <span class="n">traces</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span>                                      <span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">)))(</span><span class="n">delayed</span><span class="p">(</span><span class="n">split_train_predict</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span>                                                    <span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">num_chains</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">extra_model_arg</span><span class="p">)</span>
+
+<span class="nn">~/env_jb1/lib/python3.8/site-packages/joblib/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1059</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1060</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">retrieval_context</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1061</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1062</span>             <span class="c1"># Make sure that we get a last message telling us we are done</span>
+<span class="g g-Whitespace">   </span><span class="mi">1063</span>             <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span>
+
+<span class="nn">~/env_jb1/lib/python3.8/site-packages/joblib/parallel.py</span> in <span class="ni">retrieve</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">938</span>             <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">939</span>                 <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="s1">&#39;supports_timeout&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">940</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">941</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">942</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+
+<span class="nn">~/env_jb1/lib/python3.8/site-packages/joblib/_parallel_backends.py</span> in <span class="ni">wrap_future_result</span><span class="nt">(future, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="n">AsyncResults</span><span class="o">.</span><span class="n">get</span> <span class="kn">from</span> <span class="nn">multiprocessing.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">542</span><span class="s2">             return future.result(timeout=timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span><span class="s2">         except CfTimeoutError as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span><span class="s2">             raise TimeoutError from e</span>
+
+<span class="nn">/usr/lib/python3.8/concurrent/futures/_base.py</span> in <span class="ni">result</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">442</span><span class="s2">                     raise CancelledError()</span>
+<span class="g g-Whitespace">    </span><span class="mi">443</span><span class="s2">                 elif self._state == FINISHED:</span>
+<span class="ne">--&gt; </span><span class="mi">444</span><span class="s2">                     return self.__get_result()</span>
+<span class="g g-Whitespace">    </span><span class="mi">445</span><span class="s2">                 else:</span>
+<span class="g g-Whitespace">    </span><span class="mi">446</span><span class="s2">                     raise TimeoutError()</span>
+
+<span class="nn">/usr/lib/python3.8/concurrent/futures/_base.py</span> in <span class="ni">__get_result</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span><span class="s2">         if self._exception:</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span><span class="s2">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">389</span><span class="s2">                 raise self._exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">390</span><span class="s2">             finally:</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span><span class="s2">                 # Break a reference cycle with the exception in self._exception</span>
+
+<span class="ne">ValueError</span>: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like using including intercept actually hurts leave-one-out posterior predictive. Actually, so does including floor in the model. To bring this home, let’s only use the models that did not have a warning above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bayes_window.model_comparison</span> <span class="kn">import</span> <span class="n">compare_models</span>
+
+<span class="n">compare_models</span><span class="p">(</span><span class="n">df_clean</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">window1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">models</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;full_normal&#39;</span><span class="p">:</span> <span class="n">window1</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                <span class="s1">&#39;no_condition_or_treatment&#39;</span><span class="p">:</span> <span class="n">window1</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                <span class="s1">&#39;no-treatment&#39;</span><span class="p">:</span> <span class="n">window1</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                <span class="s1">&#39;no_group&#39;</span><span class="p">:</span> <span class="n">window1</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="n">extra_model_args</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">{</span><span class="s1">&#39;treatment&#39;</span><span class="p">:</span> <span class="n">window1</span><span class="o">.</span><span class="n">treatment</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="n">window1</span><span class="o">.</span><span class="n">group</span><span class="p">},</span>
+                <span class="p">{</span><span class="s1">&#39;treatment&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+                <span class="p">{</span><span class="s1">&#39;treatment&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="n">window1</span><span class="o">.</span><span class="n">condition</span><span class="p">},</span>
+                <span class="p">{</span><span class="s1">&#39;treatment&#39;</span><span class="p">:</span> <span class="n">window1</span><span class="o">.</span><span class="n">treatment</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+            <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Keep in mind though that we had to remove some data that had too few labels in order to make LOO work.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Gelman, A., &amp; Hill, J. (2006), Data Analysis Using Regression and Multilevel/Hierarchical Models (1st ed.), Cambridge University Press.</p></li>
+<li><p>Gelman, A. (2006), Multilevel (Hierarchical) modeling: what it can and cannot do, Technometrics, 48(3), 432–435.</p></li>
+<li><p>McElreath, R. (2020), Statistical Rethinking - A Bayesian Course with Examples in R and Stan (2nd ed.), CRC Press.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./radon_example"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

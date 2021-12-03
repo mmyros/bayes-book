@@ -7,11 +7,11 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.8.2
+#       jupytext_version: 1.10.3
 #   kernelspec:
-#     display_name: tf
+#     display_name: PyCharm (jup)
 #     language: python
-#     name: tf
+#     name: pycharm-d5912792
 # ---
 
 # # Bayesian Methods for Multilevel Modeling of Neurons
@@ -266,12 +266,12 @@ firingrate_stim, firingrate_no_stim = ppc[:, 1], ppc[:, 0] # we know that no_sti
 
 plt.scatter(no_stim, log_firingrate, label="Observations", alpha=0.4)
 
-az.plot_hpd(
+az.plot_hdi(
     [0, 1], 
     np.asarray([firingrate_stim, firingrate_no_stim]).T, 
     fill_kwargs={"alpha": 0.2, "label": "Exp. distrib. of firingrate levels"}
 )
-az.plot_hpd(
+az.plot_hdi(
     [0, 1], 
     pooled_trace["a"], 
     fill_kwargs={"alpha": 0.5, "label": "Exp. mean HPD"}
@@ -334,8 +334,8 @@ a_stim_unpooled, a_no_stim_unpooled = unpooled_trace["a"][:, :, 0], unpooled_tra
 unpooled_stim = pd.DataFrame.from_dict(
                         {
                             "stim": a_stim_unpooled.mean(0), 
-                            "low": az.hpd(a_stim_unpooled)[:, 0], 
-                            "high": az.hpd(a_stim_unpooled)[:, 1]
+                            "low": az.hdi(a_stim_unpooled)[:, 0], 
+                            "high": az.hdi(a_stim_unpooled)[:, 1]
                         }, 
                         orient="index", 
                         columns=mn_mice
@@ -343,8 +343,8 @@ unpooled_stim = pd.DataFrame.from_dict(
 unpooled_no_stim = pd.DataFrame.from_dict(
                     {
                         "no_stim": a_no_stim_unpooled.mean(0),
-                        "low": az.hpd(a_no_stim_unpooled)[:, 0], 
-                        "high": az.hpd(a_no_stim_unpooled)[:, 1]
+                        "low": az.hdi(a_no_stim_unpooled)[:, 0], 
+                        "high": az.hdi(a_no_stim_unpooled)[:, 1]
                     }, 
                     orient="index", 
                     columns=mn_mice
@@ -510,8 +510,8 @@ for ax, trace, level in zip(
     )
     for n, l, h in zip(
         N_mouse, 
-        az.hpd(trace)[:, 0], 
-        az.hpd(trace)[:, 1]
+        az.hdi(trace)[:, 0], 
+        az.hdi(trace)[:, 1]
     ):
         ax.plot([n, n], [l, h], alpha=0.5, c="orange")
     ax.scatter(N_mouse, trace.mean(0), alpha=0.8)
@@ -1049,7 +1049,7 @@ plt.plot(
     alpha=0.6,
     label="Mean intercept"
 )
-az.plot_hpd(
+az.plot_hdi(
     u, 
     samples['a'],
     fill_kwargs={"alpha": 0.1, "color": "k", "label": "Mean intercept HPD"}
@@ -1058,8 +1058,8 @@ az.plot_hpd(
 plt.scatter(u, avg_a_mouse, alpha=0.8, label="Mean mouse-intercept")
 for ui, l, h in zip(
     u, 
-    az.hpd(samples["a_mouse"])[:, 0], 
-    az.hpd(samples["a_mouse"])[:, 1]
+    az.hdi(samples["a_mouse"])[:, 0], 
+    az.hdi(samples["a_mouse"])[:, 1]
 ):
     plt.plot([ui, ui], [l, h], alpha=0.5, c="orange")
 

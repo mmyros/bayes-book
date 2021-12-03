@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LFP example: regression vs estimation of difference &#8212; My sample book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/lfp_example/lfp_slope_vs_means.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flfp_example/lfp_slope_vs_means.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lfp_example/lfp_slope_vs_means.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#make-and-visualize-model-oscillation-power">
+   Make and visualize model oscillation power
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimate-posteriors-for-treatments">
+   Estimate posteriors for treatments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-with-regression-approach">
+   Compare with regression approach
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluate-sensitivity-cm">
+   Evaluate sensitivity: CM
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#y-power">
+     y=Power
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#y-log-power">
+     y=Log power
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="lfp-example-regression-vs-estimation-of-difference">
+<h1>LFP example: regression vs estimation of difference<a class="headerlink" href="#lfp-example-regression-vs-estimation-of-difference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="make-and-visualize-model-oscillation-power">
+<h2>Make and visualize model oscillation power<a class="headerlink" href="#make-and-visualize-model-oscillation-power" title="Permalink to this headline">¶</a></h2>
+<p>40 trials of “theta power” is generated for every animal. It is drawn randomly as a poisson process.</p>
+<p>This is repeated for “stimulation” trials, but poisson rate is higher.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">BayesWindow</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">BayesRegression</span><span class="p">,</span> <span class="n">LMERegression</span><span class="p">,</span> <span class="n">BayesConditions</span>
+<span class="kn">from</span> <span class="nn">bayes_window.generative_models</span> <span class="kn">import</span> <span class="n">generate_fake_lfp</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;altair_saver&#39;</span><span class="p">,</span> <span class="n">fmts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;png&#39;</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw some fake data:</span>
+<span class="n">df</span><span class="p">,</span> <span class="n">df_monster</span><span class="p">,</span> <span class="n">index_cols</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">generate_fake_lfp</span><span class="p">(</span><span class="n">mouse_response_slope</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">n_trials</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="estimate-posteriors-for-treatments">
+<h2>Estimate posteriors for treatments<a class="headerlink" href="#estimate-posteriors-for-treatments" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize:</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">BayesWindow</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Power&#39;</span><span class="p">,</span> <span class="c1">#condition=&#39;stim&#39;,</span>
+                     <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,</span> 
+                     <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">)</span>
+<span class="c1"># Fit:</span>
+<span class="n">estimation</span> <span class="o">=</span> <span class="n">BayesConditions</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dist_y</span><span class="o">=</span><span class="s1">&#39;gamma&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n(Divergences) = 47
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;:O&#39;</span><span class="p">)</span><span class="c1">#.facet(column=&#39;mouse&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/lfp_slope_vs_means_6_0.png" src="../_images/lfp_slope_vs_means_6_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimation</span><span class="o">.</span><span class="n">plot_BEST</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/lfp_slope_vs_means_7_0.png" src="../_images/lfp_slope_vs_means_7_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="compare-with-regression-approach">
+<h2>Compare with regression approach<a class="headerlink" href="#compare-with-regression-approach" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize:</span>
+<span class="c1"># window = BayesWindow(df=df, y=&#39;Power&#39;, treatment=&#39;stim&#39;, group=&#39;mouse&#39;)</span>
+<span class="c1"># Fit:</span>
+<span class="n">regression</span> <span class="o">=</span> <span class="n">BayesRegression</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">model_hierarchical</span><span class="p">,</span> <span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+           <span class="n">add_group_slope</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">robust_slopes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+           <span class="n">do_make_change</span><span class="o">=</span><span class="s1">&#39;subtract&#39;</span><span class="p">,</span> <span class="n">dist_y</span><span class="o">=</span><span class="s1">&#39;gamma&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">regression</span><span class="o">.</span><span class="n">chart</span> <span class="o">+</span> <span class="n">regression</span><span class="o">.</span><span class="n">chart_posterior_kde</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Regression&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/lfp_slope_vs_means_9_0.png" src="../_images/lfp_slope_vs_means_9_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regression</span><span class="o">.</span><span class="n">plot_BEST</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/lfp_slope_vs_means_10_0.png" src="../_images/lfp_slope_vs_means_10_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="evaluate-sensitivity-cm">
+<h2>Evaluate sensitivity: CM<a class="headerlink" href="#evaluate-sensitivity-cm" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">model_comparison</span><span class="p">,</span> <span class="n">BayesWindow</span>
+<span class="kn">from</span> <span class="nn">bayes_window.generative_models</span> <span class="kn">import</span> <span class="n">generate_fake_lfp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="y-power">
+<h3>y=Power<a class="headerlink" href="#y-power" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NBVAL_SKIP</span>
+<span class="c1"># Note: Only works with single ys and single true_slopes</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">model_comparison</span><span class="o">.</span><span class="n">run_conditions</span><span class="p">(</span><span class="n">true_slopes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+                                                             <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)]),</span>
+                                      <span class="n">n_trials</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+                                      <span class="n">ys</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Power&#39;</span><span class="p">,),</span>
+                                      <span class="n">methods</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;bc_gamma&#39;</span><span class="p">,</span><span class="s1">&#39;bw_gamma&#39;</span><span class="p">,),</span>
+                                      <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/270 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4%|▍         | 12/270 [00:00&lt;00:05, 47.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4%|▍         | 12/270 [00:19&lt;00:05, 47.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|▉         | 24/270 [00:27&lt;05:36,  1.37s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 13%|█▎        | 36/270 [00:58&lt;07:26,  1.91s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 18%|█▊        | 48/270 [01:24&lt;07:24,  2.00s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 22%|██▏       | 60/270 [02:09&lt;09:13,  2.64s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 27%|██▋       | 72/270 [02:45&lt;09:07,  2.77s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31%|███       | 84/270 [03:14&lt;08:12,  2.65s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 36%|███▌      | 96/270 [03:59&lt;08:42,  3.00s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|████      | 108/270 [04:33&lt;07:56,  2.94s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 44%|████▍     | 120/270 [05:02&lt;06:56,  2.78s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 49%|████▉     | 132/270 [05:47&lt;07:03,  3.07s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 53%|█████▎    | 144/270 [06:20&lt;06:16,  2.98s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 58%|█████▊    | 156/270 [06:52&lt;05:29,  2.89s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 62%|██████▏   | 168/270 [07:34&lt;05:12,  3.06s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 67%|██████▋   | 180/270 [08:03&lt;04:19,  2.88s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 71%|███████   | 192/270 [08:39&lt;03:47,  2.92s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|███████▌  | 204/270 [09:22&lt;03:25,  3.12s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|████████  | 216/270 [09:53&lt;02:39,  2.96s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 84%|████████▍ | 228/270 [10:23&lt;01:58,  2.82s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 89%|████████▉ | 240/270 [11:06&lt;01:31,  3.04s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 93%|█████████▎| 252/270 [11:42&lt;00:54,  3.02s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 98%|█████████▊| 264/270 [12:13&lt;00:17,  2.90s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 270/270 [12:13&lt;00:00,  2.72s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NBVAL_SKIP</span>
+<span class="n">model_comparison</span><span class="o">.</span><span class="n">plot_confusion</span><span class="p">(</span>
+    <span class="n">model_comparison</span><span class="o">.</span><span class="n">make_confusion_matrix</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Power&#39;</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;randomness&#39;</span><span class="p">,</span> <span class="s1">&#39;n_trials&#39;</span><span class="p">)</span>
+                                           <span class="p">))</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;n_trials&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/lfp_slope_vs_means_15_0.png" src="../_images/lfp_slope_vs_means_15_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">model_comparison</span><span class="o">.</span><span class="n">make_roc_auc</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;n_trials&#39;</span><span class="p">))</span>
+
+<span class="n">bars</span><span class="p">,</span> <span class="n">roc</span> <span class="o">=</span> <span class="n">model_comparison</span><span class="o">.</span><span class="n">plot_roc</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">bars</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;n_trials&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">()</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;n_trials&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">()</span>
+<span class="c1"># NBVAL_SKIP</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/lfp_slope_vs_means_16_0.png" src="../_images/lfp_slope_vs_means_16_0.png" />
+<img alt="../_images/lfp_slope_vs_means_16_1.png" src="../_images/lfp_slope_vs_means_16_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="y-log-power">
+<h3>y=Log power<a class="headerlink" href="#y-log-power" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NBVAL_SKIP</span>
+<span class="c1"># Note: Only works with single ys and single true_slopes</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">model_comparison</span><span class="o">.</span><span class="n">run_conditions</span><span class="p">(</span><span class="n">true_slopes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+                                                             <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)]),</span>
+                                      <span class="n">n_trials</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+                                      <span class="n">ys</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Log power&#39;</span><span class="p">,),</span>
+                                      <span class="n">methods</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;bc_normal&#39;</span><span class="p">,</span><span class="s1">&#39;bc_gamma&#39;</span><span class="p">,</span><span class="s1">&#39;bc_student&#39;</span><span class="p">,</span><span class="s1">&#39;bw_gamma&#39;</span><span class="p">,),</span>
+                                      <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/270 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|▉         | 24/270 [00:47&lt;08:08,  1.98s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 13%|█▎        | 36/270 [01:57&lt;13:55,  3.57s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 18%|█▊        | 48/270 [03:01&lt;15:42,  4.24s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 22%|██▏       | 60/270 [04:42&lt;19:54,  5.69s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 27%|██▋       | 72/270 [05:47&lt;18:29,  5.60s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31%|███       | 84/270 [06:53&lt;17:13,  5.56s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 36%|███▌      | 96/270 [08:38&lt;19:05,  6.58s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|████      | 108/270 [09:45&lt;16:55,  6.27s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 44%|████▍     | 120/270 [10:48&lt;14:51,  5.95s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 49%|████▉     | 132/270 [12:28&lt;15:23,  6.69s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 53%|█████▎    | 144/270 [13:38&lt;13:29,  6.42s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 58%|█████▊    | 156/270 [14:42&lt;11:34,  6.09s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 62%|██████▏   | 168/270 [16:25&lt;11:37,  6.84s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 67%|██████▋   | 180/270 [17:30&lt;09:36,  6.40s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 71%|███████   | 192/270 [18:33&lt;07:52,  6.06s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|███████▌  | 204/270 [20:15&lt;07:28,  6.79s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|████████  | 216/270 [21:26&lt;05:52,  6.53s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 84%|████████▍ | 228/270 [22:32&lt;04:21,  6.24s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 89%|████████▉ | 240/270 [24:16&lt;03:28,  6.94s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 93%|█████████▎| 252/270 [25:22&lt;01:57,  6.53s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 98%|█████████▊| 264/270 [26:30&lt;00:37,  6.27s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 270/270 [26:30&lt;00:00,  5.89s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NBVAL_SKIP</span>
+<span class="n">model_comparison</span><span class="o">.</span><span class="n">plot_confusion</span><span class="p">(</span>
+    <span class="n">model_comparison</span><span class="o">.</span><span class="n">make_confusion_matrix</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Log power&#39;</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;randomness&#39;</span><span class="p">,</span> <span class="s1">&#39;n_trials&#39;</span><span class="p">)</span>
+                                           <span class="p">))</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;n_trials&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/lfp_slope_vs_means_19_0.png" src="../_images/lfp_slope_vs_means_19_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">model_comparison</span><span class="o">.</span><span class="n">make_roc_auc</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;n_trials&#39;</span><span class="p">))</span>
+
+<span class="n">bars</span><span class="p">,</span> <span class="n">roc</span> <span class="o">=</span> <span class="n">model_comparison</span><span class="o">.</span><span class="n">plot_roc</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">bars</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;n_trials&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">()</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;n_trials&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">()</span>
+<span class="c1"># NBVAL_SKIP</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/lfp_slope_vs_means_20_0.png" src="../_images/lfp_slope_vs_means_20_0.png" />
+<img alt="../_images/lfp_slope_vs_means_20_1.png" src="../_images/lfp_slope_vs_means_20_1.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "pycharm-d5912792"
+        },
+        kernelOptions: {
+            kernelName: "pycharm-d5912792",
+            path: "./lfp_example"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'pycharm-d5912792'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
