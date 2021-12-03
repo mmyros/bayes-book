@@ -16,8 +16,8 @@
 </g>
 <g id="clust2" class="cluster">
 <title>cluster919</title>
-<path fill="none" stroke="black" d="M373.72,-8C373.72,-8 449.72,-8 449.72,-8 455.72,-8 461.72,-14 461.72,-20 461.72,-20 461.72,-109.95 461.72,-109.95 461.72,-115.95 455.72,-121.95 449.72,-121.95 449.72,-121.95 373.72,-121.95 373.72,-121.95 367.72,-121.95 361.72,-115.95 361.72,-109.95 361.72,-109.95 361.72,-20 361.72,-20 361.72,-14 367.72,-8 373.72,-8"/>
-<text text-anchor="middle" x="443.22" y="-15.8" font-family="Times,serif" font-size="14.00">919</text>
+<path fill="none" stroke="black" d="M389.72,-8C389.72,-8 465.72,-8 465.72,-8 471.72,-8 477.72,-14 477.72,-20 477.72,-20 477.72,-109.95 477.72,-109.95 477.72,-115.95 471.72,-121.95 465.72,-121.95 465.72,-121.95 389.72,-121.95 389.72,-121.95 383.72,-121.95 377.72,-115.95 377.72,-109.95 377.72,-109.95 377.72,-20 377.72,-20 377.72,-14 383.72,-8 389.72,-8"/>
+<text text-anchor="middle" x="459.22" y="-15.8" font-family="Times,serif" font-size="14.00">919</text>
 </g>
 <!-- a -->
 <g id="node1" class="node">
@@ -30,100 +30,100 @@
 <!-- y -->
 <g id="node8" class="node">
 <title>y</title>
-<ellipse fill="lightgrey" stroke="black" cx="411.72" cy="-76.48" rx="41.94" ry="37.45"/>
-<text text-anchor="middle" x="411.72" y="-87.78" font-family="Times,serif" font-size="14.00">y</text>
-<text text-anchor="middle" x="411.72" y="-72.78" font-family="Times,serif" font-size="14.00">~</text>
-<text text-anchor="middle" x="411.72" y="-57.78" font-family="Times,serif" font-size="14.00">Normal</text>
+<ellipse fill="lightgrey" stroke="black" cx="427.72" cy="-76.48" rx="41.94" ry="37.45"/>
+<text text-anchor="middle" x="427.72" y="-87.78" font-family="Times,serif" font-size="14.00">y</text>
+<text text-anchor="middle" x="427.72" y="-72.78" font-family="Times,serif" font-size="14.00">~</text>
+<text text-anchor="middle" x="427.72" y="-57.78" font-family="Times,serif" font-size="14.00">Normal</text>
 </g>
 <!-- a&#45;&gt;y -->
 <g id="edge1" class="edge">
 <title>a&#45;&gt;y</title>
-<path fill="none" stroke="black" d="M59.3,-164.42C67.74,-151.69 79.02,-138.23 92.72,-129.95 136.8,-103.33 281.61,-87.91 360.08,-81.31"/>
-<polygon fill="black" stroke="black" points="360.55,-84.79 370.23,-80.48 359.98,-77.81 360.55,-84.79"/>
+<path fill="none" stroke="black" d="M59.27,-164.37C67.7,-151.63 78.99,-138.18 92.72,-129.95 139.52,-101.93 294.12,-86.98 375.92,-80.86"/>
+<polygon fill="black" stroke="black" points="376.28,-84.34 386,-80.12 375.77,-77.36 376.28,-84.34"/>
 </g>
-<!-- sigma_a -->
+<!-- sigma -->
 <g id="node2" class="node">
-<title>sigma_a</title>
+<title>sigma</title>
 <ellipse fill="none" stroke="black" cx="159.72" cy="-198.43" rx="57.97" ry="37.45"/>
-<text text-anchor="middle" x="159.72" y="-209.73" font-family="Times,serif" font-size="14.00">sigma_a</text>
+<text text-anchor="middle" x="159.72" y="-209.73" font-family="Times,serif" font-size="14.00">sigma</text>
 <text text-anchor="middle" x="159.72" y="-194.73" font-family="Times,serif" font-size="14.00">~</text>
 <text text-anchor="middle" x="159.72" y="-179.73" font-family="Times,serif" font-size="14.00">Exponential</text>
 </g>
-<!-- sigma_a&#45;&gt;y -->
+<!-- sigma&#45;&gt;y -->
 <g id="edge2" class="edge">
-<title>sigma_a&#45;&gt;y</title>
-<path fill="none" stroke="black" d="M185.92,-164.58C197.3,-152.18 211.5,-138.92 226.72,-129.95 268.17,-105.52 321.58,-91.96 360.35,-84.78"/>
-<polygon fill="black" stroke="black" points="361.14,-88.2 370.38,-83.01 359.92,-81.31 361.14,-88.2"/>
+<title>sigma&#45;&gt;y</title>
+<path fill="none" stroke="black" d="M185.51,-164.76C196.93,-152.24 211.27,-138.85 226.72,-129.95 273.36,-103.12 333.91,-89.74 376.31,-83.24"/>
+<polygon fill="black" stroke="black" points="377.02,-86.68 386.41,-81.77 376.01,-79.75 377.02,-86.68"/>
 </g>
-<!-- sigma -->
+<!-- sigma_b -->
 <g id="node3" class="node">
-<title>sigma</title>
+<title>sigma_b</title>
 <ellipse fill="none" stroke="black" cx="293.72" cy="-198.43" rx="57.97" ry="37.45"/>
-<text text-anchor="middle" x="293.72" y="-209.73" font-family="Times,serif" font-size="14.00">sigma</text>
+<text text-anchor="middle" x="293.72" y="-209.73" font-family="Times,serif" font-size="14.00">sigma_b</text>
 <text text-anchor="middle" x="293.72" y="-194.73" font-family="Times,serif" font-size="14.00">~</text>
 <text text-anchor="middle" x="293.72" y="-179.73" font-family="Times,serif" font-size="14.00">Exponential</text>
 </g>
-<!-- sigma&#45;&gt;y -->
-<g id="edge4" class="edge">
-<title>sigma&#45;&gt;y</title>
-<path fill="none" stroke="black" d="M324.41,-166.23C340.52,-149.85 360.32,-129.73 376.98,-112.79"/>
-<polygon fill="black" stroke="black" points="379.88,-114.83 384.4,-105.25 374.89,-109.93 379.88,-114.83"/>
+<!-- sigma_b&#45;&gt;y -->
+<g id="edge3" class="edge">
+<title>sigma_b&#45;&gt;y</title>
+<path fill="none" stroke="black" d="M323.29,-166.04C334.68,-154.38 348.01,-141.25 360.72,-129.95 369.35,-122.28 378.95,-114.41 388.12,-107.17"/>
+<polygon fill="black" stroke="black" points="390.31,-109.9 396.04,-100.99 386.01,-104.38 390.31,-109.9"/>
+</g>
+<!-- sigma_a -->
+<g id="node4" class="node">
+<title>sigma_a</title>
+<ellipse fill="none" stroke="black" cx="427.72" cy="-198.43" rx="57.97" ry="37.45"/>
+<text text-anchor="middle" x="427.72" y="-209.73" font-family="Times,serif" font-size="14.00">sigma_a</text>
+<text text-anchor="middle" x="427.72" y="-194.73" font-family="Times,serif" font-size="14.00">~</text>
+<text text-anchor="middle" x="427.72" y="-179.73" font-family="Times,serif" font-size="14.00">Exponential</text>
+</g>
+<!-- sigma_a&#45;&gt;y -->
+<g id="edge5" class="edge">
+<title>sigma_a&#45;&gt;y</title>
+<path fill="none" stroke="black" d="M427.72,-160.79C427.72,-149.38 427.72,-136.65 427.72,-124.63"/>
+<polygon fill="black" stroke="black" points="431.22,-124.31 427.72,-114.31 424.22,-124.31 431.22,-124.31"/>
 </g>
 <!-- b -->
-<g id="node4" class="node">
+<g id="node5" class="node">
 <title>b</title>
-<ellipse fill="none" stroke="black" cx="411.72" cy="-198.43" rx="41.94" ry="37.45"/>
-<text text-anchor="middle" x="411.72" y="-209.73" font-family="Times,serif" font-size="14.00">b</text>
-<text text-anchor="middle" x="411.72" y="-194.73" font-family="Times,serif" font-size="14.00">~</text>
-<text text-anchor="middle" x="411.72" y="-179.73" font-family="Times,serif" font-size="14.00">Normal</text>
+<ellipse fill="none" stroke="black" cx="545.72" cy="-198.43" rx="41.94" ry="37.45"/>
+<text text-anchor="middle" x="545.72" y="-209.73" font-family="Times,serif" font-size="14.00">b</text>
+<text text-anchor="middle" x="545.72" y="-194.73" font-family="Times,serif" font-size="14.00">~</text>
+<text text-anchor="middle" x="545.72" y="-179.73" font-family="Times,serif" font-size="14.00">Normal</text>
 </g>
 <!-- b&#45;&gt;y -->
-<g id="edge5" class="edge">
-<title>b&#45;&gt;y</title>
-<path fill="none" stroke="black" d="M411.72,-160.79C411.72,-149.38 411.72,-136.65 411.72,-124.63"/>
-<polygon fill="black" stroke="black" points="415.22,-124.31 411.72,-114.31 408.22,-124.31 415.22,-124.31"/>
-</g>
-<!-- sigma_b -->
-<g id="node5" class="node">
-<title>sigma_b</title>
-<ellipse fill="none" stroke="black" cx="529.72" cy="-198.43" rx="57.97" ry="37.45"/>
-<text text-anchor="middle" x="529.72" y="-209.73" font-family="Times,serif" font-size="14.00">sigma_b</text>
-<text text-anchor="middle" x="529.72" y="-194.73" font-family="Times,serif" font-size="14.00">~</text>
-<text text-anchor="middle" x="529.72" y="-179.73" font-family="Times,serif" font-size="14.00">Exponential</text>
-</g>
-<!-- sigma_b&#45;&gt;y -->
 <g id="edge6" class="edge">
-<title>sigma_b&#45;&gt;y</title>
-<path fill="none" stroke="black" d="M499.02,-166.23C482.92,-149.85 463.12,-129.73 446.45,-112.79"/>
-<polygon fill="black" stroke="black" points="448.55,-109.93 439.04,-105.25 443.56,-114.83 448.55,-109.93"/>
-</g>
-<!-- zb_mouse -->
-<g id="node6" class="node">
-<title>zb_mouse</title>
-<ellipse fill="none" stroke="black" cx="774.72" cy="-198.43" rx="50.82" ry="37.45"/>
-<text text-anchor="middle" x="774.72" y="-209.73" font-family="Times,serif" font-size="14.00">zb_mouse</text>
-<text text-anchor="middle" x="774.72" y="-194.73" font-family="Times,serif" font-size="14.00">~</text>
-<text text-anchor="middle" x="774.72" y="-179.73" font-family="Times,serif" font-size="14.00">Normal</text>
-</g>
-<!-- zb_mouse&#45;&gt;y -->
-<g id="edge3" class="edge">
-<title>zb_mouse&#45;&gt;y</title>
-<path fill="none" stroke="black" d="M752.86,-164.45C742.74,-151.73 729.65,-138.26 714.72,-129.95 672.45,-106.43 538.18,-89.92 463.35,-82.27"/>
-<polygon fill="black" stroke="black" points="463.5,-78.77 453.2,-81.25 462.8,-85.74 463.5,-78.77"/>
+<title>b&#45;&gt;y</title>
+<path fill="none" stroke="black" d="M524.45,-165.83C515.85,-154.02 505.42,-140.84 494.72,-129.95 486.63,-121.72 477.24,-113.63 468.09,-106.35"/>
+<polygon fill="black" stroke="black" points="470.2,-103.56 460.16,-100.19 465.91,-109.09 470.2,-103.56"/>
 </g>
 <!-- za_mouse -->
-<g id="node7" class="node">
+<g id="node6" class="node">
 <title>za_mouse</title>
-<ellipse fill="none" stroke="black" cx="655.72" cy="-198.43" rx="50.41" ry="37.45"/>
-<text text-anchor="middle" x="655.72" y="-209.73" font-family="Times,serif" font-size="14.00">za_mouse</text>
-<text text-anchor="middle" x="655.72" y="-194.73" font-family="Times,serif" font-size="14.00">~</text>
-<text text-anchor="middle" x="655.72" y="-179.73" font-family="Times,serif" font-size="14.00">Normal</text>
+<ellipse fill="none" stroke="black" cx="775.72" cy="-198.43" rx="50.41" ry="37.45"/>
+<text text-anchor="middle" x="775.72" y="-209.73" font-family="Times,serif" font-size="14.00">za_mouse</text>
+<text text-anchor="middle" x="775.72" y="-194.73" font-family="Times,serif" font-size="14.00">~</text>
+<text text-anchor="middle" x="775.72" y="-179.73" font-family="Times,serif" font-size="14.00">Normal</text>
 </g>
 <!-- za_mouse&#45;&gt;y -->
-<g id="edge7" class="edge">
+<g id="edge4" class="edge">
 <title>za_mouse&#45;&gt;y</title>
-<path fill="none" stroke="black" d="M633.32,-164.51C623.4,-152.11 610.79,-138.86 596.72,-129.95 555.94,-104.14 502.21,-90.74 463.17,-83.97"/>
-<polygon fill="black" stroke="black" points="463.51,-80.48 453.08,-82.31 462.38,-87.39 463.51,-80.48"/>
+<path fill="none" stroke="black" d="M754.29,-164.51C744.36,-151.8 731.47,-138.32 716.72,-129.95 642.08,-87.62 540.71,-78.26 479.99,-76.83"/>
+<polygon fill="black" stroke="black" points="479.93,-73.32 469.87,-76.65 479.81,-80.32 479.93,-73.32"/>
+</g>
+<!-- zb_mouse -->
+<g id="node7" class="node">
+<title>zb_mouse</title>
+<ellipse fill="none" stroke="black" cx="656.72" cy="-198.43" rx="50.82" ry="37.45"/>
+<text text-anchor="middle" x="656.72" y="-209.73" font-family="Times,serif" font-size="14.00">zb_mouse</text>
+<text text-anchor="middle" x="656.72" y="-194.73" font-family="Times,serif" font-size="14.00">~</text>
+<text text-anchor="middle" x="656.72" y="-179.73" font-family="Times,serif" font-size="14.00">Normal</text>
+</g>
+<!-- zb_mouse&#45;&gt;y -->
+<g id="edge7" class="edge">
+<title>zb_mouse&#45;&gt;y</title>
+<path fill="none" stroke="black" d="M633.73,-164.7C623.61,-152.32 610.82,-139.04 596.72,-129.95 560.88,-106.85 514.22,-93.37 479.01,-85.88"/>
+<polygon fill="black" stroke="black" points="479.44,-82.39 468.94,-83.83 478.05,-89.25 479.44,-82.39"/>
 </g>
 </g>
 </svg>

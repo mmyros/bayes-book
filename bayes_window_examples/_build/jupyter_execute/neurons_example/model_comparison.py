@@ -44,7 +44,7 @@ window.fit_anova()
 window.posterior
 
 
-# In[5]:
+# In[6]:
 
 
 window.plot(x='neuron_x_mouse')
@@ -52,7 +52,7 @@ window.plot(x='neuron_x_mouse')
 
 # Simple one-way ANOVA:
 
-# In[6]:
+# In[7]:
 
 
 window.fit_anova()

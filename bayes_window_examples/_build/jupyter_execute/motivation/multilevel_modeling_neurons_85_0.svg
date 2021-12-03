@@ -52,7 +52,7 @@
 <polygon fill="black" stroke="black" points="79.78,-232.99 72.7,-225.11 73.32,-235.68 79.78,-232.99"/>
 </g>
 <!-- Rho -->
-<g id="node6" class="node">
+<g id="node4" class="node">
 <title>Rho</title>
 <polygon fill="none" stroke="black" points="144.5,-102.98 53.5,-102.98 53.5,-49.98 144.5,-49.98 144.5,-102.98"/>
 <text text-anchor="middle" x="99" y="-87.78" font-family="Times,serif" font-size="14.00">Rho</text>
@@ -60,7 +60,7 @@
 <text text-anchor="middle" x="99" y="-57.78" font-family="Times,serif" font-size="14.00">Deterministic</text>
 </g>
 <!-- packed_chol&#45;&gt;Rho -->
-<g id="edge2" class="edge">
+<g id="edge3" class="edge">
 <title>packed_chol&#45;&gt;Rho</title>
 <path fill="none" stroke="black" d="M118.52,-282.7C124.2,-244.26 130.09,-182.32 120,-129.95 118.88,-124.15 117.13,-118.17 115.1,-112.43"/>
 <polygon fill="black" stroke="black" points="118.35,-111.12 111.49,-103.04 111.81,-113.63 118.35,-111.12"/>
@@ -80,38 +80,24 @@
 <polygon fill="black" stroke="black" points="217.19,-236.9 222.67,-227.83 212.73,-231.51 217.19,-236.9"/>
 </g>
 <!-- sigma_ab&#45;&gt;Rho -->
-<g id="edge3" class="edge">
+<g id="edge2" class="edge">
 <title>sigma_ab&#45;&gt;Rho</title>
 <path fill="none" stroke="black" d="M69.94,-171.7C75.23,-154.54 82.25,-131.76 88.07,-112.9"/>
 <polygon fill="black" stroke="black" points="91.47,-113.75 91.08,-103.17 84.78,-111.69 91.47,-113.75"/>
 </g>
-<!-- a -->
+<!-- b -->
 <g id="node3" class="node">
-<title>a</title>
+<title>b</title>
 <ellipse fill="none" stroke="black" cx="257" cy="-320.38" rx="41.94" ry="37.45"/>
-<text text-anchor="middle" x="257" y="-331.68" font-family="Times,serif" font-size="14.00">a</text>
+<text text-anchor="middle" x="257" y="-331.68" font-family="Times,serif" font-size="14.00">b</text>
 <text text-anchor="middle" x="257" y="-316.68" font-family="Times,serif" font-size="14.00">~</text>
 <text text-anchor="middle" x="257" y="-301.68" font-family="Times,serif" font-size="14.00">Normal</text>
 </g>
-<!-- a&#45;&gt;ab_mouse -->
+<!-- b&#45;&gt;ab_mouse -->
 <g id="edge4" class="edge">
-<title>a&#45;&gt;ab_mouse</title>
+<title>b&#45;&gt;ab_mouse</title>
 <path fill="none" stroke="black" d="M257,-282.74C257,-271.34 257,-258.6 257,-246.58"/>
 <polygon fill="black" stroke="black" points="260.5,-246.26 257,-236.26 253.5,-246.26 260.5,-246.26"/>
-</g>
-<!-- b -->
-<g id="node4" class="node">
-<title>b</title>
-<ellipse fill="none" stroke="black" cx="358" cy="-320.38" rx="41.94" ry="37.45"/>
-<text text-anchor="middle" x="358" y="-331.68" font-family="Times,serif" font-size="14.00">b</text>
-<text text-anchor="middle" x="358" y="-316.68" font-family="Times,serif" font-size="14.00">~</text>
-<text text-anchor="middle" x="358" y="-301.68" font-family="Times,serif" font-size="14.00">Normal</text>
-</g>
-<!-- b&#45;&gt;ab_mouse -->
-<g id="edge5" class="edge">
-<title>b&#45;&gt;ab_mouse</title>
-<path fill="none" stroke="black" d="M336.19,-288.15C327.72,-276.51 317.73,-263.35 308,-251.91 303.9,-247.08 299.46,-242.14 294.97,-237.32"/>
-<polygon fill="black" stroke="black" points="297.33,-234.72 287.91,-229.87 292.25,-239.53 297.33,-234.72"/>
 </g>
 <!-- sigma -->
 <g id="node5" class="node">
@@ -130,13 +116,27 @@
 <text text-anchor="middle" x="263" y="-57.78" font-family="Times,serif" font-size="14.00">Normal</text>
 </g>
 <!-- sigma&#45;&gt;y -->
-<g id="edge8" class="edge">
+<g id="edge7" class="edge">
 <title>sigma&#45;&gt;y</title>
 <path fill="none" stroke="black" d="M359.01,-165.55C348.26,-154.08 335.81,-141.2 324,-129.95 316.72,-123.02 308.71,-115.83 300.95,-109.08"/>
 <polygon fill="black" stroke="black" points="303.18,-106.38 293.32,-102.51 298.61,-111.69 303.18,-106.38"/>
 </g>
+<!-- a -->
+<g id="node6" class="node">
+<title>a</title>
+<ellipse fill="none" stroke="black" cx="358" cy="-320.38" rx="41.94" ry="37.45"/>
+<text text-anchor="middle" x="358" y="-331.68" font-family="Times,serif" font-size="14.00">a</text>
+<text text-anchor="middle" x="358" y="-316.68" font-family="Times,serif" font-size="14.00">~</text>
+<text text-anchor="middle" x="358" y="-301.68" font-family="Times,serif" font-size="14.00">Normal</text>
+</g>
+<!-- a&#45;&gt;ab_mouse -->
+<g id="edge5" class="edge">
+<title>a&#45;&gt;ab_mouse</title>
+<path fill="none" stroke="black" d="M336.19,-288.15C327.72,-276.51 317.73,-263.35 308,-251.91 303.9,-247.08 299.46,-242.14 294.97,-237.32"/>
+<polygon fill="black" stroke="black" points="297.33,-234.72 287.91,-229.87 292.25,-239.53 297.33,-234.72"/>
+</g>
 <!-- ab_mouse&#45;&gt;y -->
-<g id="edge7" class="edge">
+<g id="edge8" class="edge">
 <title>ab_mouse&#45;&gt;y</title>
 <path fill="none" stroke="black" d="M258.83,-160.79C259.4,-149.38 260.04,-136.65 260.64,-124.63"/>
 <polygon fill="black" stroke="black" points="264.15,-124.47 261.16,-114.31 257.16,-124.12 264.15,-124.47"/>

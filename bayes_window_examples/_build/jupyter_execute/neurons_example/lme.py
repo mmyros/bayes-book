@@ -3,7 +3,7 @@
 
 # # Linear mixed effects
 
-# In[23]:
+# In[1]:
 
 
 from bayes_window import models, BayesWindow, LMERegression
@@ -11,7 +11,7 @@ from bayes_window.generative_models import generate_fake_spikes, generate_fake_l
 import numpy as np
 
 
-# In[24]:
+# In[2]:
 
 
 df, df_monster, index_cols, _ = generate_fake_lfp(mouse_response_slope=8,
@@ -21,7 +21,7 @@ df, df_monster, index_cols, _ = generate_fake_lfp(mouse_response_slope=8,
 # ## LFP 
 # Without data overlay
 
-# In[25]:
+# In[3]:
 
 
 bw = LMERegression(df=df, y='Log power', treatment='stim', group='mouse')
@@ -29,7 +29,7 @@ bw.fit(add_data=False)
 bw.plot().display()
 
 
-# In[26]:
+# In[4]:
 
 
 bw.data_and_posterior
@@ -37,7 +37,7 @@ bw.data_and_posterior
 
 # ## With data overlay
 
-# In[27]:
+# In[5]:
 
 
 bw = LMERegression(df=df, y='Log power', treatment='stim', group='mouse')
@@ -50,7 +50,7 @@ except NotImplementedError:
 
 # ## Spikes
 
-# In[28]:
+# In[6]:
 
 
 df, df_monster, index_cols, firing_rates = generate_fake_spikes(n_trials=20,
@@ -62,14 +62,14 @@ df, df_monster, index_cols, firing_rates = generate_fake_spikes(n_trials=20,
 df['log_isi']=np.log10(df['isi'])
 
 
-# In[29]:
+# In[7]:
 
 
 bw = LMERegression(df=df, y='log_isi', treatment='stim', condition=['neuron_x_mouse'], group='mouse',)
 bw.fit(add_data=False,add_group_intercept=True, add_group_slope=False);
 
 
-# In[30]:
+# In[8]:
 
 
 bw.chart
@@ -77,20 +77,20 @@ bw.chart
 
 # ### Group slope
 
-# In[31]:
+# In[9]:
 
 
 bw = LMERegression(df=df, y='log_isi', treatment='stim', condition=['neuron_x_mouse'], group='mouse',)
 bw.fit(add_data=False,add_group_intercept=True, add_group_slope=True)
 
 
-# In[32]:
+# In[10]:
 
 
 bw.chart
 
 
-# In[33]:
+# In[11]:
 
 
 bw.plot(x='neuron_x_mouse:O').display()
@@ -98,13 +98,13 @@ bw.plot(x='neuron_x_mouse:O').display()
 
 # ### Categorical 
 
-# In[34]:
+# In[12]:
 
 
 bw.fit(formula='log_isi ~ (1|mouse) + C(stim| neuron_x_mouse)')
 
 
-# In[35]:
+# In[13]:
 
 
 bw.plot(x='neuron_x_mouse:O').display()
@@ -112,7 +112,7 @@ bw.plot(x='neuron_x_mouse:O').display()
 
 # ### Nested
 
-# In[36]:
+# In[14]:
 
 
 bw = LMERegression(df=df, y='log_isi', treatment='stim', condition=['neuron_x_mouse'], group='mouse',)

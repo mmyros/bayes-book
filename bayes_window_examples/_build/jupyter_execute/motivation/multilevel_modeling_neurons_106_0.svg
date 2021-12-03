@@ -68,30 +68,8 @@
 <path fill="none" stroke="black" d="M469.71,-156.55C462.29,-147.79 453.99,-138.32 446,-129.93 439.92,-123.55 433.25,-116.97 426.69,-110.71"/>
 <polygon fill="black" stroke="black" points="428.77,-107.86 419.09,-103.55 423.97,-112.96 428.77,-107.86"/>
 </g>
-<!-- sigma_a -->
-<g id="node3" class="node">
-<title>sigma_a</title>
-<ellipse fill="none" stroke="black" cx="301" cy="-298.38" rx="57.97" ry="37.45"/>
-<text text-anchor="middle" x="301" y="-309.68" font-family="Times,serif" font-size="14.00">sigma_a</text>
-<text text-anchor="middle" x="301" y="-294.68" font-family="Times,serif" font-size="14.00">~</text>
-<text text-anchor="middle" x="301" y="-279.68" font-family="Times,serif" font-size="14.00">Exponential</text>
-</g>
-<!-- a_mouse -->
-<g id="node6" class="node">
-<title>a_mouse</title>
-<polygon fill="none" stroke="black" points="225.5,-213.93 134.5,-213.93 134.5,-160.93 225.5,-160.93 225.5,-213.93"/>
-<text text-anchor="middle" x="180" y="-198.73" font-family="Times,serif" font-size="14.00">a_mouse</text>
-<text text-anchor="middle" x="180" y="-183.73" font-family="Times,serif" font-size="14.00">~</text>
-<text text-anchor="middle" x="180" y="-168.73" font-family="Times,serif" font-size="14.00">Deterministic</text>
-</g>
-<!-- sigma_a&#45;&gt;a_mouse -->
-<g id="edge3" class="edge">
-<title>sigma_a&#45;&gt;a_mouse</title>
-<path fill="none" stroke="black" d="M267.62,-267.32C251.63,-252.92 232.45,-235.66 216.12,-220.95"/>
-<polygon fill="black" stroke="black" points="218.13,-218.05 208.36,-213.96 213.45,-223.26 218.13,-218.05"/>
-</g>
 <!-- sigma -->
-<g id="node4" class="node">
+<g id="node3" class="node">
 <title>sigma</title>
 <ellipse fill="none" stroke="black" cx="612" cy="-187.43" rx="57.97" ry="37.45"/>
 <text text-anchor="middle" x="612" y="-198.73" font-family="Times,serif" font-size="14.00">sigma</text>
@@ -104,20 +82,36 @@
 <path fill="none" stroke="black" d="M580.43,-155.63C569.8,-146.44 557.46,-136.96 545,-129.93 512.06,-111.36 471.48,-97.92 440.1,-89.3"/>
 <polygon fill="black" stroke="black" points="440.82,-85.87 430.26,-86.67 439.01,-92.63 440.82,-85.87"/>
 </g>
+<!-- sigma_a -->
+<g id="node4" class="node">
+<title>sigma_a</title>
+<ellipse fill="none" stroke="black" cx="301" cy="-298.38" rx="57.97" ry="37.45"/>
+<text text-anchor="middle" x="301" y="-309.68" font-family="Times,serif" font-size="14.00">sigma_a</text>
+<text text-anchor="middle" x="301" y="-294.68" font-family="Times,serif" font-size="14.00">~</text>
+<text text-anchor="middle" x="301" y="-279.68" font-family="Times,serif" font-size="14.00">Exponential</text>
+</g>
+<!-- a_mouse -->
+<g id="node7" class="node">
+<title>a_mouse</title>
+<polygon fill="none" stroke="black" points="225.5,-213.93 134.5,-213.93 134.5,-160.93 225.5,-160.93 225.5,-213.93"/>
+<text text-anchor="middle" x="180" y="-198.73" font-family="Times,serif" font-size="14.00">a_mouse</text>
+<text text-anchor="middle" x="180" y="-183.73" font-family="Times,serif" font-size="14.00">~</text>
+<text text-anchor="middle" x="180" y="-168.73" font-family="Times,serif" font-size="14.00">Deterministic</text>
+</g>
+<!-- sigma_a&#45;&gt;a_mouse -->
+<g id="edge4" class="edge">
+<title>sigma_a&#45;&gt;a_mouse</title>
+<path fill="none" stroke="black" d="M267.62,-267.32C251.63,-252.92 232.45,-235.66 216.12,-220.95"/>
+<polygon fill="black" stroke="black" points="218.13,-218.05 208.36,-213.96 213.45,-223.26 218.13,-218.05"/>
+</g>
 <!-- a&#45;&gt;a_mouse -->
 <g id="edge2" class="edge">
 <title>a&#45;&gt;a_mouse</title>
 <path fill="none" stroke="black" d="M180,-271.84C180,-257.73 180,-239.98 180,-224.49"/>
 <polygon fill="black" stroke="black" points="183.5,-224.19 180,-214.19 176.5,-224.19 183.5,-224.19"/>
 </g>
-<!-- a_mouse&#45;&gt;y -->
-<g id="edge5" class="edge">
-<title>a_mouse&#45;&gt;y</title>
-<path fill="none" stroke="black" d="M201.69,-160.75C211.82,-150.04 224.6,-138.19 238,-129.93 269.42,-110.57 308.92,-97.22 339.78,-88.83"/>
-<polygon fill="black" stroke="black" points="340.69,-92.21 349.47,-86.28 338.91,-85.44 340.69,-92.21"/>
-</g>
 <!-- za_mouse -->
-<g id="node7" class="node">
+<g id="node6" class="node">
 <title>za_mouse</title>
 <ellipse fill="none" stroke="black" cx="66" cy="-298.38" rx="50.41" ry="37.45"/>
 <text text-anchor="middle" x="66" y="-309.68" font-family="Times,serif" font-size="14.00">za_mouse</text>
@@ -125,10 +119,16 @@
 <text text-anchor="middle" x="66" y="-279.68" font-family="Times,serif" font-size="14.00">Normal</text>
 </g>
 <!-- za_mouse&#45;&gt;a_mouse -->
-<g id="edge4" class="edge">
+<g id="edge3" class="edge">
 <title>za_mouse&#45;&gt;a_mouse</title>
 <path fill="none" stroke="black" d="M96.25,-268.47C111.44,-253.95 129.91,-236.3 145.64,-221.27"/>
 <polygon fill="black" stroke="black" points="148.3,-223.57 153.11,-214.13 143.46,-218.51 148.3,-223.57"/>
+</g>
+<!-- a_mouse&#45;&gt;y -->
+<g id="edge5" class="edge">
+<title>a_mouse&#45;&gt;y</title>
+<path fill="none" stroke="black" d="M201.69,-160.75C211.82,-150.04 224.6,-138.19 238,-129.93 269.42,-110.57 308.92,-97.22 339.78,-88.83"/>
+<polygon fill="black" stroke="black" points="340.69,-92.21 349.47,-86.28 338.91,-85.44 340.69,-92.21"/>
 </g>
 <!-- no_stim_vals -->
 <g id="node9" class="node">
