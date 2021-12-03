@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Intuition for maximal likelihood or posterior inference &#8212; Bayes Window examples</title>
+    <title>Intuition for maximal likelihood or posterior inference &#8212; My sample book</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -53,7 +55,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Radon example from Gelman and Hill (2006)" href="../radon_example/radon.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -82,7 +83,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Bayes Window examples</h1>
+      <h1 class="site-logo" id="site-title">My sample book</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -91,85 +92,12 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
-   Intuition for maximal likelihood or posterior inference
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../radon_example/radon.html">
-   Radon example from Gelman and Hill (2006)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="multilevel_modeling_lfp.html">
-   Multilevel modeling of LFP
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="multilevel_modeling_neurons.html">
-   Bayesian Methods for Multilevel Modeling of Neurons
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/quick_lfp.html">
-   LFP example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/lfp_stim_strength.html">
-   LFP example with stim strength
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/lfp_roc.html">
-   Compare to ANOVA and LMM: ROC curve
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/quickstart.html">
-   Neurons example, pt. 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/posteriors.html">
-   Neurons example, no slopes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/stim_strength.html">
-   Neurons example with nominal stim strengths
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/stim_type.html">
-   Neurons example with stim types
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/lme.html">
-   Linear mixed effects
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/monster.html">
-   Neurons example, pt. 2: large datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/model_comparison.html">
-   Compare to alternative models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/detailed_workflow.html">
-   Neurons example via low-level, flexible interface
-  </a>
- </li>
-</ul>
-
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -225,11 +153,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/mmyros/bayes-window"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/mmyros/bayes-window/issues/new?title=Issue%20on%20page%20%2Fmotivation/metropolis.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmotivation/metropolis.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -250,7 +178,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mmyros/bayes-window/master?urlpath=tree/motivation/metropolis.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/motivation/metropolis.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -414,8 +342,6 @@
 <p>Say <span class="math notranslate nohighlight">\(p(\theta)\sim  \mathcal{N}(0,100)\)</span>.</p>
 <p>We’ll simply multiply by <span class="math notranslate nohighlight">\(\mathcal{N}(0,100)\)</span> for each step in sampling</p>
 </div>
-<div class="toctree-wrapper compound">
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -443,13 +369,6 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="../radon_example/radon.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Radon example from Gelman and Hill (2006)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
         
         </div>
@@ -458,7 +377,7 @@
     <div class="container">
       <p>
         
-          By Max Myroshnychenko<br/>
+          By The Jupyter Book Community<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Multilevel modeling of LFP &#8212; Bayes Window examples</title>
+    <title>Multilevel modeling of LFP &#8212; My sample book</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -53,8 +55,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bayesian Methods for Multilevel Modeling of Neurons" href="multilevel_modeling_neurons.html" />
-    <link rel="prev" title="Radon example from Gelman and Hill (2006)" href="../radon_example/radon.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -83,7 +83,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Bayes Window examples</h1>
+      <h1 class="site-logo" id="site-title">My sample book</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -93,84 +93,11 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="metropolis.html">
-   Intuition for maximal likelihood or posterior inference
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../radon_example/radon.html">
-   Radon example from Gelman and Hill (2006)
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Multilevel modeling of LFP
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="multilevel_modeling_neurons.html">
-   Bayesian Methods for Multilevel Modeling of Neurons
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/quick_lfp.html">
-   LFP example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/lfp_stim_strength.html">
-   LFP example with stim strength
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/lfp_roc.html">
-   Compare to ANOVA and LMM: ROC curve
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/quickstart.html">
-   Neurons example, pt. 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/posteriors.html">
-   Neurons example, no slopes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/stim_strength.html">
-   Neurons example with nominal stim strengths
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/stim_type.html">
-   Neurons example with stim types
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/lme.html">
-   Linear mixed effects
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/monster.html">
-   Neurons example, pt. 2: large datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/model_comparison.html">
-   Compare to alternative models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/detailed_workflow.html">
-   Neurons example via low-level, flexible interface
-  </a>
- </li>
-</ul>
-
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -226,11 +153,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/mmyros/bayes-window"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/mmyros/bayes-window/issues/new?title=Issue%20on%20page%20%2Fmotivation/multilevel_modeling_lfp.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmotivation/multilevel_modeling_lfp.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -251,7 +178,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mmyros/bayes-window/master?urlpath=tree/motivation/multilevel_modeling_lfp.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/motivation/multilevel_modeling_lfp.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -751,67 +678,7 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/graphviz/backend/execute.py</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, capture_output, quiet, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span>             <span class="k">assert</span> <span class="nb">iter</span><span class="p">(</span><span class="n">input_lines</span><span class="p">)</span> <span class="ow">is</span> <span class="n">input_lines</span>
-<span class="ne">---&gt; </span><span class="mi">80</span>             <span class="n">popen</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">81</span>             <span class="n">stdin_write</span> <span class="o">=</span> <span class="n">popen</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">write</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/subprocess.py</span> in <span class="ni">__init__</span><span class="nt">(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, encoding, errors, text)</span>
-<span class="g g-Whitespace">    </span><span class="mi">799</span>                                 <span class="n">errread</span><span class="p">,</span> <span class="n">errwrite</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">800</span>                                 <span class="n">restore_signals</span><span class="p">,</span> <span class="n">start_new_session</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">801</span>         <span class="k">except</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/subprocess.py</span> in <span class="ni">_execute_child</span><span class="nt">(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, restore_signals, start_new_session)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1550</span>                             <span class="n">err_msg</span> <span class="o">+=</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">err_filename</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1551</span>                     <span class="k">raise</span> <span class="n">child_exception_type</span><span class="p">(</span><span class="n">errno_num</span><span class="p">,</span> <span class="n">err_msg</span><span class="p">,</span> <span class="n">err_filename</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1552</span>                 <span class="k">raise</span> <span class="n">child_exception_type</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: PosixPath(&#39;dot&#39;): PosixPath(&#39;dot&#39;)
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">ExecutableNotFound</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj)</span>
-<span class="g g-Whitespace">    </span><span class="mi">343</span>             <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">344</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">345</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">346</span>             <span class="k">return</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/graphviz/jupyter_integration.py</span> in <span class="ni">_repr_svg_</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">def</span> <span class="nf">_repr_svg_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">12</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_encoding</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/graphviz/piping.py</span> in <span class="ni">pipe</span><span class="nt">(self, format, renderer, formatter, quiet, engine, encoding)</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span>             <span class="k">if</span> <span class="n">codecs</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span> <span class="ow">is</span> <span class="n">codecs</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_encoding</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span>                 <span class="c1"># common case: both stdin and stdout need the same encoding</span>
-<span class="ne">--&gt; </span><span class="mi">113</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipe_lines_string</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">114</span>             <span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipe_lines</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">input_encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_encoding</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span>             <span class="k">return</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/graphviz/backend/piping.py</span> in <span class="ni">pipe_lines_string</span><span class="nt">(engine, format, input_lines, encoding, renderer, formatter, quiet)</span>
-<span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;input_lines&#39;</span><span class="p">:</span> <span class="n">input_lines</span><span class="p">,</span> <span class="s1">&#39;encoding&#39;</span><span class="p">:</span> <span class="n">encoding</span><span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span> 
-<span class="ne">--&gt; </span><span class="mi">197</span>     <span class="n">proc</span> <span class="o">=</span> <span class="n">execute</span><span class="o">.</span><span class="n">run_check</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="n">quiet</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span>     <span class="k">return</span> <span class="n">proc</span><span class="o">.</span><span class="n">stdout</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/graphviz/backend/execute.py</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, capture_output, quiet, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span>     <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span>         <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">91</span>             <span class="k">raise</span> <span class="n">ExecutableNotFound</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span>         <span class="k">raise</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span> 
-
-<span class="ne">ExecutableNotFound</span>: failed to execute PosixPath(&#39;dot&#39;), make sure the Graphviz executables are on your systems&#39; PATH
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;graphviz.graphs.Digraph at 0x7f9cfe841d50&gt;
-</pre></div>
-</div>
-</div>
+<img alt="../_images/multilevel_modeling_lfp_32_0.svg" src="../_images/multilevel_modeling_lfp_32_0.svg" /></div>
 </div>
 <p>Before running the model let’s do some prior predictive checks. Indeed, having sensible priors is not only a way to incorporate scientific knowledge into the model, it can also help and make the MCMC machinery faster – here we are dealing with a simple linear regression, so no link function comes and distorts the outcome space; but one day this will happen to you and you’ll need to think hard about your priors to help your MCMC sampler. So, better to train ourselves when it’s quite easy than having to learn when it’s very hard… There is a really neat function to do that in PyMC3:</p>
 <div class="cell tag_hide-input docutils container">
@@ -849,166 +716,24 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4735</span><span class="o">/</span><span class="mf">1241190294.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">with</span> <span class="n">pooled_model</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">pooled_trace</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/variational/inference.py</span> in <span class="ni">fit</span><span class="nt">(n, local_rv, method, model, random_seed, start, inf_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">830</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">831</span>         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;method should be one of </span><span class="si">{</span><span class="nb">set</span><span class="p">(</span><span class="n">_select</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2"> or Inference instance&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">832</span>     <span class="k">return</span> <span class="n">inference</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/variational/inference.py</span> in <span class="ni">fit</span><span class="nt">(self, n, score, callbacks, progressbar, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>             <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">    </span><span class="mi">143</span>         <span class="n">score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_score</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">144</span>         <span class="n">step_func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="o">.</span><span class="n">step_function</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="k">if</span> <span class="n">progressbar</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">146</span>             <span class="n">progress</span> <span class="o">=</span> <span class="n">progress_bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="n">progressbar</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/configparser.py</span> in <span class="ni">res</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>         <span class="k">def</span> <span class="nf">res</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>             <span class="k">with</span> <span class="bp">self</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">48</span>                 <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> 
-<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="k">return</span> <span class="n">res</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/variational/opvi.py</span> in <span class="ni">step_function</span><span class="nt">(self, obj_n_mc, tf_n_mc, obj_optimizer, test_optimizer, more_obj_params, more_tf_params, more_updates, more_replacements, total_grad_norm_constraint, score, fn_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">361</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">362</span>         <span class="k">if</span> <span class="n">score</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">363</span>             <span class="n">step_fn</span> <span class="o">=</span> <span class="n">theano</span><span class="o">.</span><span class="n">function</span><span class="p">([],</span> <span class="n">updates</span><span class="o">.</span><span class="n">loss</span><span class="p">,</span> <span class="n">updates</span><span class="o">=</span><span class="n">updates</span><span class="p">,</span> <span class="o">**</span><span class="n">fn_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">364</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">365</span>             <span class="n">step_fn</span> <span class="o">=</span> <span class="n">theano</span><span class="o">.</span><span class="n">function</span><span class="p">([],</span> <span class="kc">None</span><span class="p">,</span> <span class="n">updates</span><span class="o">=</span><span class="n">updates</span><span class="p">,</span> <span class="o">**</span><span class="n">fn_kwargs</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/compile/function/__init__.py</span> in <span class="ni">function</span><span class="nt">(inputs, outputs, mode, updates, givens, no_default_updates, accept_inplace, name, rebuild_strict, allow_input_downcast, profile, on_unused_input)</span>
-<span class="g g-Whitespace">    </span><span class="mi">348</span>             <span class="n">on_unused_input</span><span class="o">=</span><span class="n">on_unused_input</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">349</span>             <span class="n">profile</span><span class="o">=</span><span class="n">profile</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">350</span>             <span class="n">output_keys</span><span class="o">=</span><span class="n">output_keys</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">351</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">352</span>     <span class="k">return</span> <span class="n">fn</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/compile/function/pfunc.py</span> in <span class="ni">pfunc</span><span class="nt">(params, outputs, mode, updates, givens, no_default_updates, accept_inplace, name, rebuild_strict, allow_input_downcast, profile, on_unused_input, output_keys)</span>
-<span class="g g-Whitespace">    </span><span class="mi">530</span>         <span class="n">profile</span><span class="o">=</span><span class="n">profile</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">531</span>         <span class="n">on_unused_input</span><span class="o">=</span><span class="n">on_unused_input</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">532</span>         <span class="n">output_keys</span><span class="o">=</span><span class="n">output_keys</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">533</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">534</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/compile/function/types.py</span> in <span class="ni">orig_function</span><span class="nt">(inputs, outputs, mode, accept_inplace, name, profile, on_unused_input, output_keys)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1979</span>         <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1980</span>         <span class="k">with</span> <span class="n">config</span><span class="o">.</span><span class="n">change_flags</span><span class="p">(</span><span class="n">compute_test_value</span><span class="o">=</span><span class="s2">&quot;off&quot;</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1981</span>             <span class="n">fn</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">defaults</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1982</span>     <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1983</span>         <span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/compile/function/types.py</span> in <span class="ni">create</span><span class="nt">(self, input_storage, trustme, storage_map)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1835</span>         <span class="k">with</span> <span class="n">config</span><span class="o">.</span><span class="n">change_flags</span><span class="p">(</span><span class="n">traceback__limit</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">traceback__compile_limit</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1836</span>             <span class="n">_fn</span><span class="p">,</span> <span class="n">_i</span><span class="p">,</span> <span class="n">_o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linker</span><span class="o">.</span><span class="n">make_thunk</span><span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">1837</span>                 <span class="n">input_storage</span><span class="o">=</span><span class="n">input_storage_lists</span><span class="p">,</span> <span class="n">storage_map</span><span class="o">=</span><span class="n">storage_map</span>
-<span class="g g-Whitespace">   </span><span class="mi">1838</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1839</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/basic.py</span> in <span class="ni">make_thunk</span><span class="nt">(self, input_storage, output_storage, storage_map)</span>
-<span class="g g-Whitespace">    </span><span class="mi">267</span>             <span class="n">input_storage</span><span class="o">=</span><span class="n">input_storage</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">268</span>             <span class="n">output_storage</span><span class="o">=</span><span class="n">output_storage</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">269</span>             <span class="n">storage_map</span><span class="o">=</span><span class="n">storage_map</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">270</span>         <span class="p">)[:</span><span class="mi">3</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">271</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/vm.py</span> in <span class="ni">make_all</span><span class="nt">(self, profiler, input_storage, output_storage, storage_map)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1129</span>                 <span class="c1"># no_recycling here.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1130</span>                 <span class="n">thunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">1131</span>                     <span class="n">node</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">make_thunk</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">storage_map</span><span class="p">,</span> <span class="n">compute_map</span><span class="p">,</span> <span class="p">[],</span> <span class="n">impl</span><span class="o">=</span><span class="n">impl</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1132</span>                 <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1133</span>                 <span class="n">linker_make_thunk_time</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">thunk_start</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/graph/op.py</span> in <span class="ni">make_thunk</span><span class="nt">(self, node, storage_map, compute_map, no_recycling, impl)</span>
-<span class="g g-Whitespace">    </span><span class="mi">632</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">633</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">634</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_c_thunk</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">storage_map</span><span class="p">,</span> <span class="n">compute_map</span><span class="p">,</span> <span class="n">no_recycling</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">635</span>             <span class="k">except</span> <span class="p">(</span><span class="ne">NotImplementedError</span><span class="p">,</span> <span class="n">MethodNotDefined</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">636</span>                 <span class="c1"># We requested the c code, so don&#39;t catch the error.</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/graph/op.py</span> in <span class="ni">make_c_thunk</span><span class="nt">(self, node, storage_map, compute_map, no_recycling)</span>
-<span class="g g-Whitespace">    </span><span class="mi">599</span>                 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;float16&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">600</span>         <span class="n">outputs</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">make_thunk</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">601</span>             <span class="n">input_storage</span><span class="o">=</span><span class="n">node_input_storage</span><span class="p">,</span> <span class="n">output_storage</span><span class="o">=</span><span class="n">node_output_storage</span>
-<span class="g g-Whitespace">    </span><span class="mi">602</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">603</span>         <span class="n">thunk</span><span class="p">,</span> <span class="n">node_input_filters</span><span class="p">,</span> <span class="n">node_output_filters</span> <span class="o">=</span> <span class="n">outputs</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/c/basic.py</span> in <span class="ni">make_thunk</span><span class="nt">(self, input_storage, output_storage, storage_map)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1202</span>         <span class="n">init_tasks</span><span class="p">,</span> <span class="n">tasks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_init_tasks</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1203</span>         <span class="n">cthunk</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">in_storage</span><span class="p">,</span> <span class="n">out_storage</span><span class="p">,</span> <span class="n">error_storage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__compile__</span><span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">1204</span>             <span class="n">input_storage</span><span class="p">,</span> <span class="n">output_storage</span><span class="p">,</span> <span class="n">storage_map</span>
-<span class="g g-Whitespace">   </span><span class="mi">1205</span>         <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1206</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/c/basic.py</span> in <span class="ni">__compile__</span><span class="nt">(self, input_storage, output_storage, storage_map)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1140</span>             <span class="n">input_storage</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1141</span>             <span class="n">output_storage</span><span class="p">,</span>
-<span class="ne">-&gt; </span><span class="mi">1142</span>             <span class="n">storage_map</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1143</span>         <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1144</span>         <span class="k">return</span> <span class="p">(</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/c/basic.py</span> in <span class="ni">cthunk_factory</span><span class="nt">(self, error_storage, in_storage, out_storage, storage_map)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1632</span>             <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_order</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1633</span>                 <span class="n">node</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">prepare_node</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">storage_map</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1634</span>             <span class="n">module</span> <span class="o">=</span> <span class="n">get_module_cache</span><span class="p">()</span><span class="o">.</span><span class="n">module_from_key</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">lnk</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1635</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1636</span>         <span class="nb">vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">orphans</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/c/cmodule.py</span> in <span class="ni">module_from_key</span><span class="nt">(self, key, lnk)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1189</span>             <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1190</span>                 <span class="n">location</span> <span class="o">=</span> <span class="n">dlimport_workdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dirname</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1191</span>                 <span class="n">module</span> <span class="o">=</span> <span class="n">lnk</span><span class="o">.</span><span class="n">compile_cmodule</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1192</span>                 <span class="n">name</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="vm">__file__</span>
-<span class="g g-Whitespace">   </span><span class="mi">1193</span>                 <span class="k">assert</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/c/basic.py</span> in <span class="ni">compile_cmodule</span><span class="nt">(self, location)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1548</span>                     <span class="n">lib_dirs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lib_dirs</span><span class="p">(),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1549</span>                     <span class="n">libs</span><span class="o">=</span><span class="n">libs</span><span class="p">,</span>
-<span class="ne">-&gt; </span><span class="mi">1550</span>                     <span class="n">preargs</span><span class="o">=</span><span class="n">preargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1551</span>                 <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1552</span>             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/c/cmodule.py</span> in <span class="ni">compile_str</span><span class="nt">(module_name, src_code, location, include_dirs, lib_dirs, libs, preargs, py_module, hide_symbols)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2494</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2495</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2496</span>             <span class="n">p_out</span> <span class="o">=</span> <span class="n">output_subprocess_Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2497</span>             <span class="n">compile_stderr</span> <span class="o">=</span> <span class="n">p_out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2498</span>         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/utils.py</span> in <span class="ni">output_subprocess_Popen</span><span class="nt">(command, **params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span>     <span class="c1"># we need to use communicate to make sure we don&#39;t deadlock around</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span>     <span class="c1"># the stdout/stderr pipe.</span>
-<span class="ne">--&gt; </span><span class="mi">254</span>     <span class="n">out</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">255</span>     <span class="k">return</span> <span class="n">out</span> <span class="o">+</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">returncode</span><span class="p">,)</span>
-<span class="g g-Whitespace">    </span><span class="mi">256</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/subprocess.py</span> in <span class="ni">communicate</span><span class="nt">(self, input, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">962</span> 
-<span class="g g-Whitespace">    </span><span class="mi">963</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">964</span>                 <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_communicate</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">endtime</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">965</span>             <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">966</span>                 <span class="c1"># https://bugs.python.org/issue25942</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/subprocess.py</span> in <span class="ni">_communicate</span><span class="nt">(self, input, endtime, orig_timeout)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1713</span>                             <span class="s1">&#39;failed to raise TimeoutExpired.&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1714</span> 
-<span class="ne">-&gt; </span><span class="mi">1715</span>                     <span class="n">ready</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1716</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_check_timeout</span><span class="p">(</span><span class="n">endtime</span><span class="p">,</span> <span class="n">orig_timeout</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1717</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/selectors.py</span> in <span class="ni">select</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">413</span>         <span class="n">ready</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">    </span><span class="mi">414</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">415</span>             <span class="n">fd_event_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selector</span><span class="o">.</span><span class="n">poll</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span>         <span class="k">except</span> <span class="ne">InterruptedError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">417</span>             <span class="k">return</span> <span class="n">ready</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output text_html">
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='10000' class='' max='10000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [10000/10000 00:00<00:00 Average Loss = 1,154.2]
+</div>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Finished [100%]: Average Loss = 1,154
 </pre></div>
 </div>
 </div>
@@ -1047,7 +772,9 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1094,8 +821,6 @@ NUTS: [sigma, a]
       <th>hdi_97%</th>
       <th>mcse_mean</th>
       <th>mcse_sd</th>
-      <th>ess_mean</th>
-      <th>ess_sd</th>
       <th>ess_bulk</th>
       <th>ess_tail</th>
       <th>r_hat</th>
@@ -1110,9 +835,7 @@ NUTS: [sigma, a]
       <td>1.42</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>5272.63</td>
-      <td>5272.63</td>
-      <td>5263.06</td>
+      <td>5266.08</td>
       <td>2963.49</td>
       <td>1.0</td>
     </tr>
@@ -1124,9 +847,7 @@ NUTS: [sigma, a]
       <td>0.90</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>5808.35</td>
-      <td>5806.86</td>
-      <td>5859.37</td>
+      <td>5856.73</td>
       <td>3357.46</td>
       <td>1.0</td>
     </tr>
@@ -1138,9 +859,7 @@ NUTS: [sigma, a]
       <td>0.83</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>5372.30</td>
-      <td>5366.82</td>
-      <td>5333.90</td>
+      <td>5335.04</td>
       <td>2973.88</td>
       <td>1.0</td>
     </tr>
@@ -1160,9 +879,15 @@ NUTS: [sigma, a]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1209,8 +934,6 @@ NUTS: [sigma, a]
       <th>hdi_97%</th>
       <th>mcse_mean</th>
       <th>mcse_sd</th>
-      <th>ess_mean</th>
-      <th>ess_sd</th>
       <th>ess_bulk</th>
       <th>ess_tail</th>
       <th>r_hat</th>
@@ -1225,24 +948,20 @@ NUTS: [sigma, a]
       <td>1.42</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4509.37</td>
-      <td>4509.37</td>
-      <td>4496.12</td>
-      <td>2861.20</td>
+      <td>4702.01</td>
+      <td>2808.27</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>a[1]</th>
-      <td>0.78</td>
+      <td>0.77</td>
       <td>0.06</td>
       <td>0.65</td>
       <td>0.90</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4696.39</td>
-      <td>4688.65</td>
-      <td>4666.29</td>
-      <td>2308.57</td>
+      <td>4962.17</td>
+      <td>2066.08</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -1253,10 +972,8 @@ NUTS: [sigma, a]
       <td>0.83</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4345.94</td>
-      <td>4345.94</td>
-      <td>4356.59</td>
-      <td>2786.44</td>
+      <td>4176.84</td>
+      <td>2823.50</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -1293,15 +1010,9 @@ NUTS: [sigma, a]
         }
     </style>
   <progress value='4000' class='' max='4000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [4000/4000 00:31<00:00]
+  100.00% [4000/4000 00:03<00:00]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO (theano.gof.compilelock): Waiting for existing lock by process &#39;2167213&#39; (I am process &#39;2170020&#39;)
-INFO (theano.gof.compilelock): To manually release the lock, delete /home/m/.theano/compiledir_Linux-5.4--generic-x86_64-with-debian-bullseye-sid-x86_64-3.6.10-64/lock_dir
-INFO (theano.gof.compilelock): Waiting for existing lock by process &#39;2167213&#39; (I am process &#39;2170020&#39;)
-INFO (theano.gof.compilelock): To manually release the lock, delete /home/m/.theano/compiledir_Linux-5.4--generic-x86_64-with-debian-bullseye-sid-x86_64-3.6.10-64/lock_dir
-</pre></div>
-</div>
-</div>
+</div></div>
 </div>
 <p>We can then use these samples in our plot:</p>
 <div class="cell tag_hide-input docutils container">
@@ -1310,13 +1021,13 @@ INFO (theano.gof.compilelock): To manually release the lock, delete /home/m/.the
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">no_stim</span><span class="p">,</span> <span class="n">log_power</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Observations&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 
-<span class="n">az</span><span class="o">.</span><span class="n">plot_hpd</span><span class="p">(</span>
+<span class="n">az</span><span class="o">.</span><span class="n">plot_hdi</span><span class="p">(</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
     <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">power_stim</span><span class="p">,</span> <span class="n">power_no_stim</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
     <span class="n">fill_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Exp. distrib. of power levels&quot;</span><span class="p">},</span>
     <span class="n">show</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
-<span class="n">az</span><span class="o">.</span><span class="n">plot_hpd</span><span class="p">(</span>
+<span class="n">az</span><span class="o">.</span><span class="n">plot_hdi</span><span class="p">(</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
     <span class="n">pooled_trace</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">],</span> 
     <span class="n">fill_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Exp. mean HPD&quot;</span><span class="p">},</span>
@@ -1332,13 +1043,7 @@ INFO (theano.gof.compilelock): To manually release the lock, delete /home/m/.the
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (2). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (2). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
-</pre></div>
-</div>
-<img alt="../_images/multilevel_modeling_lfp_42_1.png" src="../_images/multilevel_modeling_lfp_42_1.png" />
+<img alt="../_images/multilevel_modeling_lfp_42_0.png" src="../_images/multilevel_modeling_lfp_42_0.png" />
 </div>
 </div>
 <p>The 94% interval of the expected value is very narrow, and even narrower for stim measurements, meaning that the model is slightly more confident about these observations. The sampling distribution of individual power levels is much wider. We can infer that no_stim level does account for some of the variation in power levels. We can see however that the model underestimates the dispersion in power levels across neurons – lots of them lie outside the light orange prediction envelope. So this model is a good start but we can’t stop there.</p>
@@ -1378,9 +1083,15 @@ INFO (theano.gof.compilelock): To manually release the lock, delete /home/m/.the
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1398,9 +1109,9 @@ NUTS: [sigma, a]
         }
     </style>
   <progress value='12000' class='' max='12000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [12000/12000 00:08<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [12000/12000 00:09<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 2_000 tune and 1_000 draw iterations (8_000 + 4_000 draws total) took 8 seconds.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 2_000 tune and 1_000 draw iterations (8_000 + 4_000 draws total) took 10 seconds.
 </pre></div>
 </div>
 </div>
@@ -1428,8 +1139,8 @@ NUTS: [sigma, a]
 <span class="n">unpooled_stim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
                         <span class="p">{</span>
                             <span class="s2">&quot;stim&quot;</span><span class="p">:</span> <span class="n">a_stim_unpooled</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> 
-                            <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">a_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
-                            <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">a_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+                            <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">a_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
+                            <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">a_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
                         <span class="p">},</span> 
                         <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> 
                         <span class="n">columns</span><span class="o">=</span><span class="n">mn_mice</span>
@@ -1437,20 +1148,12 @@ NUTS: [sigma, a]
 <span class="n">unpooled_no_stim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
                     <span class="p">{</span>
                         <span class="s2">&quot;no_stim&quot;</span><span class="p">:</span> <span class="n">a_no_stim_unpooled</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-                        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">a_no_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
-                        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">a_no_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+                        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">a_no_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
+                        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">a_no_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
                     <span class="p">},</span> 
                     <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> 
                     <span class="n">columns</span><span class="o">=</span><span class="n">mn_mice</span>
                 <span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;no_stim&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/stats/stats.py:338: UserWarning: hpd will be deprecated Please replace hdi
-  warnings.warn((&quot;hpd will be deprecated &quot; &quot;Please replace hdi&quot;),)
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (85). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
 </pre></div>
 </div>
 </div>
@@ -1470,7 +1173,11 @@ NUTS: [sigma, a]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/multilevel_modeling_lfp_51_0.png" src="../_images/multilevel_modeling_lfp_51_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-22-87ed4842d845&gt;:9: UserWarning: This figure was using constrained_layout, but that is incompatible with subplots_adjust and/or tight_layout; disabling constrained_layout.
+  plt.tight_layout();
+</pre></div>
+</div>
+<img alt="../_images/multilevel_modeling_lfp_51_1.png" src="../_images/multilevel_modeling_lfp_51_1.png" />
 </div>
 </div>
 <p>There seems to be more dispersion in power levels for no_stim measurements than for stim ones. Moreover, as we saw in the forest plot, no_stim estimates are globally more uncertain, especially in some mice. We speculated that this is due to smaller sample sizes in the data, but let’s verify it!</p>
@@ -1528,7 +1235,11 @@ NUTS: [sigma, a]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/multilevel_modeling_lfp_55_0.png" src="../_images/multilevel_modeling_lfp_55_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-24-7623f5ddb0dd&gt;:29: UserWarning: This figure was using constrained_layout, but that is incompatible with subplots_adjust and/or tight_layout; disabling constrained_layout.
+  plt.tight_layout();
+</pre></div>
+</div>
+<img alt="../_images/multilevel_modeling_lfp_55_1.png" src="../_images/multilevel_modeling_lfp_55_1.png" />
 </div>
 </div>
 <p>Neither of these models are satisfactory:</p>
@@ -1593,9 +1304,15 @@ NUTS: [sigma, a]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a_mouse, sigma_a, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a_mouse, sigma_a, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1613,10 +1330,12 @@ NUTS: [sigma, a_mouse, sigma_a, a]
         }
     </style>
   <progress value='12000' class='' max='12000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [12000/12000 00:08<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [12000/12000 00:06<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 2_000 tune and 1_000 draw iterations (8_000 + 4_000 draws total) took 9 seconds.
-The number of effective samples is smaller than 25% for some parameters.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 2_000 tune and 1_000 draw iterations (8_000 + 4_000 draws total) took 7 seconds.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of effective samples is smaller than 25% for some parameters.
 </pre></div>
 </div>
 </div>
@@ -1641,9 +1360,15 @@ The number of effective samples is smaller than 25% for some parameters.
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a_mouse]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a_mouse]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1663,10 +1388,10 @@ NUTS: [sigma, a_mouse]
   <progress value='12000' class='' max='12000' style='width:300px; height:20px; vertical-align: middle;'></progress>
   100.00% [12000/12000 00:05<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 2_000 tune and 1_000 draw iterations (8_000 + 4_000 draws total) took 5 seconds.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 2_000 tune and 1_000 draw iterations (8_000 + 4_000 draws total) took 6 seconds.
 </pre></div>
 </div>
-<img alt="../_images/multilevel_modeling_lfp_63_3.svg" src="../_images/multilevel_modeling_lfp_63_3.svg" /></div>
+<img alt="../_images/multilevel_modeling_lfp_63_6.svg" src="../_images/multilevel_modeling_lfp_63_6.svg" /></div>
 </div>
 <p>Now let’s compare both models’ estimates for all 85 mice. We’ll plot the estimates against each mouse’s sample size, to let you see more clearly what hierarchical models bring to the table:</p>
 <div class="cell tag_hide-input docutils container">
@@ -1691,8 +1416,8 @@ NUTS: [sigma, a_mouse]
     <span class="p">)</span>
     <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
         <span class="n">N_mouse</span><span class="p">,</span> 
-        <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">trace</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
-        <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">trace</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">trace</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
+        <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">trace</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="p">):</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">],</span> <span class="p">[</span><span class="n">l</span><span class="p">,</span> <span class="n">h</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">N_mouse</span><span class="p">,</span> <span class="n">trace</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
@@ -1708,10 +1433,8 @@ NUTS: [sigma, a_mouse]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/stats/stats.py:338: UserWarning: hpd will be deprecated Please replace hdi
-  warnings.warn((&quot;hpd will be deprecated &quot; &quot;Please replace hdi&quot;),)
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (85). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-28-fe10ec1a3dc4&gt;:33: UserWarning: This figure was using constrained_layout, but that is incompatible with subplots_adjust and/or tight_layout; disabling constrained_layout.
+  plt.tight_layout();
 </pre></div>
 </div>
 <img alt="../_images/multilevel_modeling_lfp_65_1.png" src="../_images/multilevel_modeling_lfp_65_1.png" />
@@ -1771,13 +1494,15 @@ NUTS: [sigma, a_mouse]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-INFO (theano.gof.compilelock): Waiting for existing lock by process &#39;2167213&#39; (I am process &#39;2170020&#39;)
-INFO (theano.gof.compilelock): To manually release the lock, delete /home/m/.theano/compiledir_Linux-5.4--generic-x86_64-with-debian-bullseye-sid-x86_64-3.6.10-64/lock_dir
-INFO (theano.gof.compilelock): Waiting for existing lock by process &#39;2167213&#39; (I am process &#39;2170020&#39;)
-INFO (theano.gof.compilelock): To manually release the lock, delete /home/m/.theano/compiledir_Linux-5.4--generic-x86_64-with-debian-bullseye-sid-x86_64-3.6.10-64/lock_dir
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, b, a_mouse, sigma_a, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, b, a_mouse, sigma_a, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1859,8 +1584,6 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <th>hdi_97%</th>
       <th>mcse_mean</th>
       <th>mcse_sd</th>
-      <th>ess_mean</th>
-      <th>ess_sd</th>
       <th>ess_bulk</th>
       <th>ess_tail</th>
       <th>r_hat</th>
@@ -1875,9 +1598,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <td>1.59</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>2264.20</td>
-      <td>2264.20</td>
-      <td>2258.64</td>
+      <td>2258.17</td>
       <td>2569.27</td>
       <td>1.00</td>
     </tr>
@@ -1889,9 +1610,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <td>0.41</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1248.56</td>
-      <td>1248.56</td>
-      <td>1213.04</td>
+      <td>1212.96</td>
       <td>1615.95</td>
       <td>1.01</td>
     </tr>
@@ -1903,9 +1622,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <td>-0.54</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>3335.23</td>
-      <td>3335.23</td>
-      <td>3303.54</td>
+      <td>3302.85</td>
       <td>2909.08</td>
       <td>1.00</td>
     </tr>
@@ -1917,9 +1634,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <td>0.76</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4975.12</td>
-      <td>4953.96</td>
-      <td>5015.64</td>
+      <td>5015.66</td>
       <td>2859.70</td>
       <td>1.00</td>
     </tr>
@@ -1995,7 +1710,11 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/multilevel_modeling_lfp_77_0.png" src="../_images/multilevel_modeling_lfp_77_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-35-f22af32deafd&gt;:35: UserWarning: This figure was using constrained_layout, but that is incompatible with subplots_adjust and/or tight_layout; disabling constrained_layout.
+  plt.tight_layout();
+</pre></div>
+</div>
+<img alt="../_images/multilevel_modeling_lfp_77_1.png" src="../_images/multilevel_modeling_lfp_77_1.png" />
 </div>
 </div>
 <p>Here we clearly see the notion that partial-pooling is a compromise between no pooling and complete pooling, as its mean estimates are usually between the other models’ estimates. And interestingly, the bigger (smaller) the sample size in a given mouse, the closer the partial-pooling estimates are to the no-pooling (complete-pooling) estimates.</p>
@@ -2029,36 +1748,22 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "pycharm-d5912792"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "pycharm-d5912792",
             path: "./motivation"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'pycharm-d5912792'</script>
 
               </div>
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../radon_example/radon.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Radon example from Gelman and Hill (2006)</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="multilevel_modeling_neurons.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bayesian Methods for Multilevel Modeling of Neurons</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
         
         </div>
@@ -2067,7 +1772,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
     <div class="container">
       <p>
         
-          By Max Myroshnychenko<br/>
+          By The Jupyter Book Community<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

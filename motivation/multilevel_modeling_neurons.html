@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bayesian Methods for Multilevel Modeling of Neurons &#8212; Bayes Window examples</title>
+    <title>Bayesian Methods for Multilevel Modeling of Neurons &#8212; My sample book</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -53,8 +55,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="LFP example" href="../lfp_example/quick_lfp.html" />
-    <link rel="prev" title="Multilevel modeling of LFP" href="multilevel_modeling_lfp.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -83,7 +83,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Bayes Window examples</h1>
+      <h1 class="site-logo" id="site-title">My sample book</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -93,84 +93,11 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="metropolis.html">
-   Intuition for maximal likelihood or posterior inference
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../radon_example/radon.html">
-   Radon example from Gelman and Hill (2006)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="multilevel_modeling_lfp.html">
-   Multilevel modeling of LFP
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Bayesian Methods for Multilevel Modeling of Neurons
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/quick_lfp.html">
-   LFP example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/lfp_stim_strength.html">
-   LFP example with stim strength
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/lfp_roc.html">
-   Compare to ANOVA and LMM: ROC curve
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/quickstart.html">
-   Neurons example, pt. 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/posteriors.html">
-   Neurons example, no slopes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/stim_strength.html">
-   Neurons example with nominal stim strengths
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/stim_type.html">
-   Neurons example with stim types
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/lme.html">
-   Linear mixed effects
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/monster.html">
-   Neurons example, pt. 2: large datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/model_comparison.html">
-   Compare to alternative models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/detailed_workflow.html">
-   Neurons example via low-level, flexible interface
-  </a>
- </li>
-</ul>
-
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -226,11 +153,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/mmyros/bayes-window"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/mmyros/bayes-window/issues/new?title=Issue%20on%20page%20%2Fmotivation/multilevel_modeling_neurons.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmotivation/multilevel_modeling_neurons.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -251,7 +178,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mmyros/bayes-window/master?urlpath=tree/motivation/multilevel_modeling_neurons.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/motivation/multilevel_modeling_neurons.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -726,67 +653,7 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/graphviz/backend/execute.py</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, capture_output, quiet, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span>             <span class="k">assert</span> <span class="nb">iter</span><span class="p">(</span><span class="n">input_lines</span><span class="p">)</span> <span class="ow">is</span> <span class="n">input_lines</span>
-<span class="ne">---&gt; </span><span class="mi">80</span>             <span class="n">popen</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">81</span>             <span class="n">stdin_write</span> <span class="o">=</span> <span class="n">popen</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">write</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/subprocess.py</span> in <span class="ni">__init__</span><span class="nt">(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, encoding, errors, text)</span>
-<span class="g g-Whitespace">    </span><span class="mi">799</span>                                 <span class="n">errread</span><span class="p">,</span> <span class="n">errwrite</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">800</span>                                 <span class="n">restore_signals</span><span class="p">,</span> <span class="n">start_new_session</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">801</span>         <span class="k">except</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/subprocess.py</span> in <span class="ni">_execute_child</span><span class="nt">(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, restore_signals, start_new_session)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1550</span>                             <span class="n">err_msg</span> <span class="o">+=</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">err_filename</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1551</span>                     <span class="k">raise</span> <span class="n">child_exception_type</span><span class="p">(</span><span class="n">errno_num</span><span class="p">,</span> <span class="n">err_msg</span><span class="p">,</span> <span class="n">err_filename</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1552</span>                 <span class="k">raise</span> <span class="n">child_exception_type</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: PosixPath(&#39;dot&#39;): PosixPath(&#39;dot&#39;)
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">ExecutableNotFound</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj)</span>
-<span class="g g-Whitespace">    </span><span class="mi">343</span>             <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">344</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">345</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">346</span>             <span class="k">return</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/graphviz/jupyter_integration.py</span> in <span class="ni">_repr_svg_</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">def</span> <span class="nf">_repr_svg_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">12</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_encoding</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/graphviz/piping.py</span> in <span class="ni">pipe</span><span class="nt">(self, format, renderer, formatter, quiet, engine, encoding)</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span>             <span class="k">if</span> <span class="n">codecs</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span> <span class="ow">is</span> <span class="n">codecs</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_encoding</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span>                 <span class="c1"># common case: both stdin and stdout need the same encoding</span>
-<span class="ne">--&gt; </span><span class="mi">113</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipe_lines_string</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">114</span>             <span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipe_lines</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">input_encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_encoding</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span>             <span class="k">return</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/graphviz/backend/piping.py</span> in <span class="ni">pipe_lines_string</span><span class="nt">(engine, format, input_lines, encoding, renderer, formatter, quiet)</span>
-<span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;input_lines&#39;</span><span class="p">:</span> <span class="n">input_lines</span><span class="p">,</span> <span class="s1">&#39;encoding&#39;</span><span class="p">:</span> <span class="n">encoding</span><span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span> 
-<span class="ne">--&gt; </span><span class="mi">197</span>     <span class="n">proc</span> <span class="o">=</span> <span class="n">execute</span><span class="o">.</span><span class="n">run_check</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="n">quiet</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span>     <span class="k">return</span> <span class="n">proc</span><span class="o">.</span><span class="n">stdout</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/graphviz/backend/execute.py</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, capture_output, quiet, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span>     <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span>         <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">91</span>             <span class="k">raise</span> <span class="n">ExecutableNotFound</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span>         <span class="k">raise</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span> 
-
-<span class="ne">ExecutableNotFound</span>: failed to execute PosixPath(&#39;dot&#39;), make sure the Graphviz executables are on your systems&#39; PATH
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;graphviz.graphs.Digraph at 0x7f608f5c2510&gt;
-</pre></div>
-</div>
-</div>
+<img alt="../_images/multilevel_modeling_neurons_24_0.svg" src="../_images/multilevel_modeling_neurons_24_0.svg" /></div>
 </div>
 <p>Before running the model let’s do some prior predictive checks. Indeed, having sensible priors is not only a way to incorporate scientific knowledge into the model, it can also help and make the MCMC machinery faster – here we are dealing with a simple linear regression, so no link function comes and distorts the outcome space; but one day this will happen to you and you’ll need to think hard about your priors to help your MCMC sampler. So, better to train ourselves when it’s quite easy than having to learn when it’s very hard… There is a really neat function to do that in PyMC3:</p>
 <div class="cell tag_hide-input docutils container">
@@ -879,179 +746,101 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
-KeyboardInterrupt                         Traceback (most recent call last)
-/tmp/ipykernel_5233/169413810.py in &lt;module&gt;
-      3 with pooled_model:
-      4     start = pm.find_MAP()
-----&gt; 5     pooled_trace = pm.sample(1000, pm.NUTS(scaling=start), start=start, random_seed=RANDOM_SEED)
-      6 az.summary(pooled_trace, round_to=2)
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/step_methods/hmc/nuts.py in __init__(self, vars, max_treedepth, early_max_treedepth, **kwargs)
-    166         `pm.sample` to the desired number of tuning steps.
-    167         &quot;&quot;&quot;
---&gt; 168         super().__init__(vars, **kwargs)
-    169 
-    170         self.max_treedepth = max_treedepth
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/step_methods/hmc/base_hmc.py in __init__(self, vars, scaling, step_scale, is_cov, model, blocked, potential, dtype, Emax, target_accept, gamma, k, t0, adapt_step_size, step_rand, **theano_kwargs)
-     86         vars = inputvars(vars)
-     87 
----&gt; 88         super().__init__(vars, blocked=blocked, model=model, dtype=dtype, **theano_kwargs)
-     89 
-     90         self.adapt_step_size = adapt_step_size
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/step_methods/arraystep.py in __init__(self, vars, model, blocked, dtype, logp_dlogp_func, **theano_kwargs)
-    252 
-    253         if logp_dlogp_func is None:
---&gt; 254             func = model.logp_dlogp_function(vars, dtype=dtype, **theano_kwargs)
-    255         else:
-    256             func = logp_dlogp_func
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/model.py in logp_dlogp_function(self, grad_vars, tempered, **kwargs)
-   1002         varnames = [var.name for var in grad_vars]
-   1003         extra_vars = [var for var in self.free_RVs if var.name not in varnames]
--&gt; 1004         return ValueGradFunction(costs, grad_vars, extra_vars, **kwargs)
-   1005 
-   1006     @property
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pymc3/model.py in __init__(self, costs, grad_vars, extra_vars, dtype, casting, compute_grads, **kwargs)
-    697         inputs = [self._vars_joined]
-    698 
---&gt; 699         self._theano_function = theano.function(inputs, outputs, givens=givens, **kwargs)
-    700 
-    701     def set_weights(self, values):
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/compile/function/__init__.py in function(inputs, outputs, mode, updates, givens, no_default_updates, accept_inplace, name, rebuild_strict, allow_input_downcast, profile, on_unused_input)
-    348             on_unused_input=on_unused_input,
-    349             profile=profile,
---&gt; 350             output_keys=output_keys,
-    351         )
-    352     return fn
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/compile/function/pfunc.py in pfunc(params, outputs, mode, updates, givens, no_default_updates, accept_inplace, name, rebuild_strict, allow_input_downcast, profile, on_unused_input, output_keys)
-    530         profile=profile,
-    531         on_unused_input=on_unused_input,
---&gt; 532         output_keys=output_keys,
-    533     )
-    534 
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/compile/function/types.py in orig_function(inputs, outputs, mode, accept_inplace, name, profile, on_unused_input, output_keys)
-   1979         )
-   1980         with config.change_flags(compute_test_value=&quot;off&quot;):
--&gt; 1981             fn = m.create(defaults)
-   1982     finally:
-   1983         t2 = time.time()
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/compile/function/types.py in create(self, input_storage, trustme, storage_map)
-   1835         with config.change_flags(traceback__limit=config.traceback__compile_limit):
-   1836             _fn, _i, _o = self.linker.make_thunk(
--&gt; 1837                 input_storage=input_storage_lists, storage_map=storage_map
-   1838             )
-   1839 
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/basic.py in make_thunk(self, input_storage, output_storage, storage_map)
-    267             input_storage=input_storage,
-    268             output_storage=output_storage,
---&gt; 269             storage_map=storage_map,
-    270         )[:3]
-    271 
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/vm.py in make_all(self, profiler, input_storage, output_storage, storage_map)
-   1129                 # no_recycling here.
-   1130                 thunks.append(
--&gt; 1131                     node.op.make_thunk(node, storage_map, compute_map, [], impl=impl)
-   1132                 )
-   1133                 linker_make_thunk_time[node] = time.time() - thunk_start
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/graph/op.py in make_thunk(self, node, storage_map, compute_map, no_recycling, impl)
-    632             )
-    633             try:
---&gt; 634                 return self.make_c_thunk(node, storage_map, compute_map, no_recycling)
-    635             except (NotImplementedError, MethodNotDefined):
-    636                 # We requested the c code, so don&#39;t catch the error.
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/graph/op.py in make_c_thunk(self, node, storage_map, compute_map, no_recycling)
-    599                 raise NotImplementedError(&quot;float16&quot;)
-    600         outputs = cl.make_thunk(
---&gt; 601             input_storage=node_input_storage, output_storage=node_output_storage
-    602         )
-    603         thunk, node_input_filters, node_output_filters = outputs
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/c/basic.py in make_thunk(self, input_storage, output_storage, storage_map)
-   1202         init_tasks, tasks = self.get_init_tasks()
-   1203         cthunk, module, in_storage, out_storage, error_storage = self.__compile__(
--&gt; 1204             input_storage, output_storage, storage_map
-   1205         )
-   1206 
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/c/basic.py in __compile__(self, input_storage, output_storage, storage_map)
-   1140             input_storage,
-   1141             output_storage,
--&gt; 1142             storage_map,
-   1143         )
-   1144         return (
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/c/basic.py in cthunk_factory(self, error_storage, in_storage, out_storage, storage_map)
-   1632             for node in self.node_order:
-   1633                 node.op.prepare_node(node, storage_map, None, &quot;c&quot;)
--&gt; 1634             module = get_module_cache().module_from_key(key=key, lnk=self)
-   1635 
-   1636         vars = self.inputs + self.outputs + self.orphans
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/c/cmodule.py in module_from_key(self, key, lnk)
-   1189             try:
-   1190                 location = dlimport_workdir(self.dirname)
--&gt; 1191                 module = lnk.compile_cmodule(location)
-   1192                 name = module.__file__
-   1193                 assert name.startswith(location)
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/c/basic.py in compile_cmodule(self, location)
-   1548                     lib_dirs=self.lib_dirs(),
-   1549                     libs=libs,
--&gt; 1550                     preargs=preargs,
-   1551                 )
-   1552             except Exception as e:
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/link/c/cmodule.py in compile_str(module_name, src_code, location, include_dirs, lib_dirs, libs, preargs, py_module, hide_symbols)
-   2494 
-   2495         try:
--&gt; 2496             p_out = output_subprocess_Popen(cmd)
-   2497             compile_stderr = p_out[1].decode()
-   2498         except Exception:
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/theano/utils.py in output_subprocess_Popen(command, **params)
-    252     # we need to use communicate to make sure we don&#39;t deadlock around
-    253     # the stdout/stderr pipe.
---&gt; 254     out = p.communicate()
-    255     return out + (p.returncode,)
-    256 
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/subprocess.py in communicate(self, input, timeout)
-    962 
-    963             try:
---&gt; 964                 stdout, stderr = self._communicate(input, endtime, timeout)
-    965             except KeyboardInterrupt:
-    966                 # https://bugs.python.org/issue25942
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/subprocess.py in _communicate(self, input, endtime, orig_timeout)
-   1713                             &#39;failed to raise TimeoutExpired.&#39;)
-   1714 
--&gt; 1715                     ready = selector.select(timeout)
-   1716                     self._check_timeout(endtime, orig_timeout, stdout, stderr)
-   1717 
-
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/selectors.py in select(self, timeout)
-    413         ready = []
-    414         try:
---&gt; 415             fd_event_list = self._selector.poll(timeout)
-    416         except InterruptedError:
-    417             return ready
-
-KeyboardInterrupt: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a]
+</pre></div>
 </div>
+<div class="output text_html">
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='8000' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [8000/8000 00:02<00:00 Sampling 4 chains, 0 divergences]
+</div>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 2 seconds.
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hdi_3%</th>
+      <th>hdi_97%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a[0]</th>
+      <td>1.36</td>
+      <td>0.03</td>
+      <td>1.31</td>
+      <td>1.42</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5266.08</td>
+      <td>2963.49</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>a[1]</th>
+      <td>0.78</td>
+      <td>0.06</td>
+      <td>0.66</td>
+      <td>0.90</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5856.73</td>
+      <td>3357.46</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td>0.79</td>
+      <td>0.02</td>
+      <td>0.76</td>
+      <td>0.83</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5335.04</td>
+      <td>2973.88</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1065,9 +854,15 @@ KeyboardInterrupt:
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1114,8 +909,6 @@ NUTS: [sigma, a]
       <th>hdi_97%</th>
       <th>mcse_mean</th>
       <th>mcse_sd</th>
-      <th>ess_mean</th>
-      <th>ess_sd</th>
       <th>ess_bulk</th>
       <th>ess_tail</th>
       <th>r_hat</th>
@@ -1130,24 +923,20 @@ NUTS: [sigma, a]
       <td>1.42</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4509.37</td>
-      <td>4509.37</td>
-      <td>4496.12</td>
-      <td>2861.20</td>
+      <td>4702.01</td>
+      <td>2808.27</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>a[1]</th>
-      <td>0.78</td>
+      <td>0.77</td>
       <td>0.06</td>
       <td>0.65</td>
       <td>0.90</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4696.39</td>
-      <td>4688.65</td>
-      <td>4666.29</td>
-      <td>2308.57</td>
+      <td>4962.17</td>
+      <td>2066.08</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -1158,10 +947,8 @@ NUTS: [sigma, a]
       <td>0.83</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4345.94</td>
-      <td>4345.94</td>
-      <td>4356.59</td>
-      <td>2786.44</td>
+      <td>4176.84</td>
+      <td>2823.50</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -1198,7 +985,7 @@ NUTS: [sigma, a]
         }
     </style>
   <progress value='4000' class='' max='4000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [4000/4000 00:14<00:00]
+  100.00% [4000/4000 00:03<00:00]
 </div>
 </div></div>
 </div>
@@ -1209,12 +996,12 @@ NUTS: [sigma, a]
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">no_stim</span><span class="p">,</span> <span class="n">log_firingrate</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Observations&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 
-<span class="n">az</span><span class="o">.</span><span class="n">plot_hpd</span><span class="p">(</span>
+<span class="n">az</span><span class="o">.</span><span class="n">plot_hdi</span><span class="p">(</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
     <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">firingrate_stim</span><span class="p">,</span> <span class="n">firingrate_no_stim</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
     <span class="n">fill_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Exp. distrib. of firingrate levels&quot;</span><span class="p">}</span>
 <span class="p">)</span>
-<span class="n">az</span><span class="o">.</span><span class="n">plot_hpd</span><span class="p">(</span>
+<span class="n">az</span><span class="o">.</span><span class="n">plot_hdi</span><span class="p">(</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
     <span class="n">pooled_trace</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">],</span> 
     <span class="n">fill_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Exp. mean HPD&quot;</span><span class="p">}</span>
@@ -1229,13 +1016,7 @@ NUTS: [sigma, a]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (2). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (2). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
-</pre></div>
-</div>
-<img alt="../_images/multilevel_modeling_neurons_34_1.png" src="../_images/multilevel_modeling_neurons_34_1.png" />
+<img alt="../_images/multilevel_modeling_neurons_34_0.png" src="../_images/multilevel_modeling_neurons_34_0.png" />
 </div>
 </div>
 <p>The 94% interval of the expected value is very narrow, and even narrower for stim measurements, meaning that the model is slightly more confident about these observations. The sampling distribution of individual firingrate levels is much wider. We can infer that no_stim level does account for some of the variation in firingrate levels. We can see however that the model underestimates the dispersion in firingrate levels across neurons – lots of them lie outside the light orange prediction envelope. So this model is a good start but we can’t stop there.</p>
@@ -1285,9 +1066,15 @@ NUTS: [sigma, a]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1335,8 +1122,8 @@ NUTS: [sigma, a]
 <span class="n">unpooled_stim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
                         <span class="p">{</span>
                             <span class="s2">&quot;stim&quot;</span><span class="p">:</span> <span class="n">a_stim_unpooled</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> 
-                            <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">a_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
-                            <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">a_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+                            <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">a_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
+                            <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">a_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
                         <span class="p">},</span> 
                         <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> 
                         <span class="n">columns</span><span class="o">=</span><span class="n">mn_mice</span>
@@ -1344,20 +1131,12 @@ NUTS: [sigma, a]
 <span class="n">unpooled_no_stim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
                     <span class="p">{</span>
                         <span class="s2">&quot;no_stim&quot;</span><span class="p">:</span> <span class="n">a_no_stim_unpooled</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-                        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">a_no_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
-                        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">a_no_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+                        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">a_no_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
+                        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">a_no_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
                     <span class="p">},</span> 
                     <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> 
                     <span class="n">columns</span><span class="o">=</span><span class="n">mn_mice</span>
                 <span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;no_stim&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/stats/stats.py:338: UserWarning: hpd will be deprecated Please replace hdi
-  warnings.warn((&quot;hpd will be deprecated &quot; &quot;Please replace hdi&quot;),)
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (85). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
 </pre></div>
 </div>
 </div>
@@ -1377,7 +1156,11 @@ NUTS: [sigma, a]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/multilevel_modeling_neurons_43_0.png" src="../_images/multilevel_modeling_neurons_43_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-24-8917f1fd6ec1&gt;:9: UserWarning: This figure was using constrained_layout, but that is incompatible with subplots_adjust and/or tight_layout; disabling constrained_layout.
+  plt.tight_layout();
+</pre></div>
+</div>
+<img alt="../_images/multilevel_modeling_neurons_43_1.png" src="../_images/multilevel_modeling_neurons_43_1.png" />
 </div>
 </div>
 <p>There seems to be more dispersion in firingrate levels for no_stim measurements than for stim ones. Moreover, as we saw in the forest plot, no_stim estimates are globally more uncertain, especially in some mice. We speculated that this is due to smaller sample sizes in the data, but let’s verify it!</p>
@@ -1431,7 +1214,11 @@ NUTS: [sigma, a]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/multilevel_modeling_neurons_47_0.png" src="../_images/multilevel_modeling_neurons_47_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-26-757594fd1ada&gt;:25: UserWarning: This figure was using constrained_layout, but that is incompatible with subplots_adjust and/or tight_layout; disabling constrained_layout.
+  plt.tight_layout();
+</pre></div>
+</div>
+<img alt="../_images/multilevel_modeling_neurons_47_1.png" src="../_images/multilevel_modeling_neurons_47_1.png" />
 </div>
 </div>
 <p>Neither of these models are satisfactory:</p>
@@ -1495,9 +1282,15 @@ NUTS: [sigma, a]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a_mouse, sigma_a, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a_mouse, sigma_a, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1515,10 +1308,12 @@ NUTS: [sigma, a_mouse, sigma_a, a]
         }
     </style>
   <progress value='12000' class='' max='12000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [12000/12000 00:06<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [12000/12000 00:05<00:00 Sampling 4 chains, 0 divergences]
 </div>
 </div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 2_000 tune and 1_000 draw iterations (8_000 + 4_000 draws total) took 6 seconds.
-The number of effective samples is smaller than 25% for some parameters.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of effective samples is smaller than 25% for some parameters.
 </pre></div>
 </div>
 </div>
@@ -1543,9 +1338,15 @@ The number of effective samples is smaller than 25% for some parameters.
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a_mouse]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a_mouse]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1563,12 +1364,12 @@ NUTS: [sigma, a_mouse]
         }
     </style>
   <progress value='12000' class='' max='12000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [12000/12000 00:06<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [12000/12000 00:04<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 2_000 tune and 1_000 draw iterations (8_000 + 4_000 draws total) took 7 seconds.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 2_000 tune and 1_000 draw iterations (8_000 + 4_000 draws total) took 5 seconds.
 </pre></div>
 </div>
-<img alt="../_images/multilevel_modeling_neurons_54_3.svg" src="../_images/multilevel_modeling_neurons_54_3.svg" /></div>
+<img alt="../_images/multilevel_modeling_neurons_54_6.svg" src="../_images/multilevel_modeling_neurons_54_6.svg" /></div>
 </div>
 <p>Now let’s compare both models’ estimates for all 85 mice. We’ll plot the estimates against each mouse’s sample size, to let you see more clearly what hierarchical models bring to the table:</p>
 <div class="cell tag_hide-input docutils container">
@@ -1593,8 +1394,8 @@ NUTS: [sigma, a_mouse]
     <span class="p">)</span>
     <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
         <span class="n">N_mouse</span><span class="p">,</span> 
-        <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">trace</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
-        <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">trace</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">trace</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
+        <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">trace</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="p">):</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">],</span> <span class="p">[</span><span class="n">l</span><span class="p">,</span> <span class="n">h</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">N_mouse</span><span class="p">,</span> <span class="n">trace</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
@@ -1610,10 +1411,8 @@ NUTS: [sigma, a_mouse]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/stats/stats.py:338: UserWarning: hpd will be deprecated Please replace hdi
-  warnings.warn((&quot;hpd will be deprecated &quot; &quot;Please replace hdi&quot;),)
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (85). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-30-898c5d84cc09&gt;:33: UserWarning: This figure was using constrained_layout, but that is incompatible with subplots_adjust and/or tight_layout; disabling constrained_layout.
+  plt.tight_layout();
 </pre></div>
 </div>
 <img alt="../_images/multilevel_modeling_neurons_56_1.png" src="../_images/multilevel_modeling_neurons_56_1.png" />
@@ -1673,9 +1472,15 @@ NUTS: [sigma, a_mouse]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, b, a_mouse, sigma_a, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, b, a_mouse, sigma_a, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1757,8 +1562,6 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <th>hdi_97%</th>
       <th>mcse_mean</th>
       <th>mcse_sd</th>
-      <th>ess_mean</th>
-      <th>ess_sd</th>
       <th>ess_bulk</th>
       <th>ess_tail</th>
       <th>r_hat</th>
@@ -1773,9 +1576,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <td>1.59</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>2264.20</td>
-      <td>2264.20</td>
-      <td>2258.64</td>
+      <td>2258.17</td>
       <td>2569.27</td>
       <td>1.00</td>
     </tr>
@@ -1787,9 +1588,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <td>0.41</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1248.56</td>
-      <td>1248.56</td>
-      <td>1213.04</td>
+      <td>1212.96</td>
       <td>1615.95</td>
       <td>1.01</td>
     </tr>
@@ -1801,9 +1600,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <td>-0.54</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>3335.23</td>
-      <td>3335.23</td>
-      <td>3303.54</td>
+      <td>3302.85</td>
       <td>2909.08</td>
       <td>1.00</td>
     </tr>
@@ -1815,9 +1612,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <td>0.76</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4975.12</td>
-      <td>4953.96</td>
-      <td>5015.64</td>
+      <td>5015.66</td>
       <td>2859.70</td>
       <td>1.00</td>
     </tr>
@@ -1893,7 +1688,11 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/multilevel_modeling_neurons_68_0.png" src="../_images/multilevel_modeling_neurons_68_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-37-42bab39d02e7&gt;:35: UserWarning: This figure was using constrained_layout, but that is incompatible with subplots_adjust and/or tight_layout; disabling constrained_layout.
+  plt.tight_layout();
+</pre></div>
+</div>
+<img alt="../_images/multilevel_modeling_neurons_68_1.png" src="../_images/multilevel_modeling_neurons_68_1.png" />
 </div>
 </div>
 <p>Here we clearly see the notion that partial-pooling is a compromise between no pooling and complete pooling, as its mean estimates are usually between the other models’ estimates. And interestingly, the bigger (smaller) the sample size in a given mouse, the closer the partial-pooling estimates are to the no-pooling (complete-pooling) estimates.</p>
@@ -2008,9 +1807,15 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, zb_mouse, za_mouse, sigma_b, b, sigma_a, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, zb_mouse, za_mouse, sigma_b, b, sigma_a, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -2028,10 +1833,12 @@ NUTS: [sigma, zb_mouse, za_mouse, sigma_b, b, sigma_a, a]
         }
     </style>
   <progress value='28000' class='' max='28000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [28000/28000 01:39<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [28000/28000 01:28<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 6_000 tune and 1_000 draw iterations (24_000 + 4_000 draws total) took 100 seconds.
-The number of effective samples is smaller than 25% for some parameters.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 6_000 tune and 1_000 draw iterations (24_000 + 4_000 draws total) took 89 seconds.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of effective samples is smaller than 25% for some parameters.
 </pre></div>
 </div>
 </div>
@@ -2094,8 +1901,8 @@ The number of effective samples is smaller than 25% for some parameters.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/plots/plot_utils.py:563: UserWarning: rcParams[&#39;plot.max_subplots&#39;] (40) is smaller than the number of variables to plot (2013) in plot_posterior, generating only 40 plots
-  UserWarning,
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/arviz/plots/plot_utils.py:490: UserWarning: rcParams[&#39;plot.max_subplots&#39;] (40) is smaller than the number of variables to plot (2013) in plot_posterior, generating only 40 plots
+  warnings.warn(
 </pre></div>
 </div>
 <img alt="../_images/multilevel_modeling_neurons_81_1.png" src="../_images/multilevel_modeling_neurons_81_1.png" />
@@ -2193,9 +2000,15 @@ y\sim Normal(\firingrate, \sigma)
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, z, b, a, packed_chol]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, z, b, a, packed_chol]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -2213,13 +2026,15 @@ NUTS: [sigma, z, b, a, packed_chol]
         }
     </style>
   <progress value='28000' class='' max='28000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [28000/28000 03:22<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [28000/28000 03:36<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 6_000 tune and 1_000 draw iterations (24_000 + 4_000 draws total) took 203 seconds.
-The number of effective samples is smaller than 25% for some parameters.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 6_000 tune and 1_000 draw iterations (24_000 + 4_000 draws total) took 218 seconds.
 </pre></div>
 </div>
-<img alt="../_images/multilevel_modeling_neurons_87_3.png" src="../_images/multilevel_modeling_neurons_87_3.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of effective samples is smaller than 25% for some parameters.
+</pre></div>
+</div>
+<img alt="../_images/multilevel_modeling_neurons_87_7.png" src="../_images/multilevel_modeling_neurons_87_7.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -2400,9 +2215,15 @@ The number of effective samples is smaller than 25% for some parameters.
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, b, za_mouse, sigma_a, g]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, b, za_mouse, sigma_a, g]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -2420,9 +2241,9 @@ NUTS: [sigma, b, za_mouse, sigma_a, g]
         }
     </style>
   <progress value='28000' class='' max='28000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [28000/28000 00:46<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [28000/28000 00:48<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 6_000 tune and 1_000 draw iterations (24_000 + 4_000 draws total) took 48 seconds.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 6_000 tune and 1_000 draw iterations (24_000 + 4_000 draws total) took 50 seconds.
 </pre></div>
 </div>
 </div>
@@ -2442,7 +2263,7 @@ NUTS: [sigma, b, za_mouse, sigma_a, g]
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mean intercept&quot;</span>
 <span class="p">)</span>
-<span class="n">az</span><span class="o">.</span><span class="n">plot_hpd</span><span class="p">(</span>
+<span class="n">az</span><span class="o">.</span><span class="n">plot_hdi</span><span class="p">(</span>
     <span class="n">u</span><span class="p">,</span> 
     <span class="n">samples</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
     <span class="n">fill_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Mean intercept HPD&quot;</span><span class="p">}</span>
@@ -2451,8 +2272,8 @@ NUTS: [sigma, b, za_mouse, sigma_a, g]
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">avg_a_mouse</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mean mouse-intercept&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">ui</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
     <span class="n">u</span><span class="p">,</span> 
-    <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s2">&quot;a_mouse&quot;</span><span class="p">])[:,</span> <span class="mi">0</span><span class="p">],</span> 
-    <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s2">&quot;a_mouse&quot;</span><span class="p">])[:,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s2">&quot;a_mouse&quot;</span><span class="p">])[:,</span> <span class="mi">0</span><span class="p">],</span> 
+    <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s2">&quot;a_mouse&quot;</span><span class="p">])[:,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">ui</span><span class="p">,</span> <span class="n">ui</span><span class="p">],</span> <span class="p">[</span><span class="n">l</span><span class="p">,</span> <span class="n">h</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
 
@@ -2462,15 +2283,7 @@ NUTS: [sigma, b, za_mouse, sigma_a, g]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (85). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/stats/stats.py:338: UserWarning: hpd will be deprecated Please replace hdi
-  warnings.warn((&quot;hpd will be deprecated &quot; &quot;Please replace hdi&quot;),)
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (85). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
-</pre></div>
-</div>
-<img alt="../_images/multilevel_modeling_neurons_100_1.png" src="../_images/multilevel_modeling_neurons_100_1.png" />
+<img alt="../_images/multilevel_modeling_neurons_100_0.png" src="../_images/multilevel_modeling_neurons_100_0.png" />
 </div>
 </div>
 <p>Velocity is indeed much associated with baseline firingrate levels in each mouse. The graph above shows the average relationship and its uncertainty: the baseline firingrate level in an average mouse as a function of velocity, as well as the 94% HPD of this firingrate level (grey line and envelope). The blue points and orange bars represent the relationship between baseline firingrate and velocity, but now for each mouse. As you see, the uncertainty is bigger now, because it adds on top of the average uncertainty – each mouse has its idyosyncracies after all.</p>
@@ -2537,9 +2350,15 @@ NUTS: [sigma, b, za_mouse, sigma_a, g]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, b, za_mouse, sigma_a, g]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, b, za_mouse, sigma_a, g]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -2557,10 +2376,12 @@ NUTS: [sigma, b, za_mouse, sigma_a, g]
         }
     </style>
   <progress value='36000' class='' max='36000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [36000/36000 01:06<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [36000/36000 01:13<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 8_000 tune and 1_000 draw iterations (32_000 + 4_000 draws total) took 68 seconds.
-The number of effective samples is smaller than 25% for some parameters.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 8_000 tune and 1_000 draw iterations (32_000 + 4_000 draws total) took 76 seconds.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of effective samples is smaller than 25% for some parameters.
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -2587,8 +2408,6 @@ The number of effective samples is smaller than 25% for some parameters.
       <th>hdi_97%</th>
       <th>mcse_mean</th>
       <th>mcse_sd</th>
-      <th>ess_mean</th>
-      <th>ess_sd</th>
       <th>ess_bulk</th>
       <th>ess_tail</th>
       <th>r_hat</th>
@@ -2603,9 +2422,7 @@ The number of effective samples is smaller than 25% for some parameters.
       <td>1.52</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1659.49</td>
-      <td>1652.00</td>
-      <td>1663.20</td>
+      <td>1663.09</td>
       <td>2439.39</td>
       <td>1.0</td>
     </tr>
@@ -2617,9 +2434,7 @@ The number of effective samples is smaller than 25% for some parameters.
       <td>0.85</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>2506.83</td>
-      <td>2506.83</td>
-      <td>2533.21</td>
+      <td>2532.97</td>
       <td>3031.95</td>
       <td>1.0</td>
     </tr>
@@ -2631,9 +2446,7 @@ The number of effective samples is smaller than 25% for some parameters.
       <td>0.76</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1860.56</td>
-      <td>1860.56</td>
-      <td>1861.10</td>
+      <td>1861.01</td>
       <td>2578.32</td>
       <td>1.0</td>
     </tr>
@@ -2720,8 +2533,8 @@ The number of effective samples is smaller than 25% for some parameters.
   <progress value='4000' class='' max='4000' style='width:300px; height:20px; vertical-align: middle;'></progress>
   100.00% [4000/4000 00:05<00:00]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (919). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/arviz/data/base.py:169: UserWarning: More chains (4000) than draws (919). Passed array should have shape (chains, draws, *shape)
+  warnings.warn(
 </pre></div>
 </div>
 <img alt="../_images/multilevel_modeling_neurons_111_2.png" src="../_images/multilevel_modeling_neurons_111_2.png" />
@@ -2756,36 +2569,22 @@ The number of effective samples is smaller than 25% for some parameters.
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "pycharm-d5912792"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "pycharm-d5912792",
             path: "./motivation"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'pycharm-d5912792'</script>
 
               </div>
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="multilevel_modeling_lfp.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Multilevel modeling of LFP</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../lfp_example/quick_lfp.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">LFP example</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
         
         </div>
@@ -2794,7 +2593,7 @@ The number of effective samples is smaller than 25% for some parameters.
     <div class="container">
       <p>
         
-          By Max Myroshnychenko<br/>
+          By The Jupyter Book Community<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

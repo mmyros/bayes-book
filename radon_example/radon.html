@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Radon example from Gelman and Hill (2006) &#8212; Bayes Window examples</title>
+    <title>Radon example from Gelman and Hill (2006) &#8212; My sample book</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -51,8 +53,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Multilevel modeling of LFP" href="../motivation/multilevel_modeling_lfp.html" />
-    <link rel="prev" title="Intuition for maximal likelihood or posterior inference" href="../motivation/metropolis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -81,7 +81,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Bayes Window examples</h1>
+      <h1 class="site-logo" id="site-title">My sample book</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -91,84 +91,11 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../motivation/metropolis.html">
-   Intuition for maximal likelihood or posterior inference
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Radon example from Gelman and Hill (2006)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../motivation/multilevel_modeling_lfp.html">
-   Multilevel modeling of LFP
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../motivation/multilevel_modeling_neurons.html">
-   Bayesian Methods for Multilevel Modeling of Neurons
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/quick_lfp.html">
-   LFP example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/lfp_stim_strength.html">
-   LFP example with stim strength
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lfp_example/lfp_roc.html">
-   Compare to ANOVA and LMM: ROC curve
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/quickstart.html">
-   Neurons example, pt. 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/posteriors.html">
-   Neurons example, no slopes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/stim_strength.html">
-   Neurons example with nominal stim strengths
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/stim_type.html">
-   Neurons example with stim types
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/lme.html">
-   Linear mixed effects
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/monster.html">
-   Neurons example, pt. 2: large datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/model_comparison.html">
-   Compare to alternative models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../neurons_example/detailed_workflow.html">
-   Neurons example via low-level, flexible interface
-  </a>
- </li>
-</ul>
-
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -224,11 +151,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/mmyros/bayes-window"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/mmyros/bayes-window/issues/new?title=Issue%20on%20page%20%2Fradon_example/radon.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fradon_example/radon.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -249,7 +176,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mmyros/bayes-window/master?urlpath=tree/radon_example/radon.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/radon_example/radon.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -331,8 +258,8 @@
     <span class="n">alt</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;altair_saver&#39;</span><span class="p">,</span> <span class="n">fmts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;png&#39;</span><span class="p">])</span>
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
     <span class="k">pass</span>
-<span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">BayesWindow</span>
-<span class="kn">from</span> <span class="nn">bayes_window.utils</span> <span class="kn">import</span> <span class="n">load_radon</span>
+<span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">BayesWindow</span><span class="p">,</span> <span class="n">BayesConditions</span><span class="p">,</span> <span class="n">LMERegression</span><span class="p">,</span> <span class="n">BayesRegression</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">load_radon</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">load_radon</span><span class="p">()</span>
 
 <span class="n">df</span>
@@ -340,188 +267,100 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/jax/experimental/optimizers.py:30: FutureWarning: jax.experimental.optimizers is deprecated, import jax.example_libraries.optimizers instead
-  FutureWarning)
-/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/jax/experimental/stax.py:30: FutureWarning: jax.experimental.stax is deprecated, import jax.example_libraries.stax instead
-  FutureWarning)
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/utils.py</span> in <span class="ni">load_radon</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">450</span>         <span class="n">srrs2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../tests/test_data/srrs2.dat&quot;</span><span class="p">,</span> <span class="n">error_bad_lines</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span> 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">585</span> 
-<span class="ne">--&gt; </span><span class="mi">586</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">481</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">482</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">483</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">810</span> 
-<span class="ne">--&gt; </span><span class="mi">811</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">812</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1039</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1040</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1041</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="c1"># open handles</span>
-<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="ne">--&gt; </span><span class="mi">229</span>             <span class="n">errors</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">230</span>         <span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">707</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span>             <span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../tests/test_data/srrs2.dat&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/utils.py</span> in <span class="ni">load_radon</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">453</span>             <span class="n">srrs2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tests/test_data/srrs2.dat&quot;</span><span class="p">,</span> <span class="n">error_bad_lines</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">454</span>         <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">585</span> 
-<span class="ne">--&gt; </span><span class="mi">586</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">481</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">482</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">483</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">810</span> 
-<span class="ne">--&gt; </span><span class="mi">811</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">812</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1039</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1040</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1041</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="c1"># open handles</span>
-<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="ne">--&gt; </span><span class="mi">229</span>             <span class="n">errors</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">230</span>         <span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">707</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span>             <span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;tests/test_data/srrs2.dat&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_8568</span><span class="o">/</span><span class="mf">3088141688.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">BayesWindow</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">bayes_window.utils</span> <span class="kn">import</span> <span class="n">load_radon</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">df</span> <span class="o">=</span> <span class="n">load_radon</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> 
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">df</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/bayes_window/utils.py</span> in <span class="ni">load_radon</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">453</span>             <span class="n">srrs2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tests/test_data/srrs2.dat&quot;</span><span class="p">,</span> <span class="n">error_bad_lines</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">454</span>         <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">455</span>             <span class="n">srrs2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;test_data/srrs2.dat&quot;</span><span class="p">,</span> <span class="n">error_bad_lines</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">456</span>     <span class="n">srrs2</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">srrs2</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">457</span>     <span class="n">srrs_mn</span> <span class="o">=</span> <span class="n">srrs2</span><span class="p">[</span><span class="n">srrs2</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s2">&quot;MN&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span> 
-<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">584</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">585</span> 
-<span class="ne">--&gt; </span><span class="mi">586</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span> 
-<span class="g g-Whitespace">    </span><span class="mi">588</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">480</span> 
-<span class="g g-Whitespace">    </span><span class="mi">481</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">482</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">483</span> 
-<span class="g g-Whitespace">    </span><span class="mi">484</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">809</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">810</span> 
-<span class="ne">--&gt; </span><span class="mi">811</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">812</span> 
-<span class="g g-Whitespace">    </span><span class="mi">813</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1038</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1039</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1040</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1041</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1042</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> 
-<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="c1"># open handles</span>
-<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span>             <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="ne">--&gt; </span><span class="mi">229</span>             <span class="n">errors</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">230</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">231</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>                 <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">707</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span>         <span class="k">else</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;test_data/srrs2.dat&#39;
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>county</th>
+      <th>radon</th>
+      <th>floor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AITKIN</td>
+      <td>2.2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AITKIN</td>
+      <td>2.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AITKIN</td>
+      <td>2.9</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AITKIN</td>
+      <td>1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ANOKA</td>
+      <td>3.1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>922</th>
+      <td>WRIGHT</td>
+      <td>6.4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>923</th>
+      <td>WRIGHT</td>
+      <td>4.5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>924</th>
+      <td>WRIGHT</td>
+      <td>5.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>925</th>
+      <td>YELLOW MEDICINE</td>
+      <td>3.7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>926</th>
+      <td>YELLOW MEDICINE</td>
+      <td>2.9</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>919 rows × 3 columns</p>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -539,301 +378,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/javascript">
-(function(root) {
-  function now() {
-    return new Date();
-  }
-
-  var force = true;
-
-  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
-    root._bokeh_onload_callbacks = [];
-    root._bokeh_is_loading = undefined;
-  }
-
-  var JS_MIME_TYPE = 'application/javascript';
-  var HTML_MIME_TYPE = 'text/html';
-  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
-  var CLASS_NAME = 'output_bokeh rendered_html';
-
-  /**
-   * Render data to the DOM node
-   */
-  function render(props, node) {
-    var script = document.createElement("script");
-    node.appendChild(script);
-  }
-
-  /**
-   * Handle when an output is cleared or removed
-   */
-  function handleClearOutput(event, handle) {
-    var cell = handle.cell;
-
-    var id = cell.output_area._bokeh_element_id;
-    var server_id = cell.output_area._bokeh_server_id;
-    // Clean up Bokeh references
-    if (id != null && id in Bokeh.index) {
-      Bokeh.index[id].model.document.clear();
-      delete Bokeh.index[id];
-    }
-
-    if (server_id !== undefined) {
-      // Clean up Bokeh references
-      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
-      cell.notebook.kernel.execute(cmd, {
-        iopub: {
-          output: function(msg) {
-            var id = msg.content.text.trim();
-            if (id in Bokeh.index) {
-              Bokeh.index[id].model.document.clear();
-              delete Bokeh.index[id];
-            }
-          }
-        }
-      });
-      // Destroy server and session
-      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
-      cell.notebook.kernel.execute(cmd);
-    }
-  }
-
-  /**
-   * Handle when a new output is added
-   */
-  function handleAddOutput(event, handle) {
-    var output_area = handle.output_area;
-    var output = handle.output;
-
-    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
-    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
-      return
-    }
-
-    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
-
-    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
-      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
-      // store reference to embed id on output_area
-      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
-    }
-    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
-      var bk_div = document.createElement("div");
-      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
-      var script_attrs = bk_div.children[0].attributes;
-      for (var i = 0; i < script_attrs.length; i++) {
-        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
-        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
-      }
-      // store reference to server id on output_area
-      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
-    }
-  }
-
-  function register_renderer(events, OutputArea) {
-
-    function append_mime(data, metadata, element) {
-      // create a DOM node to render to
-      var toinsert = this.create_output_subarea(
-        metadata,
-        CLASS_NAME,
-        EXEC_MIME_TYPE
-      );
-      this.keyboard_manager.register_events(toinsert);
-      // Render to node
-      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
-      render(props, toinsert[toinsert.length - 1]);
-      element.append(toinsert);
-      return toinsert
-    }
-
-    /* Handle when an output is cleared or removed */
-    events.on('clear_output.CodeCell', handleClearOutput);
-    events.on('delete.Cell', handleClearOutput);
-
-    /* Handle when a new output is added */
-    events.on('output_added.OutputArea', handleAddOutput);
-
-    /**
-     * Register the mime type and append_mime function with output_area
-     */
-    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
-      /* Is output safe? */
-      safe: true,
-      /* Index of renderer in `output_area.display_order` */
-      index: 0
-    });
-  }
-
-  // register the mime type if in Jupyter Notebook environment and previously unregistered
-  if (root.Jupyter !== undefined) {
-    var events = require('base/js/events');
-    var OutputArea = require('notebook/js/outputarea').OutputArea;
-
-    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
-      register_renderer(events, OutputArea);
-    }
-  }
-
-  
-  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
-    root._bokeh_timeout = Date.now() + 5000;
-    root._bokeh_failed_load = false;
-  }
-
-  var NB_LOAD_WARNING = {'data': {'text/html':
-     "<div style='background-color: #fdd'>\n"+
-     "<p>\n"+
-     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
-     "may be due to a slow or bad network connection. Possible fixes:\n"+
-     "</p>\n"+
-     "<ul>\n"+
-     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
-     "<li>use INLINE resources instead, as so:</li>\n"+
-     "</ul>\n"+
-     "<code>\n"+
-     "from bokeh.resources import INLINE\n"+
-     "output_notebook(resources=INLINE)\n"+
-     "</code>\n"+
-     "</div>"}};
-
-  function display_loaded() {
-    var el = document.getElementById(null);
-    if (el != null) {
-      el.textContent = "BokehJS is loading...";
-    }
-    if (root.Bokeh !== undefined) {
-      if (el != null) {
-        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
-      }
-    } else if (Date.now() < root._bokeh_timeout) {
-      setTimeout(display_loaded, 100)
-    }
-  }
-
-
-  function run_callbacks() {
-    try {
-      root._bokeh_onload_callbacks.forEach(function(callback) {
-        if (callback != null)
-          callback();
-      });
-    } finally {
-      delete root._bokeh_onload_callbacks
-    }
-    console.debug("Bokeh: all callbacks have finished");
-  }
-
-  function load_libs(css_urls, js_urls, callback) {
-    if (css_urls == null) css_urls = [];
-    if (js_urls == null) js_urls = [];
-
-    root._bokeh_onload_callbacks.push(callback);
-    if (root._bokeh_is_loading > 0) {
-      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
-      return null;
-    }
-    if (js_urls == null || js_urls.length === 0) {
-      run_callbacks();
-      return null;
-    }
-    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
-    root._bokeh_is_loading = css_urls.length + js_urls.length;
-
-    function on_load() {
-      root._bokeh_is_loading--;
-      if (root._bokeh_is_loading === 0) {
-        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
-        run_callbacks()
-      }
-    }
-
-    function on_error(url) {
-      console.error("failed to load " + url);
-    }
-
-    for (let i = 0; i < css_urls.length; i++) {
-      const url = css_urls[i];
-      const element = document.createElement("link");
-      element.onload = on_load;
-      element.onerror = on_error.bind(null, url);
-      element.rel = "stylesheet";
-      element.type = "text/css";
-      element.href = url;
-      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
-      document.body.appendChild(element);
-    }
-
-    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js": "HjagQp6T0/7bxYTAXbLotF1MLAGWmhkY5siA1Gc/pcEgvgRPtMsRn0gQtMwGKiw1", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js": "ZEPPTjL+mdyqgIq+/pl9KTwzji8Kow2NnI3zWY8+sFinWP/SYJ80BnfeJsa45iYj", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js": "exLqv2ACDRIaV7ZK1iL8aGzGYQvKVuT3U2CT7FsQREBxRah6JrkVCoFy0koY1YqV"};
-
-    for (let i = 0; i < js_urls.length; i++) {
-      const url = js_urls[i];
-      const element = document.createElement('script');
-      element.onload = on_load;
-      element.onerror = on_error.bind(null, url);
-      element.async = false;
-      element.src = url;
-      if (url in hashes) {
-        element.crossOrigin = "anonymous";
-        element.integrity = "sha384-" + hashes[url];
-      }
-      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
-      document.head.appendChild(element);
-    }
-  };
-
-  function inject_raw_css(css) {
-    const element = document.createElement("style");
-    element.appendChild(document.createTextNode(css));
-    document.body.appendChild(element);
-  }
-
-  
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js"];
-  var css_urls = [];
-  
-
-  var inline_js = [
-    function(Bokeh) {
-      Bokeh.set_log_level("info");
-    },
-    function(Bokeh) {
-    
-    
-    }
-  ];
-
-  function run_inline_js() {
-    
-    if (root.Bokeh !== undefined || force === true) {
-      
-    for (var i = 0; i < inline_js.length; i++) {
-      inline_js[i].call(root, root.Bokeh);
-    }
-    } else if (Date.now() < root._bokeh_timeout) {
-      setTimeout(run_inline_js, 100);
-    } else if (!root._bokeh_failed_load) {
-      console.log("Bokeh: BokehJS failed to load within specified timeout.");
-      root._bokeh_failed_load = true;
-    } else if (force !== true) {
-      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
-      cell.output_area.append_execute_result(NB_LOAD_WARNING)
-    }
-
-  }
-
-  if (root._bokeh_is_loading === 0) {
-    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
-    run_inline_js();
-  } else {
-    load_libs(css_urls, js_urls, function() {
-      console.debug("Bokeh: BokehJS plotting callback run at", now());
-      run_inline_js();
-    });
-  }
-}(window));</script></div>
 </div>
 <div class="section" id="plot-data">
 <h2>Plot data<a class="headerlink" href="#plot-data" title="Permalink to this headline">¶</a></h2>
@@ -852,22 +396,14 @@
 <h2>Fit LME<a class="headerlink" href="#fit-lme" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">fit_lme</span><span class="p">()</span><span class="c1">#formula=&#39;radon ~ floor + ( 1 | county)&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lme</span><span class="o">=</span><span class="n">LMERegression</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="c1">#formula=&#39;radon ~ floor + ( 1 | county)&#39;)</span>
 
 <span class="n">window</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula radon ~  C(floor, Treatment) + (1 | county)
-                           Coef. Std.Err.       z  P&gt;|z|  [0.025  0.975]
-Intercept                  5.493    0.525  10.464  0.000   4.464   6.522
-C(floor, Treatment)[T.1]  -2.289    0.388  -5.899  0.000  -3.050  -1.529
-1 | county                 0.005    0.011   0.450  0.653  -0.016   0.025
-Group Var                  2.852    0.207                               
-</pre></div>
-</div>
-<img alt="../_images/radon_7_1.png" src="../_images/radon_7_1.png" />
+<img alt="../_images/radon_7_0.png" src="../_images/radon_7_0.png" />
 </div>
 </div>
 </div>
@@ -875,307 +411,17 @@ Group Var                  2.852    0.207
 <h2>Fit Bayesian hierarchical with and without county-specific intercept<a class="headerlink" href="#fit-bayesian-hierarchical-with-and-without-county-specific-intercept" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window1</span><span class="o">=</span><span class="n">BayesWindow</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;radon&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;floor&#39;</span><span class="p">,</span><span class="n">group</span><span class="o">=</span><span class="s1">&#39;county&#39;</span><span class="p">)</span>
-<span class="n">window1</span><span class="o">.</span><span class="n">fit_slopes</span><span class="p">(</span><span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window1</span><span class="o">=</span><span class="n">BayesRegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;radon&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;floor&#39;</span><span class="p">,</span><span class="n">group</span><span class="o">=</span><span class="s1">&#39;county&#39;</span><span class="p">)</span>
+<span class="n">window1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 <span class="n">window1</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/javascript">
-(function(root) {
-  function now() {
-    return new Date();
-  }
-
-  var force = true;
-
-  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
-    root._bokeh_onload_callbacks = [];
-    root._bokeh_is_loading = undefined;
-  }
-
-  var JS_MIME_TYPE = 'application/javascript';
-  var HTML_MIME_TYPE = 'text/html';
-  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
-  var CLASS_NAME = 'output_bokeh rendered_html';
-
-  /**
-   * Render data to the DOM node
-   */
-  function render(props, node) {
-    var script = document.createElement("script");
-    node.appendChild(script);
-  }
-
-  /**
-   * Handle when an output is cleared or removed
-   */
-  function handleClearOutput(event, handle) {
-    var cell = handle.cell;
-
-    var id = cell.output_area._bokeh_element_id;
-    var server_id = cell.output_area._bokeh_server_id;
-    // Clean up Bokeh references
-    if (id != null && id in Bokeh.index) {
-      Bokeh.index[id].model.document.clear();
-      delete Bokeh.index[id];
-    }
-
-    if (server_id !== undefined) {
-      // Clean up Bokeh references
-      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
-      cell.notebook.kernel.execute(cmd, {
-        iopub: {
-          output: function(msg) {
-            var id = msg.content.text.trim();
-            if (id in Bokeh.index) {
-              Bokeh.index[id].model.document.clear();
-              delete Bokeh.index[id];
-            }
-          }
-        }
-      });
-      // Destroy server and session
-      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
-      cell.notebook.kernel.execute(cmd);
-    }
-  }
-
-  /**
-   * Handle when a new output is added
-   */
-  function handleAddOutput(event, handle) {
-    var output_area = handle.output_area;
-    var output = handle.output;
-
-    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
-    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
-      return
-    }
-
-    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
-
-    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
-      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
-      // store reference to embed id on output_area
-      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
-    }
-    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
-      var bk_div = document.createElement("div");
-      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
-      var script_attrs = bk_div.children[0].attributes;
-      for (var i = 0; i < script_attrs.length; i++) {
-        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
-        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
-      }
-      // store reference to server id on output_area
-      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
-    }
-  }
-
-  function register_renderer(events, OutputArea) {
-
-    function append_mime(data, metadata, element) {
-      // create a DOM node to render to
-      var toinsert = this.create_output_subarea(
-        metadata,
-        CLASS_NAME,
-        EXEC_MIME_TYPE
-      );
-      this.keyboard_manager.register_events(toinsert);
-      // Render to node
-      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
-      render(props, toinsert[toinsert.length - 1]);
-      element.append(toinsert);
-      return toinsert
-    }
-
-    /* Handle when an output is cleared or removed */
-    events.on('clear_output.CodeCell', handleClearOutput);
-    events.on('delete.Cell', handleClearOutput);
-
-    /* Handle when a new output is added */
-    events.on('output_added.OutputArea', handleAddOutput);
-
-    /**
-     * Register the mime type and append_mime function with output_area
-     */
-    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
-      /* Is output safe? */
-      safe: true,
-      /* Index of renderer in `output_area.display_order` */
-      index: 0
-    });
-  }
-
-  // register the mime type if in Jupyter Notebook environment and previously unregistered
-  if (root.Jupyter !== undefined) {
-    var events = require('base/js/events');
-    var OutputArea = require('notebook/js/outputarea').OutputArea;
-
-    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
-      register_renderer(events, OutputArea);
-    }
-  }
-
-  
-  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
-    root._bokeh_timeout = Date.now() + 5000;
-    root._bokeh_failed_load = false;
-  }
-
-  var NB_LOAD_WARNING = {'data': {'text/html':
-     "<div style='background-color: #fdd'>\n"+
-     "<p>\n"+
-     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
-     "may be due to a slow or bad network connection. Possible fixes:\n"+
-     "</p>\n"+
-     "<ul>\n"+
-     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
-     "<li>use INLINE resources instead, as so:</li>\n"+
-     "</ul>\n"+
-     "<code>\n"+
-     "from bokeh.resources import INLINE\n"+
-     "output_notebook(resources=INLINE)\n"+
-     "</code>\n"+
-     "</div>"}};
-
-  function display_loaded() {
-    var el = document.getElementById(null);
-    if (el != null) {
-      el.textContent = "BokehJS is loading...";
-    }
-    if (root.Bokeh !== undefined) {
-      if (el != null) {
-        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
-      }
-    } else if (Date.now() < root._bokeh_timeout) {
-      setTimeout(display_loaded, 100)
-    }
-  }
-
-
-  function run_callbacks() {
-    try {
-      root._bokeh_onload_callbacks.forEach(function(callback) {
-        if (callback != null)
-          callback();
-      });
-    } finally {
-      delete root._bokeh_onload_callbacks
-    }
-    console.debug("Bokeh: all callbacks have finished");
-  }
-
-  function load_libs(css_urls, js_urls, callback) {
-    if (css_urls == null) css_urls = [];
-    if (js_urls == null) js_urls = [];
-
-    root._bokeh_onload_callbacks.push(callback);
-    if (root._bokeh_is_loading > 0) {
-      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
-      return null;
-    }
-    if (js_urls == null || js_urls.length === 0) {
-      run_callbacks();
-      return null;
-    }
-    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
-    root._bokeh_is_loading = css_urls.length + js_urls.length;
-
-    function on_load() {
-      root._bokeh_is_loading--;
-      if (root._bokeh_is_loading === 0) {
-        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
-        run_callbacks()
-      }
-    }
-
-    function on_error(url) {
-      console.error("failed to load " + url);
-    }
-
-    for (let i = 0; i < css_urls.length; i++) {
-      const url = css_urls[i];
-      const element = document.createElement("link");
-      element.onload = on_load;
-      element.onerror = on_error.bind(null, url);
-      element.rel = "stylesheet";
-      element.type = "text/css";
-      element.href = url;
-      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
-      document.body.appendChild(element);
-    }
-
-    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js": "HjagQp6T0/7bxYTAXbLotF1MLAGWmhkY5siA1Gc/pcEgvgRPtMsRn0gQtMwGKiw1", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js": "ZEPPTjL+mdyqgIq+/pl9KTwzji8Kow2NnI3zWY8+sFinWP/SYJ80BnfeJsa45iYj", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js": "exLqv2ACDRIaV7ZK1iL8aGzGYQvKVuT3U2CT7FsQREBxRah6JrkVCoFy0koY1YqV"};
-
-    for (let i = 0; i < js_urls.length; i++) {
-      const url = js_urls[i];
-      const element = document.createElement('script');
-      element.onload = on_load;
-      element.onerror = on_error.bind(null, url);
-      element.async = false;
-      element.src = url;
-      if (url in hashes) {
-        element.crossOrigin = "anonymous";
-        element.integrity = "sha384-" + hashes[url];
-      }
-      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
-      document.head.appendChild(element);
-    }
-  };
-
-  function inject_raw_css(css) {
-    const element = document.createElement("style");
-    element.appendChild(document.createTextNode(css));
-    document.body.appendChild(element);
-  }
-
-  
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js"];
-  var css_urls = [];
-  
-
-  var inline_js = [
-    function(Bokeh) {
-      Bokeh.set_log_level("info");
-    },
-    function(Bokeh) {
-    
-    
-    }
-  ];
-
-  function run_inline_js() {
-    
-    if (root.Bokeh !== undefined || force === true) {
-      
-    for (var i = 0; i < inline_js.length; i++) {
-      inline_js[i].call(root, root.Bokeh);
-    }
-    } else if (Date.now() < root._bokeh_timeout) {
-      setTimeout(run_inline_js, 100);
-    } else if (!root._bokeh_failed_load) {
-      console.log("Bokeh: BokehJS failed to load within specified timeout.");
-      root._bokeh_failed_load = true;
-    } else if (force !== true) {
-      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
-      cell.output_area.append_execute_result(NB_LOAD_WARNING)
-    }
-
-  }
-
-  if (root._bokeh_is_loading === 0) {
-    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
-    run_inline_js();
-  } else {
-    load_libs(css_urls, js_urls, function() {
-      console.debug("Bokeh: BokehJS plotting callback run at", now());
-      run_inline_js();
-    });
-  }
-}(window));</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uneven number of entries in conditions! This will lead to nans in data (window.data[&quot;radon diff&quot;(255, 180)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-11-30 15:37:12.522319: E external/org_tensorflow/tensorflow/stream_executor/cuda/cuda_driver.cc:271] failed call to cuInit: CUDA_ERROR_COMPAT_NOT_SUPPORTED_ON_DEVICE: forward compatibility was attempted on non supported HW
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uneven number of entries in conditions! This will lead to nans in data (window.data[&quot;radon diff&quot;(170, 120)
 </pre></div>
 </div>
 <img alt="../_images/radon_9_2.png" src="../_images/radon_9_2.png" />
@@ -1205,310 +451,17 @@ Group Var                  2.852    0.207
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window2</span><span class="o">=</span><span class="n">BayesWindow</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;radon&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;floor&#39;</span><span class="p">,</span><span class="n">group</span><span class="o">=</span><span class="s1">&#39;county&#39;</span><span class="p">)</span>
-<span class="n">window2</span><span class="o">.</span><span class="n">fit_slopes</span><span class="p">(</span><span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">add_group_slope</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">do_make_change</span><span class="o">=</span><span class="s1">&#39;subtract&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window2</span><span class="o">=</span><span class="n">BayesRegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;radon&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;floor&#39;</span><span class="p">,</span><span class="n">group</span><span class="o">=</span><span class="s1">&#39;county&#39;</span><span class="p">)</span>
+<span class="n">window2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">add_group_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">add_group_slope</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">do_make_change</span><span class="o">=</span><span class="s1">&#39;subtract&#39;</span><span class="p">);</span>
 <span class="n">window2</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/javascript">
-(function(root) {
-  function now() {
-    return new Date();
-  }
-
-  var force = true;
-
-  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
-    root._bokeh_onload_callbacks = [];
-    root._bokeh_is_loading = undefined;
-  }
-
-  var JS_MIME_TYPE = 'application/javascript';
-  var HTML_MIME_TYPE = 'text/html';
-  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
-  var CLASS_NAME = 'output_bokeh rendered_html';
-
-  /**
-   * Render data to the DOM node
-   */
-  function render(props, node) {
-    var script = document.createElement("script");
-    node.appendChild(script);
-  }
-
-  /**
-   * Handle when an output is cleared or removed
-   */
-  function handleClearOutput(event, handle) {
-    var cell = handle.cell;
-
-    var id = cell.output_area._bokeh_element_id;
-    var server_id = cell.output_area._bokeh_server_id;
-    // Clean up Bokeh references
-    if (id != null && id in Bokeh.index) {
-      Bokeh.index[id].model.document.clear();
-      delete Bokeh.index[id];
-    }
-
-    if (server_id !== undefined) {
-      // Clean up Bokeh references
-      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
-      cell.notebook.kernel.execute(cmd, {
-        iopub: {
-          output: function(msg) {
-            var id = msg.content.text.trim();
-            if (id in Bokeh.index) {
-              Bokeh.index[id].model.document.clear();
-              delete Bokeh.index[id];
-            }
-          }
-        }
-      });
-      // Destroy server and session
-      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
-      cell.notebook.kernel.execute(cmd);
-    }
-  }
-
-  /**
-   * Handle when a new output is added
-   */
-  function handleAddOutput(event, handle) {
-    var output_area = handle.output_area;
-    var output = handle.output;
-
-    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
-    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
-      return
-    }
-
-    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
-
-    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
-      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
-      // store reference to embed id on output_area
-      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
-    }
-    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
-      var bk_div = document.createElement("div");
-      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
-      var script_attrs = bk_div.children[0].attributes;
-      for (var i = 0; i < script_attrs.length; i++) {
-        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
-        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
-      }
-      // store reference to server id on output_area
-      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
-    }
-  }
-
-  function register_renderer(events, OutputArea) {
-
-    function append_mime(data, metadata, element) {
-      // create a DOM node to render to
-      var toinsert = this.create_output_subarea(
-        metadata,
-        CLASS_NAME,
-        EXEC_MIME_TYPE
-      );
-      this.keyboard_manager.register_events(toinsert);
-      // Render to node
-      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
-      render(props, toinsert[toinsert.length - 1]);
-      element.append(toinsert);
-      return toinsert
-    }
-
-    /* Handle when an output is cleared or removed */
-    events.on('clear_output.CodeCell', handleClearOutput);
-    events.on('delete.Cell', handleClearOutput);
-
-    /* Handle when a new output is added */
-    events.on('output_added.OutputArea', handleAddOutput);
-
-    /**
-     * Register the mime type and append_mime function with output_area
-     */
-    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
-      /* Is output safe? */
-      safe: true,
-      /* Index of renderer in `output_area.display_order` */
-      index: 0
-    });
-  }
-
-  // register the mime type if in Jupyter Notebook environment and previously unregistered
-  if (root.Jupyter !== undefined) {
-    var events = require('base/js/events');
-    var OutputArea = require('notebook/js/outputarea').OutputArea;
-
-    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
-      register_renderer(events, OutputArea);
-    }
-  }
-
-  
-  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
-    root._bokeh_timeout = Date.now() + 5000;
-    root._bokeh_failed_load = false;
-  }
-
-  var NB_LOAD_WARNING = {'data': {'text/html':
-     "<div style='background-color: #fdd'>\n"+
-     "<p>\n"+
-     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
-     "may be due to a slow or bad network connection. Possible fixes:\n"+
-     "</p>\n"+
-     "<ul>\n"+
-     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
-     "<li>use INLINE resources instead, as so:</li>\n"+
-     "</ul>\n"+
-     "<code>\n"+
-     "from bokeh.resources import INLINE\n"+
-     "output_notebook(resources=INLINE)\n"+
-     "</code>\n"+
-     "</div>"}};
-
-  function display_loaded() {
-    var el = document.getElementById(null);
-    if (el != null) {
-      el.textContent = "BokehJS is loading...";
-    }
-    if (root.Bokeh !== undefined) {
-      if (el != null) {
-        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
-      }
-    } else if (Date.now() < root._bokeh_timeout) {
-      setTimeout(display_loaded, 100)
-    }
-  }
-
-
-  function run_callbacks() {
-    try {
-      root._bokeh_onload_callbacks.forEach(function(callback) {
-        if (callback != null)
-          callback();
-      });
-    } finally {
-      delete root._bokeh_onload_callbacks
-    }
-    console.debug("Bokeh: all callbacks have finished");
-  }
-
-  function load_libs(css_urls, js_urls, callback) {
-    if (css_urls == null) css_urls = [];
-    if (js_urls == null) js_urls = [];
-
-    root._bokeh_onload_callbacks.push(callback);
-    if (root._bokeh_is_loading > 0) {
-      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
-      return null;
-    }
-    if (js_urls == null || js_urls.length === 0) {
-      run_callbacks();
-      return null;
-    }
-    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
-    root._bokeh_is_loading = css_urls.length + js_urls.length;
-
-    function on_load() {
-      root._bokeh_is_loading--;
-      if (root._bokeh_is_loading === 0) {
-        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
-        run_callbacks()
-      }
-    }
-
-    function on_error(url) {
-      console.error("failed to load " + url);
-    }
-
-    for (let i = 0; i < css_urls.length; i++) {
-      const url = css_urls[i];
-      const element = document.createElement("link");
-      element.onload = on_load;
-      element.onerror = on_error.bind(null, url);
-      element.rel = "stylesheet";
-      element.type = "text/css";
-      element.href = url;
-      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
-      document.body.appendChild(element);
-    }
-
-    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js": "HjagQp6T0/7bxYTAXbLotF1MLAGWmhkY5siA1Gc/pcEgvgRPtMsRn0gQtMwGKiw1", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js": "ZEPPTjL+mdyqgIq+/pl9KTwzji8Kow2NnI3zWY8+sFinWP/SYJ80BnfeJsa45iYj", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js": "exLqv2ACDRIaV7ZK1iL8aGzGYQvKVuT3U2CT7FsQREBxRah6JrkVCoFy0koY1YqV"};
-
-    for (let i = 0; i < js_urls.length; i++) {
-      const url = js_urls[i];
-      const element = document.createElement('script');
-      element.onload = on_load;
-      element.onerror = on_error.bind(null, url);
-      element.async = false;
-      element.src = url;
-      if (url in hashes) {
-        element.crossOrigin = "anonymous";
-        element.integrity = "sha384-" + hashes[url];
-      }
-      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
-      document.head.appendChild(element);
-    }
-  };
-
-  function inject_raw_css(css) {
-    const element = document.createElement("style");
-    element.appendChild(document.createTextNode(css));
-    document.body.appendChild(element);
-  }
-
-  
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js"];
-  var css_urls = [];
-  
-
-  var inline_js = [
-    function(Bokeh) {
-      Bokeh.set_log_level("info");
-    },
-    function(Bokeh) {
-    
-    
-    }
-  ];
-
-  function run_inline_js() {
-    
-    if (root.Bokeh !== undefined || force === true) {
-      
-    for (var i = 0; i < inline_js.length; i++) {
-      inline_js[i].call(root, root.Bokeh);
-    }
-    } else if (Date.now() < root._bokeh_timeout) {
-      setTimeout(run_inline_js, 100);
-    } else if (!root._bokeh_failed_load) {
-      console.log("Bokeh: BokehJS failed to load within specified timeout.");
-      root._bokeh_failed_load = true;
-    } else if (force !== true) {
-      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
-      cell.output_area.append_execute_result(NB_LOAD_WARNING)
-    }
-
-  }
-
-  if (root._bokeh_is_loading === 0) {
-    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
-    run_inline_js();
-  } else {
-    load_libs(css_urls, js_urls, function() {
-      console.debug("Bokeh: BokehJS plotting callback run at", now());
-      run_inline_js();
-    });
-  }
-}(window));</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uneven number of entries in conditions! This will lead to nans in data (window.data[&quot;radon diff&quot;(255, 180)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uneven number of entries in conditions! This will lead to nans in data (window.data[&quot;radon diff&quot;(170, 120)
 </pre></div>
 </div>
-<img alt="../_images/radon_13_2.png" src="../_images/radon_13_2.png" />
+<img alt="../_images/radon_13_1.png" src="../_images/radon_13_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1664,148 +617,65 @@ Group Var                  2.852    0.207
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/radon_19_0.png" src="../_images/radon_19_0.png" />
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2829554</span><span class="o">/</span><span class="mf">1390140151.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">window1</span><span class="o">.</span><span class="n">data</span><span class="o">=</span><span class="n">df_clean</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">window1</span><span class="o">.</span><span class="n">explore_models</span><span class="p">()</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="nn">~/mmy/bayes-window/bayes_window/slopes.py</span> in <span class="ni">explore_models</span><span class="nt">(self, parallel, add_group_slope, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span>                       <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">group</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">411</span>                       <span class="s1">&#39;add_group_slope&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}])</span>
+<span class="ne">--&gt; </span><span class="mi">412</span>             <span class="k">return</span> <span class="n">compare_models</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">413</span>                 <span class="n">df</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">414</span>                 <span class="n">models</span><span class="o">=</span><span class="n">models</span><span class="p">,</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>rank</th>
-      <th>loo</th>
-      <th>p_loo</th>
-      <th>d_loo</th>
-      <th>weight</th>
-      <th>se</th>
-      <th>dse</th>
-      <th>warning</th>
-      <th>loo_scale</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>full_lognormal</th>
-      <td>0</td>
-      <td>-951.944282</td>
-      <td>30.688782</td>
-      <td>0.000000</td>
-      <td>4.738574e-01</td>
-      <td>41.137103</td>
-      <td>0.000000</td>
-      <td>True</td>
-      <td>log</td>
-    </tr>
-    <tr>
-      <th>no_group</th>
-      <td>1</td>
-      <td>-953.669425</td>
-      <td>10.285519</td>
-      <td>1.725142</td>
-      <td>3.271568e-01</td>
-      <td>39.470815</td>
-      <td>54.733428</td>
-      <td>False</td>
-      <td>log</td>
-    </tr>
-    <tr>
-      <th>no_condition_or_treatment</th>
-      <td>2</td>
-      <td>-978.731164</td>
-      <td>17.189386</td>
-      <td>26.786881</td>
-      <td>8.615790e-02</td>
-      <td>59.515258</td>
-      <td>73.201990</td>
-      <td>True</td>
-      <td>log</td>
-    </tr>
-    <tr>
-      <th>full_gamma</th>
-      <td>3</td>
-      <td>-989.812237</td>
-      <td>43.321821</td>
-      <td>37.867955</td>
-      <td>6.261808e-11</td>
-      <td>43.299467</td>
-      <td>60.167571</td>
-      <td>True</td>
-      <td>log</td>
-    </tr>
-    <tr>
-      <th>full_student</th>
-      <td>4</td>
-      <td>-990.088058</td>
-      <td>45.477601</td>
-      <td>38.143775</td>
-      <td>6.840738e-02</td>
-      <td>56.033160</td>
-      <td>70.519405</td>
-      <td>True</td>
-      <td>log</td>
-    </tr>
-    <tr>
-      <th>full_normal</th>
-      <td>5</td>
-      <td>-992.913469</td>
-      <td>39.320053</td>
-      <td>40.969187</td>
-      <td>4.442043e-02</td>
-      <td>55.929727</td>
-      <td>69.943942</td>
-      <td>True</td>
-      <td>log</td>
-    </tr>
-    <tr>
-      <th>no-treatment</th>
-      <td>6</td>
-      <td>-1001.549111</td>
-      <td>12.226121</td>
-      <td>49.604829</td>
-      <td>3.349875e-11</td>
-      <td>46.421574</td>
-      <td>62.639994</td>
-      <td>True</td>
-      <td>log</td>
-    </tr>
-    <tr>
-      <th>full_exponential</th>
-      <td>7</td>
-      <td>-1009.445091</td>
-      <td>25.079618</td>
-      <td>57.500809</td>
-      <td>9.875576e-12</td>
-      <td>42.085471</td>
-      <td>59.298932</td>
-      <td>True</td>
-      <td>log</td>
-    </tr>
-    <tr>
-      <th>no_condition</th>
-      <td>8</td>
-      <td>-1023.517350</td>
-      <td>14.329721</td>
-      <td>71.573068</td>
-      <td>0.000000e+00</td>
-      <td>54.123402</td>
-      <td>68.205083</td>
-      <td>True</td>
-      <td>log</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="nn">~/mmy/bayes-window/bayes_window/model_comparison.py</span> in <span class="ni">compare_models</span><span class="nt">(df, models, extra_model_args, parallel, plotose, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span>     <span class="n">extra_model_args</span> <span class="o">=</span> <span class="n">extra_model_args</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">({},</span> <span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span>     <span class="k">if</span> <span class="n">parallel</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">278</span>         <span class="n">traces</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span>                                      <span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">)))(</span><span class="n">delayed</span><span class="p">(</span><span class="n">split_train_predict</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span>                                                    <span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">num_chains</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">extra_model_arg</span><span class="p">)</span>
+
+<span class="nn">~/env_jb1/lib/python3.8/site-packages/joblib/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1059</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1060</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">retrieval_context</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1061</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1062</span>             <span class="c1"># Make sure that we get a last message telling us we are done</span>
+<span class="g g-Whitespace">   </span><span class="mi">1063</span>             <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span>
+
+<span class="nn">~/env_jb1/lib/python3.8/site-packages/joblib/parallel.py</span> in <span class="ni">retrieve</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">938</span>             <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">939</span>                 <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="s1">&#39;supports_timeout&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">940</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">941</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">942</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+
+<span class="nn">~/env_jb1/lib/python3.8/site-packages/joblib/_parallel_backends.py</span> in <span class="ni">wrap_future_result</span><span class="nt">(future, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="n">AsyncResults</span><span class="o">.</span><span class="n">get</span> <span class="kn">from</span> <span class="nn">multiprocessing.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">542</span><span class="s2">             return future.result(timeout=timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span><span class="s2">         except CfTimeoutError as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span><span class="s2">             raise TimeoutError from e</span>
+
+<span class="nn">/usr/lib/python3.8/concurrent/futures/_base.py</span> in <span class="ni">result</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">442</span><span class="s2">                     raise CancelledError()</span>
+<span class="g g-Whitespace">    </span><span class="mi">443</span><span class="s2">                 elif self._state == FINISHED:</span>
+<span class="ne">--&gt; </span><span class="mi">444</span><span class="s2">                     return self.__get_result()</span>
+<span class="g g-Whitespace">    </span><span class="mi">445</span><span class="s2">                 else:</span>
+<span class="g g-Whitespace">    </span><span class="mi">446</span><span class="s2">                     raise TimeoutError()</span>
+
+<span class="nn">/usr/lib/python3.8/concurrent/futures/_base.py</span> in <span class="ni">__get_result</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span><span class="s2">         if self._exception:</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span><span class="s2">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">389</span><span class="s2">                 raise self._exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">390</span><span class="s2">             finally:</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span><span class="s2">                 # Break a reference cycle with the exception in self._exception</span>
+
+<span class="ne">ValueError</span>: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+</pre></div>
+</div>
+</div>
 </div>
 <p>It looks like using including intercept actually hurts leave-one-out posterior predictive. Actually, so does including floor in the model. To bring this home, let’s only use the models that did not have a warning above:</p>
 <div class="cell docutils container">
@@ -1828,89 +698,6 @@ Group Var                  2.852    0.207
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/radon_21_0.png" src="../_images/radon_21_0.png" />
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>rank</th>
-      <th>loo</th>
-      <th>p_loo</th>
-      <th>d_loo</th>
-      <th>weight</th>
-      <th>se</th>
-      <th>dse</th>
-      <th>warning</th>
-      <th>loo_scale</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>no-treatment</th>
-      <td>0</td>
-      <td>-916.133463</td>
-      <td>6.159787</td>
-      <td>0.000000</td>
-      <td>0.734468</td>
-      <td>29.920250</td>
-      <td>0.000000</td>
-      <td>False</td>
-      <td>log</td>
-    </tr>
-    <tr>
-      <th>no_group</th>
-      <td>1</td>
-      <td>-1006.065825</td>
-      <td>17.576543</td>
-      <td>89.932363</td>
-      <td>0.260559</td>
-      <td>59.802566</td>
-      <td>67.795037</td>
-      <td>True</td>
-      <td>log</td>
-    </tr>
-    <tr>
-      <th>full_normal</th>
-      <td>2</td>
-      <td>-1011.472675</td>
-      <td>32.858776</td>
-      <td>95.339212</td>
-      <td>0.004973</td>
-      <td>43.138084</td>
-      <td>52.967461</td>
-      <td>True</td>
-      <td>log</td>
-    </tr>
-    <tr>
-      <th>no_condition_or_treatment</th>
-      <td>3</td>
-      <td>-1022.207173</td>
-      <td>16.297596</td>
-      <td>106.073710</td>
-      <td>0.000000</td>
-      <td>55.829260</td>
-      <td>61.943095</td>
-      <td>True</td>
-      <td>log</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Keep in mind though that we had to remove some data that had too few labels in order to make LOO work.</p>
 </div>
@@ -1948,21 +735,7 @@ Group Var                  2.852    0.207
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../motivation/metropolis.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Intuition for maximal likelihood or posterior inference</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../motivation/multilevel_modeling_lfp.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Multilevel modeling of LFP</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
         
         </div>
@@ -1971,7 +744,7 @@ Group Var                  2.852    0.207
     <div class="container">
       <p>
         
-          By Max Myroshnychenko<br/>
+          By The Jupyter Book Community<br/>
         
             &copy; Copyright 2021.<br/>
       </p>
