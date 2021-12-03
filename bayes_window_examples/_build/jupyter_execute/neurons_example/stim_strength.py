@@ -4,7 +4,7 @@
 # # Neurons example with nominal stim strengths
 # ## Generate some data
 
-# In[2]:
+# In[1]:
 
 
 from bayes_window import models, fake_spikes_explore, BayesWindow, BayesRegression
@@ -14,7 +14,7 @@ import numpy as np
 import altair as alt
 
 
-# In[5]:
+# In[2]:
 
 
 df = generate_spikes_stim_strength(#mouse_response_slopes=np.arange(5, 40, 5),
@@ -27,7 +27,7 @@ df = generate_spikes_stim_strength(#mouse_response_slopes=np.arange(5, 40, 5),
                                   )
 
 
-# In[7]:
+# In[3]:
 
 
 window = BayesRegression(df=df, y='isi', treatment='stim_strength', condition='neuron_x_mouse', group='mouse')
@@ -37,7 +37,7 @@ window.fit(do_make_change=False, dist_y='gamma', progress_bar=True,
 window.chart
 
 
-# In[9]:
+# In[4]:
 
 
 window.posterior['slope_per_condition']
