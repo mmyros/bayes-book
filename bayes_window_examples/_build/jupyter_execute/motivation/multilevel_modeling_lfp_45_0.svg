@@ -36,7 +36,7 @@
 <text text-anchor="middle" x="58" y="-57.78" font-family="Times,serif" font-size="14.00">Normal</text>
 </g>
 <!-- a&#45;&gt;y -->
-<g id="edge1" class="edge">
+<g id="edge2" class="edge">
 <title>a&#45;&gt;y</title>
 <path fill="none" stroke="black" d="M58,-160.79C58,-149.38 58,-136.65 58,-124.63"/>
 <polygon fill="black" stroke="black" points="61.5,-124.31 58,-114.31 54.5,-124.31 61.5,-124.31"/>
@@ -50,7 +50,7 @@
 <text text-anchor="middle" x="176" y="-179.73" font-family="Times,serif" font-size="14.00">Exponential</text>
 </g>
 <!-- sigma&#45;&gt;y -->
-<g id="edge2" class="edge">
+<g id="edge1" class="edge">
 <title>sigma&#45;&gt;y</title>
 <path fill="none" stroke="black" d="M146.63,-165.93C135.84,-154.5 123.46,-141.55 112,-129.95 106.06,-123.94 99.67,-117.61 93.44,-111.52"/>
 <polygon fill="black" stroke="black" points="95.84,-108.97 86.24,-104.5 90.96,-113.98 95.84,-108.97"/>

@@ -24,3 +24,54 @@ console.log: WebExtensions: reset-default-search: No addons in our list are inst
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+1638568314503	geckodriver	INFO	Listening on 127.0.0.1:53257
+1638568314510	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile2l6vP7"
+*** You are running in headless mode.
+
+(firefox:3519747): GLib-GObject-WARNING **: 16:51:54.902: invalid (NULL) pointer instance
+
+(firefox:3519747): GLib-GObject-CRITICAL **: 16:51:54.902: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:3520004): GLib-GObject-WARNING **: 16:51:55.608: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:3520004): GLib-GObject-CRITICAL **: 16:51:55.608: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:3520027): GLib-GObject-WARNING **: 16:51:55.774: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:3520027): GLib-GObject-CRITICAL **: 16:51:55.774: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+
+(/usr/lib/firefox/firefox:3520105): GLib-GObject-WARNING **: 16:51:56.842: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:3520105): GLib-GObject-CRITICAL **: 16:51:56.842: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+1638568316948	Marionette	INFO	Listening on port 35291
+1638568318474	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1638577090041	geckodriver	INFO	Listening on 127.0.0.1:54999
+1638577091046	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileDw7KIx"
+*** You are running in headless mode.
+
+(firefox:3629342): GLib-GObject-WARNING **: 19:18:11.344: invalid (NULL) pointer instance
+
+(firefox:3629342): GLib-GObject-CRITICAL **: 19:18:11.344: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:3629394): GLib-GObject-WARNING **: 19:18:11.681: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:3629394): GLib-GObject-CRITICAL **: 19:18:11.681: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:3629499): GLib-GObject-WARNING **: 19:18:11.820: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:3629499): GLib-GObject-CRITICAL **: 19:18:11.820: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1638577092757	Marionette	INFO	Listening on port 46073
+
+(/usr/lib/firefox/firefox:3629570): GLib-GObject-WARNING **: 19:18:12.758: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:3629570): GLib-GObject-CRITICAL **: 19:18:12.758: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+1638577092889	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
