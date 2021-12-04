@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Linear mixed effects &#8212; My sample book</title>
+    <title>Linear mixed effects &#8212; Bayes-window examples</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,6 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Advanced topics" href="../advanced.html" />
+    <link rel="prev" title="Neurons example with stim types" href="stim_type.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -81,7 +83,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Bayes-window examples</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -92,10 +94,141 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Welcome to your Jupyter Book
+   Intro
   </a>
  </li>
 </ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../motivation.html">
+   Motivation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../motivation/metropolis.html">
+     Intuition for maximal likelihood or posterior inference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radon_example/radon.html">
+     Radon example from Gelman and Hill (2006)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../motivation/multilevel_modeling_lfp.html">
+     Multilevel modeling of LFP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../motivation/multilevel_modeling_neurons.html">
+     Bayesian Methods for Multilevel Modeling of Neurons
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lfp.html">
+   LFP example
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lfp_example/quick_lfp.html">
+     LFP example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lfp_example/lfp_stim_strength.html">
+     LFP example with stim strength
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lfp_example/lfp_roc.html">
+     Compare to ANOVA and LMM: ROC curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lfp_example/lfp_slope_vs_means.html">
+     LFP example: regression vs estimation of difference
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../neurons.html">
+   Neurons example
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="quickstart.html">
+     Neurons example, pt. 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="posteriors.html">
+     Neurons example, no slopes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stim_type.html">
+     Neurons example with stim types
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Linear mixed effects
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../advanced.html">
+   Advanced topics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="monster.html">
+     Neurons example, pt. 2: large datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="model_comparison.html">
+     Compare to alternative models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="detailed_workflow.html">
+     Neurons example via low-level, flexible interface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stim_strength.html">
+     Neurons example with nominal stim strengths
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -274,16 +407,20 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula Log_power ~  C(stim, Treatment) + (1 | mouse)
                           Coef.    Std.Err.       z  P&gt;|z|       [0.025  \
-Intercept                 0.013                                           
-C(stim, Treatment)[T.1]   0.123       0.022   5.496  0.000        0.079   
-1 | mouse                -0.076  174464.372  -0.000  1.000  -341943.961   
+Intercept                 0.030                                           
+C(stim, Treatment)[T.1]   0.088       0.021   4.162  0.000        0.047   
+1 | mouse                -0.173  165065.177  -0.000  1.000  -323521.975   
 Group Var                 0.000                                           
 
                              0.975]  
 Intercept                            
-C(stim, Treatment)[T.1]       0.167  
-1 | mouse                341943.809  
+C(stim, Treatment)[T.1]       0.130  
+1 | mouse                323521.629  
 Group Var                            
+changing x to :Q
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>changing x to :Q
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/statsmodels/base/model.py:566: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
@@ -297,12 +434,12 @@ Group Var
 </pre></div>
 </div>
 <div class="output text_html">
-<div id="altair-viz-77481c4870fd4011a718ebfe4c698246"></div>
+<div id="altair-viz-e1a7f81b030d4e81bed84f46275b07c3"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-77481c4870fd4011a718ebfe4c698246") {
-      outputDiv = document.getElementById("altair-viz-77481c4870fd4011a718ebfe4c698246");
+    if (outputDiv.id !== "altair-viz-e1a7f81b030d4e81bed84f46275b07c3") {
+      outputDiv = document.getElementById("altair-viz-e1a7f81b030d4e81bed84f46275b07c3");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -344,7 +481,7 @@ Group Var
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [0, 0.167], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [0, 0.167], "zero": true}, "title": "\u0394 Log_power"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [0, 0.167], "zero": true}}}}], "data": {"name": "data-ffc6489f7574974ad552c6f0462869e9"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-ffc6489f7574974ad552c6f0462869e9": [{"index": "C(stim, Treatment)[T.1]", "center interval": 0.123, "Std.Err.": 0.022, "z": 5.496, "p": 0.0, "higher interval": 0.079, "lower interval": 0.167, "zero": 0}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [0, 0.13], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [0, 0.13], "zero": true}, "title": "\u0394 Log_power"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [0, 0.13], "zero": true}}}}], "data": {"name": "data-bf6c8a6318638cd56cc7764ce782b3ea"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-bf6c8a6318638cd56cc7764ce782b3ea": [{"index": "C(stim, Treatment)[T.1]", "center interval": 0.088, "Std.Err.": 0.021, "z": 4.162, "p": 0.0, "higher interval": 0.047, "lower interval": 0.13, "zero": 0}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <div class="cell docutils container">
@@ -386,12 +523,12 @@ Group Var
     <tr>
       <th>0</th>
       <td>C(stim, Treatment)[T.1]</td>
-      <td>0.123</td>
-      <td>0.022</td>
-      <td>5.496</td>
+      <td>0.088</td>
+      <td>0.021</td>
+      <td>4.162</td>
       <td>0.0</td>
-      <td>0.079</td>
-      <td>0.167</td>
+      <td>0.047</td>
+      <td>0.13</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -414,16 +551,18 @@ Group Var
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula Log_power ~  C(stim, Treatment) + (1 | mouse)
-                          Coef.    Std.Err.       z  P&gt;|z|       [0.025  \
-Intercept                 0.013                                           
-C(stim, Treatment)[T.1]   0.123       0.022   5.496  0.000        0.079   
-1 | mouse                -0.076  174464.372  -0.000  1.000  -341943.961   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                          Coef.    Std.Err.       z  P&gt;|z|       [0.025  \
+Intercept                 0.030                                           
+C(stim, Treatment)[T.1]   0.088       0.021   4.162  0.000        0.047   
+1 | mouse                -0.173  165065.177  -0.000  1.000  -323521.975   
 Group Var                 0.000                                           
 
                              0.975]  
 Intercept                            
-C(stim, Treatment)[T.1]       0.167  
-1 | mouse                341943.809  
+C(stim, Treatment)[T.1]       0.130  
+1 | mouse                323521.629  
 Group Var                            
 
  Data addition to LME is not implemented
@@ -467,27 +606,28 @@ Group Var
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula log_isi ~ (1|mouse) + stim| neuron_x_mouse__0 + stim|neuron_x_mouse__1 + stim|neuron_x_mouse__2 + stim|neuron_x_mouse__3 + stim|neuron_x_mouse__4 + stim|neuron_x_mouse__5 + stim|neuron_x_mouse__6 + stim|neuron_x_mouse__7 + stim|neuron_x_mouse__8 + stim|neuron_x_mouse__9 + stim|neuron_x_mouse__10 + stim|neuron_x_mouse__11 + stim|neuron_x_mouse__12 + stim|neuron_x_mouse__13 + stim|neuron_x_mouse__14 + stim|neuron_x_mouse__15 + stim|neuron_x_mouse__16 + stim|neuron_x_mouse__17
                             Coef. Std.Err.        z  P&gt;|z|  [0.025  0.975]
-Intercept                  -1.044    0.123   -8.513  0.000  -1.284  -0.804
-1 | mouse                  -0.081    0.064   -1.271  0.204  -0.207   0.044
-stim | neuron_x_mouse__0   -0.037    0.020   -1.879  0.060  -0.076   0.002
-stim | neuron_x_mouse__1   -0.076    0.020   -3.818  0.000  -0.114  -0.037
-stim | neuron_x_mouse__2   -0.116    0.020   -5.870  0.000  -0.155  -0.077
-stim | neuron_x_mouse__3   -0.168    0.020   -8.468  0.000  -0.207  -0.129
-stim | neuron_x_mouse__4   -0.203    0.020  -10.241  0.000  -0.242  -0.164
-stim | neuron_x_mouse__5   -0.247    0.020  -12.464  0.000  -0.286  -0.208
-stim | neuron_x_mouse__6    0.120    0.020    6.058  0.000   0.081   0.159
-stim | neuron_x_mouse__7    0.072    0.020    3.635  0.000   0.033   0.111
-stim | neuron_x_mouse__8    0.038    0.020    1.907  0.057  -0.001   0.077
-stim | neuron_x_mouse__9   -0.029    0.020   -1.488  0.137  -0.068   0.009
-stim | neuron_x_mouse__10  -0.062    0.020   -3.127  0.002  -0.101  -0.023
-stim | neuron_x_mouse__11  -0.085    0.020   -4.313  0.000  -0.124  -0.047
-stim | neuron_x_mouse__12   0.207    0.020   10.453  0.000   0.168   0.246
-stim | neuron_x_mouse__13   0.164    0.020    8.260  0.000   0.125   0.202
-stim | neuron_x_mouse__14   0.116    0.020    5.841  0.000   0.077   0.154
-stim | neuron_x_mouse__15   0.096    0.020    4.828  0.000   0.057   0.134
-stim | neuron_x_mouse__16   0.044    0.020    2.211  0.027   0.005   0.083
-stim | neuron_x_mouse__17  -0.005    0.020   -0.257  0.797  -0.044   0.034
-Group Var                   0.011    0.179                                
+Intercept                  -1.047    0.132   -7.947  0.000  -1.305  -0.789
+1 | mouse                  -0.079    0.069   -1.143  0.253  -0.213   0.056
+stim | neuron_x_mouse__0   -0.010    0.020   -0.486  0.627  -0.049   0.030
+stim | neuron_x_mouse__1   -0.074    0.020   -3.692  0.000  -0.114  -0.035
+stim | neuron_x_mouse__2   -0.091    0.020   -4.506  0.000  -0.130  -0.051
+stim | neuron_x_mouse__3   -0.159    0.020   -7.887  0.000  -0.198  -0.119
+stim | neuron_x_mouse__4   -0.226    0.020  -11.249  0.000  -0.266  -0.187
+stim | neuron_x_mouse__5   -0.276    0.020  -13.728  0.000  -0.316  -0.237
+stim | neuron_x_mouse__6    0.124    0.020    6.166  0.000   0.085   0.164
+stim | neuron_x_mouse__7    0.080    0.020    3.988  0.000   0.041   0.120
+stim | neuron_x_mouse__8    0.019    0.020    0.967  0.334  -0.020   0.059
+stim | neuron_x_mouse__9   -0.003    0.020   -0.126  0.900  -0.042   0.037
+stim | neuron_x_mouse__10  -0.045    0.020   -2.213  0.027  -0.084  -0.005
+stim | neuron_x_mouse__11  -0.078    0.020   -3.873  0.000  -0.117  -0.039
+stim | neuron_x_mouse__12   0.194    0.020    9.641  0.000   0.155   0.233
+stim | neuron_x_mouse__13   0.175    0.020    8.707  0.000   0.136   0.215
+stim | neuron_x_mouse__14   0.129    0.020    6.409  0.000   0.090   0.168
+stim | neuron_x_mouse__15   0.079    0.020    3.914  0.000   0.039   0.118
+stim | neuron_x_mouse__16   0.012    0.020    0.576  0.565  -0.028   0.051
+stim | neuron_x_mouse__17  -0.021    0.020   -1.027  0.304  -0.060   0.019
+Group Var                   0.013    0.203                                
+changing x to :Q
 </pre></div>
 </div>
 </div>
@@ -500,12 +640,12 @@ Group Var                   0.011    0.179
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-015192426ebe4c87b5099c373f7db9cd"></div>
+<div id="altair-viz-0d381d0bf9b540f5a8e9d5cd21c60f47"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-015192426ebe4c87b5099c373f7db9cd") {
-      outputDiv = document.getElementById("altair-viz-015192426ebe4c87b5099c373f7db9cd");
+    if (outputDiv.id !== "altair-viz-0d381d0bf9b540f5a8e9d5cd21c60f47") {
+      outputDiv = document.getElementById("altair-viz-0d381d0bf9b540f5a8e9d5cd21c60f47");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -547,7 +687,7 @@ Group Var                   0.011    0.179
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.208, 0.168], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.208, 0.168], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.208, 0.168], "zero": true}}}}], "data": {"name": "data-b01ad25cbe509d798de3f000c8aa0e5f"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-b01ad25cbe509d798de3f000c8aa0e5f": [{"neuron_x_mouse": 0, "center interval": -0.037, "Std.Err.": 0.02, "z": -1.879, "p": 0.06, "higher interval": -0.076, "lower interval": 0.002, "zero": 0}, {"neuron_x_mouse": 6, "center interval": -0.076, "Std.Err.": 0.02, "z": -3.818, "p": 0.0, "higher interval": -0.114, "lower interval": -0.037, "zero": 0}, {"neuron_x_mouse": 12, "center interval": -0.116, "Std.Err.": 0.02, "z": -5.87, "p": 0.0, "higher interval": -0.155, "lower interval": -0.077, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.168, "Std.Err.": 0.02, "z": -8.468, "p": 0.0, "higher interval": -0.207, "lower interval": -0.129, "zero": 0}, {"neuron_x_mouse": 7, "center interval": -0.203, "Std.Err.": 0.02, "z": -10.241, "p": 0.0, "higher interval": -0.242, "lower interval": -0.164, "zero": 0}, {"neuron_x_mouse": 13, "center interval": -0.247, "Std.Err.": 0.02, "z": -12.464, "p": 0.0, "higher interval": -0.286, "lower interval": -0.208, "zero": 0}, {"neuron_x_mouse": 2, "center interval": 0.12, "Std.Err.": 0.02, "z": 6.058, "p": 0.0, "higher interval": 0.081, "lower interval": 0.159, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.072, "Std.Err.": 0.02, "z": 3.635, "p": 0.0, "higher interval": 0.033, "lower interval": 0.111, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.038, "Std.Err.": 0.02, "z": 1.907, "p": 0.057, "higher interval": -0.001, "lower interval": 0.077, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.029, "Std.Err.": 0.02, "z": -1.488, "p": 0.137, "higher interval": -0.068, "lower interval": 0.009, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.062, "Std.Err.": 0.02, "z": -3.127, "p": 0.002, "higher interval": -0.101, "lower interval": -0.023, "zero": 0}, {"neuron_x_mouse": 15, "center interval": -0.085, "Std.Err.": 0.02, "z": -4.313, "p": 0.0, "higher interval": -0.124, "lower interval": -0.047, "zero": 0}, {"neuron_x_mouse": 4, "center interval": 0.207, "Std.Err.": 0.02, "z": 10.453, "p": 0.0, "higher interval": 0.168, "lower interval": 0.246, "zero": 0}, {"neuron_x_mouse": 10, "center interval": 0.164, "Std.Err.": 0.02, "z": 8.26, "p": 0.0, "higher interval": 0.125, "lower interval": 0.202, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.116, "Std.Err.": 0.02, "z": 5.841, "p": 0.0, "higher interval": 0.077, "lower interval": 0.154, "zero": 0}, {"neuron_x_mouse": 5, "center interval": 0.096, "Std.Err.": 0.02, "z": 4.828, "p": 0.0, "higher interval": 0.057, "lower interval": 0.134, "zero": 0}, {"neuron_x_mouse": 11, "center interval": 0.044, "Std.Err.": 0.02, "z": 2.211, "p": 0.027, "higher interval": 0.005, "lower interval": 0.083, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.005, "Std.Err.": 0.02, "z": -0.257, "p": 0.797, "higher interval": -0.044, "lower interval": 0.034, "zero": 0}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.237, 0.155], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.237, 0.155], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.237, 0.155], "zero": true}}}}], "data": {"name": "data-d20699561c871cbe63f0ec333d110bba"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-d20699561c871cbe63f0ec333d110bba": [{"neuron_x_mouse": 0, "center interval": -0.01, "Std.Err.": 0.02, "z": -0.486, "p": 0.627, "higher interval": -0.049, "lower interval": 0.03, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.074, "Std.Err.": 0.02, "z": -3.692, "p": 0.0, "higher interval": -0.114, "lower interval": -0.035, "zero": 0}, {"neuron_x_mouse": 2, "center interval": -0.091, "Std.Err.": 0.02, "z": -4.506, "p": 0.0, "higher interval": -0.13, "lower interval": -0.051, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.159, "Std.Err.": 0.02, "z": -7.887, "p": 0.0, "higher interval": -0.198, "lower interval": -0.119, "zero": 0}, {"neuron_x_mouse": 4, "center interval": -0.226, "Std.Err.": 0.02, "z": -11.249, "p": 0.0, "higher interval": -0.266, "lower interval": -0.187, "zero": 0}, {"neuron_x_mouse": 5, "center interval": -0.276, "Std.Err.": 0.02, "z": -13.728, "p": 0.0, "higher interval": -0.316, "lower interval": -0.237, "zero": 0}, {"neuron_x_mouse": 6, "center interval": 0.124, "Std.Err.": 0.02, "z": 6.166, "p": 0.0, "higher interval": 0.085, "lower interval": 0.164, "zero": 0}, {"neuron_x_mouse": 7, "center interval": 0.08, "Std.Err.": 0.02, "z": 3.988, "p": 0.0, "higher interval": 0.041, "lower interval": 0.12, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.019, "Std.Err.": 0.02, "z": 0.967, "p": 0.334, "higher interval": -0.02, "lower interval": 0.059, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.003, "Std.Err.": 0.02, "z": -0.126, "p": 0.9, "higher interval": -0.042, "lower interval": 0.037, "zero": 0}, {"neuron_x_mouse": 10, "center interval": -0.045, "Std.Err.": 0.02, "z": -2.213, "p": 0.027, "higher interval": -0.084, "lower interval": -0.005, "zero": 0}, {"neuron_x_mouse": 11, "center interval": -0.078, "Std.Err.": 0.02, "z": -3.873, "p": 0.0, "higher interval": -0.117, "lower interval": -0.039, "zero": 0}, {"neuron_x_mouse": 12, "center interval": 0.194, "Std.Err.": 0.02, "z": 9.641, "p": 0.0, "higher interval": 0.155, "lower interval": 0.233, "zero": 0}, {"neuron_x_mouse": 13, "center interval": 0.175, "Std.Err.": 0.02, "z": 8.707, "p": 0.0, "higher interval": 0.136, "lower interval": 0.215, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.129, "Std.Err.": 0.02, "z": 6.409, "p": 0.0, "higher interval": 0.09, "lower interval": 0.168, "zero": 0}, {"neuron_x_mouse": 15, "center interval": 0.079, "Std.Err.": 0.02, "z": 3.914, "p": 0.0, "higher interval": 0.039, "lower interval": 0.118, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.012, "Std.Err.": 0.02, "z": 0.576, "p": 0.565, "higher interval": -0.028, "lower interval": 0.051, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.021, "Std.Err.": 0.02, "z": -1.027, "p": 0.304, "higher interval": -0.06, "lower interval": 0.019, "zero": 0}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <div class="section" id="group-slope">
@@ -562,30 +702,31 @@ Group Var                   0.011    0.179
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula log_isi ~ (stim|mouse)  + stim| neuron_x_mouse__0 + stim|neuron_x_mouse__1 + stim|neuron_x_mouse__2 + stim|neuron_x_mouse__3 + stim|neuron_x_mouse__4 + stim|neuron_x_mouse__5 + stim|neuron_x_mouse__6 + stim|neuron_x_mouse__7 + stim|neuron_x_mouse__8 + stim|neuron_x_mouse__9 + stim|neuron_x_mouse__10 + stim|neuron_x_mouse__11 + stim|neuron_x_mouse__12 + stim|neuron_x_mouse__13 + stim|neuron_x_mouse__14 + stim|neuron_x_mouse__15 + stim|neuron_x_mouse__16 + stim|neuron_x_mouse__17
                             Coef. Std.Err.        z  P&gt;|z|  [0.025  0.975]
-Intercept                  -1.101    0.086  -12.776  0.000  -1.270  -0.932
-stim | mouse               -0.081    0.064   -1.271  0.204  -0.207   0.044
-stim | neuron_x_mouse__0   -0.061    0.027   -2.224  0.026  -0.115  -0.007
-stim | neuron_x_mouse__1   -0.100    0.027   -3.621  0.000  -0.153  -0.046
-stim | neuron_x_mouse__2   -0.140    0.027   -5.099  0.000  -0.194  -0.086
-stim | neuron_x_mouse__3   -0.192    0.027   -6.970  0.000  -0.246  -0.138
-stim | neuron_x_mouse__4   -0.227    0.027   -8.248  0.000  -0.281  -0.173
-stim | neuron_x_mouse__5   -0.271    0.027   -9.848  0.000  -0.325  -0.217
-stim | neuron_x_mouse__6    0.177    0.049    3.612  0.000   0.081   0.274
-stim | neuron_x_mouse__7    0.129    0.049    2.635  0.008   0.033   0.226
-stim | neuron_x_mouse__8    0.095    0.049    1.938  0.053  -0.001   0.192
-stim | neuron_x_mouse__9    0.028    0.049    0.570  0.569  -0.068   0.124
-stim | neuron_x_mouse__10  -0.004    0.049   -0.091  0.928  -0.101   0.092
-stim | neuron_x_mouse__11  -0.028    0.049   -0.569  0.569  -0.124   0.068
-stim | neuron_x_mouse__12   0.183    0.027    6.781  0.000   0.130   0.236
-stim | neuron_x_mouse__13   0.140    0.027    5.172  0.000   0.087   0.192
-stim | neuron_x_mouse__14   0.092    0.027    3.398  0.001   0.039   0.145
-stim | neuron_x_mouse__15   0.072    0.027    2.655  0.008   0.019   0.125
-stim | neuron_x_mouse__16   0.020    0.027    0.734  0.463  -0.033   0.073
-stim | neuron_x_mouse__17  -0.029    0.027   -1.076  0.282  -0.082   0.024
-Group Var                   0.011    0.179                                
+Intercept                  -1.102    0.093  -11.904  0.000  -1.284  -0.921
+stim | mouse               -0.079    0.069   -1.143  0.253  -0.213   0.056
+stim | neuron_x_mouse__0   -0.033    0.029   -1.146  0.252  -0.089   0.023
+stim | neuron_x_mouse__1   -0.097    0.029   -3.395  0.001  -0.154  -0.041
+stim | neuron_x_mouse__2   -0.114    0.029   -3.966  0.000  -0.170  -0.058
+stim | neuron_x_mouse__3   -0.182    0.029   -6.337  0.000  -0.238  -0.126
+stim | neuron_x_mouse__4   -0.250    0.029   -8.695  0.000  -0.306  -0.193
+stim | neuron_x_mouse__5   -0.299    0.029  -10.434  0.000  -0.356  -0.243
+stim | neuron_x_mouse__6    0.180    0.052    3.432  0.001   0.077   0.282
+stim | neuron_x_mouse__7    0.136    0.052    2.594  0.009   0.033   0.238
+stim | neuron_x_mouse__8    0.075    0.052    1.432  0.152  -0.028   0.178
+stim | neuron_x_mouse__9    0.053    0.052    1.012  0.311  -0.050   0.156
+stim | neuron_x_mouse__10   0.011    0.052    0.209  0.834  -0.092   0.114
+stim | neuron_x_mouse__11  -0.022    0.052   -0.429  0.668  -0.125   0.080
+stim | neuron_x_mouse__12   0.171    0.028    6.060  0.000   0.116   0.226
+stim | neuron_x_mouse__13   0.152    0.028    5.393  0.000   0.097   0.207
+stim | neuron_x_mouse__14   0.106    0.028    3.754  0.000   0.051   0.161
+stim | neuron_x_mouse__15   0.056    0.028    1.973  0.049   0.000   0.111
+stim | neuron_x_mouse__16  -0.012    0.028   -0.409  0.682  -0.067   0.044
+stim | neuron_x_mouse__17  -0.044    0.028   -1.553  0.120  -0.099   0.011
+Group Var                   0.013    0.203                                
+changing x to :Q
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bayes_window.lme.LMERegression at 0x7ff8c107a0a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bayes_window.lme.LMERegression at 0x7fb304ab6760&gt;
 </pre></div>
 </div>
 </div>
@@ -598,12 +739,12 @@ Group Var                   0.011    0.179
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-f6508668bca9410a94c1575b961acdb7"></div>
+<div id="altair-viz-5a7f38d45739441d9a80136a34bfb49e"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-f6508668bca9410a94c1575b961acdb7") {
-      outputDiv = document.getElementById("altair-viz-f6508668bca9410a94c1575b961acdb7");
+    if (outputDiv.id !== "altair-viz-5a7f38d45739441d9a80136a34bfb49e") {
+      outputDiv = document.getElementById("altair-viz-5a7f38d45739441d9a80136a34bfb49e");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -645,7 +786,7 @@ Group Var                   0.011    0.179
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.217, 0.13], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.217, 0.13], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.217, 0.13], "zero": true}}}}], "data": {"name": "data-b165fc92fab177f2a4c2a146744cf650"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-b165fc92fab177f2a4c2a146744cf650": [{"neuron_x_mouse": 0, "center interval": -0.061, "Std.Err.": 0.027, "z": -2.224, "p": 0.026, "higher interval": -0.115, "lower interval": -0.007, "zero": 0}, {"neuron_x_mouse": 6, "center interval": -0.1, "Std.Err.": 0.027, "z": -3.621, "p": 0.0, "higher interval": -0.153, "lower interval": -0.046, "zero": 0}, {"neuron_x_mouse": 12, "center interval": -0.14, "Std.Err.": 0.027, "z": -5.099, "p": 0.0, "higher interval": -0.194, "lower interval": -0.086, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.192, "Std.Err.": 0.027, "z": -6.97, "p": 0.0, "higher interval": -0.246, "lower interval": -0.138, "zero": 0}, {"neuron_x_mouse": 7, "center interval": -0.227, "Std.Err.": 0.027, "z": -8.248, "p": 0.0, "higher interval": -0.281, "lower interval": -0.173, "zero": 0}, {"neuron_x_mouse": 13, "center interval": -0.271, "Std.Err.": 0.027, "z": -9.848, "p": 0.0, "higher interval": -0.325, "lower interval": -0.217, "zero": 0}, {"neuron_x_mouse": 2, "center interval": 0.177, "Std.Err.": 0.049, "z": 3.612, "p": 0.0, "higher interval": 0.081, "lower interval": 0.274, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.129, "Std.Err.": 0.049, "z": 2.635, "p": 0.008, "higher interval": 0.033, "lower interval": 0.226, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.095, "Std.Err.": 0.049, "z": 1.938, "p": 0.053, "higher interval": -0.001, "lower interval": 0.192, "zero": 0}, {"neuron_x_mouse": 3, "center interval": 0.028, "Std.Err.": 0.049, "z": 0.57, "p": 0.569, "higher interval": -0.068, "lower interval": 0.124, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.004, "Std.Err.": 0.049, "z": -0.091, "p": 0.928, "higher interval": -0.101, "lower interval": 0.092, "zero": 0}, {"neuron_x_mouse": 15, "center interval": -0.028, "Std.Err.": 0.049, "z": -0.569, "p": 0.569, "higher interval": -0.124, "lower interval": 0.068, "zero": 0}, {"neuron_x_mouse": 4, "center interval": 0.183, "Std.Err.": 0.027, "z": 6.781, "p": 0.0, "higher interval": 0.13, "lower interval": 0.236, "zero": 0}, {"neuron_x_mouse": 10, "center interval": 0.14, "Std.Err.": 0.027, "z": 5.172, "p": 0.0, "higher interval": 0.087, "lower interval": 0.192, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.092, "Std.Err.": 0.027, "z": 3.398, "p": 0.001, "higher interval": 0.039, "lower interval": 0.145, "zero": 0}, {"neuron_x_mouse": 5, "center interval": 0.072, "Std.Err.": 0.027, "z": 2.655, "p": 0.008, "higher interval": 0.019, "lower interval": 0.125, "zero": 0}, {"neuron_x_mouse": 11, "center interval": 0.02, "Std.Err.": 0.027, "z": 0.734, "p": 0.463, "higher interval": -0.033, "lower interval": 0.073, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.029, "Std.Err.": 0.027, "z": -1.076, "p": 0.282, "higher interval": -0.082, "lower interval": 0.024, "zero": 0}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.243, 0.116], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.243, 0.116], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": ""}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.243, 0.116], "zero": true}}}}], "data": {"name": "data-d94914ea2cc006c2beee6b56b0290069"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-d94914ea2cc006c2beee6b56b0290069": [{"neuron_x_mouse": 0, "center interval": -0.033, "Std.Err.": 0.029, "z": -1.146, "p": 0.252, "higher interval": -0.089, "lower interval": 0.023, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.097, "Std.Err.": 0.029, "z": -3.395, "p": 0.001, "higher interval": -0.154, "lower interval": -0.041, "zero": 0}, {"neuron_x_mouse": 2, "center interval": -0.114, "Std.Err.": 0.029, "z": -3.966, "p": 0.0, "higher interval": -0.17, "lower interval": -0.058, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.182, "Std.Err.": 0.029, "z": -6.337, "p": 0.0, "higher interval": -0.238, "lower interval": -0.126, "zero": 0}, {"neuron_x_mouse": 4, "center interval": -0.25, "Std.Err.": 0.029, "z": -8.695, "p": 0.0, "higher interval": -0.306, "lower interval": -0.193, "zero": 0}, {"neuron_x_mouse": 5, "center interval": -0.299, "Std.Err.": 0.029, "z": -10.434, "p": 0.0, "higher interval": -0.356, "lower interval": -0.243, "zero": 0}, {"neuron_x_mouse": 6, "center interval": 0.18, "Std.Err.": 0.052, "z": 3.432, "p": 0.001, "higher interval": 0.077, "lower interval": 0.282, "zero": 0}, {"neuron_x_mouse": 7, "center interval": 0.136, "Std.Err.": 0.052, "z": 2.594, "p": 0.009, "higher interval": 0.033, "lower interval": 0.238, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.075, "Std.Err.": 0.052, "z": 1.432, "p": 0.152, "higher interval": -0.028, "lower interval": 0.178, "zero": 0}, {"neuron_x_mouse": 9, "center interval": 0.053, "Std.Err.": 0.052, "z": 1.012, "p": 0.311, "higher interval": -0.05, "lower interval": 0.156, "zero": 0}, {"neuron_x_mouse": 10, "center interval": 0.011, "Std.Err.": 0.052, "z": 0.209, "p": 0.834, "higher interval": -0.092, "lower interval": 0.114, "zero": 0}, {"neuron_x_mouse": 11, "center interval": -0.022, "Std.Err.": 0.052, "z": -0.429, "p": 0.668, "higher interval": -0.125, "lower interval": 0.08, "zero": 0}, {"neuron_x_mouse": 12, "center interval": 0.171, "Std.Err.": 0.028, "z": 6.06, "p": 0.0, "higher interval": 0.116, "lower interval": 0.226, "zero": 0}, {"neuron_x_mouse": 13, "center interval": 0.152, "Std.Err.": 0.028, "z": 5.393, "p": 0.0, "higher interval": 0.097, "lower interval": 0.207, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.106, "Std.Err.": 0.028, "z": 3.754, "p": 0.0, "higher interval": 0.051, "lower interval": 0.161, "zero": 0}, {"neuron_x_mouse": 15, "center interval": 0.056, "Std.Err.": 0.028, "z": 1.973, "p": 0.049, "higher interval": 0.0, "lower interval": 0.111, "zero": 0}, {"neuron_x_mouse": 16, "center interval": -0.012, "Std.Err.": 0.028, "z": -0.409, "p": 0.682, "higher interval": -0.067, "lower interval": 0.044, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.044, "Std.Err.": 0.028, "z": -1.553, "p": 0.12, "higher interval": -0.099, "lower interval": 0.011, "zero": 0}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <div class="cell docutils container">
@@ -655,13 +796,16 @@ Group Var                   0.011    0.179
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>changing x to neuron_x_mouse:Q
+</pre></div>
+</div>
 <div class="output text_html">
-<div id="altair-viz-65e195eecbd74ca7b188847a279f8b52"></div>
+<div id="altair-viz-28b8a1d307c2421a872d0d5f43fa0838"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-65e195eecbd74ca7b188847a279f8b52") {
-      outputDiv = document.getElementById("altair-viz-65e195eecbd74ca7b188847a279f8b52");
+    if (outputDiv.id !== "altair-viz-28b8a1d307c2421a872d0d5f43fa0838") {
+      outputDiv = document.getElementById("altair-viz-28b8a1d307c2421a872d0d5f43fa0838");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -703,7 +847,7 @@ Group Var                   0.011    0.179
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.217, 0.13], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.217, 0.13], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.217, 0.13], "zero": true}}}}], "data": {"name": "data-b165fc92fab177f2a4c2a146744cf650"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-b165fc92fab177f2a4c2a146744cf650": [{"neuron_x_mouse": 0, "center interval": -0.061, "Std.Err.": 0.027, "z": -2.224, "p": 0.026, "higher interval": -0.115, "lower interval": -0.007, "zero": 0}, {"neuron_x_mouse": 6, "center interval": -0.1, "Std.Err.": 0.027, "z": -3.621, "p": 0.0, "higher interval": -0.153, "lower interval": -0.046, "zero": 0}, {"neuron_x_mouse": 12, "center interval": -0.14, "Std.Err.": 0.027, "z": -5.099, "p": 0.0, "higher interval": -0.194, "lower interval": -0.086, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.192, "Std.Err.": 0.027, "z": -6.97, "p": 0.0, "higher interval": -0.246, "lower interval": -0.138, "zero": 0}, {"neuron_x_mouse": 7, "center interval": -0.227, "Std.Err.": 0.027, "z": -8.248, "p": 0.0, "higher interval": -0.281, "lower interval": -0.173, "zero": 0}, {"neuron_x_mouse": 13, "center interval": -0.271, "Std.Err.": 0.027, "z": -9.848, "p": 0.0, "higher interval": -0.325, "lower interval": -0.217, "zero": 0}, {"neuron_x_mouse": 2, "center interval": 0.177, "Std.Err.": 0.049, "z": 3.612, "p": 0.0, "higher interval": 0.081, "lower interval": 0.274, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.129, "Std.Err.": 0.049, "z": 2.635, "p": 0.008, "higher interval": 0.033, "lower interval": 0.226, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.095, "Std.Err.": 0.049, "z": 1.938, "p": 0.053, "higher interval": -0.001, "lower interval": 0.192, "zero": 0}, {"neuron_x_mouse": 3, "center interval": 0.028, "Std.Err.": 0.049, "z": 0.57, "p": 0.569, "higher interval": -0.068, "lower interval": 0.124, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.004, "Std.Err.": 0.049, "z": -0.091, "p": 0.928, "higher interval": -0.101, "lower interval": 0.092, "zero": 0}, {"neuron_x_mouse": 15, "center interval": -0.028, "Std.Err.": 0.049, "z": -0.569, "p": 0.569, "higher interval": -0.124, "lower interval": 0.068, "zero": 0}, {"neuron_x_mouse": 4, "center interval": 0.183, "Std.Err.": 0.027, "z": 6.781, "p": 0.0, "higher interval": 0.13, "lower interval": 0.236, "zero": 0}, {"neuron_x_mouse": 10, "center interval": 0.14, "Std.Err.": 0.027, "z": 5.172, "p": 0.0, "higher interval": 0.087, "lower interval": 0.192, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.092, "Std.Err.": 0.027, "z": 3.398, "p": 0.001, "higher interval": 0.039, "lower interval": 0.145, "zero": 0}, {"neuron_x_mouse": 5, "center interval": 0.072, "Std.Err.": 0.027, "z": 2.655, "p": 0.008, "higher interval": 0.019, "lower interval": 0.125, "zero": 0}, {"neuron_x_mouse": 11, "center interval": 0.02, "Std.Err.": 0.027, "z": 0.734, "p": 0.463, "higher interval": -0.033, "lower interval": 0.073, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.029, "Std.Err.": 0.027, "z": -1.076, "p": 0.282, "higher interval": -0.082, "lower interval": 0.024, "zero": 0}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.243, 0.116], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.243, 0.116], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.243, 0.116], "zero": true}}}}], "data": {"name": "data-d94914ea2cc006c2beee6b56b0290069"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-d94914ea2cc006c2beee6b56b0290069": [{"neuron_x_mouse": 0, "center interval": -0.033, "Std.Err.": 0.029, "z": -1.146, "p": 0.252, "higher interval": -0.089, "lower interval": 0.023, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.097, "Std.Err.": 0.029, "z": -3.395, "p": 0.001, "higher interval": -0.154, "lower interval": -0.041, "zero": 0}, {"neuron_x_mouse": 2, "center interval": -0.114, "Std.Err.": 0.029, "z": -3.966, "p": 0.0, "higher interval": -0.17, "lower interval": -0.058, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.182, "Std.Err.": 0.029, "z": -6.337, "p": 0.0, "higher interval": -0.238, "lower interval": -0.126, "zero": 0}, {"neuron_x_mouse": 4, "center interval": -0.25, "Std.Err.": 0.029, "z": -8.695, "p": 0.0, "higher interval": -0.306, "lower interval": -0.193, "zero": 0}, {"neuron_x_mouse": 5, "center interval": -0.299, "Std.Err.": 0.029, "z": -10.434, "p": 0.0, "higher interval": -0.356, "lower interval": -0.243, "zero": 0}, {"neuron_x_mouse": 6, "center interval": 0.18, "Std.Err.": 0.052, "z": 3.432, "p": 0.001, "higher interval": 0.077, "lower interval": 0.282, "zero": 0}, {"neuron_x_mouse": 7, "center interval": 0.136, "Std.Err.": 0.052, "z": 2.594, "p": 0.009, "higher interval": 0.033, "lower interval": 0.238, "zero": 0}, {"neuron_x_mouse": 8, "center interval": 0.075, "Std.Err.": 0.052, "z": 1.432, "p": 0.152, "higher interval": -0.028, "lower interval": 0.178, "zero": 0}, {"neuron_x_mouse": 9, "center interval": 0.053, "Std.Err.": 0.052, "z": 1.012, "p": 0.311, "higher interval": -0.05, "lower interval": 0.156, "zero": 0}, {"neuron_x_mouse": 10, "center interval": 0.011, "Std.Err.": 0.052, "z": 0.209, "p": 0.834, "higher interval": -0.092, "lower interval": 0.114, "zero": 0}, {"neuron_x_mouse": 11, "center interval": -0.022, "Std.Err.": 0.052, "z": -0.429, "p": 0.668, "higher interval": -0.125, "lower interval": 0.08, "zero": 0}, {"neuron_x_mouse": 12, "center interval": 0.171, "Std.Err.": 0.028, "z": 6.06, "p": 0.0, "higher interval": 0.116, "lower interval": 0.226, "zero": 0}, {"neuron_x_mouse": 13, "center interval": 0.152, "Std.Err.": 0.028, "z": 5.393, "p": 0.0, "higher interval": 0.097, "lower interval": 0.207, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.106, "Std.Err.": 0.028, "z": 3.754, "p": 0.0, "higher interval": 0.051, "lower interval": 0.161, "zero": 0}, {"neuron_x_mouse": 15, "center interval": 0.056, "Std.Err.": 0.028, "z": 1.973, "p": 0.049, "higher interval": 0.0, "lower interval": 0.111, "zero": 0}, {"neuron_x_mouse": 16, "center interval": -0.012, "Std.Err.": 0.028, "z": -0.409, "p": 0.682, "higher interval": -0.067, "lower interval": 0.044, "zero": 0}, {"neuron_x_mouse": 17, "center interval": -0.044, "Std.Err.": 0.028, "z": -1.553, "p": 0.12, "higher interval": -0.099, "lower interval": 0.011, "zero": 0}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 </div>
@@ -718,51 +862,54 @@ Group Var                   0.011    0.179
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula log_isi ~ (1|mouse) + C(stim| neuron_x_mouse)
                                  Coef.    Std.Err.       z  P&gt;|z|  \
-Intercept                       -0.849  149904.162  -0.000  1.000   
-C(stim | neuron_x_mouse)[T.1]   -0.064       0.028  -2.261  0.024   
-C(stim | neuron_x_mouse)[T.2]   -0.079       0.035  -2.283  0.022   
-C(stim | neuron_x_mouse)[T.3]   -0.127       0.028  -4.501  0.000   
-C(stim | neuron_x_mouse)[T.4]   -0.166       0.035  -4.784  0.000   
-C(stim | neuron_x_mouse)[T.5]   -0.206       0.028  -7.286  0.000   
-C(stim | neuron_x_mouse)[T.6]    0.010       0.159   0.063  0.950   
-C(stim | neuron_x_mouse)[T.7]   -0.253       0.157  -1.609  0.108   
-C(stim | neuron_x_mouse)[T.8]   -0.072       0.159  -0.456  0.649   
-C(stim | neuron_x_mouse)[T.9]   -0.222       0.157  -1.412  0.158   
-C(stim | neuron_x_mouse)[T.10]  -0.172       0.159  -1.084  0.278   
-C(stim | neuron_x_mouse)[T.11]  -0.216       0.157  -1.373  0.170   
-C(stim | neuron_x_mouse)[T.12]   0.487  299808.325   0.000  1.000   
-C(stim | neuron_x_mouse)[T.13]   0.111  299808.325   0.000  1.000   
-C(stim | neuron_x_mouse)[T.14]   0.396  299808.325   0.000  1.000   
-C(stim | neuron_x_mouse)[T.15]   0.214  299808.325   0.000  1.000   
-C(stim | neuron_x_mouse)[T.16]   0.324  299808.325   0.000  1.000   
-C(stim | neuron_x_mouse)[T.17]   0.253  299808.325   0.000  1.000   
-1 | mouse                       -0.240  149904.162  -0.000  1.000   
-Group Var                        0.012       2.888                  
+Intercept                       -0.768  153525.798  -0.000  1.000   
+C(stim | neuron_x_mouse)[T.1]   -0.086       0.029  -3.015  0.003   
+C(stim | neuron_x_mouse)[T.2]   -0.081       0.035  -2.302  0.021   
+C(stim | neuron_x_mouse)[T.3]   -0.156       0.029  -5.427  0.000   
+C(stim | neuron_x_mouse)[T.4]   -0.217       0.035  -6.164  0.000   
+C(stim | neuron_x_mouse)[T.5]   -0.237       0.029  -8.242  0.000   
+C(stim | neuron_x_mouse)[T.6]   -0.024       0.161  -0.151  0.880   
+C(stim | neuron_x_mouse)[T.7]   -0.294       0.160  -1.840  0.066   
+C(stim | neuron_x_mouse)[T.8]   -0.129       0.161  -0.800  0.423   
+C(stim | neuron_x_mouse)[T.9]   -0.255       0.160  -1.599  0.110   
+C(stim | neuron_x_mouse)[T.10]  -0.193       0.161  -1.198  0.231   
+C(stim | neuron_x_mouse)[T.11]  -0.236       0.160  -1.475  0.140   
+C(stim | neuron_x_mouse)[T.12]   0.543  307051.595   0.000  1.000   
+C(stim | neuron_x_mouse)[T.13]   0.186  307051.595   0.000  1.000   
+C(stim | neuron_x_mouse)[T.14]   0.478  307051.595   0.000  1.000   
+C(stim | neuron_x_mouse)[T.15]   0.281  307051.595   0.000  1.000   
+C(stim | neuron_x_mouse)[T.16]   0.361  307051.595   0.000  1.000   
+C(stim | neuron_x_mouse)[T.17]   0.320  307051.595   0.000  1.000   
+1 | mouse                       -0.288  153525.798  -0.000  1.000   
+Group Var                        0.012       2.932                  
 
                                      [0.025      0.975]  
-Intercept                       -293807.609  293805.910  
-C(stim | neuron_x_mouse)[T.1]        -0.119      -0.009  
-C(stim | neuron_x_mouse)[T.2]        -0.147      -0.011  
-C(stim | neuron_x_mouse)[T.3]        -0.183      -0.072  
-C(stim | neuron_x_mouse)[T.4]        -0.233      -0.098  
-C(stim | neuron_x_mouse)[T.5]        -0.261      -0.151  
-C(stim | neuron_x_mouse)[T.6]        -0.301       0.321  
-C(stim | neuron_x_mouse)[T.7]        -0.562       0.055  
-C(stim | neuron_x_mouse)[T.8]        -0.383       0.239  
-C(stim | neuron_x_mouse)[T.9]        -0.531       0.086  
-C(stim | neuron_x_mouse)[T.10]       -0.483       0.139  
-C(stim | neuron_x_mouse)[T.11]       -0.525       0.092  
-C(stim | neuron_x_mouse)[T.12]  -587613.032  587614.006  
-C(stim | neuron_x_mouse)[T.13]  -587613.408  587613.630  
-C(stim | neuron_x_mouse)[T.14]  -587613.123  587613.915  
-C(stim | neuron_x_mouse)[T.15]  -587613.305  587613.733  
-C(stim | neuron_x_mouse)[T.16]  -587613.195  587613.843  
-C(stim | neuron_x_mouse)[T.17]  -587613.266  587613.772  
-1 | mouse                       -293806.999  293806.520  
+Intercept                       -300905.802  300904.266  
+C(stim | neuron_x_mouse)[T.1]        -0.143      -0.030  
+C(stim | neuron_x_mouse)[T.2]        -0.150      -0.012  
+C(stim | neuron_x_mouse)[T.3]        -0.212      -0.099  
+C(stim | neuron_x_mouse)[T.4]        -0.286      -0.148  
+C(stim | neuron_x_mouse)[T.5]        -0.293      -0.180  
+C(stim | neuron_x_mouse)[T.6]        -0.340       0.291  
+C(stim | neuron_x_mouse)[T.7]        -0.607       0.019  
+C(stim | neuron_x_mouse)[T.8]        -0.445       0.187  
+C(stim | neuron_x_mouse)[T.9]        -0.569       0.058  
+C(stim | neuron_x_mouse)[T.10]       -0.509       0.123  
+C(stim | neuron_x_mouse)[T.11]       -0.549       0.077  
+C(stim | neuron_x_mouse)[T.12]  -601809.525  601810.611  
+C(stim | neuron_x_mouse)[T.13]  -601809.883  601810.254  
+C(stim | neuron_x_mouse)[T.14]  -601809.590  601810.546  
+C(stim | neuron_x_mouse)[T.15]  -601809.788  601810.349  
+C(stim | neuron_x_mouse)[T.16]  -601809.708  601810.429  
+C(stim | neuron_x_mouse)[T.17]  -601809.749  601810.388  
+1 | mouse                       -300905.322  300904.746  
 Group Var                                                
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bayes_window.lme.LMERegression at 0x7ff8c107a0a0&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>changing x to :Q
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bayes_window.lme.LMERegression at 0x7fb304ab6760&gt;
 </pre></div>
 </div>
 </div>
@@ -774,13 +921,16 @@ Group Var
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>changing x to neuron_x_mouse:Q
+</pre></div>
+</div>
 <div class="output text_html">
-<div id="altair-viz-ebf7518a72c14425bcb0fe8043fed687"></div>
+<div id="altair-viz-e2485f87f3af415e98f0ff1ab4c744b9"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-ebf7518a72c14425bcb0fe8043fed687") {
-      outputDiv = document.getElementById("altair-viz-ebf7518a72c14425bcb0fe8043fed687");
+    if (outputDiv.id !== "altair-viz-e2485f87f3af415e98f0ff1ab4c744b9") {
+      outputDiv = document.getElementById("altair-viz-e2485f87f3af415e98f0ff1ab4c744b9");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -822,7 +972,7 @@ Group Var
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.151, 0], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.151, 0], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.151, 0], "zero": true}}}}], "data": {"name": "data-b331edad0771b3c905c1835e79bf46dd"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-b331edad0771b3c905c1835e79bf46dd": [{"neuron_x_mouse": 0, "center interval": -0.064, "Std.Err.": 0.028, "z": -2.261, "p": 0.024, "higher interval": -0.119, "lower interval": -0.009, "zero": 0}, {"neuron_x_mouse": 6, "center interval": -0.079, "Std.Err.": 0.035, "z": -2.283, "p": 0.022, "higher interval": -0.147, "lower interval": -0.011, "zero": 0}, {"neuron_x_mouse": 12, "center interval": -0.127, "Std.Err.": 0.028, "z": -4.501, "p": 0.0, "higher interval": -0.183, "lower interval": -0.072, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.166, "Std.Err.": 0.035, "z": -4.784, "p": 0.0, "higher interval": -0.233, "lower interval": -0.098, "zero": 0}, {"neuron_x_mouse": 7, "center interval": -0.206, "Std.Err.": 0.028, "z": -7.286, "p": 0.0, "higher interval": -0.261, "lower interval": -0.151, "zero": 0}, {"neuron_x_mouse": 13, "center interval": 0.01, "Std.Err.": 0.159, "z": 0.063, "p": 0.95, "higher interval": -0.301, "lower interval": 0.321, "zero": 0}, {"neuron_x_mouse": 2, "center interval": -0.253, "Std.Err.": 0.157, "z": -1.609, "p": 0.108, "higher interval": -0.562, "lower interval": 0.055, "zero": 0}, {"neuron_x_mouse": 8, "center interval": -0.072, "Std.Err.": 0.159, "z": -0.456, "p": 0.649, "higher interval": -0.383, "lower interval": 0.239, "zero": 0}, {"neuron_x_mouse": 14, "center interval": -0.222, "Std.Err.": 0.157, "z": -1.412, "p": 0.158, "higher interval": -0.531, "lower interval": 0.086, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.172, "Std.Err.": 0.159, "z": -1.084, "p": 0.278, "higher interval": -0.483, "lower interval": 0.139, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.216, "Std.Err.": 0.157, "z": -1.373, "p": 0.17, "higher interval": -0.525, "lower interval": 0.092, "zero": 0}, {"neuron_x_mouse": 15, "center interval": 0.487, "Std.Err.": 299808.325, "z": 0.0, "p": 1.0, "higher interval": -587613.032, "lower interval": 587614.006, "zero": 0}, {"neuron_x_mouse": 4, "center interval": 0.111, "Std.Err.": 299808.325, "z": 0.0, "p": 1.0, "higher interval": -587613.408, "lower interval": 587613.63, "zero": 0}, {"neuron_x_mouse": 10, "center interval": 0.396, "Std.Err.": 299808.325, "z": 0.0, "p": 1.0, "higher interval": -587613.123, "lower interval": 587613.915, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.214, "Std.Err.": 299808.325, "z": 0.0, "p": 1.0, "higher interval": -587613.305, "lower interval": 587613.733, "zero": 0}, {"neuron_x_mouse": 5, "center interval": 0.324, "Std.Err.": 299808.325, "z": 0.0, "p": 1.0, "higher interval": -587613.195, "lower interval": 587613.843, "zero": 0}, {"neuron_x_mouse": 11, "center interval": 0.253, "Std.Err.": 299808.325, "z": 0.0, "p": 1.0, "higher interval": -587613.266, "lower interval": 587613.772, "zero": 0}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "rule", "clip": true, "opacity": 0.4, "size": 0.8}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "lower interval", "scale": {"domain": [-0.18, 0], "zero": true}}, "y2": {"field": "higher interval"}}}, {"mark": {"type": "line", "clip": true, "color": "black", "fill": null, "point": false, "size": 1}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "aggregate": "mean", "axis": {"orient": "left"}, "field": "center interval", "scale": {"domain": [-0.18, 0], "zero": true}, "title": "\u0394 log_isi"}}}, {"mark": {"type": "line", "color": "black", "opacity": 1, "size": 0.5}, "encoding": {"x": {"type": "quantitative", "field": "neuron_x_mouse"}, "y": {"type": "quantitative", "axis": {"orient": "left", "title": ""}, "field": "zero", "scale": {"domain": [-0.18, 0], "zero": true}}}}], "data": {"name": "data-90e3efc634234f9fadf5d686855f6b6d"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-90e3efc634234f9fadf5d686855f6b6d": [{"neuron_x_mouse": 0, "center interval": -0.086, "Std.Err.": 0.029, "z": -3.015, "p": 0.003, "higher interval": -0.143, "lower interval": -0.03, "zero": 0}, {"neuron_x_mouse": 1, "center interval": -0.081, "Std.Err.": 0.035, "z": -2.302, "p": 0.021, "higher interval": -0.15, "lower interval": -0.012, "zero": 0}, {"neuron_x_mouse": 2, "center interval": -0.156, "Std.Err.": 0.029, "z": -5.427, "p": 0.0, "higher interval": -0.212, "lower interval": -0.099, "zero": 0}, {"neuron_x_mouse": 3, "center interval": -0.217, "Std.Err.": 0.035, "z": -6.164, "p": 0.0, "higher interval": -0.286, "lower interval": -0.148, "zero": 0}, {"neuron_x_mouse": 4, "center interval": -0.237, "Std.Err.": 0.029, "z": -8.242, "p": 0.0, "higher interval": -0.293, "lower interval": -0.18, "zero": 0}, {"neuron_x_mouse": 5, "center interval": -0.024, "Std.Err.": 0.161, "z": -0.151, "p": 0.88, "higher interval": -0.34, "lower interval": 0.291, "zero": 0}, {"neuron_x_mouse": 6, "center interval": -0.294, "Std.Err.": 0.16, "z": -1.84, "p": 0.066, "higher interval": -0.607, "lower interval": 0.019, "zero": 0}, {"neuron_x_mouse": 7, "center interval": -0.129, "Std.Err.": 0.161, "z": -0.8, "p": 0.423, "higher interval": -0.445, "lower interval": 0.187, "zero": 0}, {"neuron_x_mouse": 8, "center interval": -0.255, "Std.Err.": 0.16, "z": -1.599, "p": 0.11, "higher interval": -0.569, "lower interval": 0.058, "zero": 0}, {"neuron_x_mouse": 9, "center interval": -0.193, "Std.Err.": 0.161, "z": -1.198, "p": 0.231, "higher interval": -0.509, "lower interval": 0.123, "zero": 0}, {"neuron_x_mouse": 10, "center interval": -0.236, "Std.Err.": 0.16, "z": -1.475, "p": 0.14, "higher interval": -0.549, "lower interval": 0.077, "zero": 0}, {"neuron_x_mouse": 11, "center interval": 0.543, "Std.Err.": 307051.595, "z": 0.0, "p": 1.0, "higher interval": -601809.525, "lower interval": 601810.611, "zero": 0}, {"neuron_x_mouse": 12, "center interval": 0.186, "Std.Err.": 307051.595, "z": 0.0, "p": 1.0, "higher interval": -601809.883, "lower interval": 601810.254, "zero": 0}, {"neuron_x_mouse": 13, "center interval": 0.478, "Std.Err.": 307051.595, "z": 0.0, "p": 1.0, "higher interval": -601809.59, "lower interval": 601810.546, "zero": 0}, {"neuron_x_mouse": 14, "center interval": 0.281, "Std.Err.": 307051.595, "z": 0.0, "p": 1.0, "higher interval": -601809.788, "lower interval": 601810.349, "zero": 0}, {"neuron_x_mouse": 15, "center interval": 0.361, "Std.Err.": 307051.595, "z": 0.0, "p": 1.0, "higher interval": -601809.708, "lower interval": 601810.429, "zero": 0}, {"neuron_x_mouse": 16, "center interval": 0.32, "Std.Err.": 307051.595, "z": 0.0, "p": 1.0, "higher interval": -601809.749, "lower interval": 601810.388, "zero": 0}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 </div>
@@ -840,7 +990,9 @@ Group Var
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using formula log_isi ~ (stim|mouse) + stim| neuron_x_mouse__0:mouse + stim|neuron_x_mouse__1:mouse + stim|neuron_x_mouse__2:mouse + stim|neuron_x_mouse__3:mouse + stim|neuron_x_mouse__4:mouse + stim|neuron_x_mouse__5:mouse + stim|neuron_x_mouse__6:mouse + stim|neuron_x_mouse__7:mouse + stim|neuron_x_mouse__8:mouse + stim|neuron_x_mouse__9:mouse + stim|neuron_x_mouse__10:mouse + stim|neuron_x_mouse__11:mouse + stim|neuron_x_mouse__12:mouse + stim|neuron_x_mouse__13:mouse + stim|neuron_x_mouse__14:mouse + stim|neuron_x_mouse__15:mouse + stim|neuron_x_mouse__16:mouse + stim|neuron_x_mouse__17:mouse
-Singular matrix
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular matrix
 </pre></div>
 </div>
 </div>
@@ -873,7 +1025,21 @@ Singular matrix
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="stim_type.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Neurons example with stim types</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../advanced.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Advanced topics</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -882,7 +1048,7 @@ Singular matrix
     <div class="container">
       <p>
         
-          By The Jupyter Book Community<br/>
+          By Max Myroshnychenko<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

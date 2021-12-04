@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compare to ANOVA and LMM: ROC curve &#8212; My sample book</title>
+    <title>Compare to ANOVA and LMM: ROC curve &#8212; Bayes-window examples</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,6 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="LFP example: regression vs estimation of difference" href="lfp_slope_vs_means.html" />
+    <link rel="prev" title="LFP example with stim strength" href="lfp_stim_strength.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -81,7 +83,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Bayes-window examples</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -92,10 +94,141 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Welcome to your Jupyter Book
+   Intro
   </a>
  </li>
 </ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../motivation.html">
+   Motivation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../motivation/metropolis.html">
+     Intuition for maximal likelihood or posterior inference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radon_example/radon.html">
+     Radon example from Gelman and Hill (2006)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../motivation/multilevel_modeling_lfp.html">
+     Multilevel modeling of LFP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../motivation/multilevel_modeling_neurons.html">
+     Bayesian Methods for Multilevel Modeling of Neurons
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../lfp.html">
+   LFP example
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="quick_lfp.html">
+     LFP example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lfp_stim_strength.html">
+     LFP example with stim strength
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Compare to ANOVA and LMM: ROC curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lfp_slope_vs_means.html">
+     LFP example: regression vs estimation of difference
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../neurons.html">
+   Neurons example
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../neurons_example/quickstart.html">
+     Neurons example, pt. 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../neurons_example/posteriors.html">
+     Neurons example, no slopes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../neurons_example/stim_type.html">
+     Neurons example with stim types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../neurons_example/lme.html">
+     Linear mixed effects
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../advanced.html">
+   Advanced topics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../neurons_example/monster.html">
+     Neurons example, pt. 2: large datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../neurons_example/model_comparison.html">
+     Compare to alternative models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../neurons_example/detailed_workflow.html">
+     Neurons example via low-level, flexible interface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../neurons_example/stim_strength.html">
+     Neurons example with nominal stim strengths
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -1044,7 +1177,21 @@
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="lfp_stim_strength.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">LFP example with stim strength</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lfp_slope_vs_means.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">LFP example: regression vs estimation of difference</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -1053,7 +1200,7 @@
     <div class="container">
       <p>
         
-          By The Jupyter Book Community<br/>
+          By Max Myroshnychenko<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; My sample book</title>
+    <title>Index &#8212; Bayes-window examples</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -74,7 +74,7 @@
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Bayes-window examples</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -85,10 +85,141 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Welcome to your Jupyter Book
+   Intro
   </a>
  </li>
 </ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="motivation.html">
+   Motivation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="motivation/metropolis.html">
+     Intuition for maximal likelihood or posterior inference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="radon_example/radon.html">
+     Radon example from Gelman and Hill (2006)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="motivation/multilevel_modeling_lfp.html">
+     Multilevel modeling of LFP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="motivation/multilevel_modeling_neurons.html">
+     Bayesian Methods for Multilevel Modeling of Neurons
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lfp.html">
+   LFP example
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lfp_example/quick_lfp.html">
+     LFP example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lfp_example/lfp_stim_strength.html">
+     LFP example with stim strength
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lfp_example/lfp_roc.html">
+     Compare to ANOVA and LMM: ROC curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lfp_example/lfp_slope_vs_means.html">
+     LFP example: regression vs estimation of difference
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="neurons.html">
+   Neurons example
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="neurons_example/quickstart.html">
+     Neurons example, pt. 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="neurons_example/posteriors.html">
+     Neurons example, no slopes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="neurons_example/stim_type.html">
+     Neurons example with stim types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="neurons_example/lme.html">
+     Linear mixed effects
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="advanced.html">
+   Advanced topics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="neurons_example/monster.html">
+     Neurons example, pt. 2: large datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="neurons_example/model_comparison.html">
+     Compare to alternative models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="neurons_example/detailed_workflow.html">
+     Neurons example via low-level, flexible interface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="neurons_example/stim_strength.html">
+     Neurons example with nominal stim strengths
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -181,7 +312,7 @@
     <div class="container">
       <p>
         
-          By The Jupyter Book Community<br/>
+          By Max Myroshnychenko<br/>
         
             &copy; Copyright 2021.<br/>
       </p>
