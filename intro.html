@@ -314,13 +314,13 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-bayes-window">
-   Why bayes-window
+  <a class="reference internal nav-link" href="#why-estimation-statistics">
+   Why estimation statistics
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-estimation-statistics-at-all">
-   Why estimation statistics at all
+  <a class="reference internal nav-link" href="#why-bayes-window">
+   Why bayes-window
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -349,13 +349,13 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-bayes-window">
-   Why bayes-window
+  <a class="reference internal nav-link" href="#why-estimation-statistics">
+   Why estimation statistics
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-estimation-statistics-at-all">
-   Why estimation statistics at all
+  <a class="reference internal nav-link" href="#why-bayes-window">
+   Why bayes-window
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -375,6 +375,24 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="intro">
 <h1>Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h1>
 <p>Regression examples illustrating Bayes window, a suite of classes for onle-liner estimation of posteriors and linear mixed models.</p>
+<div class="section" id="why-estimation-statistics">
+<h2>Why estimation statistics<a class="headerlink" href="#why-estimation-statistics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Visual representation of confidence interval</p>
+<ul>
+<li><p>Allows to eyeball effect size</p></li>
+<li><p>Easy to explain to non-scientists</p></li>
+</ul>
+</li>
+<li><p>Hypothesis testing-free (Except LME)</p></li>
+<li><p>Non-standard distributions</p>
+<ul>
+<li><p>Count data (eg action potentials of neurons)</p></li>
+<li><p>Lognormal effects (common in many fields)</p></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="why-bayes-window">
 <h2>Why bayes-window<a class="headerlink" href="#why-bayes-window" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -394,31 +412,13 @@
 <li><p>Composable graphs (eg lme_ci_graph | bayes_hdi_with_boxplot)</p></li>
 </ul>
 </div>
-<div class="section" id="why-estimation-statistics-at-all">
-<h2>Why estimation statistics at all<a class="headerlink" href="#why-estimation-statistics-at-all" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Visual representation of confidence interval</p>
-<ul>
-<li><p>Allows to eyeball effect size</p></li>
-<li><p>Easy to explain to non-scientists</p></li>
-</ul>
-</li>
-<li><p>Hypothesis testing-free (Except LME)</p></li>
-<li><p>Non-standard distributions</p>
-<ul>
-<li><p>Count data (eg action potentials of neurons)</p></li>
-<li><p>Lognormal effects (common in many fields)</p></li>
-</ul>
-</li>
-</ul>
-</div>
 <div class="section" id="why-not-arviz">
 <h2>Why not arviz?<a class="headerlink" href="#why-not-arviz" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>No faceting</p></li>
-<li><p>No integration with model’s intention
-For a meaningful pub-ready presentation of posteriors over even one type of condition, arviz output is only usable after at least a page of code</p></li>
+<li><p>No integration with model’s intention</p></li>
 </ul>
+<p>For a meaningful pub-ready presentation of posteriors over even one type of condition, arviz output is only usable after at least a page of code</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
